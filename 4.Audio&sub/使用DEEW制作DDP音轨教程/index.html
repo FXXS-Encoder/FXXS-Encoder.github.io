@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>查看动态 | FXXS</title>
+  <link rel="canonical" href="http://fxxs.github.io/4.Audio&sub/%E4%BD%BF%E7%94%A8DEEW%E5%88%B6%E4%BD%9CDDP%E9%9F%B3%E8%BD%A8%E6%95%99%E7%A8%8B/">
+  <meta name="author" content="ted423" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta name="description" content="使用DEEW制作DDP&#x2F;EAC3音轨教程摆脱搭建MacOS环境困难以及Dolby Encode Suite单线程制作缓慢的烦恼，在Windows&#x2F;Linux下通过命令行直接制作。 本文主要讲解Windows下的搭建，Linux下流程类似，自行摸索。  可能因其更新本教程内容会有所滞后，遇到区别时请以上游的README为准。  环境准备 DEEW  FFmpeg：从 gyan.d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="查看动态">
+<meta property="og:url" content="http://fxxs.github.io/4.Audio&sub/%E4%BD%BF%E7%94%A8DEEW%E5%88%B6%E4%BD%9CDDP%E9%9F%B3%E8%BD%A8%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="FXXS">
+<meta property="og:description" content="使用DEEW制作DDP&#x2F;EAC3音轨教程摆脱搭建MacOS环境困难以及Dolby Encode Suite单线程制作缓慢的烦恼，在Windows&#x2F;Linux下通过命令行直接制作。 本文主要讲解Windows下的搭建，Linux下流程类似，自行摸索。  可能因其更新本教程内容会有所滞后，遇到区别时请以上游的README为准。  环境准备 DEEW  FFmpeg：从 gyan.d">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://camo.githubusercontent.com/b93af93ef2097658248d07c9dd6ea979bff23aa910e6d70382fa88ba03ee0ccc/68747470733a2f2f74656c656772612e70682f66696c652f6566643261316433353139626466383766636130332e676966">
+<meta property="article:published_time" content="2022-10-24T10:51:13.899Z">
+<meta property="article:modified_time" content="2022-12-24T11:43:33.452Z">
+<meta property="article:author" content="ted423">
+<meta property="article:tag" content="FXXS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/b93af93ef2097658248d07c9dd6ea979bff23aa910e6d70382fa88ba03ee0ccc/68747470733a2f2f74656c656772612e70682f66696c652f6566643261316433353139626466383766636130332e676966">
+  
+    <link rel="alternate" href="/atom.xml" title="FXXS" type="application/atom+xml">
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kr-core.min.css" media="all"></link>
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/highlight.js/night-eighties.min.css" media="all"></link>
+  
+  <link rel="stylesheet" id="theme-light-css" href="/css/kr-theme/light.min.css" media="all"></link>
+  <link rel="stylesheet" id="theme-dark-css" href="/css/kr-theme/dark.min.css" media="(prefers-color-scheme: dark)"></link>
+  <script src="/js/kr-theme.min.js"></script>
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></link>
+  
+    <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></link>
+  
+  
+    <link rel="stylesheet" href="/vendors/viewerjs@1.11.6/dist/viewer.min.css"></link>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  
+    <script src="/vendors/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
+  
+  <!-- 自定义站点横幅和背景 -->
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('');
+      }
+      html[data-theme="dark"] .kratos-cover.kratos-cover-2 {
+        background-image: url('');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('');
+        }
+        html[data-theme="dark"] body.custom-background {
+          background-image: url('');
+        }
+      }
+    
+    
+      .widget-kratos-about .photo-background {
+        background-image: url('/images/default.webp');
+      }
+      html[data-theme="dark"] .widget-kratos-about .photo-background {
+        background-image: url('/images/default.webp');
+      }
+    
+  </style>
+
+  <!-- 额外的追加注入项 -->
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">FXXS</a></div>
+                    <div id="kratos-nav-toggle-wrapper" class="nav-toggle">
+                        <a id="kratos-nav-toggle" class="kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>FXXS</h2> <br />
+                        <span>FXXS</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+
+
+        
+
+            
+
+            <section class="kr-main-col col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://fxxs.github.io/4.Audio&amp;sub/%E4%BD%BF%E7%94%A8DEEW%E5%88%B6%E4%BD%9CDDP%E9%9F%B3%E8%BD%A8%E6%95%99%E7%A8%8B/">
+    <div class="kratos-hentry kratos-page-inner clearfix">
+        <header class="kratos-page-header">
+            
+            <ul class="kratos-page-meta text-center">
+                <li><time datetime="2022-10-24T10:51:13.899Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2022-10-24</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">ted423</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~4.68K
+                        
+                        字
+                    </li>
+                
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-page-content kr-post">
+            
+            
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="使用DEEW制作DDP-x2F-EAC3音轨教程"><a href="#使用DEEW制作DDP-x2F-EAC3音轨教程" class="headerlink" title="使用DEEW制作DDP&#x2F;EAC3音轨教程"></a>使用DEEW制作DDP&#x2F;EAC3音轨教程</h1><p>摆脱搭建MacOS环境困难以及Dolby Encode Suite单线程制作缓慢的烦恼，在Windows&#x2F;Linux下通过命令行直接制作。</p>
+<p>本文主要讲解Windows下的搭建，Linux下流程类似，自行摸索。</p>
+<blockquote>
+<p>可能因其更新本教程内容会有所滞后，遇到区别时请以上游的<a target="_blank" rel="noopener" href="https://github.com/pcroland/deew#readme">README</a>为准。</p>
+</blockquote>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/pcroland/deew">DEEW</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://ffmpeg.org/about.html">FFmpeg</a>：<a target="_blank" rel="noopener" href="https://www.gyan.dev/ffmpeg/builds/">从 gyan.dev 下载</a> | <a target="_blank" rel="noopener" href="https://github.com/BtbN/FFmpeg-Builds/releases">从 Github 下载</a></p>
+<p>  若 <strong>从 gyan.dev 下载</strong>，请选择 <em><a target="_blank" rel="noopener" href="https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z">ffmpeg-git-essentials.7z</a></em> 版本；<strong>从 Github 下载</strong>则选择 <em>ffmpeg-master-latest-win64-lgpl</em> 版本即可，足够制作使用。</p>
+<p>  解压并记录解压位置。</p>
+</li>
+<li><p>Dolby Encoding Engine with Dolby AC-4 x64 (+license)</p>
+</li>
+</ul>
+<h2 id="开始工作"><a href="#开始工作" class="headerlink" title="开始工作"></a>开始工作</h2><p>使用DGDemux提取音轨</p>
+<p>或直接将带有音频的视频输入</p>
+<p>适合于Remux文件，无需任何提取，直接将<code>REMUX.mkv</code>作为输入源，默认将第一个音轨进行转换。</p>
+<h2 id="Dolby-Encoding-Engine-Wrapper使用"><a href="#Dolby-Encoding-Engine-Wrapper使用" class="headerlink" title="Dolby Encoding Engine Wrapper使用"></a>Dolby Encoding Engine Wrapper使用</h2><p>按住<code>Shift</code>键并右键空白区域，选择 <strong>在 Windows终端 中打开</strong> &#x2F; <strong>在此处打开 Powershell 窗口</strong>，输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\deew.exe -v</span><br></pre></td></tr></table></figure>
+
+<p>确认正常返回版本号即可开始制作。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&gt;deew -h</span><br><span class="line">deew 2.9.5</span><br><span class="line"></span><br><span class="line">USAGE: deew [-h] [-v] [-i [INPUT ...]] [-ti INDEX] [-o DIRECTORY] [-f FORMAT]</span><br><span class="line">            [-b BITRATE] [-dm CHANNELS] [-d DELAY] [-r DRC] [-dn DIALNORM]</span><br><span class="line">            [-in INSTANCES] [-k] [-mo] [-fs] [-fb] [-lb] [-la] [-np] [-pl]</span><br><span class="line">            [-cl] [-c] [-gc]</span><br><span class="line"></span><br><span class="line">FLAGS:</span><br><span class="line">  -h, --help                  show this help message.</span><br><span class="line">  -v, --version               show version.</span><br><span class="line">  -i, --input [INPUT ...]     audio file(s) or folder(s)</span><br><span class="line">  -ti, --track-index INDEX    default: 0</span><br><span class="line">                              select audio track index of input(s)</span><br><span class="line">  -o, --output DIRECTORY      default: current directory</span><br><span class="line">                              specifies output directory</span><br><span class="line">  -f, --format FORMAT         options: dd / ddp / thd</span><br><span class="line">                              default: ddp</span><br><span class="line">  -b, --bitrate BITRATE       options: run -lb/--list-bitrates</span><br><span class="line">                              default: run -c/--config</span><br><span class="line">  -dm, --downmix CHANNELS     options: 1 / 2 / 6</span><br><span class="line">                              specifies downmix, only works for DD/DDP</span><br><span class="line">                              DD will be automatically downmixed to 5.1 in case of a 7.1 source</span><br><span class="line">  -d, --delay DELAY           examples: -5.1ms, +1,52s, -24@pal, +10@24000/1001</span><br><span class="line">                              default: 0ms or parsed from filename</span><br><span class="line">                              specifies delay as ms, s or frame@FPS</span><br><span class="line">                              FPS can be a number, division or ntsc / pal</span><br><span class="line">                              you have to specify negative values as -d=-0ms</span><br><span class="line">  -r, --drc DRC               options: film_light / film_standard / music_light / music_standard / speech</span><br><span class="line">                              default: music_light (this is the closest to the missing none preset)</span><br><span class="line">                              specifies drc profile</span><br><span class="line">  -dn, --dialnorm DIALNORM    options: between -31 and 0 (in case of 0 DEE&#x27;s measurement will be used)</span><br><span class="line">                              default: 0</span><br><span class="line">                              applied dialnorm value between</span><br><span class="line">  -in, --instances INSTANCES  examples: 1, 4, 50%</span><br><span class="line">                              default: 50%</span><br><span class="line">                              specifies how many encodes can run at the same time</span><br><span class="line">                              50% means 4 on a cpu with 8 threads</span><br><span class="line">                              one DEE can use 2 threads so 50% can utilize all threads</span><br><span class="line">                              (this option overrides the config&#x27;s number)</span><br><span class="line">  -k, --keeptemp              keep temp files</span><br><span class="line">  -mo, --measure-only         kills DEE when the dialnorm gets written to the progress bar</span><br><span class="line">                              this option overrides format with ddp</span><br><span class="line">  -fs, --force-standard       force standard profile for 7.1 DDP encoding (384-1024 kbps)</span><br><span class="line">  -fb, --force-bluray         force bluray profile for 7.1 DDP encoding (768-1664 kbps)</span><br><span class="line">  -lb, --list-bitrates        list bitrates that DEE can do for DD and DDP encoding</span><br><span class="line">  -la, --long-argument        print ffmpeg and DEE arguments for each input</span><br><span class="line">  -np, --no-prompt            disables prompt</span><br><span class="line">  -pl, --print-logos          show all logo variants you can set in the config</span><br><span class="line">  -cl, --changelog            show changelog</span><br><span class="line">  -c, --config                show config and config location(s)</span><br><span class="line">  -gc, --generate-config      generate a new config</span><br></pre></td></tr></table></figure>
+
+<p><strong>举例</strong></p>
+<p>以我们需要制作的DDP5.1及DDP7.1举例</p>
+<ul>
+<li><p>以THD5.1为输入源 制作DDP5.1@1024kbps &#x2F; 768kbps</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deew.exe -i &#x27;4588 PID 1100 48000 6ch eng DELAY 0ms.thd&#x27;</span><br><span class="line">deew.exe -b 768 -i &#x27;4588 PID 1100 48000 6ch eng DELAY 0ms.thd&#x27;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以DTS7.1为输入源 制作DDP7.1@1536kbps &#x2F; 1024kbps</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deew.exe -i 00001.mpls_3eng.dts</span><br><span class="line">deew.exe -b 1024 -i 00001.mpls_3eng.dts</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/b93af93ef2097658248d07c9dd6ea979bff23aa910e6d70382fa88ba03ee0ccc/68747470733a2f2f74656c656772612e70682f66696c652f6566643261316433353139626466383766636130332e676966" alt="DEEW encoding"></p>
+<p>完成后将在运行目录下找到与输入名称相同的<code>.ec3</code>文件，制作完成。</p>
+<p>补充范例拓展，有需要的类推</p>
+<ul>
+<li><p>以REMUX为输入源 将第一条音轨按默认设置制作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deew.exe -i &#x27;REMUX.mkv&#x27;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以 <code>D:\DDP\demux</code> 内所有 <code>.flac</code> 音频为输入源 批量生成动态范围为 <em>film_standard</em> 的DDP 并输出至 <code>D:\DDP\done</code> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deew.exe -i &#x27;D:\DDP\demux\*flac&#x27; -o &#x27;D:\DDP\done&#x27; -drc film_standard</span><br></pre></td></tr></table></figure>
+
+<p>完成后将在 <em>D:\DDP\done</em>  下找到与输入名称相同的<code>.ec3</code>文件，制作完成。</p>
+</li>
+<li><p>以w64为输入源 制作DD2.0@448kbps</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deew.exe -i &#x27;abcdefghijk.w64&#x27; -f dd -b 448</span><br></pre></td></tr></table></figure>
+
+<p>完成后将在 <em>deew-main</em> 下找到与输入名称相同的<code>.ac3</code>文件，制作完成。</p>
+</li>
+</ul>
+<h2 id="特别感谢"><a href="#特别感谢" class="headerlink" title="特别感谢"></a>特别感谢</h2><p><a target="_blank" rel="noopener" href="https://github.com/pcroland">pcroland</a>&#x2F;</p>
+<p>所有对DEE无限制使用做出贡献的人</p>
+<h2 id="Credit"><a href="#Credit" class="headerlink" title="Credit"></a>Credit</h2><p>教程遵守<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh">CC BY 4.0</a>，使用到的项目各自遵守其规范，转载请指明出处！</p>
+</div>
+        </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+            
+            
+                <div class="post-actions text-center clearfix" id="post-actions">
+                
+                
+                    <a class="share" href="javascript:;" onclick="krOpenShareModal()"><i class="fa fa-share-alt"></i> 分享</a>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    
+                </div>
+                <div class="pull-date">
+                    <time datetime="2022-12-24T11:43:33.452Z" itemprop="dateModified">最后编辑：2022-12-24</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" (无标题)" href="/2.Tools/字幕/"><i class="fa fa-angle-left"></i> 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" x265 HDR 参数计算方法" href="/3.Code/x265 HDR 参数计算方法/">下一篇 <i class="fa fa-angle-right"></i></a>
+            </div>
+            
+        </nav>
+    
+    
+        <div class="comment-post">
+            <div id="disqus_thread" class="kr-comments lazy-load" data-path="/4.Audio&sub/%E4%BD%BF%E7%94%A8DEEW%E5%88%B6%E4%BD%9CDDP%E9%9F%B3%E8%BD%A8%E6%95%99%E7%A8%8B/" data-full-path="/4.Audio&sub/%E4%BD%BF%E7%94%A8DEEW%E5%88%B6%E4%BD%9CDDP%E9%9F%B3%E8%BD%A8%E6%95%99%E7%A8%8B/_FULL"></div>
+        </div>
+    
+</article>
+
+        
+
+            </section>
+
+            
+                
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/user.svg" alt="ted423" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                21
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                4
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                4
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类列表</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">1.基础知识</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/3-Code/">3.Code</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Compare/">Compare</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Issue/">Issue</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/Compare/" style="font-size: 0.6em;">Compare</a> <a href="/tags/Document/" style="font-size: 0.6em;">Document</a> <a href="/tags/HDR/" style="font-size: 0.6em;">HDR</a> <a href="/tags/Issue/" style="font-size: 0.6em;">Issue</a>
+      </div>
+  </aside>
+
+            
+    </div>
+</section>
+            
+
+        
+
+                </div>
+    </div>
+</div>
+
+<footer>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 FXXS 版权所有.</li>
+                            <li>本站已运行<span id="kr-since">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>自豪地使用 <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a> 主题</li>
+                            <li>站点由 ted423 用 <i class="fa fa-heart" style="color:#d43f57"></i> 搭建</li>
+                        </div>
+                        <!-- 额外的追加注入项 -->
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                <div class="box theme-box" id="theme-toggle">
+                    <span class="fa fa-adjust"></span>
+                </div>
+            </div>
+            <div id="gotop-box" class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+
+    <div id="kr-donate-modal" class="kr-modal">
+    <div class="kr-modal-bg" onclick="krCloseDonateModal()"></div>
+    <div class="kr-modal-content">
+        <div class="kr-modal-header">
+            <div class="kr-modal-icon">
+                <i class="fa fa-bitcoin"></i>
+            </div>
+            <div class="kr-modal-title">打赏</div>
+            <button class="kr-modal-close" onclick="krCloseDonateModal()">
+                <i class="fa fa-times-circle"></i>
+            </button>
+        </div>
+        <div class="kr-modal-body">
+            <div class="kr-donate-message">打赏提示信息</div>
+            <div class="kr-donate-qr" id="kr-donate-qr">
+                
+            </div>
+            <div class="kr-donate-platforms">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script defer src="/js/kr-modal/donate.min.js"></script>
+
+
+
+
+    <div id="kr-share-modal" class="kr-modal">
+    <div class="kr-modal-bg" onclick="krCloseShareModal()"></div>
+    <div class="kr-modal-content">
+        <div class="kr-modal-header">
+            <div class="kr-modal-icon">
+                <i class="fa fa-share-alt"></i>
+            </div>
+            <div class="kr-modal-title">分享</div>
+            <button class="kr-modal-close" onclick="krCloseShareModal()">
+                <i class="fa fa-times-circle"></i>
+            </button>
+        </div>
+        <div class="kr-modal-body">
+            <div class="kr-share-message">分享提示信息</div>
+            <div class="kr-share-qr" id="kr-share-qr"></div>
+            <div class="kr-share-platforms">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script defer src="/js/kr-modal/share.min.js"></script>
+
+
+
+<!-- 额外的追加注入项 -->
+
+
+        <script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+  <script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+
+
+
+  <script defer src="/vendors/viewerjs@1.11.6/dist/viewer.min.js"></script>
+
+
+<script defer src="/js/kr-core.min.js"></script>
+
+
+  <script defer src="/js/kr-pjax.min.js"></script>
+
+
+<!-- 额外的追加注入项 -->
+
+  <script src="https://https-ted423-github-io.disqus.com/embed.js"></script>
+<script async id="dsq-count-scr" src="https://https-ted423-github-io.disqus.com/count.js"></script>
+<script src="/comments/disqus.js"></script>
+
+
+
+    </body>
+</html>
