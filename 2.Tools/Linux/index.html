@@ -7,7 +7,7 @@
     <link rel="icon" href="/img/favicon.svg">
   
   
-  <title>查看动态 | FXXS</title>
+  <title>Linux工具 | FXXS</title>
   <link rel="canonical" href="http://fxxs.github.io/2.Tools/Linux/">
   <meta name="author" content="ted423" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -19,15 +19,15 @@
   
     <meta name="keywords" content="" />
   
-  <meta name="description" content="Linux工具Dockerhttps:&#x2F;&#x2F;github.com&#x2F;gzycode39&#x2F;docker-vapoursynth-yuuno&#x2F; InfoBDInfoCLI-nghttps:&#x2F;&#x2F;github.com&#x2F;zoffline&#x2F;BDInfoCLI-ng docker run --rm -it -v &lt;BD_PATH&gt;:&#x2F;mnt&#x2F;bd -v &lt;REPORT_DEST&gt;:&#x2F;mnt&#x2F;">
+  <meta name="description" content="主要提供一些可以在 Linux 下使用的工具，但实际很少完全在 Linux 下工作，所以仅供参考 Dockerhttps:&#x2F;&#x2F;github.com&#x2F;gzycode39&#x2F;docker-vapoursynth-yuuno&#x2F; InfoBDInfoCLI-nghttps:&#x2F;&#x2F;github.com&#x2F;zoffline&#x2F;BDInfoCLI-ng docker run --rm -it -v &lt;BD_PAT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="查看动态">
+<meta property="og:title" content="Linux工具">
 <meta property="og:url" content="http://fxxs.github.io/2.Tools/Linux/index.html">
 <meta property="og:site_name" content="FXXS">
-<meta property="og:description" content="Linux工具Dockerhttps:&#x2F;&#x2F;github.com&#x2F;gzycode39&#x2F;docker-vapoursynth-yuuno&#x2F; InfoBDInfoCLI-nghttps:&#x2F;&#x2F;github.com&#x2F;zoffline&#x2F;BDInfoCLI-ng docker run --rm -it -v &lt;BD_PATH&gt;:&#x2F;mnt&#x2F;bd -v &lt;REPORT_DEST&gt;:&#x2F;mnt&#x2F;">
+<meta property="og:description" content="主要提供一些可以在 Linux 下使用的工具，但实际很少完全在 Linux 下工作，所以仅供参考 Dockerhttps:&#x2F;&#x2F;github.com&#x2F;gzycode39&#x2F;docker-vapoursynth-yuuno&#x2F; InfoBDInfoCLI-nghttps:&#x2F;&#x2F;github.com&#x2F;zoffline&#x2F;BDInfoCLI-ng docker run --rm -it -v &lt;BD_PAT">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-31T10:42:27.376Z">
-<meta property="article:modified_time" content="2024-07-31T09:18:26.000Z">
+<meta property="article:modified_time" content="2024-09-22T14:06:44.575Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -143,6 +143,8 @@
     <div class="kratos-hentry kratos-page-inner clearfix">
         <header class="kratos-page-header">
             
+                <h1 class="kratos-page-title text-center" itemprop="name headline">Linux工具</h1>
+            
             <ul class="kratos-page-meta text-center">
                 <li><time datetime="2024-07-31T10:42:27.376Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-07-31</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
@@ -153,7 +155,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            726
+                            768
                         
                         字
                     </li>
@@ -166,14 +168,19 @@
             
             
             
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker"><span class="toc-number">1.</span> <span class="toc-text">Docker</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Info"><span class="toc-number">2.</span> <span class="toc-text">Info</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BDInfoCLI-ng"><span class="toc-number">2.1.</span> <span class="toc-text">BDInfoCLI-ng</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Demux-x2F-Remux"><span class="toc-number">3.</span> <span class="toc-text">Demux&#x2F;Remux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tsMuxer"><span class="toc-number">3.1.</span> <span class="toc-text">tsMuxer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mkvtoolnix"><span class="toc-number">3.2.</span> <span class="toc-text">mkvtoolnix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DGDemux"><span class="toc-number">3.3.</span> <span class="toc-text">DGDemux</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Encode"><span class="toc-number">4.</span> <span class="toc-text">Encode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#FFmpeg"><span class="toc-number">4.1.</span> <span class="toc-text">FFmpeg</span></a></li></ol></li></ol>
+                </div>
+            
             <hr />
-            <div itemprop="articleBody"><h1 id="Linux工具"><a href="#Linux工具" class="headerlink" title="Linux工具"></a>Linux工具</h1><h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><p><a target="_blank" rel="noopener" href="https://github.com/gzycode39/docker-vapoursynth-yuuno/">https://github.com/gzycode39/docker-vapoursynth-yuuno/</a></p>
-<h2 id="Info"><a href="#Info" class="headerlink" title="Info"></a>Info</h2><h3 id="BDInfoCLI-ng"><a href="#BDInfoCLI-ng" class="headerlink" title="BDInfoCLI-ng"></a>BDInfoCLI-ng</h3><p><a target="_blank" rel="noopener" href="https://github.com/zoffline/BDInfoCLI-ng">https://github.com/zoffline/BDInfoCLI-ng</a></p>
+            <div itemprop="articleBody"><p>主要提供一些可以在 Linux 下使用的工具，但实际很少完全在 Linux 下工作，所以仅供参考</p>
+<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p><a target="_blank" rel="noopener" href="https://github.com/gzycode39/docker-vapoursynth-yuuno/">https://github.com/gzycode39/docker-vapoursynth-yuuno/</a></p>
+<h1 id="Info"><a href="#Info" class="headerlink" title="Info"></a>Info</h1><h2 id="BDInfoCLI-ng"><a href="#BDInfoCLI-ng" class="headerlink" title="BDInfoCLI-ng"></a>BDInfoCLI-ng</h2><p><a target="_blank" rel="noopener" href="https://github.com/zoffline/BDInfoCLI-ng">https://github.com/zoffline/BDInfoCLI-ng</a></p>
 <p><code>docker run --rm -it -v &lt;BD_PATH&gt;:/mnt/bd -v &lt;REPORT_DEST&gt;:/mnt/report zoffline/bdinfocli-ng /mnt/bd /mnt/report</code> (iso需要挂载后再扫)</p>
-<h2 id="Demux-x2F-Remux"><a href="#Demux-x2F-Remux" class="headerlink" title="Demux&#x2F;Remux"></a>Demux&#x2F;Remux</h2><h3 id="tsMuxer"><a href="#tsMuxer" class="headerlink" title="tsMuxer"></a>tsMuxer</h3><p><a target="_blank" rel="noopener" href="https://github.com/justdan96/tsMuxer">https://github.com/justdan96/tsMuxer</a></p>
-<h3 id="mkvtoolnix"><a href="#mkvtoolnix" class="headerlink" title="mkvtoolnix"></a>mkvtoolnix</h3><p><a target="_blank" rel="noopener" href="https://mkvtoolnix.download/downloads.html">https://mkvtoolnix.download/downloads.html</a><br>注意章节编辑器名称模板改成英文 <code>Chapter &lt;NUM:2&gt;</code></p>
-<h3 id="DGDemux"><a href="#DGDemux" class="headerlink" title="DGDemux"></a>DGDemux</h3><p><a target="_blank" rel="noopener" href="http://rationalqm.us/dgdemux/dgdemux.html">http://rationalqm.us/dgdemux/dgdemux.html</a></p>
-<h2 id="Encode"><a href="#Encode" class="headerlink" title="Encode"></a>Encode</h2><h3 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h3><p><a target="_blank" rel="noopener" href="https://ffmpeg.org/ffmpeg-all.html">https://ffmpeg.org/ffmpeg-all.html</a></p>
+<h1 id="Demux-x2F-Remux"><a href="#Demux-x2F-Remux" class="headerlink" title="Demux&#x2F;Remux"></a>Demux&#x2F;Remux</h1><h2 id="tsMuxer"><a href="#tsMuxer" class="headerlink" title="tsMuxer"></a>tsMuxer</h2><p><a target="_blank" rel="noopener" href="https://github.com/justdan96/tsMuxer">https://github.com/justdan96/tsMuxer</a></p>
+<h2 id="mkvtoolnix"><a href="#mkvtoolnix" class="headerlink" title="mkvtoolnix"></a>mkvtoolnix</h2><p><a target="_blank" rel="noopener" href="https://mkvtoolnix.download/downloads.html">https://mkvtoolnix.download/downloads.html</a><br>注意章节编辑器名称模板改成英文 <code>Chapter &lt;NUM:2&gt;</code></p>
+<h2 id="DGDemux"><a href="#DGDemux" class="headerlink" title="DGDemux"></a>DGDemux</h2><p><a target="_blank" rel="noopener" href="http://rationalqm.us/dgdemux/dgdemux.html">http://rationalqm.us/dgdemux/dgdemux.html</a></p>
+<h1 id="Encode"><a href="#Encode" class="headerlink" title="Encode"></a>Encode</h1><h2 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h2><p><a target="_blank" rel="noopener" href="https://ffmpeg.org/ffmpeg-all.html">https://ffmpeg.org/ffmpeg-all.html</a></p>
 <p>范例</p>
 <p><code>ffmpeg -i 1.dts -c:a flac -compression_level 8 1.flac</code></p>
 <p><code>ffmpeg -i 1.mkv -map 0:1  -c:a flac -compression_level 8 chi.flac</code></p>
@@ -198,7 +205,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-07-31T09:18:26.000Z" itemprop="dateModified">最后编辑：2024-07-31</time>
+                    <time datetime="2024-09-22T14:06:44.575Z" itemprop="dateModified">最后编辑：2024-09-22</time>
                 </div>
             </div>
         </footer>
@@ -235,6 +242,18 @@
     <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
     
     
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker"><span class="toc-number">1.</span> <span class="toc-text">Docker</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Info"><span class="toc-number">2.</span> <span class="toc-text">Info</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BDInfoCLI-ng"><span class="toc-number">2.1.</span> <span class="toc-text">BDInfoCLI-ng</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Demux-x2F-Remux"><span class="toc-number">3.</span> <span class="toc-text">Demux&#x2F;Remux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tsMuxer"><span class="toc-number">3.1.</span> <span class="toc-text">tsMuxer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mkvtoolnix"><span class="toc-number">3.2.</span> <span class="toc-text">mkvtoolnix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DGDemux"><span class="toc-number">3.3.</span> <span class="toc-text">DGDemux</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Encode"><span class="toc-number">4.</span> <span class="toc-text">Encode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#FFmpeg"><span class="toc-number">4.1.</span> <span class="toc-text">FFmpeg</span></a></li></ol></li></ol>
+    </div>
+</aside>
+                
                 <aside id="krw-about" class="widget widget-kratos-about clearfix">
     <div class="photo-background"></div>
     <div class="photo-wrapper clearfix">
@@ -259,7 +278,7 @@
                 分类
             </span>
             <span class="count">
-                5
+                6
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -278,7 +297,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类列表</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">1.基础知识</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2-Tools/">2.Tools</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/3-Code/">3.Code</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/6-etc/">6.etc</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Compare/">Compare</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">1.基础知识</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2-Tools/">2.Tools</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/3-Code/">3.Code</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/4-Audio-sub/">4.Audio&sub</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/6-etc/">6.etc</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Compare/">Compare</a><span class="category-list-count">1</span></li></ul>
   </aside>
 
 
