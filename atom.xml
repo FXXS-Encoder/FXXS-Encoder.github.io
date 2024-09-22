@@ -6,7 +6,7 @@
   <link href="http://fxxs.github.io/atom.xml" rel="self"/>
   
   <link href="http://fxxs.github.io/"/>
-  <updated>2024-09-22T13:13:32.877Z</updated>
+  <updated>2024-09-22T13:28:24.744Z</updated>
   <id>http://fxxs.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Progressive segmented frame</title>
+    <link href="http://fxxs.github.io/6.etc/PsF/"/>
+    <id>http://fxxs.github.io/6.etc/PsF/</id>
+    <published>2024-09-22T13:24:28.282Z</published>
+    <updated>2024-09-22T13:28:24.744Z</updated>
+    
+    <content type="html"><![CDATA[<p>写作 interlace, 实际是为了塞p的视频</p><p><a href="https://en.wikipedia.org/wiki/Progressive_segmented_frame">https://en.wikipedia.org/wiki/Progressive_segmented_frame</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;写作 interlace, 实际是为了塞p的视频&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Progressive_segmented_frame&quot;&gt;https://en.wikipedia.org/wiki/Progres</summary>
+      
+    
+    
+    
+    <category term="6.etc" scheme="http://fxxs.github.io/categories/6-etc/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>常见报错</title>
