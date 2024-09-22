@@ -201,11 +201,11 @@
   </entry>
   
   <entry>
-    <title>FXXS压制教程 FXXS Encode Guide</title>
+    <title>README FXXS压制教程 FXXS Encode Guide</title>
     <link href="http://fxxs.github.io/README/"/>
     <id>http://fxxs.github.io/README/</id>
     <published>2023-06-12T13:06:53.126Z</published>
-    <updated>2024-09-22T13:13:14.763Z</updated>
+    <updated>2024-09-22T14:33:31.580Z</updated>
     
     <content type="html"><![CDATA[<p>本教程还在建设中，并且存在不准确，瞎写等问题。</p><p>在此提醒一下，学习应该不盲从权威，有足够的自学与判断能力。</p><p>公开教程寄望于能降低压制学习门槛，促进沟通交流。</p><p>讨论群组:<a href="https://t.me/+V3PD9djMoUr4v38n">https://t.me/+V3PD9djMoUr4v38n</a></p><p>不受限加入，我们非常欢迎新鲜血液的加入，非组内成员也可参与询问及讨论。不会强制征召。</p><p>希望入组的童鞋，在有成品后请联系我。</p><hr><p>Scrips里的脚本使用环境是Win,没有经过太多的测试</p><p><code>python 脚本 输入目录</code> 这样，里面的文本要自己根据需要修改内容再跑</p><p>mkv 的 json封装，要确保输入端的mkv是规则的，否则可能会因为轨道id不对导致封错内容</p><hr><p>Python 文档</p><p><a href="https://docs.python.org/zh-cn/3.9/reference/index.html">https://docs.python.org/zh-cn/3.9/reference/index.html</a></p><p>用于理解vpy写法以及含义</p><p>VS文档</p><p><a href="http://www.vapoursynth.com/doc/pythonreference.html">http://www.vapoursynth.com/doc/pythonreference.html</a></p><p>x265文档<br><a href="https://x265.readthedocs.io/en/latest/cli.html">https://x265.readthedocs.io/en/latest/cli.html</a></p><hr><p>一些可供参考的其他教程</p><p>VCB-S</p><p>建议有了第一步压制作品，会写VS脚本之后再看</p><p><a href="https://vcb-s.nmm-hd.org/">https://vcb-s.nmm-hd.org/</a></p><p>AHD(英文)</p><p><a href="https://silentaperture.gitlab.io/mdbook-guide/introduction.html">https://silentaperture.gitlab.io/mdbook-guide/introduction.html</a></p><p><a href="https://github.com/Irrational-Encoding-Wizardry/">Irrational-Encoding-Wizardry</a></p><p><a href="https://guide.encode.moe/index.html">https://guide.encode.moe/index.html</a></p><p>他们还有Discord(英文) discord.gg&#x2F;qxTxVJGtst</p><p>目前他们的一些脚本没有文档，目测要去Discord里面搜</p><p>iAvoe</p><p>这个的教程跟我们的有一些出入，可能跟侧重点有关，建议在压过一些片，有一定的基础之后再看</p><p><del><a href="https://github.com/iAvoe/x264-x265-QAAC-ffprobe-Ultimatetutorial">https://github.com/iAvoe/x264-x265-QAAC-ffprobe-Ultimatetutorial</a></del></p>]]></content>
     
