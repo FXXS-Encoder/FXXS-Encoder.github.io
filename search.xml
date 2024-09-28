@@ -627,6 +627,34 @@
 ]]></content>
   </entry>
   <entry>
+    <title>字幕相关</title>
+    <url>/4.Audio&amp;sub/%E5%AD%97%E5%B9%95%E5%88%B6%E4%BD%9C/</url>
+    <content><![CDATA[<p>本篇内容都作为 Optional</p>
+<h1 id="字幕调轴"><a href="#字幕调轴" class="headerlink" title="字幕调轴"></a>字幕调轴</h1><p>一般来说不少字幕都可以通过平移来解决不同步问题。<br>但还有相当多的会因为源的帧率不同导致同步问题。</p>
+<p>此时应确认原字幕匹配的视频文件的帧率，以及目标视频文件的视频帧率</p>
+<p>以 Blonde and Blonder 2007 举例，现有的都是DVD的字幕，需要制作1080p AMZN web(25fps)的字幕。</p>
+<p>DVD是NTSC的，也就是传说中的5烂2</p>
+<p><strong>Attention</strong> NTSC 的相关事项建议查下资料以作了解。虽然DVD源是29.970 fps，但实际应使用压制处理后的分辨率23.976 fps。</p>
+<p>然后对字幕做帧率转换，大部分的字幕软件都支持，除此之外还可以使用Potplayer</p>
+<p>范例</p>
+<p>对于 Blonde and Blonder 2007 的字幕，帧率由 23.976 fps 转为 25 fps,之后整体向前平移 12s 即可匹配</p>
+<h2 id="字幕轴替换"><a href="#字幕轴替换" class="headerlink" title="字幕轴替换"></a>字幕轴替换</h2><p>有些情况下帧率调整没法解决问题，这种情况下可以完全的调轴(还有些可能就是制作字幕的人造成了一些错误)</p>
+<p>比如你有一个轴不对的中文字幕，找到一条完全匹配的英文字幕。</p>
+<p>你可以使用 Sutittle Edit 的 point sync via other subtitle 功能</p>
+<p>还可以打开拥有正确时间轴的字幕，选所有行，右键，Column, delete text, 然后从其他字幕导入文本，最好再检查下有没有错行</p>
+<h2 id="精调"><a href="#精调" class="headerlink" title="精调"></a>精调</h2><p>Sutittle Edit 不但可以加载画面，甚至可以读取音轨波形，可以通过听以及观察波形来精调。</p>
+<p>就是应该会有点累</p>
+<h1 id="双语合并"><a href="#双语合并" class="headerlink" title="双语合并"></a>双语合并</h1><p>使用srtedit即可，可以自己点点点研究一下就行。</p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
+<li>Sutittle Edit 处理ass会导致一些样式丢失</li>
+<li>HDR字幕(包括srt)白颜色下会过亮(与软件可能也有一定关系)，请注意转换成暗色</li>
+</ul>
+]]></content>
+      <categories>
+        <category>4.Audio&amp;sub</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Progressive segmented frame</title>
     <url>/6.etc/PsF/</url>
     <content><![CDATA[<p>写作 interlace, 实际是为了塞p的视频</p>
@@ -1869,33 +1897,6 @@
     <content><![CDATA[<p>这里的脚本 flac.bat、opus.bat、cutPicture.py 都需要使用ffmpeg,请确保其位于同级目录或者环境变量中。</p>
 <p>cutPicture.py 来自 <a href="https://github.com/weijiadongyy/videoTool%EF%BC%8C%E4%BD%86%E6%9C%89%E5%BE%88%E5%A4%A7%E7%9A%84%E4%BF%AE%E6%94%B9%E3%80%82">https://github.com/weijiadongyy/videoTool，但有很大的修改。</a> 会需要使用 ffprobe、oxipng，并且如路径或文件名包含全角字符，可能会没法使用</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>字幕相关</title>
-    <url>/4.Audio&amp;sub/%E5%AD%97%E5%B9%95%E5%88%B6%E4%BD%9C/</url>
-    <content><![CDATA[<p>本篇内容都作为 Optional</p>
-<h1 id="字幕调轴"><a href="#字幕调轴" class="headerlink" title="字幕调轴"></a>字幕调轴</h1><p>一般来说不少字幕都可以通过平移来解决不同步问题。<br>但还有相当多的会因为源的帧率不同导致同步问题。</p>
-<p>此时应确认原字幕匹配的视频文件的帧率，以及目标视频文件的视频帧率</p>
-<p>以 Blonde and Blonder 2007 举例，现有的都是DVD的字幕，需要制作1080p AMZN web(25fps)的字幕。</p>
-<p>DVD是NTSC的，也就是传说中的5烂2</p>
-<p><strong>Attention</strong> NTSC 的相关事项建议查下资料以作了解。虽然DVD源是29.970 fps，但实际应使用压制处理后的分辨率23.976 fps。</p>
-<p>然后对字幕做帧率转换，大部分的字幕软件都支持，除此之外还可以使用Potplayer</p>
-<p>对于 Blonde and Blonder 2007 的字幕，帧率由 23.976 fps 转为 25 fps,之后整体向前平移 12s 即可匹配</p>
-<h2 id="字幕轴替换"><a href="#字幕轴替换" class="headerlink" title="字幕轴替换"></a>字幕轴替换</h2><p>有些情况下帧率调整没法解决问题，这种情况下可以完全的调轴(还有些可能就是制作字幕的人造成了一些错误)</p>
-<p>比如你有一个轴不对的中文字幕，找到一条完全匹配的英文字幕。</p>
-<p>你可以使用 Sutittle Edit 的 point sync via other subtitle 功能</p>
-<p>还可以打开拥有正确时间轴的字幕，选所有行，右键，Column, delete text, 然后从其他字幕导入文本，最好再检查下有没有错行</p>
-<h2 id="精调"><a href="#精调" class="headerlink" title="精调"></a>精调</h2><p>Sutittle Edit 不但可以加载画面，甚至可以读取音轨波形，可以通过听以及观察波形来精调。</p>
-<p>就是应该会有点累</p>
-<h1 id="双语合并"><a href="#双语合并" class="headerlink" title="双语合并"></a>双语合并</h1><p>使用srtedit即可，可以自己点点点研究一下就行。</p>
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
-<li>Sutittle Edit 处理ass会导致一些样式丢失</li>
-<li>HDR字幕(包括srt)白颜色下会过亮(与软件可能也有一定关系)，请注意转换成暗色</li>
-</ul>
-]]></content>
-      <categories>
-        <category>4.Audio&amp;sub</category>
-      </categories>
   </entry>
   <entry>
     <title>2.0/1.0 音轨比较说明</title>
