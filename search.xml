@@ -1371,6 +1371,13 @@
     <title>Demux &amp; Remux 操作</title>
     <url>/2.Tools/Demux&amp;Remux/</url>
     <content><![CDATA[<p>通常建议在 Demux &amp; Remux 之前进行扫盘，mkvtoolnix 以及 dgdemux 都可以进行。</p>
+<p>主要判断信息有</p>
+<ul>
+<li>是否是肉酱盘</li>
+<li>是否默认的 mpls 是正确的影片（有些盘会坑人）</li>
+<li>mpls 是否包含了无效的mt2s(这种会导致操作失败)，这种情况，需要 dgdemux,然后勾选 “skip first&#x2F;last M2TS”</li>
+</ul>
+<p>部分剧集原盘 dgdemux 需要开启 “strict playlist times” mkvtoolnix 可以自动处理，useac3to 等其他软件会产生包含长时间黑屏的文件出来。(m2ts本身包含，mlps中做了切割处理)</p>
 <p>Demux作为音轨处理的前置步骤(部分原盘只有DGDemux能正常处理)，目前获取的信息是再TrueHD方面 MakeMKV &gt;&#x3D; 1.15.4 &#x3D; mlp &gt; DGDemux (具体见 mlp 的 Readme)。</p>
 <p>或许考虑使用<a href="https://github.com/domyd/mlp">mlp</a>来专门处理肉酱TrueHD盘</p>
 <p>一些肉酱盘 mkvtoolnix,eac3to,会有 glitching 的问题见<a href="https://github.com/ted423/FXXS-Encode-Guide/issues/14">issue</a>(并不确认eac3to最新版是否解决了问题)。</p>
