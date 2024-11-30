@@ -627,493 +627,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>字幕相关</title>
-    <url>/4.Audio&amp;sub/%E5%AD%97%E5%B9%95%E5%88%B6%E4%BD%9C/</url>
-    <content><![CDATA[<p>本篇内容都作为 Optional</p>
-<h1 id="字幕调轴"><a href="#字幕调轴" class="headerlink" title="字幕调轴"></a>字幕调轴</h1><p>一般来说不少字幕都可以通过平移来解决不同步问题。<br>但还有相当多的会因为源的帧率不同导致同步问题。</p>
-<p>此时应确认原字幕匹配的视频文件的帧率，以及目标视频文件的视频帧率</p>
-<p>以 Blonde and Blonder 2007 举例，现有的都是DVD的字幕，需要制作1080p AMZN web(25fps)的字幕。</p>
-<p>DVD是NTSC的，也就是传说中的5烂2</p>
-<p><strong>Attention</strong> NTSC 的相关事项建议查下资料以作了解。虽然DVD源是29.970 fps，但实际应使用压制处理后的分辨率23.976 fps。</p>
-<p>然后对字幕做帧率转换，大部分的字幕软件都支持，除此之外还可以使用Potplayer</p>
-<p>范例</p>
-<p>对于 Blonde and Blonder 2007 的字幕，帧率由 23.976 fps 转为 25 fps,之后整体向前平移 12s 即可匹配</p>
-<h2 id="字幕轴替换"><a href="#字幕轴替换" class="headerlink" title="字幕轴替换"></a>字幕轴替换</h2><p>有些情况下帧率调整没法解决问题，这种情况下可以完全的调轴(还有些可能就是制作字幕的人造成了一些错误)</p>
-<p>比如你有一个轴不对的中文字幕，找到一条完全匹配的英文字幕。</p>
-<p>你可以使用 Sutittle Edit 的 point sync via other subtitle 功能</p>
-<p>还可以打开拥有正确时间轴的字幕，选所有行，右键，Column, delete text, 然后从其他字幕导入文本，最好再检查下有没有错行</p>
-<h2 id="精调"><a href="#精调" class="headerlink" title="精调"></a>精调</h2><p>Sutittle Edit 不但可以加载画面，甚至可以读取音轨波形，可以通过听以及观察波形来精调。</p>
-<p>就是应该会有点累</p>
-<h1 id="双语合并"><a href="#双语合并" class="headerlink" title="双语合并"></a>双语合并</h1><p>使用srtedit即可，可以自己点点点研究一下就行。</p>
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
-<li>Sutittle Edit 处理ass会导致一些样式丢失</li>
-<li>HDR字幕(包括srt)白颜色下会过亮(与软件可能也有一定关系)，请注意转换成暗色</li>
-</ul>
-]]></content>
-      <categories>
-        <category>4.Audio&amp;sub</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Progressive segmented frame</title>
-    <url>/6.etc/PsF/</url>
-    <content><![CDATA[<p>写作 interlace, 实际是为了塞p的视频</p>
-<p><a href="https://en.wikipedia.org/wiki/Progressive_segmented_frame">https://en.wikipedia.org/wiki/Progressive_segmented_frame</a></p>
-]]></content>
-      <categories>
-        <category>6.etc</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>常见报错</title>
-    <url>/6.etc/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="x265-crash"><a href="#x265-crash" class="headerlink" title="x265 crash"></a>x265 crash</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2022-01-07][21:18:15] WARNING: Input process exited with error (code: 1), your encode might be *incomplete* !!!</span><br><span class="line">[2022-01-07][21:18:15] </span><br><span class="line">[2022-01-07][21:18:15] FATAL ERROR: The encoder process has *crashed* -&gt; your encode probably is *incomplete* !!!</span><br><span class="line">[2022-01-07][21:18:15] Note that this indicates a bug in the current encoder, *not* in Simple x264/x265 Launcher.</span><br><span class="line">[2022-01-07][21:18:15] </span><br><span class="line">[2022-01-07][21:18:15] PROCESS EXITED WITH ERROR CODE: -1073741795</span><br></pre></td></tr></table></figure>
-<p>注意检查CPU指令集，默认使用的是AVX2,有部分CPU不支持，LIKE E5-2690 0</p>
-<p>这种情况下弄个CPU-Z看看就知道了</p>
-<p>另外还有错误的参数可能会导致问题</p>
-<h1 id="压制程序退出"><a href="#压制程序退出" class="headerlink" title="压制程序退出"></a>压制程序退出</h1><p>生成文件被占用或不可写入会导致报错，例如 vs 预览会导致文件被占用。</p>
-<h1 id="Dgdemux-不显示界面"><a href="#Dgdemux-不显示界面" class="headerlink" title="Dgdemux 不显示界面"></a>Dgdemux 不显示界面</h1><p>DGDemux.ini 里有一行 Window_Position 删掉就好了，或者整个ini删掉也行</p>
-<h1 id="大小核调度问题"><a href="#大小核调度问题" class="headerlink" title="大小核调度问题"></a>大小核调度问题</h1><p>管理员模式运行cmd，输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">powercfg -attributes SUB_PROCESSOR 7f2f5cfa-f10c-4823-b5e1-e93ae85f46b5 -ATTRIB_HIDE</span><br><span class="line">powercfg -attributes SUB_PROCESSOR 93b8b6dc-0698-4d1c-9ee4-0644e900c85d -ATTRIB_HIDE</span><br><span class="line">powercfg -attributes SUB_PROCESSOR bae08b81-2d5e-4688-ad6a-13243356654b -ATTRIB_HIDE</span><br><span class="line">powercfg -attributes SUB_PROCESSOR b28a6829-c5f7-444e-8f61-10e24e85c532 -ATTRIB_HIDE</span><br></pre></td></tr></table></figure>
-<p>高级电源设置里”异类线程调度策略”改成”所有处理器”</p>
-]]></content>
-      <categories>
-        <category>6.etc</category>
-      </categories>
-      <tags>
-        <tag>Issue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux工具</title>
-    <url>/2.Tools/Linux/</url>
-    <content><![CDATA[<p>主要提供一些可以在 Linux 下使用的工具，但实际很少完全在 Linux 下工作，所以仅供参考</p>
-<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p><a href="https://github.com/gzycode39/docker-vapoursynth-yuuno/">https://github.com/gzycode39/docker-vapoursynth-yuuno/</a></p>
-<h1 id="Info"><a href="#Info" class="headerlink" title="Info"></a>Info</h1><h2 id="BDInfoCLI-ng"><a href="#BDInfoCLI-ng" class="headerlink" title="BDInfoCLI-ng"></a>BDInfoCLI-ng</h2><p><a href="https://github.com/zoffline/BDInfoCLI-ng">https://github.com/zoffline/BDInfoCLI-ng</a></p>
-<p><code>docker run --rm -it -v &lt;BD_PATH&gt;:/mnt/bd -v &lt;REPORT_DEST&gt;:/mnt/report zoffline/bdinfocli-ng /mnt/bd /mnt/report</code> (iso需要挂载后再扫)</p>
-<h1 id="Demux-x2F-Remux"><a href="#Demux-x2F-Remux" class="headerlink" title="Demux&#x2F;Remux"></a>Demux&#x2F;Remux</h1><h2 id="tsMuxer"><a href="#tsMuxer" class="headerlink" title="tsMuxer"></a>tsMuxer</h2><p><a href="https://github.com/justdan96/tsMuxer">https://github.com/justdan96/tsMuxer</a></p>
-<h2 id="mkvtoolnix"><a href="#mkvtoolnix" class="headerlink" title="mkvtoolnix"></a>mkvtoolnix</h2><p><a href="https://mkvtoolnix.download/downloads.html">https://mkvtoolnix.download/downloads.html</a><br>注意章节编辑器名称模板改成英文 <code>Chapter &lt;NUM:2&gt;</code></p>
-<h2 id="DGDemux"><a href="#DGDemux" class="headerlink" title="DGDemux"></a>DGDemux</h2><p><a href="http://rationalqm.us/dgdemux/dgdemux.html">http://rationalqm.us/dgdemux/dgdemux.html</a></p>
-<h1 id="Encode"><a href="#Encode" class="headerlink" title="Encode"></a>Encode</h1><h2 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h2><p><a href="https://ffmpeg.org/ffmpeg-all.html">https://ffmpeg.org/ffmpeg-all.html</a></p>
-<p>范例</p>
-<p><code>ffmpeg -i 1.dts -c:a flac -compression_level 8 1.flac</code></p>
-<p><code>ffmpeg -i 1.mkv -map 0:1  -c:a flac -compression_level 8 chi.flac</code></p>
-<p><code>ffmpeg  -v quiet -ss 00:23:00 -i file  -vcodec png -vframes 1 -pix_fmt rgb24 -y ~/filename.png</code></p>
-]]></content>
-      <categories>
-        <category>2.Tools</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>x265参数解析</title>
-    <url>/2.Tools/x265%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><p><a href="https://tieba.baidu.com/p/6627144750">https://tieba.baidu.com/p/6627144750</a></p>
-</li>
-<li><p><a href="https://x265.readthedocs.io/en/3.1/cli.html">https://x265.readthedocs.io/en/3.1/cli.html</a></p>
-</li>
-<li><p><a href="https://vcb-s.nmm-hd.org/Dark%20Shrine/[VCB-Studio][%E6%95%99%E7%A8%8B10]x265%202.9%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/[VCB-Studio][%E6%95%99%E7%A8%8B10]x265%202.9%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE.pdf">https://vcb-s.nmm-hd.org/Dark%20Shrine/[VCB-Studio][教程10]x265%202.9参数设置/[VCB-Studio][教程10]x265%202.9参数设置.pdf</a></p>
-</li>
-</ul>
-<p><strong>请注意，不能确保完全正确</strong></p>
-<h2 id="crf-qp"><a href="#crf-qp" class="headerlink" title="crf,qp"></a>crf,qp</h2><p><strong>qp</strong> 电脑认为的恒定画质(但一般不进行设置)</p>
-<p><strong>crf</strong> 人眼认为的恒定画质，但是运动时候画质会降低来节省码率</p>
-<p>数值越低画质越好。</p>
-<p>一般低于等于18可以认为和原画差不多(主观观点)</p>
-<h2 id="ctu-lt-64-32-16-gt"><a href="#ctu-lt-64-32-16-gt" class="headerlink" title="ctu &lt;64|32|16&gt;"></a>ctu &lt;64|32|16&gt;</h2><p>分块大小，64速度最慢，32其次</p>
-<p>设成32 对于复杂场景压缩压缩率最高，64 对于简单场景压缩压缩率最高</p>
-<p>推荐用32因为速度比64快10%，并且画质更好一些</p>
-<p>16适合DVD，32适合1080p,64适合4K,720p用16,x265可能就会直接退出</p>
-<h2 id="rd-1-6"><a href="#rd-1-6" class="headerlink" title="rd (1-6)"></a>rd (1-6)</h2><p>分析的复杂度，数值越大画质越高，压出来体积越大，5,6非常慢, 默认3.</p>
-<h2 id="early-skip"><a href="#early-skip" class="headerlink" title="early-skip"></a>early-skip</h2><p>–early-skip, –no-early-skip</p>
-<p>默认开，开了提高压缩速度，关了提高精度，体积小幅度增加</p>
-<h2 id="rdoq-level"><a href="#rdoq-level" class="headerlink" title="rdoq-level"></a>rdoq-level</h2><p>RDOP [rate-distortion optimized quantization] (率失真优化量化)</p>
-<p>默认0,关闭，预设slow时候默认开启。(preset placebo 似乎也还是2)</p>
-<p>x265最重要的参数，没有之一，开了能有助于保存细节，当然会有更大文件体积。关闭可以提高压缩速度，看起来会轻度模糊。开启掉速度30%以上，推荐舍弃其他参数，也要开启这个。</p>
-<p>设成 1 时候 看起来效果最好，但是体积会大30%以上</p>
-<p>设成 2 时候 效果略差，体积只会小幅度增加，推荐使用2</p>
-<h2 id="psy-rd-amp-psy-rdoq"><a href="#psy-rd-amp-psy-rdoq" class="headerlink" title="psy-rd &amp; psy-rdoq"></a>psy-rd &amp; psy-rdoq</h2><p>都是Psycho-visual options的参数</p>
-<p>具体见<a href="https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options">https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options</a></p>
-<p>这两者都会影响码率(经测试，开高psy-rdoq到5所增加的码率通过crf来给画面反而效果更好)</p>
-<p>psy-rd 默认 2.0有些高，建议开到1.5，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试)</p>
-<p>psy-rdoq 一直用1一般就好，开高了保留噪点，画面本身却会变差</p>
-<p>一些测试见Compare</p>
-<h2 id="tu-intra-depth-lt-1-4-gt-tu-inter-depth-lt-1-4-gt"><a href="#tu-intra-depth-lt-1-4-gt-tu-inter-depth-lt-1-4-gt" class="headerlink" title="tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;"></a>tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;</h2><p>默认1，开高会小幅增加压缩率，但是特别慢 (preset placebo 似乎就是4)</p>
-<h2 id="max-tu-size-lt-32-16-8-4-gt"><a href="#max-tu-size-lt-32-16-8-4-gt" class="headerlink" title="max-tu-size &lt;32|16|8|4&gt;"></a>max-tu-size &lt;32|16|8|4&gt;</h2><p>默认32，开低会降低压缩率，并且不会提速，推荐默认</p>
-<h2 id="max-merge-lt-1-5-gt"><a href="#max-merge-lt-1-5-gt" class="headerlink" title="max-merge &lt;1..5&gt;"></a>max-merge &lt;1..5&gt;</h2><p>开高小幅度提高压缩率，对速度影响不明显，默认2 (preset placebo 似乎就是5)</p>
-<h2 id="me-merange"><a href="#me-merange" class="headerlink" title="me ,merange"></a>me ,merange</h2><p>me 搜索方式，默认hex ，用umh 或star 能小幅度提高压缩率，但是掉速20%</p>
-<p>merange 搜索范围，默认57，me设成hex时候，对速度影响不大，但是使用umh或star时候，开高掉速严重</p>
-<p>umh比star好</p>
-<ol>
-<li><p>dia</p>
-</li>
-<li><p>hex (default)</p>
-</li>
-<li><p>umh</p>
-</li>
-<li><p>star</p>
-</li>
-<li><p>sea</p>
-</li>
-<li><p>full</p>
-</li>
-</ol>
-<h2 id="subme-默认2"><a href="#subme-默认2" class="headerlink" title="subme 默认2"></a>subme 默认2</h2><p>开高小幅提高压缩率，开低提高压缩速度，5比3慢10%</p>
-<p>推荐3</p>
-<h1 id="keyint"><a href="#keyint" class="headerlink" title="keyint"></a>keyint</h1><p>最大IDR间隔</p>
-<p>关键帧相关，这个将会影响到点击跳转，开高能提升压缩率(但个人不建议随便动他，720对于一般的24p意味着30秒的时间，60p你可以稍微开高点？)</p>
-<p>默认250</p>
-<h2 id="min-keyint"><a href="#min-keyint" class="headerlink" title="min-keyint"></a>min-keyint</h2><p>最小分组帧数，默认23，推荐改成个位数，提高gop准确度。</p>
-<p>小幅度提高压缩率，对压缩速度没影响</p>
-<p>min-keyint&#x3D;1 的情况对于一些高速切换的场景会因此要强制1秒内一个IDR帧，造成P或者B等参考帧使用效率降低(换场景了参考的意义已经不大了)。</p>
-<p>还有就是这样可以避免一些老旧的设备出现硬解的bug。 - by fch1993</p>
-<h2 id="pmode-amp-no-pmode"><a href="#pmode-amp-no-pmode" class="headerlink" title="pmode &amp; no-pmode"></a>pmode &amp; no-pmode</h2><p>并行决策模式</p>
-<p>见这里 <a href="https://github.com/ted423/FXXS-Encode-Guide/issues/16">https://github.com/ted423/FXXS-Encode-Guide/issues/16</a></p>
-<p>官方推荐是CPU不饱和才开，编码器将跨多个工作线程分配每个 CU 的分析工作。</p>
-<p>但从测试结果看，建议任何情况下都开</p>
-<h2 id="rc-lookahead"><a href="#rc-lookahead" class="headerlink" title="rc-lookahead"></a>rc-lookahead</h2><p>预览帧数，默认20</p>
-<p>开高可以提高分组(gop)准确度，小幅度提高压缩率，同时小幅度降速，推荐40</p>
-<p>crf模式时，rc-lookahead可以提高cutree的准确度（提高画质)</p>
-<h2 id="bframes"><a href="#bframes" class="headerlink" title="bframes"></a>bframes</h2><p>最大b帧数量</p>
-<p>开高小幅度提高压缩率，默认4，开到8，掉速10%</p>
-<p>bframes 开高了会小幅降低画质</p>
-<h2 id="cutree"><a href="#cutree" class="headerlink" title="cutree"></a>cutree</h2><p>–no-cutree since this seems to be a poor implementation of mbtree.</p>
-<p><del>目前测试是静态场景表现不错，具体可以看<a href="https://ted423.github.io/Document/Encode/cutree/">https://ted423.github.io/Document/Encode/cutree/</a></del> 不建议开，码率分配存在非常大的问题(有一处分配了31M的码率结果效果还不如一半码率的x264)</p>
-<p>doom9 上2020年有人说”在快速移动的场景中，我一直在努力解决丑陋的扭曲（用条带涂抹看起来有点像运动模糊的东西），最后发现 x265 的 CUTree 是罪魁祸首。</p>
-<p>关闭它可以解决它，但是当试图在其他场景中保持相同的整体质量时，比特率会爆炸。</p>
-<p>有什么方法可以使 CUTree ‘不那么激进’ 或将其设置为 50% 或某些阈值参数吗？”</p>
-<h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p>参照帧数量，默认3</p>
-<p>开高小幅度提高压缩率，同时小幅度降速，</p>
-<p>3和4速度差不多，推荐4</p>
-<p>VCB:不过实测 ref 增加在 x265 中作用不明显。建议不超过 6</p>
-<h2 id="sao-默认开启"><a href="#sao-默认开启" class="headerlink" title="sao 默认开启"></a>sao 默认开启</h2><p>–sao, –no-sao</p>
-<p>设计目的是去振铃(光环现象)，但是细节丰富地方会去掉太多细节，</p>
-<p>推荐关闭。</p>
-<h2 id="strong-intra-smoothing"><a href="#strong-intra-smoothing" class="headerlink" title="strong-intra-smoothing"></a>strong-intra-smoothing</h2><p>推荐在追求还原度的压制的时候关闭，严重欠码压制时开启(部分情况下，aq2 或者降低 aqs 更为优先)</p>
-<p>对关键帧进行平滑处理，看起来挺吓人的，实际上效果不明显，推荐用<code>--no-strong-intra-smoothing</code>关闭，保留细节(来源贴吧 连接1 的帖内说明)</p>
-<p><a href="http://forum.doom9.net/showthread.php?p=1873696">http://forum.doom9.net/showthread.php?p=1873696</a></p>
-<p>相关讨论，与贴吧给出的结论不同</p>
-<p>个人测试是开的话画面细节丢失，影响蛮大 <del>可能适合低码压制</del></p>
-<p>目前测试是在低码压制上会降低块效应(不知道这么说对不对，aqs psy-rdoq开高会导致块变得严重。特别是4K，44Mbps仍然有些欠码，因此4K欠码压制的情况下，这种现象会非常严重，见 <a href="https://slow.pics/c/uvnpqHrU">https://slow.pics/c/uvnpqHrU</a> 不过这个对比图没有块现象严重的对比，只是用于说明所需码率，因为一个没注意顺手删了)</p>
-<h2 id="lookahead-slices"><a href="#lookahead-slices" class="headerlink" title="lookahead-slices"></a>lookahead-slices</h2><p>设成0有助于提高画质，开高有利于lookahead的并行度，</p>
-<p>推荐设成0，对压缩速度无影响</p>
-<h2 id="deblock-去色块"><a href="#deblock-去色块" class="headerlink" title="deblock 去色块"></a>deblock 去色块</h2><p>要调低 默认太高， 推荐最高调到-1,-1以下，调高了会模糊</p>
-<h2 id="qcomp"><a href="#qcomp" class="headerlink" title="qcomp"></a>qcomp</h2><p>运动时候画质 crf开启时候有效</p>
-<p>开高提高运动时候画质，开低减少文件体积</p>
-<p>推荐0.6-0.7</p>
-<h2 id="frame-threads"><a href="#frame-threads" class="headerlink" title="frame-threads"></a>frame-threads</h2><p>帧线程数量，开高提高cpu利用率，开低有利于小幅度提高压缩率</p>
-<p>如果cpu能够满载可以考虑调到2，如果不能满载考虑使用默认值</p>
-<p>(默认会自动调整)</p>
-<h2 id="aq-strength-默认1-0"><a href="#aq-strength-默认1-0" class="headerlink" title="aq-strength 默认1.0"></a>aq-strength 默认1.0</h2><p>低于1.0首先保留边缘，高于1.0优先保留纹理，这个值也要看aq-mode，噪点多的片可以调低这个值，噪点少的片调高这个值</p>
-<p>不了解不要乱调这个</p>
-<p>VCB:aq-strength 决定了 aq 的强度，一般来说，Anime 的 aq-strength 不用太高（太高了码率也会浪费）。通常，aq-mode&#x3D;1，aq-strength 给 0.8 比较合理；aq-mode&#x3D;2，aq-strength 给 0.9 左右，aq-mode&#x3D;3，aq-strength 给 0.7 左右。</p>
-<h1 id="aq-mode"><a href="#aq-mode" class="headerlink" title="aq-mode"></a>aq-mode</h1><p>目前测试在不足码率压制的情况下,aq1可能会导致画面出现一些奇怪的现象，aq2相对画面更好一些，并且不会出现奇妙的画面(不过测试还不够充分)。</p>
-<p>在给够码率的情况下(噪点比较重的片)，aq1似乎会好些(可以看战火高码版对比图，不过暂时还没放到公网)</p>
-<p>2 x265默认（推荐）</p>
-<p>3 暗处增强，避免暗处被压坏，实际上亮的地方码率也会增加30%以上，所以很 浪费码率(不过就压制而言，通常是差不多码率进行比较，因此浪费码率可以通过调高crf解决)</p>
-<p>aq-mode 4 :优先保留边缘，噪点很多时候用</p>
-<p>VCB:x265 目前有三种 aq 模式。aq-mode 1 是最安全稳定的 aq，适合高码率&#x2F;高画质编码；aq-mode<br>2 相对来说效率最高，适合中低码率的编码；aq-mode 3 对暗场进行加强，适合 8bit 编码防止暗场压烂。一般 10bit编码根据 crf 高低决定 aq 选取，个人建议在 crf &lt;&#x3D; 16 时候使用 aq-mode 1，否则使用 aq-mode 2。注意同 crf下，不同 aq-mode 出来的体积是不一样的，3&gt;1&gt;2。</p>
-<p>补充说明，个人在压制黑白噪点片时，aq2产生了比aq1还大的体积，目测在大颗粒噪点的情况下，aq2会比aq1产生更高的码率</p>
-<h2 id="rskip-lt-0-1-2-gt"><a href="#rskip-lt-0-1-2-gt" class="headerlink" title="rskip &lt;0|1|2&gt;"></a>rskip &lt;0|1|2&gt;</h2><p>开启提高速度，关闭提高画质，0是关闭，默认1</p>
-<p>模式1比0 wmaf 下降0.03左右</p>
-<p>模式2比模式1压缩速度要快30%-50%左右，但是压缩率要低</p>
-<p>对于平滑画面（噪点比较少）画质优于rskip&#x3D;1，但是噪点比较多画面 画质不如rskip&#x3D;1</p>
-<p>rskip&#x3D;2 和ctu&#x3D;64配合不好，同时开启画质压缩率都会下降</p>
-<p><del>推荐rskip&#x3D;2 和ctu&#x3D;32配合</del>(我们一般不开)</p>
-<h2 id="rect"><a href="#rect" class="headerlink" title="rect"></a>rect</h2><p>–rect, –no-rect</p>
-<p>开了小幅度增加压缩率（0%-5%左右 )和画质，有长方形区域时候才有效，否则是空跑，开了掉速30%以上</p>
-<p>推荐关闭增加压缩速度。</p>
-<p>VCB:通常来说，&lt;&#x3D;1080p 下，rect 基本上没什么作用，amp 是几乎完全没作用，但是这俩都是速度黑洞。因此从效率角度建议关闭，或者至少关闭 amp</p>
-<p>个人测试中，1080p开了之后，码率低了一点，画面差了一点</p>
-]]></content>
-      <categories>
-        <category>2.Tools</category>
-      </categories>
-      <tags>
-        <tag>Doc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Collection</title>
-    <url>/2.Tools/Collection/</url>
-    <content><![CDATA[<p>A collection of Encode tools and scripts.</p>
-<h1 id="Codec"><a href="#Codec" class="headerlink" title="Codec"></a>Codec</h1><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Document</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://code.videolan.org/videolan/x264">x264</a></td>
-<td>x264 codec</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/jpsdr/x264">x264-tMod</a></td>
-<td>x264 t_mod codec(默认使用)</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://bitbucket.org/multicoreware/x265_git/src">x265</a></td>
-<td>x265 codec</td>
-<td><a href="https://x265.readthedocs.io/">Doc</a></td>
-</tr>
-<tr>
-<td><a href="https://github.com/msg7086/x265-Yuuki-Asuna">x265-Yuuki</a></td>
-<td>x265-Yuuki codec</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/AOMediaCodec/SVT-AV1">SVT-AV1</a></td>
-<td>AV1 codec</td>
-<td><a href="https://github.com/AOMediaCodec/SVT-AV1/tree/master/Docs">Doc</a></td>
-</tr>
-<tr>
-<td><a href="https://aomedia.googlesource.com/aom/">AOM-AV1</a></td>
-<td>AV1 codec</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/fraunhoferhhi/vvenc">vvenc</a></td>
-<td>VVC codec</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://ffmpeg.org//">ffmpeg</a></td>
-<td>Web Only, Contain SVT-AV1(not the newest code)<br> <a href="https://github.com/BtbN/FFmpeg-Builds">Win builds by BtbN</a></td>
-<td><a href="https://ffmpeg.org/ffmpeg.html">Doc</a></td>
-</tr>
-<tr>
-<td><a href="https://github.com/nu774/qaac">qaac</a></td>
-<td>是基于 Apple 编码器的命令行 AAC&#x2F;ALAC 编码器前端。开源</td>
-<td><a href="https://github.com/nu774/qaac/wiki">Wiki</a></td>
-</tr>
-<tr>
-<td><a href="https://xiph.org/flac/">flac</a></td>
-<td>很多现有的编码器会调用libFLAC.dll，但项目长期不放出libFLAC.dll的编译版本，需要自己找别人的编译版本</td>
-<td><a href="https://xiph.org/flac/documentation.html">Doc</a></td>
-</tr>
-<tr>
-<td><a href="https://opus-codec.org/">opus</a></td>
-<td>2019年发布最后一版 1.3.1</td>
-<td><a href="https://opus-codec.org/docs/">Doc</a></td>
-</tr>
-<tr>
-<td><a href="https://www.videohelp.com/software/eac3to">eac3to with UsEac3to GUI</a></td>
-<td><a href="https://forum.doom9.org/showthread.php?t=145574">UsEac3to GUI</a> 作者:tebasuna51 <del><a href="https://forum.doom9.org/showthread.php?t=125966">eac3to</a> 作者:madshi (老版本)</del> <a href="https://www.rationalqm.us/eac3to/">https://www.rationalqm.us/eac3to/</a> 新版本 <br><br><a href="https://github.com/ted423/FXXS-Encode-Guide/issues/14">Issue</a></td>
-<td><a href="http://en.wikibooks.org/wiki/Eac3to">Wiki</a></td>
-</tr>
-</tbody></table>
-<h1 id="VS-etc"><a href="#VS-etc" class="headerlink" title="VS etc"></a>VS etc</h1><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Document</th>
-<th>etc</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://www.vapoursynth.com/">VS Official Web</a> \ <a href="https://github.com/vapoursynth/vapoursynth">VS Github</a></td>
-<td>VS</td>
-<td><a href="http://www.vapoursynth.com/doc/index.html">Doc</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/YomikoR/VapourSynth-Editor">VapourSynth Editor Modified by YomikoR</a></td>
-<td>原版长期未更新，并且存在一些不足,故只放mod版</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://bitbucket.org/gundamftw/vapoursynth-editor-2">VapourSynth Editor 2</a></td>
-<td>Untest</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/AmusementClub/vapoursynth-classic">vapoursynth-classic</a></td>
-<td>Untest，旨在维护旧版API的一个版本</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/AmusementClub/tools">tool-pack</a></td>
-<td>Untest，类似Mediatool的一个项目，不过我一直好奇里面打包了GPL的东西能不能这么发布</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h1 id="Other-Tool"><a href="#Other-Tool" class="headerlink" title="Other Tool"></a>Other Tool</h1><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Document</th>
-<th>etc</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://github.com/vcb-s/OKEGui">OKEGui</a></td>
-<td>Untest，平时习惯先封装一个，然后通过样板json批量生成再用mkvmerge命令行批量封装</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://github.com/YohoYang/VSGUI">VSGUI</a></td>
-<td>Untest，类似于MEGUI的VS版本</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h1 id="Subtitle"><a href="#Subtitle" class="headerlink" title="Subtitle"></a>Subtitle</h1><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://github.com/SubtitleEdit/subtitleedit">subtitleedit</a></td>
-<td>支持ass转srt</td>
-</tr>
-<tr>
-<td><a href="https://github.com/Ristellise/AegisubDC">AegisubDC</a></td>
-<td>unmaintained</td>
-</tr>
-<tr>
-<td><a href="https://github.com/wangqr/Aegisub">Aegisub(wangqr)</a></td>
-<td>Aegisub 在 ass 方面会比较专业</td>
-</tr>
-<tr>
-<td><a href="https://github.com/quietvoid/subtitle_tonemap">subtitle_tonemap</a></td>
-<td>adjust brightness to PGS subtitle</td>
-</tr>
-<tr>
-<td><a href="https://github.com/tp7/Sushi">sushi</a></td>
-<td>automatic shifter based audio stream</td>
-</tr>
-<tr>
-<td><a href="https://github.com/kaegi/alass">alass</a></td>
-<td>automatic shifter based subtitle&#x2F;audio</td>
-</tr>
-<tr>
-<td><a href="https://github.com/dyphire/subtitle-convert">subtitle-convert</a></td>
-<td>fix subtitle encoding (to UTF-8)</td>
-</tr>
-<tr>
-<td><a href="https://github.com/yuppity/ttml2srt">ttml2srt</a></td>
-<td>convert ttml to srt</td>
-</tr>
-<tr>
-<td><a href="https://github.com/arcusmaximus/YTSubConverter">YTSubConverter</a></td>
-<td>convert ytt to ass(or reverse)</td>
-</tr>
-<tr>
-<td><a href="https://github.com/computer045/vtt2ass">vtt2ass</a></td>
-<td>convert vtt to ass</td>
-</tr>
-<tr>
-<td><a href="https://github.com/civodulab/srt2ass">srt2ass</a></td>
-<td>convert srt to ass</td>
-</tr>
-<tr>
-<td><a href="https://github.com/arition/SubRenamer">Subrenamer</a></td>
-<td>Rename subtitles for BDRip</td>
-</tr>
-<tr>
-<td><a href="https://github.com/qwqcode/SubRenamer">SubRenamer</a></td>
-<td>番剧字幕文件自动化一键批量重命名（改名）工具</td>
-</tr>
-</tbody></table>
-<h1 id="Dolby"><a href="#Dolby" class="headerlink" title="Dolby"></a>Dolby</h1><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://github.com/domyd/mlp">mlp</a></td>
-<td>Dovi TrueHD demuxer</td>
-</tr>
-<tr>
-<td><a href="https://github.com/pcroland/deew">deew</a></td>
-<td>DDP maker</td>
-</tr>
-<tr>
-<td><a href="https://github.com/rixtox/mp4dovi">mp4dovi</a></td>
-<td>Dovi in mp4 files</td>
-</tr>
-</tbody></table>
-<h1 id="Scripts"><a href="#Scripts" class="headerlink" title="Scripts"></a>Scripts</h1><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://github.com/N3xusHD/EasyCompare">EasyCompare</a></td>
-<td>compare snapshot</td>
-</tr>
-</tbody></table>
-<h1 id="Chapter"><a href="#Chapter" class="headerlink" title="Chapter"></a>Chapter</h1><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://github.com/tautcony/ChapterTool">ChapterTool</a></td>
-<td>chapter create tool</td>
-</tr>
-<tr>
-<td><a href="https://github.com/fireattack/chapter_converter">chapter_converter</a></td>
-<td>convert chapter file formats</td>
-</tr>
-</tbody></table>
-<h1 id="Player"><a href="#Player" class="headerlink" title="Player"></a>Player</h1><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://github.com/dyphire/mpv-config/releases">mpv-config</a></td>
-<td>mpv pack</td>
-</tr>
-<tr>
-<td><a href="https://www.microsoft.com/zh-cn/p/hevc-video-extensions-from-device-manufacturer/9n4wgh0z6vhq">Hevc Video Extensions From Device Manufacturer</a></td>
-<td>hevc extension for Windows</td>
-</tr>
-<tr>
-<td><a href="https://www.microsoft.com/zh-cn/p/app/9pltg1lwphlf">Dolby Vision Extensions</a></td>
-<td>dovi extension for Windows</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>2.Tools</category>
-      </categories>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/3.Code/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BB%84%E5%90%88%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>因为平时注意力不集中，所以这些可能是碎片化的，有空可能会整理。<br>另外人菜，请批判性的理解</p>
-<p>（水平问题，自己的脚本就不放出来了）</p>
-<p><a href="https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/Jin.Roh.1999/SDR.720P-ZQ.vpy">https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/Jin.Roh.1999/SDR.720P-ZQ.vpy</a></p>
-<p>22行开始 对(luma平面 - Y)先降噪。然后STPresso对噪点进行处理之后再打回来。</p>
-<hr>
-<p>对帧的一些操作</p>
-<p><a href="https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/A.Silent.Voice.2016/SDR.1080p.D-Z0N3.vpy">https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/A.Silent.Voice.2016/SDR.1080p.D-Z0N3.vpy</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Advanced HD Video Encoding Guide</title>
     <url>/6.etc/%E8%BF%9B%E9%98%B6%E9%AB%98%E6%B8%85%E8%A7%86%E9%A2%91%E5%8E%8B%E5%88%B6%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p>说明：并非所有内容都是正确的，部分内容仍待完善。</p>
@@ -1621,7 +1134,7 @@
 </li>
 <li><p><code>--merange 24(能够使用的最低的值) to 64</code> 设置太高（超过128）可能有害，32或48对大多数编码来说都很好。一般来说，对于有大量运动的电影（如动作片），（使用 <code>umh</code> 时）将1080p设为32-48、720p为32有所成效。人物对话场景可以应用24这样的低值。对编码速度的影响是明显的但并不严重。个人而言，在使用 <code>umh</code> 时，我更喜欢将1080p设置为48，720p设置为32，或者使用 <code>tesa</code> 时，1080p为32，720p也为32。</p>
 </li>
-<li><p><code>--no-mbtree</code> 我强烈建议在启用和禁用 mbtree 的情况下进行测试，因为通常它会导致两种截然不同的编码结果。**宏块树(mbtree)**基本上试图降低块而不是帧的质量，因此只有帧中不重要的部分被分配更低码率。要做到这一点，它需要知道一个块以后被引用的频率，这就是为什么 <code>rc-lookahead</code>  应该被设置为 250。这对有静态背景的视频很有用，比如动画片。或者在那些已经使用了高 <code>qcomp</code>（.75或以上）的视频，宏块树的影响较小。在测试宏块树开启与否哪种合适时，你可能需要重新测试每一个参数设置，特别是<code>qcomp</code>、<code>psy-rd</code> 和 <code>ipratio</code>。</p>
+<li><p><code>--no-mbtree</code> 我强烈建议在启用和禁用 mbtree 的情况下进行测试，因为通常它会导致两种截然不同的编码结果。<strong>宏块树(mbtree)</strong> 基本上试图降低块而不是帧的质量，因此只有帧中不重要的部分被分配更低码率。要做到这一点，它需要知道一个块以后被引用的频率，这就是为什么 <code>rc-lookahead</code>  应该被设置为 250。这对有静态背景的视频很有用，比如动画片。或者在那些已经使用了高 <code>qcomp</code>（.75或以上）的视频，宏块树的影响较小。在测试宏块树开启与否哪种合适时，你可能需要重新测试每一个参数设置，特别是<code>qcomp</code>、<code>psy-rd</code> 和 <code>ipratio</code>。</p>
 </li>
 <li><p><code>--ipratio 1.15 to 1.40</code> 1.30是最常用的数值。此参数决定I帧和P帧之间比特率的分配比例。</p>
 </li>
@@ -1834,15 +1347,37 @@
       </categories>
   </entry>
   <entry>
-    <title>Demux&amp;Remux 操作</title>
+    <title>Linux工具</title>
+    <url>/2.Tools/Linux/</url>
+    <content><![CDATA[<p>主要提供一些可以在 Linux 下使用的工具，但实际很少完全在 Linux 下工作，所以仅供参考</p>
+<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p><a href="https://github.com/gzycode39/docker-vapoursynth-yuuno/">https://github.com/gzycode39/docker-vapoursynth-yuuno/</a></p>
+<h1 id="Info"><a href="#Info" class="headerlink" title="Info"></a>Info</h1><h2 id="BDInfoCLI-ng"><a href="#BDInfoCLI-ng" class="headerlink" title="BDInfoCLI-ng"></a>BDInfoCLI-ng</h2><p><a href="https://github.com/zoffline/BDInfoCLI-ng">https://github.com/zoffline/BDInfoCLI-ng</a></p>
+<p><code>docker run --rm -it -v &lt;BD_PATH&gt;:/mnt/bd -v &lt;REPORT_DEST&gt;:/mnt/report zoffline/bdinfocli-ng /mnt/bd /mnt/report</code> (iso需要挂载后再扫)</p>
+<h1 id="Demux-x2F-Remux"><a href="#Demux-x2F-Remux" class="headerlink" title="Demux&#x2F;Remux"></a>Demux&#x2F;Remux</h1><h2 id="tsMuxer"><a href="#tsMuxer" class="headerlink" title="tsMuxer"></a>tsMuxer</h2><p><a href="https://github.com/justdan96/tsMuxer">https://github.com/justdan96/tsMuxer</a></p>
+<h2 id="mkvtoolnix"><a href="#mkvtoolnix" class="headerlink" title="mkvtoolnix"></a>mkvtoolnix</h2><p><a href="https://mkvtoolnix.download/downloads.html">https://mkvtoolnix.download/downloads.html</a><br>注意章节编辑器名称模板改成英文 <code>Chapter &lt;NUM:2&gt;</code></p>
+<h2 id="DGDemux"><a href="#DGDemux" class="headerlink" title="DGDemux"></a>DGDemux</h2><p><a href="http://rationalqm.us/dgdemux/dgdemux.html">http://rationalqm.us/dgdemux/dgdemux.html</a></p>
+<h1 id="Encode"><a href="#Encode" class="headerlink" title="Encode"></a>Encode</h1><h2 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h2><p><a href="https://ffmpeg.org/ffmpeg-all.html">https://ffmpeg.org/ffmpeg-all.html</a></p>
+<p>范例</p>
+<p><code>ffmpeg -i 1.dts -c:a flac -compression_level 8 1.flac</code></p>
+<p><code>ffmpeg -i 1.mkv -map 0:1  -c:a flac -compression_level 8 chi.flac</code></p>
+<p><code>ffmpeg  -v quiet -ss 00:23:00 -i file  -vcodec png -vframes 1 -pix_fmt rgb24 -y ~/filename.png</code></p>
+<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><p>cutP.py</p>
+]]></content>
+      <categories>
+        <category>2.Tools</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Demux &amp; Remux 操作</title>
     <url>/2.Tools/Demux&amp;Remux/</url>
-    <content><![CDATA[<h1 id="Demux"><a href="#Demux" class="headerlink" title="Demux"></a>Demux</h1><p>Demux作为音轨处理的前置步骤(部分原盘只有DGDemux能正常处理)，目前获取的信息是再TrueHD方面 MakeMKV &gt;&#x3D; 1.15.4 &#x3D; mlp &gt; DGDemux (具体见 mlp 的 Readme)。</p>
+    <content><![CDATA[<p>通常建议在 Demux &amp; Remux 之前进行扫盘，mkvtoolnix 以及 dgdemux 都可以进行。</p>
+<p>Demux作为音轨处理的前置步骤(部分原盘只有DGDemux能正常处理)，目前获取的信息是再TrueHD方面 MakeMKV &gt;&#x3D; 1.15.4 &#x3D; mlp &gt; DGDemux (具体见 mlp 的 Readme)。</p>
 <p>或许考虑使用<a href="https://github.com/domyd/mlp">mlp</a>来专门处理肉酱TrueHD盘</p>
 <p>一些肉酱盘 mkvtoolnix,eac3to,会有 glitching 的问题见<a href="https://github.com/ted423/FXXS-Encode-Guide/issues/14">issue</a>(并不确认eac3to最新版是否解决了问题)。</p>
 <p>一些 mpls 会作为 m2ts 的 index,m2ts 本身前后会包含一些 garbage，见<a href="https://github.com/justdan96/tsMuxer/issues/624">issue</a>,目前 DGDemux 可以通过勾选 ‘strict playlist’ 来正确处理。</p>
 <p>mkvtoolnix也会进行处理，但音轨出现了一些问题。</p>
-<h2 id="DVD"><a href="#DVD" class="headerlink" title="DVD"></a>DVD</h2><p>对于DVD，你可能需要使用MakeMKV，目前的其他软件对DVD都支持不太好，例如mkvtoolnix认不到章节以及字幕轨</p>
-<h2 id="常见的Demux软件有"><a href="#常见的Demux软件有" class="headerlink" title="常见的Demux软件有"></a>常见的Demux软件有</h2><ul>
+<h1 id="DVD"><a href="#DVD" class="headerlink" title="DVD"></a>DVD</h1><p>对于DVD，你可能需要使用MakeMKV，目前的其他软件对DVD都支持不太好，例如mkvtoolnix认不到章节以及字幕轨</p>
+<h1 id="常见的Demux软件有"><a href="#常见的Demux软件有" class="headerlink" title="常见的Demux软件有"></a>常见的Demux软件有</h1><ul>
 <li>UsEac3to&#x2F;eac3to</li>
 <li>DGDemux(现在作为默认的标准软件)</li>
 <li>tsMuxer</li>
@@ -1856,10 +1391,10 @@
 <p>前3者支持BD&#x2F;mpls的demux(你可以选用现成的Remux来避免原盘带来的各种问题),不过DGDemux支持原盘，tsMuxer的mkv很多轨道都不认<br>后3者开源免费多平台(有Linux版本)</p>
 <p>DGDemux有Linux版本，不过没有GUI</p>
 <p>tsMuxer拆出的turehd是包含ac3核心的，FFmpeg不认(不能拿来制作DDP)</p>
-<h2 id="选择正确的mpls"><a href="#选择正确的mpls" class="headerlink" title="选择正确的mpls"></a>选择正确的mpls</h2><p>不像二次元原盘可能一个m2ts就一集，乱七八糟的原盘mpls可能发生各种情况。建议关注下以及观察加载 m2ts 的规律。</p>
+<h1 id="选择正确的mpls"><a href="#选择正确的mpls" class="headerlink" title="选择正确的mpls"></a>选择正确的mpls</h1><p>不像二次元原盘可能一个m2ts就一集，乱七八糟的原盘mpls可能发生各种情况。建议关注下以及观察加载 m2ts 的规律。</p>
 <p>一般可以看获取原盘处的BDinfo。</p>
 <p>还有个比较便捷的办法,就是stream里看最大的m2ts，记住名字，然后通过文本编辑器打开mpls看这个m2ts出现在哪。(不过在有DGDemux的情况下，直接在里面看就好了)</p>
-<h2 id="mkvextract"><a href="#mkvextract" class="headerlink" title="mkvextract"></a>mkvextract</h2><p>一般建议用GUI,除非你用Linux<br><a href="https://mkvtoolnix.download/doc/mkvextract.html">https://mkvtoolnix.download/doc/mkvextract.html</a></p>
+<h1 id="mkvextract"><a href="#mkvextract" class="headerlink" title="mkvextract"></a>mkvextract</h1><p>一般建议用GUI,除非你用Linux<br><a href="https://mkvtoolnix.download/doc/mkvextract.html">https://mkvtoolnix.download/doc/mkvextract.html</a></p>
 <p>Examples</p>
 <p><code>mkvextract inpu.mkv tracks 1:audio.thd</code><br>(需要自己确定轨道ID以及后缀)</p>
 <p>Extracting both chapters and tags in their respective XML formats at the same time:</p>
@@ -1873,23 +1408,490 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkvextract -v sample.mkv tracks 2:chs.sup 3:cht.sup</span><br><span class="line">Extracting track 2 with the CodecID &#x27;S_HDMV/PGS&#x27; to the file &#x27;chs.sup&#x27;. Container format: SUP</span><br><span class="line">Extracting track 3 with the CodecID &#x27;S_HDMV/PGS&#x27; to the file &#x27;cht.sup&#x27;. Container format: SUP</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h2><p>如无必要，不建议使用，需要自己判断音轨深度，默认是拆16bit</p>
-<h3 id="ffprobe"><a href="#ffprobe" class="headerlink" title="ffprobe"></a>ffprobe</h3><p><code>ffprobe &#39;文件&#39;</code> 用于检测文件信息(不过直接看mediainfo就好，而且纯文本输出没有各种GUI看起来那么直观,不过可以用来确认下音轨轨道)</p>
+<h1 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h1><p>如无必要，不建议使用，需要自己判断音轨深度，默认是拆16bit</p>
+<h2 id="ffprobe"><a href="#ffprobe" class="headerlink" title="ffprobe"></a>ffprobe</h2><p><code>ffprobe &#39;文件&#39;</code> 用于检测文件信息(不过直接看mediainfo就好，而且纯文本输出没有各种GUI看起来那么直观,不过可以用来确认下音轨轨道)</p>
 <p>ffprobe 无法区分音轨是否带Atmos</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Stream #0:1(eng): Audio: dts (DTS-HD MA), 48000 Hz, 5.1(side), s32p (24 bit) (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      title           : DTS-HD MA 5.1</span><br><span class="line">      BPS-eng         : 4133090</span><br><span class="line">      DURATION-eng    : 02:58:09.472000000</span><br><span class="line">      NUMBER_OF_FRAMES-eng: 1002138</span><br><span class="line">      NUMBER_OF_BYTES-eng: 5522569140</span><br><span class="line">      _STATISTICS_WRITING_APP-eng: mkvmerge v29.0.0 (&#x27;Like It Or Not&#x27;) 64-bit</span><br><span class="line">      _STATISTICS_WRITING_DATE_UTC-eng: 2018-12-23 15:53:25</span><br><span class="line">      _STATISTICS_TAGS-eng: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES</span><br></pre></td></tr></table></figure>
 
 <p>如这个就是音轨轨道-&gt;0:1</p>
-<h3 id="拆音轨为单轨道-废弃，Dolby-Media-Producer-Suite需要，不过已经用不到了"><a href="#拆音轨为单轨道-废弃，Dolby-Media-Producer-Suite需要，不过已经用不到了" class="headerlink" title="拆音轨为单轨道(废弃，Dolby Media Producer Suite需要，不过已经用不到了)"></a>拆音轨为单轨道(废弃，Dolby Media Producer Suite需要，不过已经用不到了)</h3><p>音轨轨道顺序可以在这里确认<a href="https://trac.ffmpeg.org/wiki/AudioChannelManipulation">https://trac.ffmpeg.org/wiki/AudioChannelManipulation</a></p>
+<h2 id="拆音轨为单轨道-废弃，Dolby-Media-Producer-Suite需要，不过已经用不到了"><a href="#拆音轨为单轨道-废弃，Dolby-Media-Producer-Suite需要，不过已经用不到了" class="headerlink" title="拆音轨为单轨道(废弃，Dolby Media Producer Suite需要，不过已经用不到了)"></a>拆音轨为单轨道(废弃，Dolby Media Producer Suite需要，不过已经用不到了)</h2><p>音轨轨道顺序可以在这里确认<a href="https://trac.ffmpeg.org/wiki/AudioChannelManipulation">https://trac.ffmpeg.org/wiki/AudioChannelManipulation</a></p>
 <p>ffmpeg -i input.wav -filter_complex “channelsplit&#x3D;channel_layout&#x3D;5.1[FL][FR][FC][LFE][BL][BR]” -map “[FL]” -c:a -map “[FR]” R.wav -map “[FC]” C.wav -map “[LFE]” LFE.wav -map “[BL]” Ls.wav -map “[BR]” Rs.wav</p>
 <p>24bit</p>
 <p>ffmpeg -i input.wav -filter_complex “channelsplit&#x3D;channel_layout&#x3D;5.1[FL][FR][FC][LFE][BL][BR]” -map “[FL]” -c:a pcm_s24le L.wav -map “[FR]” -c:a pcm_s24le R.wav -map “[FC]” -c:a pcm_s24le C.wav -map “[LFE]” -c:a pcm_s24le LFE.wav -map “[BL]” -c:a pcm_s24le Ls.wav -map “[BR]” -c:a pcm_s24le Rs.wav</p>
-<h3 id="Encode-flac"><a href="#Encode-flac" class="headerlink" title="Encode flac"></a>Encode flac</h3><p>范例</p>
+<h2 id="Encode-flac"><a href="#Encode-flac" class="headerlink" title="Encode flac"></a>Encode flac</h2><p>范例</p>
 <p><code>ffmpeg -c:a flac -compression_level 8 1.flac -i 1.dts</code></p>
 <p><code>ffmpeg -map 0:1  -c:a flac -compression_level 8 a.flac -i 1.mkv </code></p>
 ]]></content>
       <categories>
         <category>2.Tools</category>
       </categories>
+  </entry>
+  <entry>
+    <title>字幕相关</title>
+    <url>/4.Audio&amp;sub/%E5%AD%97%E5%B9%95%E5%88%B6%E4%BD%9C/</url>
+    <content><![CDATA[<p>本篇内容都作为 Optional</p>
+<h1 id="字幕调轴"><a href="#字幕调轴" class="headerlink" title="字幕调轴"></a>字幕调轴</h1><p>一般来说不少字幕都可以通过平移来解决不同步问题。<br>但还有相当多的会因为源的帧率不同导致同步问题。</p>
+<p>此时应确认原字幕匹配的视频文件的帧率，以及目标视频文件的视频帧率</p>
+<p>以 Blonde and Blonder 2007 举例，现有的都是DVD的字幕，需要制作1080p AMZN web(25fps)的字幕。</p>
+<p>DVD是NTSC的，也就是传说中的5烂2</p>
+<p><strong>Attention</strong> NTSC 的相关事项建议查下资料以作了解。虽然DVD源是29.970 fps，但实际应使用压制处理后的分辨率23.976 fps。</p>
+<p>然后对字幕做帧率转换，大部分的字幕软件都支持，除此之外还可以使用Potplayer</p>
+<p>范例</p>
+<p>对于 Blonde and Blonder 2007 的字幕，帧率由 23.976 fps 转为 25 fps,之后整体向前平移 12s 即可匹配</p>
+<h2 id="字幕轴替换"><a href="#字幕轴替换" class="headerlink" title="字幕轴替换"></a>字幕轴替换</h2><p>有些情况下帧率调整没法解决问题，这种情况下可以完全的调轴(还有些可能就是制作字幕的人造成了一些错误)</p>
+<p>比如你有一个轴不对的中文字幕，找到一条完全匹配的英文字幕。</p>
+<p>你可以使用 Sutittle Edit 的 point sync via other subtitle 功能</p>
+<p>还可以打开拥有正确时间轴的字幕，选所有行，右键，Column, delete text, 然后从其他字幕导入文本，最好再检查下有没有错行</p>
+<h2 id="精调"><a href="#精调" class="headerlink" title="精调"></a>精调</h2><p>Sutittle Edit 不但可以加载画面，甚至可以读取音轨波形，可以通过听以及观察波形来精调。</p>
+<p>就是应该会有点累</p>
+<h1 id="双语合并"><a href="#双语合并" class="headerlink" title="双语合并"></a>双语合并</h1><p>使用srtedit即可，可以自己点点点研究一下就行。</p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
+<li>Sutittle Edit 处理ass会导致一些样式丢失</li>
+<li>HDR字幕(包括srt)白颜色下会过亮(与软件可能也有一定关系)，请注意转换成暗色</li>
+</ul>
+]]></content>
+      <categories>
+        <category>4.Audio&amp;sub</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Progressive segmented frame</title>
+    <url>/6.etc/PsF/</url>
+    <content><![CDATA[<p>写作 interlace, 实际是为了塞p的视频</p>
+<p><a href="https://en.wikipedia.org/wiki/Progressive_segmented_frame">https://en.wikipedia.org/wiki/Progressive_segmented_frame</a></p>
+]]></content>
+      <categories>
+        <category>6.etc</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>常见报错</title>
+    <url>/6.etc/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="x265-crash"><a href="#x265-crash" class="headerlink" title="x265 crash"></a>x265 crash</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2022-01-07][21:18:15] WARNING: Input process exited with error (code: 1), your encode might be *incomplete* !!!</span><br><span class="line">[2022-01-07][21:18:15] </span><br><span class="line">[2022-01-07][21:18:15] FATAL ERROR: The encoder process has *crashed* -&gt; your encode probably is *incomplete* !!!</span><br><span class="line">[2022-01-07][21:18:15] Note that this indicates a bug in the current encoder, *not* in Simple x264/x265 Launcher.</span><br><span class="line">[2022-01-07][21:18:15] </span><br><span class="line">[2022-01-07][21:18:15] PROCESS EXITED WITH ERROR CODE: -1073741795</span><br></pre></td></tr></table></figure>
+<p>注意检查CPU指令集，默认使用的是AVX2,有部分CPU不支持，LIKE E5-2690 0</p>
+<p>这种情况下弄个CPU-Z看看就知道了</p>
+<p>另外还有错误的参数可能会导致问题</p>
+<h1 id="压制程序退出"><a href="#压制程序退出" class="headerlink" title="压制程序退出"></a>压制程序退出</h1><p>生成文件被占用或不可写入会导致报错，例如 vs 预览会导致文件被占用。</p>
+<h1 id="Dgdemux-不显示界面"><a href="#Dgdemux-不显示界面" class="headerlink" title="Dgdemux 不显示界面"></a>Dgdemux 不显示界面</h1><p>DGDemux.ini 里有一行 Window_Position 删掉就好了，或者整个ini删掉也行</p>
+<h1 id="大小核调度问题"><a href="#大小核调度问题" class="headerlink" title="大小核调度问题"></a>大小核调度问题</h1><p>管理员模式运行cmd，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">powercfg -attributes SUB_PROCESSOR 7f2f5cfa-f10c-4823-b5e1-e93ae85f46b5 -ATTRIB_HIDE</span><br><span class="line">powercfg -attributes SUB_PROCESSOR 93b8b6dc-0698-4d1c-9ee4-0644e900c85d -ATTRIB_HIDE</span><br><span class="line">powercfg -attributes SUB_PROCESSOR bae08b81-2d5e-4688-ad6a-13243356654b -ATTRIB_HIDE</span><br><span class="line">powercfg -attributes SUB_PROCESSOR b28a6829-c5f7-444e-8f61-10e24e85c532 -ATTRIB_HIDE</span><br></pre></td></tr></table></figure>
+<p>高级电源设置里”异类线程调度策略”改成”所有处理器”</p>
+]]></content>
+      <categories>
+        <category>6.etc</category>
+      </categories>
+      <tags>
+        <tag>Issue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>x265参数解析</title>
+    <url>/2.Tools/x265%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><p><a href="https://tieba.baidu.com/p/6627144750">https://tieba.baidu.com/p/6627144750</a></p>
+</li>
+<li><p><a href="https://x265.readthedocs.io/en/3.1/cli.html">https://x265.readthedocs.io/en/3.1/cli.html</a></p>
+</li>
+<li><p><a href="https://vcb-s.nmm-hd.org/Dark%20Shrine/[VCB-Studio][%E6%95%99%E7%A8%8B10]x265%202.9%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/[VCB-Studio][%E6%95%99%E7%A8%8B10]x265%202.9%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE.pdf">https://vcb-s.nmm-hd.org/Dark%20Shrine/[VCB-Studio][教程10]x265%202.9参数设置/[VCB-Studio][教程10]x265%202.9参数设置.pdf</a></p>
+</li>
+</ul>
+<p><strong>请注意，不能确保完全正确</strong></p>
+<h2 id="crf-qp"><a href="#crf-qp" class="headerlink" title="crf,qp"></a>crf,qp</h2><p><strong>qp</strong> 电脑认为的恒定画质(但一般不进行设置)</p>
+<p><strong>crf</strong> 人眼认为的恒定画质，但是运动时候画质会降低来节省码率</p>
+<p>数值越低画质越好。</p>
+<p>一般低于等于18可以认为和原画差不多(主观观点)</p>
+<h2 id="ctu-lt-64-32-16-gt"><a href="#ctu-lt-64-32-16-gt" class="headerlink" title="ctu &lt;64|32|16&gt;"></a>ctu &lt;64|32|16&gt;</h2><p>分块大小，64速度最慢，32其次</p>
+<p>设成32 对于复杂场景压缩压缩率最高，64 对于简单场景压缩压缩率最高</p>
+<p>推荐用32因为速度比64快10%，并且画质更好一些</p>
+<p>16适合DVD，32适合1080p,64适合4K,720p用16,x265可能就会直接退出</p>
+<h2 id="rd-1-6"><a href="#rd-1-6" class="headerlink" title="rd (1-6)"></a>rd (1-6)</h2><p>分析的复杂度，数值越大画质越高，压出来体积越大，5,6非常慢, 默认3.</p>
+<h2 id="early-skip"><a href="#early-skip" class="headerlink" title="early-skip"></a>early-skip</h2><p>–early-skip, –no-early-skip</p>
+<p>默认开，开了提高压缩速度，关了提高精度，体积小幅度增加</p>
+<h2 id="rdoq-level"><a href="#rdoq-level" class="headerlink" title="rdoq-level"></a>rdoq-level</h2><p>RDOP [rate-distortion optimized quantization] (率失真优化量化)</p>
+<p>默认0,关闭，预设slow时候默认开启。(preset placebo 似乎也还是2)</p>
+<p>x265最重要的参数，没有之一，开了能有助于保存细节，当然会有更大文件体积。关闭可以提高压缩速度，看起来会轻度模糊。开启掉速度30%以上，推荐舍弃其他参数，也要开启这个。</p>
+<p>设成 1 时候 看起来效果最好，但是体积会大30%以上</p>
+<p>设成 2 时候 效果略差，体积只会小幅度增加，推荐使用2</p>
+<h2 id="psy-rd-amp-psy-rdoq"><a href="#psy-rd-amp-psy-rdoq" class="headerlink" title="psy-rd &amp; psy-rdoq"></a>psy-rd &amp; psy-rdoq</h2><p>都是Psycho-visual options的参数</p>
+<p>具体见<a href="https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options">https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options</a></p>
+<p>这两者都会影响码率(经测试，开高psy-rdoq到5所增加的码率通过crf来给画面反而效果更好)</p>
+<p>psy-rd 默认 2.0有些高，建议开到1.5，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试)</p>
+<p>psy-rdoq 一直用1一般就好，开高了保留噪点，画面本身却会变差</p>
+<p>一些测试见Compare</p>
+<h2 id="tu-intra-depth-lt-1-4-gt-tu-inter-depth-lt-1-4-gt"><a href="#tu-intra-depth-lt-1-4-gt-tu-inter-depth-lt-1-4-gt" class="headerlink" title="tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;"></a>tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;</h2><p>默认1，开高会小幅增加压缩率，但是特别慢 (preset placebo 似乎就是4)</p>
+<h2 id="max-tu-size-lt-32-16-8-4-gt"><a href="#max-tu-size-lt-32-16-8-4-gt" class="headerlink" title="max-tu-size &lt;32|16|8|4&gt;"></a>max-tu-size &lt;32|16|8|4&gt;</h2><p>默认32，开低会降低压缩率，并且不会提速，推荐默认</p>
+<h2 id="max-merge-lt-1-5-gt"><a href="#max-merge-lt-1-5-gt" class="headerlink" title="max-merge &lt;1..5&gt;"></a>max-merge &lt;1..5&gt;</h2><p>开高小幅度提高压缩率，对速度影响不明显，默认2 (preset placebo 似乎就是5)</p>
+<h2 id="me-merange"><a href="#me-merange" class="headerlink" title="me ,merange"></a>me ,merange</h2><p>me 搜索方式，默认hex ，用umh 或star 能小幅度提高压缩率，但是掉速20%</p>
+<p>merange 搜索范围，默认57，me设成hex时候，对速度影响不大，但是使用umh或star时候，开高掉速严重</p>
+<p>umh比star好</p>
+<ol>
+<li><p>dia</p>
+</li>
+<li><p>hex (default)</p>
+</li>
+<li><p>umh</p>
+</li>
+<li><p>star</p>
+</li>
+<li><p>sea</p>
+</li>
+<li><p>full</p>
+</li>
+</ol>
+<h2 id="subme-默认2"><a href="#subme-默认2" class="headerlink" title="subme 默认2"></a>subme 默认2</h2><p>开高小幅提高压缩率，开低提高压缩速度，5比3慢10%</p>
+<p>推荐3</p>
+<h1 id="keyint"><a href="#keyint" class="headerlink" title="keyint"></a>keyint</h1><p>最大IDR间隔</p>
+<p>关键帧相关，这个将会影响到点击跳转，开高能提升压缩率(但个人不建议随便动他，720对于一般的24p意味着30秒的时间，60p你可以稍微开高点？)</p>
+<p>默认250</p>
+<h2 id="min-keyint"><a href="#min-keyint" class="headerlink" title="min-keyint"></a>min-keyint</h2><p>最小分组帧数，默认23，推荐改成个位数，提高gop准确度。</p>
+<p>小幅度提高压缩率，对压缩速度没影响</p>
+<p>min-keyint&#x3D;1 的情况对于一些高速切换的场景会因此要强制1秒内一个IDR帧，造成P或者B等参考帧使用效率降低(换场景了参考的意义已经不大了)。</p>
+<p>还有就是这样可以避免一些老旧的设备出现硬解的bug。 - by fch1993</p>
+<h2 id="pmode-amp-no-pmode"><a href="#pmode-amp-no-pmode" class="headerlink" title="pmode &amp; no-pmode"></a>pmode &amp; no-pmode</h2><p>并行决策模式</p>
+<p>见这里 <a href="https://github.com/ted423/FXXS-Encode-Guide/issues/16">https://github.com/ted423/FXXS-Encode-Guide/issues/16</a></p>
+<p>官方推荐是CPU不饱和才开，编码器将跨多个工作线程分配每个 CU 的分析工作。</p>
+<p>但从测试结果看，建议任何情况下都开</p>
+<h2 id="rc-lookahead"><a href="#rc-lookahead" class="headerlink" title="rc-lookahead"></a>rc-lookahead</h2><p>预览帧数，默认20</p>
+<p>开高可以提高分组(gop)准确度，小幅度提高压缩率，同时小幅度降速，推荐40</p>
+<p>crf模式时，rc-lookahead可以提高cutree的准确度（提高画质)</p>
+<h2 id="bframes"><a href="#bframes" class="headerlink" title="bframes"></a>bframes</h2><p>最大b帧数量</p>
+<p>开高小幅度提高压缩率，默认4，开到8，掉速10%</p>
+<p>bframes 开高了会小幅降低画质</p>
+<h2 id="cutree"><a href="#cutree" class="headerlink" title="cutree"></a>cutree</h2><p>–no-cutree since this seems to be a poor implementation of mbtree.</p>
+<p><del>目前测试是静态场景表现不错，具体可以看<a href="https://ted423.github.io/Document/Encode/cutree/">https://ted423.github.io/Document/Encode/cutree/</a></del> 不建议开，码率分配存在非常大的问题(有一处分配了31M的码率结果效果还不如一半码率的x264)</p>
+<p>doom9 上2020年有人说”在快速移动的场景中，我一直在努力解决丑陋的扭曲（用条带涂抹看起来有点像运动模糊的东西），最后发现 x265 的 CUTree 是罪魁祸首。</p>
+<p>关闭它可以解决它，但是当试图在其他场景中保持相同的整体质量时，比特率会爆炸。</p>
+<p>有什么方法可以使 CUTree ‘不那么激进’ 或将其设置为 50% 或某些阈值参数吗？”</p>
+<h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p>参照帧数量，默认3</p>
+<p>开高小幅度提高压缩率，同时小幅度降速，</p>
+<p>3和4速度差不多，推荐4</p>
+<p>VCB:不过实测 ref 增加在 x265 中作用不明显。建议不超过 6</p>
+<h2 id="sao-默认开启"><a href="#sao-默认开启" class="headerlink" title="sao 默认开启"></a>sao 默认开启</h2><p>–sao, –no-sao</p>
+<p>设计目的是去振铃(光环现象)，但是细节丰富地方会去掉太多细节，</p>
+<p>推荐关闭。</p>
+<h2 id="strong-intra-smoothing"><a href="#strong-intra-smoothing" class="headerlink" title="strong-intra-smoothing"></a>strong-intra-smoothing</h2><p>推荐在追求还原度的压制的时候关闭，严重欠码压制时开启(部分情况下，aq2 或者降低 aqs 更为优先)</p>
+<p>对关键帧进行平滑处理，看起来挺吓人的，实际上效果不明显，推荐用<code>--no-strong-intra-smoothing</code>关闭，保留细节(来源贴吧 连接1 的帖内说明)</p>
+<p><a href="http://forum.doom9.net/showthread.php?p=1873696">http://forum.doom9.net/showthread.php?p=1873696</a></p>
+<p>相关讨论，与贴吧给出的结论不同</p>
+<p>个人测试是开的话画面细节丢失，影响蛮大 <del>可能适合低码压制</del></p>
+<p>目前测试是在低码压制上会降低块效应(不知道这么说对不对，aqs psy-rdoq开高会导致块变得严重。特别是4K，44Mbps仍然有些欠码，因此4K欠码压制的情况下，这种现象会非常严重，见 <a href="https://slow.pics/c/uvnpqHrU">https://slow.pics/c/uvnpqHrU</a> 不过这个对比图没有块现象严重的对比，只是用于说明所需码率，因为一个没注意顺手删了)</p>
+<h2 id="lookahead-slices"><a href="#lookahead-slices" class="headerlink" title="lookahead-slices"></a>lookahead-slices</h2><p>设成0有助于提高画质，开高有利于lookahead的并行度，</p>
+<p>推荐设成0，对压缩速度无影响</p>
+<h2 id="deblock-去色块"><a href="#deblock-去色块" class="headerlink" title="deblock 去色块"></a>deblock 去色块</h2><p>要调低 默认太高， 推荐最高调到-1,-1以下，调高了会模糊</p>
+<h2 id="qcomp"><a href="#qcomp" class="headerlink" title="qcomp"></a>qcomp</h2><p>运动时候画质 crf开启时候有效</p>
+<p>开高提高运动时候画质，开低减少文件体积</p>
+<p>推荐0.6-0.7</p>
+<h2 id="frame-threads"><a href="#frame-threads" class="headerlink" title="frame-threads"></a>frame-threads</h2><p>帧线程数量，开高提高cpu利用率，开低有利于小幅度提高压缩率</p>
+<p>如果cpu能够满载可以考虑调到2，如果不能满载考虑使用默认值</p>
+<p>(默认会自动调整)</p>
+<h2 id="aq-strength-默认1-0"><a href="#aq-strength-默认1-0" class="headerlink" title="aq-strength 默认1.0"></a>aq-strength 默认1.0</h2><p>低于1.0首先保留边缘，高于1.0优先保留纹理，这个值也要看aq-mode，噪点多的片可以调低这个值，噪点少的片调高这个值</p>
+<p>不了解不要乱调这个</p>
+<p>VCB:aq-strength 决定了 aq 的强度，一般来说，Anime 的 aq-strength 不用太高（太高了码率也会浪费）。通常，aq-mode&#x3D;1，aq-strength 给 0.8 比较合理；aq-mode&#x3D;2，aq-strength 给 0.9 左右，aq-mode&#x3D;3，aq-strength 给 0.7 左右。</p>
+<h1 id="aq-mode"><a href="#aq-mode" class="headerlink" title="aq-mode"></a>aq-mode</h1><p>目前测试在不足码率压制的情况下,aq1可能会导致画面出现一些奇怪的现象，aq2相对画面更好一些，并且不会出现奇妙的画面(不过测试还不够充分)。</p>
+<p>在给够码率的情况下(噪点比较重的片)，aq1似乎会好些(可以看战火高码版对比图，不过暂时还没放到公网)</p>
+<p>2 x265默认（推荐）</p>
+<p>3 暗处增强，避免暗处被压坏，实际上亮的地方码率也会增加30%以上，所以很 浪费码率(不过就压制而言，通常是差不多码率进行比较，因此浪费码率可以通过调高crf解决)</p>
+<p>aq-mode 4 :优先保留边缘，噪点很多时候用</p>
+<p>VCB:x265 目前有三种 aq 模式。aq-mode 1 是最安全稳定的 aq，适合高码率&#x2F;高画质编码；aq-mode<br>2 相对来说效率最高，适合中低码率的编码；aq-mode 3 对暗场进行加强，适合 8bit 编码防止暗场压烂。一般 10bit编码根据 crf 高低决定 aq 选取，个人建议在 crf &lt;&#x3D; 16 时候使用 aq-mode 1，否则使用 aq-mode 2。注意同 crf下，不同 aq-mode 出来的体积是不一样的，3&gt;1&gt;2。</p>
+<p>补充说明，个人在压制黑白噪点片时，aq2产生了比aq1还大的体积，目测在大颗粒噪点的情况下，aq2会比aq1产生更高的码率</p>
+<h2 id="rskip-lt-0-1-2-gt"><a href="#rskip-lt-0-1-2-gt" class="headerlink" title="rskip &lt;0|1|2&gt;"></a>rskip &lt;0|1|2&gt;</h2><p>开启提高速度，关闭提高画质，0是关闭，默认1</p>
+<p>模式1比0 wmaf 下降0.03左右</p>
+<p>模式2比模式1压缩速度要快30%-50%左右，但是压缩率要低</p>
+<p>对于平滑画面（噪点比较少）画质优于rskip&#x3D;1，但是噪点比较多画面 画质不如rskip&#x3D;1</p>
+<p>rskip&#x3D;2 和ctu&#x3D;64配合不好，同时开启画质压缩率都会下降</p>
+<p><del>推荐rskip&#x3D;2 和ctu&#x3D;32配合</del>(我们一般不开)</p>
+<h2 id="rect"><a href="#rect" class="headerlink" title="rect"></a>rect</h2><p>–rect, –no-rect</p>
+<p>开了小幅度增加压缩率（0%-5%左右 )和画质，有长方形区域时候才有效，否则是空跑，开了掉速30%以上</p>
+<p>推荐关闭增加压缩速度。</p>
+<p>VCB:通常来说，&lt;&#x3D;1080p 下，rect 基本上没什么作用，amp 是几乎完全没作用，但是这俩都是速度黑洞。因此从效率角度建议关闭，或者至少关闭 amp</p>
+<p>个人测试中，1080p开了之后，码率低了一点，画面差了一点</p>
+]]></content>
+      <categories>
+        <category>2.Tools</category>
+      </categories>
+      <tags>
+        <tag>Doc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Collection</title>
+    <url>/2.Tools/Collection/</url>
+    <content><![CDATA[<p>A collection of Encode tools and scripts.</p>
+<h1 id="Codec"><a href="#Codec" class="headerlink" title="Codec"></a>Codec</h1><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Document</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://code.videolan.org/videolan/x264">x264</a></td>
+<td>x264 codec</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/jpsdr/x264">x264-tMod</a></td>
+<td>x264 t_mod codec(默认使用)</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://bitbucket.org/multicoreware/x265_git/src">x265</a></td>
+<td>x265 codec</td>
+<td><a href="https://x265.readthedocs.io/">Doc</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/msg7086/x265-Yuuki-Asuna">x265-Yuuki</a></td>
+<td>x265-Yuuki codec</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/AOMediaCodec/SVT-AV1">SVT-AV1</a></td>
+<td>AV1 codec</td>
+<td><a href="https://github.com/AOMediaCodec/SVT-AV1/tree/master/Docs">Doc</a></td>
+</tr>
+<tr>
+<td><a href="https://aomedia.googlesource.com/aom/">AOM-AV1</a></td>
+<td>AV1 codec</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/fraunhoferhhi/vvenc">vvenc</a></td>
+<td>VVC codec</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://ffmpeg.org//">ffmpeg</a></td>
+<td>Web Only, Contain SVT-AV1(not the newest code)<br> <a href="https://github.com/BtbN/FFmpeg-Builds">Win builds by BtbN</a></td>
+<td><a href="https://ffmpeg.org/ffmpeg.html">Doc</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/nu774/qaac">qaac</a></td>
+<td>是基于 Apple 编码器的命令行 AAC&#x2F;ALAC 编码器前端。开源</td>
+<td><a href="https://github.com/nu774/qaac/wiki">Wiki</a></td>
+</tr>
+<tr>
+<td><a href="https://xiph.org/flac/">flac</a></td>
+<td>很多现有的编码器会调用libFLAC.dll，但项目长期不放出libFLAC.dll的编译版本，需要自己找别人的编译版本</td>
+<td><a href="https://xiph.org/flac/documentation.html">Doc</a></td>
+</tr>
+<tr>
+<td><a href="https://opus-codec.org/">opus</a></td>
+<td>2019年发布最后一版 1.3.1</td>
+<td><a href="https://opus-codec.org/docs/">Doc</a></td>
+</tr>
+<tr>
+<td><a href="https://www.videohelp.com/software/eac3to">eac3to with UsEac3to GUI</a></td>
+<td><a href="https://forum.doom9.org/showthread.php?t=145574">UsEac3to GUI</a> 作者:tebasuna51 <del><a href="https://forum.doom9.org/showthread.php?t=125966">eac3to</a> 作者:madshi (老版本)</del> <a href="https://www.rationalqm.us/eac3to/">https://www.rationalqm.us/eac3to/</a> 新版本 <br><br><a href="https://github.com/ted423/FXXS-Encode-Guide/issues/14">Issue</a></td>
+<td><a href="http://en.wikibooks.org/wiki/Eac3to">Wiki</a></td>
+</tr>
+</tbody></table>
+<h1 id="VS-etc"><a href="#VS-etc" class="headerlink" title="VS etc"></a>VS etc</h1><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Document</th>
+<th>etc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.vapoursynth.com/">VS Official Web</a> \ <a href="https://github.com/vapoursynth/vapoursynth">VS Github</a></td>
+<td>VS</td>
+<td><a href="http://www.vapoursynth.com/doc/index.html">Doc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/YomikoR/VapourSynth-Editor">VapourSynth Editor Modified by YomikoR</a></td>
+<td>原版长期未更新，并且存在一些不足,故只放mod版</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://bitbucket.org/gundamftw/vapoursynth-editor-2">VapourSynth Editor 2</a></td>
+<td>Untest</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/AmusementClub/vapoursynth-classic">vapoursynth-classic</a></td>
+<td>Untest，旨在维护旧版API的一个版本</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/AmusementClub/tools">tool-pack</a></td>
+<td>Untest，类似Mediatool的一个项目，不过我一直好奇里面打包了GPL的东西能不能这么发布</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="Other-Tool"><a href="#Other-Tool" class="headerlink" title="Other Tool"></a>Other Tool</h1><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Document</th>
+<th>etc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/vcb-s/OKEGui">OKEGui</a></td>
+<td>Untest，平时习惯先封装一个，然后通过样板json批量生成再用mkvmerge命令行批量封装</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/YohoYang/VSGUI">VSGUI</a></td>
+<td>Untest，类似于MEGUI的VS版本</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="Subtitle"><a href="#Subtitle" class="headerlink" title="Subtitle"></a>Subtitle</h1><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/SubtitleEdit/subtitleedit">subtitleedit</a></td>
+<td>支持ass转srt</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Ristellise/AegisubDC">AegisubDC</a></td>
+<td>unmaintained</td>
+</tr>
+<tr>
+<td><a href="https://github.com/wangqr/Aegisub">Aegisub(wangqr)</a></td>
+<td>Aegisub 在 ass 方面会比较专业</td>
+</tr>
+<tr>
+<td><a href="https://github.com/quietvoid/subtitle_tonemap">subtitle_tonemap</a></td>
+<td>adjust brightness to PGS subtitle</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tp7/Sushi">sushi</a></td>
+<td>automatic shifter based audio stream</td>
+</tr>
+<tr>
+<td><a href="https://github.com/kaegi/alass">alass</a></td>
+<td>automatic shifter based subtitle&#x2F;audio</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dyphire/subtitle-convert">subtitle-convert</a></td>
+<td>fix subtitle encoding (to UTF-8)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/yuppity/ttml2srt">ttml2srt</a></td>
+<td>convert ttml to srt</td>
+</tr>
+<tr>
+<td><a href="https://github.com/arcusmaximus/YTSubConverter">YTSubConverter</a></td>
+<td>convert ytt to ass(or reverse)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/computer045/vtt2ass">vtt2ass</a></td>
+<td>convert vtt to ass</td>
+</tr>
+<tr>
+<td><a href="https://github.com/civodulab/srt2ass">srt2ass</a></td>
+<td>convert srt to ass</td>
+</tr>
+<tr>
+<td><a href="https://github.com/arition/SubRenamer">Subrenamer</a></td>
+<td>Rename subtitles for BDRip</td>
+</tr>
+<tr>
+<td><a href="https://github.com/qwqcode/SubRenamer">SubRenamer</a></td>
+<td>番剧字幕文件自动化一键批量重命名（改名）工具</td>
+</tr>
+</tbody></table>
+<h1 id="Dolby"><a href="#Dolby" class="headerlink" title="Dolby"></a>Dolby</h1><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/domyd/mlp">mlp</a></td>
+<td>Dovi TrueHD demuxer</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pcroland/deew">deew</a></td>
+<td>DDP maker</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rixtox/mp4dovi">mp4dovi</a></td>
+<td>Dovi in mp4 files</td>
+</tr>
+</tbody></table>
+<h1 id="Scripts"><a href="#Scripts" class="headerlink" title="Scripts"></a>Scripts</h1><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/N3xusHD/EasyCompare">EasyCompare</a></td>
+<td>compare snapshot</td>
+</tr>
+</tbody></table>
+<h1 id="Chapter"><a href="#Chapter" class="headerlink" title="Chapter"></a>Chapter</h1><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/tautcony/ChapterTool">ChapterTool</a></td>
+<td>chapter create tool</td>
+</tr>
+<tr>
+<td><a href="https://github.com/fireattack/chapter_converter">chapter_converter</a></td>
+<td>convert chapter file formats</td>
+</tr>
+</tbody></table>
+<h1 id="Player"><a href="#Player" class="headerlink" title="Player"></a>Player</h1><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/dyphire/mpv-config/releases">mpv-config</a></td>
+<td>mpv pack</td>
+</tr>
+<tr>
+<td><a href="https://www.microsoft.com/zh-cn/p/hevc-video-extensions-from-device-manufacturer/9n4wgh0z6vhq">Hevc Video Extensions From Device Manufacturer</a></td>
+<td>hevc extension for Windows</td>
+</tr>
+<tr>
+<td><a href="https://www.microsoft.com/zh-cn/p/app/9pltg1lwphlf">Dolby Vision Extensions</a></td>
+<td>dovi extension for Windows</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>2.Tools</category>
+      </categories>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/3.Code/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BB%84%E5%90%88%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>因为平时注意力不集中，所以这些可能是碎片化的，有空可能会整理。<br>另外人菜，请批判性的理解</p>
+<p>（水平问题，自己的脚本就不放出来了）</p>
+<p><a href="https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/Jin.Roh.1999/SDR.720P-ZQ.vpy">https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/Jin.Roh.1999/SDR.720P-ZQ.vpy</a></p>
+<p>22行开始 对(luma平面 - Y)先降噪。然后STPresso对噪点进行处理之后再打回来。</p>
+<hr>
+<p>对帧的一些操作</p>
+<p><a href="https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/A.Silent.Voice.2016/SDR.1080p.D-Z0N3.vpy">https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/A.Silent.Voice.2016/SDR.1080p.D-Z0N3.vpy</a></p>
+]]></content>
   </entry>
   <entry>
     <title></title>
