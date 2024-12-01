@@ -55,7 +55,7 @@
 <meta property="og:image" content="http://fxxs.github.io/Picture/AHDVEG-pics/Figure27.png">
 <meta property="og:image" content="http://fxxs.github.io/Picture/AHDVEG-pics/Figure28.png">
 <meta property="article:published_time" content="2023-06-12T13:15:50.626Z">
-<meta property="article:modified_time" content="2024-12-01T14:10:33.821Z">
+<meta property="article:modified_time" content="2024-12-01T14:15:15.239Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -184,7 +184,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~60.32K
+                            ~60.23K
                         
                         字
                     </li>
@@ -826,9 +826,9 @@
 <p>如果你的源音频的采样率是48kHz的倍数（如96kHz），就使用这个。对于44.1kHz的倍数，你可以简单地把48000换成44100。</p>
 <p>我们建议对编码进行这些转换，因为更高的采样率通常比其他任何方法更具破坏性，24-bit和正确处理后的16-bit之间的差异是如此之小，以至于只有在极高的音量下才会注意到。</p>
 <h3 id="4-2-有损编码"><a href="#4-2-有损编码" class="headerlink" title="4.2 有损编码"></a>4.2 有损编码</h3><h4 id="4-2-1-Opus"><a href="#4-2-1-Opus" class="headerlink" title="4.2.1 Opus"></a>4.2.1 Opus</h4><p>Opus，虽然是最高效的编解码器，也是音乐会(Concertos)上首选的有损编解码器，但几乎没有硬件兼容性。这对使用HTPC、台式机、笔记本电脑甚至手机的人来说都不是问题，但试图使用蓝光播放器播放的用户就无法解决了。由于我们不那么关心硬件兼容性，这可能是最简单的方法了。</p>
-<p>除了是最有效的编解码器，它也是完全开源的，就像FLAC一样，在每个操作系统上都能完美运行。Opus最大的问题是它不能与matroska【译者注：mkv容器】的有序章节一起使用；但是，除非你在编码时有很多相同的前奏&#x2F;结尾重复，否则这并不重要。</p>
+<p>除了是最有效的编解码器，它也是完全开源的，就像FLAC一样，在每个操作系统上都能完美运行。</p>
 <p>为了对 Opus 进行编码，你需要安装 opus-tools，从那里开始，你只需要:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">opusenc foo.wav bar.opus</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opusenc foo.wav bar.opus</span><br></pre></td></tr></table></figure>
 
 <p>此外，如果你不想使用（公认较低）默认值，你可以指定 <code>-- bitrate</code>，尽管Opus会自动检测它的最佳目标比特率。</p>
 <h4 id="4-2-2-qAAC-和-fdkaac"><a href="#4-2-2-qAAC-和-fdkaac" class="headerlink" title="4.2.2 qAAC 和 fdkaac"></a>4.2.2 qAAC 和 fdkaac</h4><p>作为在效率方面紧随 Opus 之后的 qAAC，也是一个可行的选择。与 Opus 不同，AAC 有更好的硬件兼容性，特别是在立体声方面。它也没有有序章节的问题。然而，qAAC 需要 iTunes，在 Unix 下需要 Wine。为了编码最高质量的 qAAC，你将要输入：</p>
@@ -934,7 +934,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-12-01T14:10:33.821Z" itemprop="dateModified">最后编辑：2024-12-01</time>
+                    <time datetime="2024-12-01T14:15:15.239Z" itemprop="dateModified">最后编辑：2024-12-01</time>
                 </div>
             </div>
         </footer>
@@ -955,7 +955,7 @@
     
     
         <div class="comment-post">
-            <div id="disqus_thread" class="kr-comments lazy-load" data-path="/6.etc/%E8%BF%9B%E9%98%B6%E9%AB%98%E6%B8%85%E8%A7%86%E9%A2%91%E5%8E%8B%E5%88%B6%E6%8C%87%E5%8D%97/" data-full-path="/6.etc/%E8%BF%9B%E9%98%B6%E9%AB%98%E6%B8%85%E8%A7%86%E9%A2%91%E5%8E%8B%E5%88%B6%E6%8C%87%E5%8D%97/_FULL"></div>
+            <div id="disqus_thread" class="kr-comments lazy-load" data-path="/6.etc/%E8%BF%9B%E9%98%B6%E9%AB%98%E6%B8%85%E8%A7%86%E9%A2%91%E5%8E%8B%E5%88%B6%E6%8C%87%E5%8D%97/" data-full-path="http://fxxs.github.io/6.etc/%E8%BF%9B%E9%98%B6%E9%AB%98%E6%B8%85%E8%A7%86%E9%A2%91%E5%8E%8B%E5%88%B6%E6%8C%87%E5%8D%97/"></div>
         </div>
     
 </article>

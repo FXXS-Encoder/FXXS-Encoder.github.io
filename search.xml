@@ -1807,9 +1807,9 @@
 <p>如果你的源音频的采样率是48kHz的倍数（如96kHz），就使用这个。对于44.1kHz的倍数，你可以简单地把48000换成44100。</p>
 <p>我们建议对编码进行这些转换，因为更高的采样率通常比其他任何方法更具破坏性，24-bit和正确处理后的16-bit之间的差异是如此之小，以至于只有在极高的音量下才会注意到。</p>
 <h3 id="4-2-有损编码"><a href="#4-2-有损编码" class="headerlink" title="4.2 有损编码"></a>4.2 有损编码</h3><h4 id="4-2-1-Opus"><a href="#4-2-1-Opus" class="headerlink" title="4.2.1 Opus"></a>4.2.1 Opus</h4><p>Opus，虽然是最高效的编解码器，也是音乐会(Concertos)上首选的有损编解码器，但几乎没有硬件兼容性。这对使用HTPC、台式机、笔记本电脑甚至手机的人来说都不是问题，但试图使用蓝光播放器播放的用户就无法解决了。由于我们不那么关心硬件兼容性，这可能是最简单的方法了。</p>
-<p>除了是最有效的编解码器，它也是完全开源的，就像FLAC一样，在每个操作系统上都能完美运行。Opus最大的问题是它不能与matroska【译者注：mkv容器】的有序章节一起使用；但是，除非你在编码时有很多相同的前奏&#x2F;结尾重复，否则这并不重要。</p>
+<p>除了是最有效的编解码器，它也是完全开源的，就像FLAC一样，在每个操作系统上都能完美运行。</p>
 <p>为了对 Opus 进行编码，你需要安装 opus-tools，从那里开始，你只需要:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">opusenc foo.wav bar.opus</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">opusenc foo.wav bar.opus</span><br></pre></td></tr></table></figure>
 
 <p>此外，如果你不想使用（公认较低）默认值，你可以指定 <code>-- bitrate</code>，尽管Opus会自动检测它的最佳目标比特率。</p>
 <h4 id="4-2-2-qAAC-和-fdkaac"><a href="#4-2-2-qAAC-和-fdkaac" class="headerlink" title="4.2.2 qAAC 和 fdkaac"></a>4.2.2 qAAC 和 fdkaac</h4><p>作为在效率方面紧随 Opus 之后的 qAAC，也是一个可行的选择。与 Opus 不同，AAC 有更好的硬件兼容性，特别是在立体声方面。它也没有有序章节的问题。然而，qAAC 需要 iTunes，在 Unix 下需要 Wine。为了编码最高质量的 qAAC，你将要输入：</p>
@@ -2000,6 +2000,44 @@ Maximum Frame-Average Light Level : <b>1076</b> cd/m2
 </code></pre>
 <p>In this case master-display&#x3D;G(13250,34500)B(7500,3000)R(34000,16000)WP(15635,16450)<strong>L(40000000,50)</strong> and max-cll&#x3D;<strong>3903,1076</strong></p>
 <p>About Maximum Content Light Level and Maximum Frame-Average Light Level … If those not present -&gt; max-cll&#x3D;0,0</p>
+<p>测试用临时Code</p>
+<p>前置参数</p>
+<textarea style="width: 80%; height: 200px" id="x265" onkeyup="refresh();">--level-idc 5.1 --bframes 8 --rd 4 --me 3 --subme 7 --ref 5 --merange 57 --ipratio 1.3 --pbratio 1.2 --aq-mode 2 --aq-strength 1.00 --qcomp 0.60 --psy-rd 1.5 --psy-rdoq 1.00 --ctu 64 --rc-lookahead 100 --deblock -3:-3 --no-strong-intra-smoothing --cbqpoffs 0 --crqpoffs 0 --qg-size 8 --range limited --no-frame-dup --selective-sao 0 --no-cutree --tu-intra-depth 4 --no-open-gop --tu-inter-depth 4 --rskip 0 --no-tskip --no-early-skip --min-keyint=1 --no-rect --no-amp --no-sao --aud --vbv-bufsize 160000 --vbv-maxrate 160000 --repeat-headers --hrd --hdr-opt --colorprim bt2020 --colormatrix bt2020nc --transfer smpte2084 --chromaloc 2 --pmode </textarea>
+
+<textarea style="width: 80%; height: 200px" onkeyup="refresh();" placeholder="仅支持输入JSON版mediainfo" id="HDR"></textarea>
+<br>
+<div><input type="checkbox" id="DoVi" name="DoVi" value="DoVi" onclick="refresh();"><label for="DoVi">DoVi P8压制</label></div>
+
+<p> 请注意你可能需要自己修改RPU的路径</p>
+<pre><code id="result" name="result"></code></pre>
+<script>
+  var refresh = function () {
+    document.getElementById("result").textContent = $('#x265').text();
+    var mediainfo = document.getElementById("HDR").value.replaceAll("\\\"", "|").replaceAll("\\", "|");
+    if (mediainfo) {
+      var whole = JSON.parse(mediainfo);
+      var track = whole.media.track;
+      var hevc = track.filter(function (video) {
+        return video["@type"] === "Video";
+      })[0];
+      if (hevc.MasteringDisplay_ColorPrimaries == "Display P3")
+        document.getElementById("result").textContent += '--master-display "G(13250,34500)B(7500,3000)R(34000,16000)WP(15635,16450)';
+      else if (hevc.MasteringDisplay_ColorPrimaries == "BT.2020")
+        document.getElementById("result").textContent += '--master-display "G(8500,39850)B(6550,2300)R(35400,14600)WP(15635,16450)';
+      var Luminance = hevc.MasteringDisplay_Luminance.replaceAll(
+        " cd/m2",
+        ""
+      ).match(/\d\.?\d*/g);
+      var max = Luminance[1] * 10000,
+        min = Luminance[0] * 10000;
+      document.getElementById("result").textContent += "L(" + max + "," + min + ')"';
+      if (hevc.MaxCLL)
+        document.getElementById("result").textContent += " --max-cll=" + hevc.MaxCLL.replace(" cd/m2", "") + "," + hevc.MaxFALL.replace(" cd/m2", "");
+      if (document.getElementById('DoVi').checked) document.getElementById("result").textContent += " --dolby-vision-profile 8.1 --dolby-vision-rpu \"RPU.bin\"";
+    }
+  };
+  refresh();
+</script>
 ]]></content>
       <categories>
         <category>3.Code</category>
