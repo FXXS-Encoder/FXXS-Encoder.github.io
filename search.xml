@@ -14,26 +14,28 @@
 <p><code>python 脚本 输入目录</code> 这样，里面的文本要自己根据需要修改内容再跑</p>
 <p>mkv 的 json封装，要确保输入端的mkv是规则的，否则可能会因为轨道id不对导致封错内容</p>
 <hr>
-<p>Python 文档</p>
-<p><a href="https://docs.python.org/zh-cn/3.9/reference/index.html">https://docs.python.org/zh-cn/3.9/reference/index.html</a></p>
+<h1 id="Python-文档"><a href="#Python-文档" class="headerlink" title="Python 文档"></a>Python 文档</h1><p><a href="https://docs.python.org/zh-cn/3.9/reference/index.html">https://docs.python.org/zh-cn/3.9/reference/index.html</a></p>
 <p>用于理解vpy写法以及含义</p>
-<p>VS文档</p>
-<p><a href="http://www.vapoursynth.com/doc/pythonreference.html">http://www.vapoursynth.com/doc/pythonreference.html</a></p>
-<p>x265文档<br><a href="https://x265.readthedocs.io/en/latest/cli.html">https://x265.readthedocs.io/en/latest/cli.html</a></p>
+<h1 id="VS文档"><a href="#VS文档" class="headerlink" title="VS文档"></a>VS文档</h1><p><a href="http://www.vapoursynth.com/doc/pythonreference.html">http://www.vapoursynth.com/doc/pythonreference.html</a></p>
+<h1 id="x265文档"><a href="#x265文档" class="headerlink" title="x265文档"></a>x265文档</h1><p><a href="https://x265.readthedocs.io/en/latest/cli.html">https://x265.readthedocs.io/en/latest/cli.html</a></p>
 <hr>
-<p>一些可供参考的其他教程</p>
-<p>VCB-S</p>
-<p>建议有了第一步压制作品，会写VS脚本之后再看</p>
-<p><a href="https://vcb-s.nmm-hd.org/">https://vcb-s.nmm-hd.org/</a></p>
-<p>AHD(英文)</p>
-<p><a href="https://silentaperture.gitlab.io/mdbook-guide/introduction.html">https://silentaperture.gitlab.io/mdbook-guide/introduction.html</a></p>
+<h1 id="一些可供参考的其他教程"><a href="#一些可供参考的其他教程" class="headerlink" title="一些可供参考的其他教程"></a>一些可供参考的其他教程</h1><h2 id="VCB-S"><a href="#VCB-S" class="headerlink" title="VCB-S"></a>VCB-S</h2><p>建议有了第一步压制作品，会写VS脚本之后再看</p>
+<p><a href="https://guides.vcb-s.com/">https://guides.vcb-s.com</a></p>
+<h2 id="AHD-英文"><a href="#AHD-英文" class="headerlink" title="AHD(英文)"></a>AHD(英文)</h2><p><a href="https://silentaperture.gitlab.io/mdbook-guide/introduction.html">https://silentaperture.gitlab.io/mdbook-guide/introduction.html</a></p>
 <p><a href="https://github.com/Irrational-Encoding-Wizardry/">Irrational-Encoding-Wizardry</a></p>
 <p><a href="https://guide.encode.moe/index.html">https://guide.encode.moe/index.html</a></p>
 <p>他们还有Discord(英文) discord.gg&#x2F;qxTxVJGtst</p>
 <p>目前他们的一些脚本没有文档，目测要去Discord里面搜</p>
-<p>iAvoe</p>
-<p>这个的教程跟我们的有一些出入，可能跟侧重点有关，建议在压过一些片，有一定的基础之后再看</p>
+<h2 id="iAvoe"><a href="#iAvoe" class="headerlink" title="iAvoe"></a>iAvoe</h2><p>这个的教程跟我们的有一些出入，可能跟侧重点有关，建议在压过一些片，有一定的基础之后再看</p>
 <p><del><a href="https://github.com/iAvoe/x264-x265-QAAC-ffprobe-Ultimatetutorial">https://github.com/iAvoe/x264-x265-QAAC-ffprobe-Ultimatetutorial</a></del></p>
+<h2 id="Encode-Mystery"><a href="#Encode-Mystery" class="headerlink" title="Encode Mystery"></a>Encode Mystery</h2><p><a href="https://guide.geeking.moe/">https://guide.geeking.moe</a></p>
+<h1 id="其他组的脚本"><a href="#其他组的脚本" class="headerlink" title="其他组的脚本"></a>其他组的脚本</h1><h2 id="国外-int-组"><a href="#国外-int-组" class="headerlink" title="国外 int 组"></a>国外 int 组</h2><p><a href="https://git.concertos.live/OpusGang/EncodeScripts">https://git.concertos.live/OpusGang/EncodeScripts</a></p>
+<h2 id="Beatrice-Raws"><a href="#Beatrice-Raws" class="headerlink" title="Beatrice-Raws"></a>Beatrice-Raws</h2><p><a href="https://github.com/Beatrice-Raws/encode-scripts">https://github.com/Beatrice-Raws/encode-scripts</a></p>
+<h1 id="大佬们的-Github"><a href="#大佬们的-Github" class="headerlink" title="大佬们的 Github"></a>大佬们的 Github</h1><p><a href="https://github.com/OpusGang">https://github.com/OpusGang</a></p>
+<p><a href="https://github.com/quietvoid">https://github.com/quietvoid</a></p>
+<p><a href="https://github.com/vcb-s">https://github.com/vcb-s</a></p>
+<p><a href="https://github.com/AmusementClub">https://github.com/AmusementClub</a></p>
+<p><a href="https://github.com/Beatrice-Raws">https://github.com/Beatrice-Raws</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -779,7 +781,7 @@
 </li>
 <li><p><a href="https://x265.readthedocs.io/en/3.1/cli.html">https://x265.readthedocs.io/en/3.1/cli.html</a></p>
 </li>
-<li><p><a href="https://vcb-s.nmm-hd.org/Dark%20Shrine/[VCB-Studio][%E6%95%99%E7%A8%8B10]x265%202.9%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/[VCB-Studio][%E6%95%99%E7%A8%8B10]x265%202.9%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE.pdf">https://vcb-s.nmm-hd.org/Dark%20Shrine/[VCB-Studio][教程10]x265%202.9参数设置/[VCB-Studio][教程10]x265%202.9参数设置.pdf</a></p>
+<li><p><a href="https://guides.vcb-s.com/basic-guide-07#4-x265-%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90">https://guides.vcb-s.com/basic-guide-07#4-x265-%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90</a></p>
 </li>
 </ul>
 <p><strong>请注意，不能确保完全正确</strong></p>
@@ -787,7 +789,7 @@
 <p><strong>crf</strong> 人眼认为的恒定画质，但是运动时候画质会降低来节省码率</p>
 <p>数值越低画质越好。</p>
 <p>一般低于等于18可以认为和原画差不多(主观观点)</p>
-<h2 id="ctu-lt-64-32-16-gt"><a href="#ctu-lt-64-32-16-gt" class="headerlink" title="ctu &lt;64|32|16&gt;"></a>ctu &lt;64|32|16&gt;</h2><p>分块大小，64速度最慢，32其次</p>
+<h2 id="ctu"><a href="#ctu" class="headerlink" title="ctu &lt;64|32|16&gt;"></a>ctu &lt;64|32|16&gt;</h2><p>分块大小，64速度最慢，32其次</p>
 <p>设成32 对于复杂场景压缩压缩率最高，64 对于简单场景压缩压缩率最高</p>
 <p>推荐用32因为速度比64快10%，并且画质更好一些</p>
 <p>16适合DVD，32适合1080p,64适合4K,720p用16,x265可能就会直接退出</p>
@@ -799,15 +801,15 @@
 <p>x265最重要的参数，没有之一，开了能有助于保存细节，当然会有更大文件体积。关闭可以提高压缩速度，看起来会轻度模糊。开启掉速度30%以上，推荐舍弃其他参数，也要开启这个。</p>
 <p>设成 1 时候 看起来效果最好，但是体积会大30%以上</p>
 <p>设成 2 时候 效果略差，体积只会小幅度增加，推荐使用2</p>
-<h2 id="psy-rd-amp-psy-rdoq"><a href="#psy-rd-amp-psy-rdoq" class="headerlink" title="psy-rd &amp; psy-rdoq"></a>psy-rd &amp; psy-rdoq</h2><p>都是Psycho-visual options的参数</p>
+<h2 id="psy-rd-psy-rdoq"><a href="#psy-rd-psy-rdoq" class="headerlink" title="psy-rd &amp; psy-rdoq"></a>psy-rd &amp; psy-rdoq</h2><p>都是Psycho-visual options的参数</p>
 <p>具体见<a href="https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options">https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options</a></p>
 <p>这两者都会影响码率(经测试，开高psy-rdoq到5所增加的码率通过crf来给画面反而效果更好)</p>
 <p>psy-rd 默认 2.0有些高，建议开到1.5，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试)</p>
 <p>psy-rdoq 一直用1一般就好，开高了保留噪点，画面本身却会变差</p>
 <p>一些测试见Compare</p>
-<h2 id="tu-intra-depth-lt-1-4-gt-tu-inter-depth-lt-1-4-gt"><a href="#tu-intra-depth-lt-1-4-gt-tu-inter-depth-lt-1-4-gt" class="headerlink" title="tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;"></a>tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;</h2><p>默认1，开高会小幅增加压缩率，但是特别慢 (preset placebo 似乎就是4)</p>
-<h2 id="max-tu-size-lt-32-16-8-4-gt"><a href="#max-tu-size-lt-32-16-8-4-gt" class="headerlink" title="max-tu-size &lt;32|16|8|4&gt;"></a>max-tu-size &lt;32|16|8|4&gt;</h2><p>默认32，开低会降低压缩率，并且不会提速，推荐默认</p>
-<h2 id="max-merge-lt-1-5-gt"><a href="#max-merge-lt-1-5-gt" class="headerlink" title="max-merge &lt;1..5&gt;"></a>max-merge &lt;1..5&gt;</h2><p>开高小幅度提高压缩率，对速度影响不明显，默认2 (preset placebo 似乎就是5)</p>
+<h2 id="tu-intra-depth-tu-inter-depth"><a href="#tu-intra-depth-tu-inter-depth" class="headerlink" title="tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;"></a>tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;</h2><p>默认1，开高会小幅增加压缩率，但是特别慢 (preset placebo 似乎就是4)</p>
+<h2 id="max-tu-size"><a href="#max-tu-size" class="headerlink" title="max-tu-size &lt;32|16|8|4&gt;"></a>max-tu-size &lt;32|16|8|4&gt;</h2><p>默认32，开低会降低压缩率，并且不会提速，推荐默认</p>
+<h2 id="max-merge"><a href="#max-merge" class="headerlink" title="max-merge &lt;1..5&gt;"></a>max-merge &lt;1..5&gt;</h2><p>开高小幅度提高压缩率，对速度影响不明显，默认2 (preset placebo 似乎就是5)</p>
 <h2 id="me-merange"><a href="#me-merange" class="headerlink" title="me ,merange"></a>me ,merange</h2><p>me 搜索方式，默认hex ，用umh 或star 能小幅度提高压缩率，但是掉速20%</p>
 <p>merange 搜索范围，默认57，me设成hex时候，对速度影响不大，但是使用umh或star时候，开高掉速严重</p>
 <p>umh比star好</p>
@@ -834,7 +836,7 @@
 <p>小幅度提高压缩率，对压缩速度没影响</p>
 <p>min-keyint&#x3D;1 的情况对于一些高速切换的场景会因此要强制1秒内一个IDR帧，造成P或者B等参考帧使用效率降低(换场景了参考的意义已经不大了)。</p>
 <p>还有就是这样可以避免一些老旧的设备出现硬解的bug。 - by fch1993</p>
-<h2 id="pmode-amp-no-pmode"><a href="#pmode-amp-no-pmode" class="headerlink" title="pmode &amp; no-pmode"></a>pmode &amp; no-pmode</h2><p>并行决策模式</p>
+<h2 id="pmode-no-pmode"><a href="#pmode-no-pmode" class="headerlink" title="pmode &amp; no-pmode"></a>pmode &amp; no-pmode</h2><p>并行决策模式</p>
 <p>见这里 <a href="https://github.com/ted423/FXXS-Encode-Guide/issues/16">https://github.com/ted423/FXXS-Encode-Guide/issues/16</a></p>
 <p>官方推荐是CPU不饱和才开，编码器将跨多个工作线程分配每个 CU 的分析工作。</p>
 <p>但从测试结果看，建议任何情况下都开</p>
@@ -881,7 +883,7 @@
 <p>aq-mode 4 :优先保留边缘，噪点很多时候用</p>
 <p>VCB:x265 目前有三种 aq 模式。aq-mode 1 是最安全稳定的 aq，适合高码率&#x2F;高画质编码；aq-mode<br>2 相对来说效率最高，适合中低码率的编码；aq-mode 3 对暗场进行加强，适合 8bit 编码防止暗场压烂。一般 10bit编码根据 crf 高低决定 aq 选取，个人建议在 crf &lt;&#x3D; 16 时候使用 aq-mode 1，否则使用 aq-mode 2。注意同 crf下，不同 aq-mode 出来的体积是不一样的，3&gt;1&gt;2。</p>
 <p>补充说明，个人在压制黑白噪点片时，aq2产生了比aq1还大的体积，目测在大颗粒噪点的情况下，aq2会比aq1产生更高的码率</p>
-<h2 id="rskip-lt-0-1-2-gt"><a href="#rskip-lt-0-1-2-gt" class="headerlink" title="rskip &lt;0|1|2&gt;"></a>rskip &lt;0|1|2&gt;</h2><p>开启提高速度，关闭提高画质，0是关闭，默认1</p>
+<h2 id="rskip"><a href="#rskip" class="headerlink" title="rskip &lt;0|1|2&gt;"></a>rskip &lt;0|1|2&gt;</h2><p>开启提高速度，关闭提高画质，0是关闭，默认1</p>
 <p>模式1比0 wmaf 下降0.03左右</p>
 <p>模式2比模式1压缩速度要快30%-50%左右，但是压缩率要低</p>
 <p>对于平滑画面（噪点比较少）画质优于rskip&#x3D;1，但是噪点比较多画面 画质不如rskip&#x3D;1</p>
@@ -1892,7 +1894,7 @@
 <p><img src="/Picture/AHDVEG-pics/Figure28.png" alt="Figure28"></p>
 <p>图28：来自Geek的《Hotel Transylvania 2》压制作品：另一个例子说明了为什么在没有正确屏蔽的情况下，你应该始终警惕细节是否平滑甚至遭到破坏。<br>虽然我们不能确定这里是否使用了遮罩，但这很可能是未使用遮罩的 <code>f3kdb</code> 的结果。 <em>sunnighty似乎更常使用 <code>GradFun3</code> 蒙版，这在这个案例中可能有很大帮助。不知道这里发生了什么。但我猜测他们在蒙版遇到了非故意的情况从而产生了问题。</em></p>
 <h2 id="9-【译者注】"><a href="#9-【译者注】" class="headerlink" title="9 【译者注】"></a>9 【译者注】</h2><p>本文翻译主要基于<a href="https://www.deepl.com/translator">DeepL翻译器</a>，在此基础上大量参考<a href="https://github.com/typing-more/encode_guide/blob/master/%E9%AB%98%E6%B8%85%E8%A7%86%E9%A2%91%E8%BD%AC%E7%A0%81%E8%BF%9B%E9%98%B6%E6%8C%87%E5%8D%97.md">typing-more&#x2F;高清视频转码进阶指南.md</a>，在此表示由衷感谢！</p>
-<p>部分名词解释借鉴<a href="https://vcb-s.nmm-hd.org/">VCB-Studio</a>、<a href="https://guide.geeking.moe/">Encode Mystery</a>，一并感谢！</p>
+<p>部分名词解释借鉴<a href="https://guides.vcb-s.com/">VCB-Studio</a>、<a href="https://guide.geeking.moe/">Encode Mystery</a>，一并感谢！</p>
 <p>对翻译错误或不足的地方欢迎指正；翻译不易，若需转载请指明出处，谢谢配合！</p>
 <p>​																															——2021.12.27</p>
 ]]></content>
