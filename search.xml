@@ -22,8 +22,7 @@
 <h1 id="一些可供参考的其他教程"><a href="#一些可供参考的其他教程" class="headerlink" title="一些可供参考的其他教程"></a>一些可供参考的其他教程</h1><h2 id="VCB-S"><a href="#VCB-S" class="headerlink" title="VCB-S"></a>VCB-S</h2><p>建议有了第一步压制作品，会写VS脚本之后再看</p>
 <p><a href="https://guides.vcb-s.com/">https://guides.vcb-s.com</a></p>
 <h2 id="AHD-英文"><a href="#AHD-英文" class="headerlink" title="AHD(英文)"></a>AHD(英文)</h2><p><a href="https://silentaperture.gitlab.io/mdbook-guide/introduction.html">https://silentaperture.gitlab.io/mdbook-guide/introduction.html</a></p>
-<p><a href="https://github.com/Irrational-Encoding-Wizardry/">Irrational-Encoding-Wizardry</a></p>
-<p><a href="https://guide.encode.moe/index.html">https://guide.encode.moe/index.html</a></p>
+<h2 id="Irrational-Encoding-Wizardry"><a href="#Irrational-Encoding-Wizardry" class="headerlink" title="Irrational Encoding Wizardry"></a>Irrational Encoding Wizardry</h2><p><a href="https://guide.encode.moe/index.html">https://guide.encode.moe/index.html</a></p>
 <p>他们还有Discord(英文) discord.gg&#x2F;qxTxVJGtst</p>
 <p>目前他们的一些脚本没有文档，目测要去Discord里面搜</p>
 <h2 id="iAvoe"><a href="#iAvoe" class="headerlink" title="iAvoe"></a>iAvoe</h2><p>这个的教程跟我们的有一些出入，可能跟侧重点有关，建议在压过一些片，有一定的基础之后再看</p>
@@ -33,6 +32,7 @@
 <h2 id="Beatrice-Raws"><a href="#Beatrice-Raws" class="headerlink" title="Beatrice-Raws"></a>Beatrice-Raws</h2><p><a href="https://github.com/Beatrice-Raws/encode-scripts">https://github.com/Beatrice-Raws/encode-scripts</a></p>
 <h1 id="大佬们的-Github"><a href="#大佬们的-Github" class="headerlink" title="大佬们的 Github"></a>大佬们的 Github</h1><p><a href="https://github.com/OpusGang">https://github.com/OpusGang</a></p>
 <p><a href="https://github.com/quietvoid">https://github.com/quietvoid</a></p>
+<p><a href="https://github.com/Irrational-Encoding-Wizardry">https://github.com/Irrational-Encoding-Wizardry</a></p>
 <p><a href="https://github.com/vcb-s">https://github.com/vcb-s</a></p>
 <p><a href="https://github.com/AmusementClub">https://github.com/AmusementClub</a></p>
 <p><a href="https://github.com/Beatrice-Raws">https://github.com/Beatrice-Raws</a></p>
@@ -781,7 +781,7 @@
 </li>
 <li><p><a href="https://x265.readthedocs.io/en/3.1/cli.html">https://x265.readthedocs.io/en/3.1/cli.html</a></p>
 </li>
-<li><p><a href="https://guides.vcb-s.com/basic-guide-07#4-x265-%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90">https://guides.vcb-s.com/basic-guide-07#4-x265-%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90</a></p>
+<li><p><a href="https://guides.vcb-s.com/basic-guide-07#4-x265-%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90">https://guides.vcb-s.com/basic-guide-07#4-x265-参数解析</a></p>
 </li>
 </ul>
 <p><strong>请注意，不能确保完全正确</strong></p>
@@ -804,7 +804,7 @@
 <h2 id="psy-rd-psy-rdoq"><a href="#psy-rd-psy-rdoq" class="headerlink" title="psy-rd &amp; psy-rdoq"></a>psy-rd &amp; psy-rdoq</h2><p>都是Psycho-visual options的参数</p>
 <p>具体见<a href="https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options">https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options</a></p>
 <p>这两者都会影响码率(经测试，开高psy-rdoq到5所增加的码率通过crf来给画面反而效果更好)</p>
-<p>psy-rd 默认 2.0有些高，建议开到1.5，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试)</p>
+<p>psy-rd 默认 2.0 有些高，<del>建议开到1.5</del>，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试) 目前看来 VCB 似乎建议开高，国外是推荐真人电影(x264)开到1左右，不过4k 可能需要开到2</p>
 <p>psy-rdoq 一直用1一般就好，开高了保留噪点，画面本身却会变差</p>
 <p>一些测试见Compare</p>
 <h2 id="tu-intra-depth-tu-inter-depth"><a href="#tu-intra-depth-tu-inter-depth" class="headerlink" title="tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;"></a>tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;</h2><p>默认1，开高会小幅增加压缩率，但是特别慢 (preset placebo 似乎就是4)</p>
@@ -1894,7 +1894,7 @@
 <p><img src="/Picture/AHDVEG-pics/Figure28.png" alt="Figure28"></p>
 <p>图28：来自Geek的《Hotel Transylvania 2》压制作品：另一个例子说明了为什么在没有正确屏蔽的情况下，你应该始终警惕细节是否平滑甚至遭到破坏。<br>虽然我们不能确定这里是否使用了遮罩，但这很可能是未使用遮罩的 <code>f3kdb</code> 的结果。 <em>sunnighty似乎更常使用 <code>GradFun3</code> 蒙版，这在这个案例中可能有很大帮助。不知道这里发生了什么。但我猜测他们在蒙版遇到了非故意的情况从而产生了问题。</em></p>
 <h2 id="9-【译者注】"><a href="#9-【译者注】" class="headerlink" title="9 【译者注】"></a>9 【译者注】</h2><p>本文翻译主要基于<a href="https://www.deepl.com/translator">DeepL翻译器</a>，在此基础上大量参考<a href="https://github.com/typing-more/encode_guide/blob/master/%E9%AB%98%E6%B8%85%E8%A7%86%E9%A2%91%E8%BD%AC%E7%A0%81%E8%BF%9B%E9%98%B6%E6%8C%87%E5%8D%97.md">typing-more&#x2F;高清视频转码进阶指南.md</a>，在此表示由衷感谢！</p>
-<p>部分名词解释借鉴<a href="https://guides.vcb-s.com/">VCB-Studio</a>、<a href="https://guide.geeking.moe/">Encode Mystery</a>，一并感谢！</p>
+<p>部分名词解释借鉴 VCB-Studio、Encode Mystery，一并感谢！</p>
 <p>对翻译错误或不足的地方欢迎指正；翻译不易，若需转载请指明出处，谢谢配合！</p>
 <p>​																															——2021.12.27</p>
 ]]></content>
