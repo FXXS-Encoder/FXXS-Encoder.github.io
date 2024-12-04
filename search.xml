@@ -629,27 +629,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Linux工具</title>
-    <url>/2.Tools/Linux/</url>
-    <content><![CDATA[<p>主要提供一些可以在 Linux 下使用的工具，但实际很少完全在 Linux 下工作，所以仅供参考</p>
-<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p><a href="https://github.com/gzycode39/docker-vapoursynth-yuuno/">https://github.com/gzycode39/docker-vapoursynth-yuuno/</a></p>
-<h1 id="Info"><a href="#Info" class="headerlink" title="Info"></a>Info</h1><h2 id="BDInfoCLI-ng"><a href="#BDInfoCLI-ng" class="headerlink" title="BDInfoCLI-ng"></a>BDInfoCLI-ng</h2><p><a href="https://github.com/zoffline/BDInfoCLI-ng">https://github.com/zoffline/BDInfoCLI-ng</a></p>
-<p><code>docker run --rm -it -v &lt;BD_PATH&gt;:/mnt/bd -v &lt;REPORT_DEST&gt;:/mnt/report zoffline/bdinfocli-ng /mnt/bd /mnt/report</code> (iso需要挂载后再扫)</p>
-<h1 id="Demux-x2F-Remux"><a href="#Demux-x2F-Remux" class="headerlink" title="Demux&#x2F;Remux"></a>Demux&#x2F;Remux</h1><h2 id="tsMuxer"><a href="#tsMuxer" class="headerlink" title="tsMuxer"></a>tsMuxer</h2><p><a href="https://github.com/justdan96/tsMuxer">https://github.com/justdan96/tsMuxer</a></p>
-<h2 id="mkvtoolnix"><a href="#mkvtoolnix" class="headerlink" title="mkvtoolnix"></a>mkvtoolnix</h2><p><a href="https://mkvtoolnix.download/downloads.html">https://mkvtoolnix.download/downloads.html</a><br>注意章节编辑器名称模板改成英文 <code>Chapter &lt;NUM:2&gt;</code></p>
-<h2 id="DGDemux"><a href="#DGDemux" class="headerlink" title="DGDemux"></a>DGDemux</h2><p><a href="http://rationalqm.us/dgdemux/dgdemux.html">http://rationalqm.us/dgdemux/dgdemux.html</a></p>
-<h1 id="Encode"><a href="#Encode" class="headerlink" title="Encode"></a>Encode</h1><h2 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h2><p><a href="https://ffmpeg.org/ffmpeg-all.html">https://ffmpeg.org/ffmpeg-all.html</a></p>
-<p>范例</p>
-<p><code>ffmpeg -i 1.dts -c:a flac -compression_level 8 1.flac</code></p>
-<p><code>ffmpeg -i 1.mkv -map 0:1  -c:a flac -compression_level 8 chi.flac</code></p>
-<p><code>ffmpeg  -v quiet -ss 00:23:00 -i file  -vcodec png -vframes 1 -pix_fmt rgb24 -y ~/filename.png</code></p>
-<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><p>cutP.py</p>
-]]></content>
-      <categories>
-        <category>2.Tools</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Demux &amp; Remux 操作</title>
     <url>/2.Tools/Demux&amp;Remux/</url>
     <content><![CDATA[<p>通常建议在 Demux &amp; Remux 之前进行扫盘，mkvtoolnix 以及 dgdemux 都可以进行。</p>
@@ -703,13 +682,35 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Stream #0:1(eng): Audio: dts (DTS-HD MA), 48000 Hz, 5.1(side), s32p (24 bit) (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      title           : DTS-HD MA 5.1</span><br><span class="line">      BPS-eng         : 4133090</span><br><span class="line">      DURATION-eng    : 02:58:09.472000000</span><br><span class="line">      NUMBER_OF_FRAMES-eng: 1002138</span><br><span class="line">      NUMBER_OF_BYTES-eng: 5522569140</span><br><span class="line">      _STATISTICS_WRITING_APP-eng: mkvmerge v29.0.0 (&#x27;Like It Or Not&#x27;) 64-bit</span><br><span class="line">      _STATISTICS_WRITING_DATE_UTC-eng: 2018-12-23 15:53:25</span><br><span class="line">      _STATISTICS_TAGS-eng: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES</span><br></pre></td></tr></table></figure>
 
 <p>如这个就是音轨轨道-&gt;0:1</p>
-<h2 id="拆音轨为单轨道-废弃，Dolby-Media-Producer-Suite需要，不过已经用不到了"><a href="#拆音轨为单轨道-废弃，Dolby-Media-Producer-Suite需要，不过已经用不到了" class="headerlink" title="拆音轨为单轨道(废弃，Dolby Media Producer Suite需要，不过已经用不到了)"></a>拆音轨为单轨道(废弃，Dolby Media Producer Suite需要，不过已经用不到了)</h2><p>音轨轨道顺序可以在这里确认<a href="https://trac.ffmpeg.org/wiki/AudioChannelManipulation">https://trac.ffmpeg.org/wiki/AudioChannelManipulation</a></p>
+<h2 id="拆音轨为单轨道"><a href="#拆音轨为单轨道" class="headerlink" title="拆音轨为单轨道"></a><del>拆音轨为单轨道</del></h2><p>(废弃，Dolby Media Producer Suite需要，不过已经用不到了)</p>
+<p>音轨轨道顺序可以在这里确认<a href="https://trac.ffmpeg.org/wiki/AudioChannelManipulation">https://trac.ffmpeg.org/wiki/AudioChannelManipulation</a></p>
 <p>ffmpeg -i input.wav -filter_complex “channelsplit&#x3D;channel_layout&#x3D;5.1[FL][FR][FC][LFE][BL][BR]” -map “[FL]” -c:a -map “[FR]” R.wav -map “[FC]” C.wav -map “[LFE]” LFE.wav -map “[BL]” Ls.wav -map “[BR]” Rs.wav</p>
 <p>24bit</p>
 <p>ffmpeg -i input.wav -filter_complex “channelsplit&#x3D;channel_layout&#x3D;5.1[FL][FR][FC][LFE][BL][BR]” -map “[FL]” -c:a pcm_s24le L.wav -map “[FR]” -c:a pcm_s24le R.wav -map “[FC]” -c:a pcm_s24le C.wav -map “[LFE]” -c:a pcm_s24le LFE.wav -map “[BL]” -c:a pcm_s24le Ls.wav -map “[BR]” -c:a pcm_s24le Rs.wav</p>
 <h2 id="Encode-flac"><a href="#Encode-flac" class="headerlink" title="Encode flac"></a>Encode flac</h2><p>范例</p>
 <p><code>ffmpeg -c:a flac -compression_level 8 1.flac -i 1.dts</code></p>
 <p><code>ffmpeg -map 0:1  -c:a flac -compression_level 8 a.flac -i 1.mkv </code></p>
+]]></content>
+      <categories>
+        <category>2.Tools</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Linux工具</title>
+    <url>/2.Tools/Linux/</url>
+    <content><![CDATA[<p>主要提供一些可以在 Linux 下使用的工具，但实际很少完全在 Linux 下工作，所以仅供参考</p>
+<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p><a href="https://github.com/gzycode39/docker-vapoursynth-yuuno/">https://github.com/gzycode39/docker-vapoursynth-yuuno/</a></p>
+<h1 id="Info"><a href="#Info" class="headerlink" title="Info"></a>Info</h1><h2 id="BDInfoCLI-ng"><a href="#BDInfoCLI-ng" class="headerlink" title="BDInfoCLI-ng"></a>BDInfoCLI-ng</h2><p><a href="https://github.com/zoffline/BDInfoCLI-ng">https://github.com/zoffline/BDInfoCLI-ng</a></p>
+<p><code>docker run --rm -it -v &lt;BD_PATH&gt;:/mnt/bd -v &lt;REPORT_DEST&gt;:/mnt/report zoffline/bdinfocli-ng /mnt/bd /mnt/report</code> (iso需要挂载后再扫)</p>
+<h1 id="Demux-x2F-Remux"><a href="#Demux-x2F-Remux" class="headerlink" title="Demux&#x2F;Remux"></a>Demux&#x2F;Remux</h1><h2 id="tsMuxer"><a href="#tsMuxer" class="headerlink" title="tsMuxer"></a>tsMuxer</h2><p><a href="https://github.com/justdan96/tsMuxer">https://github.com/justdan96/tsMuxer</a></p>
+<h2 id="mkvtoolnix"><a href="#mkvtoolnix" class="headerlink" title="mkvtoolnix"></a>mkvtoolnix</h2><p><a href="https://mkvtoolnix.download/downloads.html">https://mkvtoolnix.download/downloads.html</a><br>注意章节编辑器名称模板改成英文 <code>Chapter &lt;NUM:2&gt;</code></p>
+<h2 id="DGDemux"><a href="#DGDemux" class="headerlink" title="DGDemux"></a>DGDemux</h2><p><a href="http://rationalqm.us/dgdemux/dgdemux.html">http://rationalqm.us/dgdemux/dgdemux.html</a></p>
+<h1 id="Encode"><a href="#Encode" class="headerlink" title="Encode"></a>Encode</h1><h2 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h2><p><a href="https://ffmpeg.org/ffmpeg-all.html">https://ffmpeg.org/ffmpeg-all.html</a></p>
+<p>范例</p>
+<p><code>ffmpeg -i 1.dts -c:a flac -compression_level 8 1.flac</code></p>
+<p><code>ffmpeg -i 1.mkv -map 0:1  -c:a flac -compression_level 8 chi.flac</code></p>
+<p><code>ffmpeg  -v quiet -ss 00:23:00 -i file  -vcodec png -vframes 1 -pix_fmt rgb24 -y ~/filename.png</code></p>
+<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><p>cutP.py</p>
 ]]></content>
       <categories>
         <category>2.Tools</category>

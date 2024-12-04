@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="FXXS">
 <meta property="og:description" content="通常建议在 Demux &amp; Remux 之前进行扫盘，mkvtoolnix 以及 dgdemux 都可以进行。 主要判断信息有  是否是肉酱盘 是否默认的 mpls 是正确的影片（有些盘会坑人） mpls 是否包含了无效的mt2s(这种会导致操作失败)，这种情况，需要 dgdemux,然后勾选 “skip first&#x2F;last M2TS”  部分剧集原盘 dgdemux 需要开启">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-10-30T13:37:05.290Z">
-<meta property="article:modified_time" content="2024-11-30T08:59:16.972Z">
+<meta property="article:published_time" content="2024-12-02T02:51:17.055Z">
+<meta property="article:modified_time" content="2024-12-04T06:52:30.977Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
                 <h1 class="kratos-page-title text-center" itemprop="name headline">Demux & Remux 操作</h1>
             
             <ul class="kratos-page-meta text-center">
-                <li><time datetime="2024-10-30T13:37:05.290Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-10-30</time></li>
+                <li><time datetime="2024-12-02T02:51:17.055Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-12-02</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">ted423</span>
                 </li>
@@ -169,7 +169,7 @@
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DVD"><span class="toc-number">1.</span> <span class="toc-text">DVD</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84Demux%E8%BD%AF%E4%BB%B6%E6%9C%89"><span class="toc-number">2.</span> <span class="toc-text">常见的Demux软件有</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84mpls"><span class="toc-number">3.</span> <span class="toc-text">选择正确的mpls</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mkvextract"><span class="toc-number">4.</span> <span class="toc-text">mkvextract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FFmpeg"><span class="toc-number">5.</span> <span class="toc-text">FFmpeg</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ffprobe"><span class="toc-number">5.1.</span> <span class="toc-text">ffprobe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%86%E9%9F%B3%E8%BD%A8%E4%B8%BA%E5%8D%95%E8%BD%A8%E9%81%93-%E5%BA%9F%E5%BC%83%EF%BC%8CDolby-Media-Producer-Suite%E9%9C%80%E8%A6%81%EF%BC%8C%E4%B8%8D%E8%BF%87%E5%B7%B2%E7%BB%8F%E7%94%A8%E4%B8%8D%E5%88%B0%E4%BA%86"><span class="toc-number">5.2.</span> <span class="toc-text">拆音轨为单轨道(废弃，Dolby Media Producer Suite需要，不过已经用不到了)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encode-flac"><span class="toc-number">5.3.</span> <span class="toc-text">Encode flac</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DVD"><span class="toc-number">1.</span> <span class="toc-text">DVD</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84Demux%E8%BD%AF%E4%BB%B6%E6%9C%89"><span class="toc-number">2.</span> <span class="toc-text">常见的Demux软件有</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84mpls"><span class="toc-number">3.</span> <span class="toc-text">选择正确的mpls</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mkvextract"><span class="toc-number">4.</span> <span class="toc-text">mkvextract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FFmpeg"><span class="toc-number">5.</span> <span class="toc-text">FFmpeg</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ffprobe"><span class="toc-number">5.1.</span> <span class="toc-text">ffprobe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%86%E9%9F%B3%E8%BD%A8%E4%B8%BA%E5%8D%95%E8%BD%A8%E9%81%93"><span class="toc-number">5.2.</span> <span class="toc-text">拆音轨为单轨道</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encode-flac"><span class="toc-number">5.3.</span> <span class="toc-text">Encode flac</span></a></li></ol></li></ol>
                 </div>
             
             <hr />
@@ -224,7 +224,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Stream #0:1(eng): Audio: dts (DTS-HD MA), 48000 Hz, 5.1(side), s32p (24 bit) (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      title           : DTS-HD MA 5.1</span><br><span class="line">      BPS-eng         : 4133090</span><br><span class="line">      DURATION-eng    : 02:58:09.472000000</span><br><span class="line">      NUMBER_OF_FRAMES-eng: 1002138</span><br><span class="line">      NUMBER_OF_BYTES-eng: 5522569140</span><br><span class="line">      _STATISTICS_WRITING_APP-eng: mkvmerge v29.0.0 (&#x27;Like It Or Not&#x27;) 64-bit</span><br><span class="line">      _STATISTICS_WRITING_DATE_UTC-eng: 2018-12-23 15:53:25</span><br><span class="line">      _STATISTICS_TAGS-eng: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES</span><br></pre></td></tr></table></figure>
 
 <p>如这个就是音轨轨道-&gt;0:1</p>
-<h2 id="拆音轨为单轨道-废弃，Dolby-Media-Producer-Suite需要，不过已经用不到了"><a href="#拆音轨为单轨道-废弃，Dolby-Media-Producer-Suite需要，不过已经用不到了" class="headerlink" title="拆音轨为单轨道(废弃，Dolby Media Producer Suite需要，不过已经用不到了)"></a>拆音轨为单轨道(废弃，Dolby Media Producer Suite需要，不过已经用不到了)</h2><p>音轨轨道顺序可以在这里确认<a target="_blank" rel="noopener" href="https://trac.ffmpeg.org/wiki/AudioChannelManipulation">https://trac.ffmpeg.org/wiki/AudioChannelManipulation</a></p>
+<h2 id="拆音轨为单轨道"><a href="#拆音轨为单轨道" class="headerlink" title="拆音轨为单轨道"></a><del>拆音轨为单轨道</del></h2><p>(废弃，Dolby Media Producer Suite需要，不过已经用不到了)</p>
+<p>音轨轨道顺序可以在这里确认<a target="_blank" rel="noopener" href="https://trac.ffmpeg.org/wiki/AudioChannelManipulation">https://trac.ffmpeg.org/wiki/AudioChannelManipulation</a></p>
 <p>ffmpeg -i input.wav -filter_complex “channelsplit&#x3D;channel_layout&#x3D;5.1[FL][FR][FC][LFE][BL][BR]” -map “[FL]” -c:a -map “[FR]” R.wav -map “[FC]” C.wav -map “[LFE]” LFE.wav -map “[BL]” Ls.wav -map “[BR]” Rs.wav</p>
 <p>24bit</p>
 <p>ffmpeg -i input.wav -filter_complex “channelsplit&#x3D;channel_layout&#x3D;5.1[FL][FR][FC][LFE][BL][BR]” -map “[FL]” -c:a pcm_s24le L.wav -map “[FR]” -c:a pcm_s24le R.wav -map “[FC]” -c:a pcm_s24le C.wav -map “[LFE]” -c:a pcm_s24le LFE.wav -map “[BL]” -c:a pcm_s24le Ls.wav -map “[BR]” -c:a pcm_s24le Rs.wav</p>
@@ -251,7 +252,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-11-30T08:59:16.972Z" itemprop="dateModified">最后编辑：2024-11-30</time>
+                    <time datetime="2024-12-04T06:52:30.977Z" itemprop="dateModified">最后编辑：2024-12-04</time>
                 </div>
             </div>
         </footer>
@@ -260,13 +261,9 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" 字幕相关" href="/4.Audio&sub/字幕制作/"><i class="fa fa-angle-left"></i> 上一篇</a>
+                <a title=" Linux工具" href="/2.Tools/Linux/"><i class="fa fa-angle-left"></i> 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" Linux工具" href="/2.Tools/Linux/">下一篇 <i class="fa fa-angle-right"></i></a>
-            </div>
             
         </nav>
     
@@ -298,7 +295,7 @@
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DVD"><span class="toc-number">1.</span> <span class="toc-text">DVD</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84Demux%E8%BD%AF%E4%BB%B6%E6%9C%89"><span class="toc-number">2.</span> <span class="toc-text">常见的Demux软件有</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84mpls"><span class="toc-number">3.</span> <span class="toc-text">选择正确的mpls</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mkvextract"><span class="toc-number">4.</span> <span class="toc-text">mkvextract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FFmpeg"><span class="toc-number">5.</span> <span class="toc-text">FFmpeg</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ffprobe"><span class="toc-number">5.1.</span> <span class="toc-text">ffprobe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%86%E9%9F%B3%E8%BD%A8%E4%B8%BA%E5%8D%95%E8%BD%A8%E9%81%93-%E5%BA%9F%E5%BC%83%EF%BC%8CDolby-Media-Producer-Suite%E9%9C%80%E8%A6%81%EF%BC%8C%E4%B8%8D%E8%BF%87%E5%B7%B2%E7%BB%8F%E7%94%A8%E4%B8%8D%E5%88%B0%E4%BA%86"><span class="toc-number">5.2.</span> <span class="toc-text">拆音轨为单轨道(废弃，Dolby Media Producer Suite需要，不过已经用不到了)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encode-flac"><span class="toc-number">5.3.</span> <span class="toc-text">Encode flac</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DVD"><span class="toc-number">1.</span> <span class="toc-text">DVD</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84Demux%E8%BD%AF%E4%BB%B6%E6%9C%89"><span class="toc-number">2.</span> <span class="toc-text">常见的Demux软件有</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84mpls"><span class="toc-number">3.</span> <span class="toc-text">选择正确的mpls</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mkvextract"><span class="toc-number">4.</span> <span class="toc-text">mkvextract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FFmpeg"><span class="toc-number">5.</span> <span class="toc-text">FFmpeg</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ffprobe"><span class="toc-number">5.1.</span> <span class="toc-text">ffprobe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%86%E9%9F%B3%E8%BD%A8%E4%B8%BA%E5%8D%95%E8%BD%A8%E9%81%93"><span class="toc-number">5.2.</span> <span class="toc-text">拆音轨为单轨道</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encode-flac"><span class="toc-number">5.3.</span> <span class="toc-text">Encode flac</span></a></li></ol></li></ol>
     </div>
 </aside>
                 
