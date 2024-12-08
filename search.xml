@@ -837,10 +837,8 @@
 <p>小幅度提高压缩率，对压缩速度没影响</p>
 <p>min-keyint&#x3D;1 的情况对于一些高速切换的场景会因此要强制1秒内一个IDR帧，造成P或者B等参考帧使用效率降低(换场景了参考的意义已经不大了)。</p>
 <p>还有就是这样可以避免一些老旧的设备出现硬解的bug。 - by fch1993</p>
-<h2 id="pmode-no-pmode"><a href="#pmode-no-pmode" class="headerlink" title="pmode &amp; no-pmode"></a>pmode &amp; no-pmode</h2><p>并行决策模式</p>
-<p>见这里 <a href="https://github.com/ted423/FXXS-Encode-Guide/issues/16">https://github.com/ted423/FXXS-Encode-Guide/issues/16</a></p>
+<h2 id="pmode-no-pmode-4-1-deprecated"><a href="#pmode-no-pmode-4-1-deprecated" class="headerlink" title="pmode &amp; no-pmode (4.1 deprecated)"></a>pmode &amp; no-pmode (4.1 deprecated)</h2><p>并行决策模式</p>
 <p>官方推荐是CPU不饱和才开，编码器将跨多个工作线程分配每个 CU 的分析工作。</p>
-<p>但从测试结果看，建议任何情况下都开</p>
 <h2 id="rc-lookahead"><a href="#rc-lookahead" class="headerlink" title="rc-lookahead"></a>rc-lookahead</h2><p>预览帧数，默认20</p>
 <p>开高可以提高分组(gop)准确度，小幅度提高压缩率，同时小幅度降速，推荐40</p>
 <p>crf模式时，rc-lookahead可以提高cutree的准确度（提高画质)</p>
