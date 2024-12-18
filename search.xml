@@ -730,7 +730,7 @@
 <h2 id="aq-strength-默认1-0"><a href="#aq-strength-默认1-0" class="headerlink" title="aq-strength 默认1.0"></a>aq-strength 默认1.0</h2><p>低于1.0首先保留边缘，高于1.0优先保留纹理，这个值也要看aq-mode，噪点多的片可以调低这个值，噪点少的片调高这个值</p>
 <p>不了解不要乱调这个</p>
 <p>VCB:aq-strength 决定了 aq 的强度，一般来说，Anime 的 aq-strength 不用太高（太高了码率也会浪费）。通常，aq-mode&#x3D;1，aq-strength 给 0.8 比较合理；aq-mode&#x3D;2，aq-strength 给 0.9 左右，aq-mode&#x3D;3，aq-strength 给 0.7 左右。</p>
-<h1 id="aq-mode"><a href="#aq-mode" class="headerlink" title="aq-mode"></a>aq-mode</h1><p>目前测试在不足码率压制的情况下,aq1可能会导致画面出现一些奇怪的现象，aq2相对画面更好一些，并且不会出现奇妙的画面(不过测试还不够充分)。</p>
+<h2 id="aq-mode"><a href="#aq-mode" class="headerlink" title="aq-mode"></a>aq-mode</h2><p>目前测试在不足码率压制的情况下,aq1可能会导致画面出现一些奇怪的现象，aq2相对画面更好一些，并且不会出现奇妙的画面(不过测试还不够充分)。</p>
 <p>在给够码率的情况下(噪点比较重的片)，aq1似乎会好些(可以看战火高码版对比图，不过暂时还没放到公网)</p>
 <p>2 x265默认（推荐）</p>
 <p>3 暗处增强，避免暗处被压坏，实际上亮的地方码率也会增加30%以上，所以很 浪费码率(不过就压制而言，通常是差不多码率进行比较，因此浪费码率可以通过调高crf解决)</p>
