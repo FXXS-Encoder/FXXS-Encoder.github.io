@@ -634,6 +634,7 @@
     <title>Irrational Encoding Wizardry 插件</title>
     <url>/3.Code/Irrational%20Encoding%20Wizardry/</url>
     <content><![CDATA[<p>他们的插件经常会跟进最新的 VS 版本。</p>
+<p>建议找他们仓库提供的 Discord 连接进群查询插件语法及用法</p>
 <h1 id="vs-deband"><a href="#vs-deband" class="headerlink" title="vs-deband"></a>vs-deband</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> vsdeband <span class="keyword">import</span> F3kdb</span><br><span class="line"><span class="keyword">from</span> vsmasktools <span class="keyword">import</span> dre_edgemask</span><br><span class="line"><span class="keyword">from</span> vstools <span class="keyword">import</span> core, vs</span><br><span class="line"></span><br><span class="line">deband = F3kdb.deband(clip)</span><br><span class="line">mask = dre_edgemask(clip)<span class="comment">#.std.Binarize().std.Maximum()  # please make sure you properly define the Binarize threshold, or better yet use the threshold param dre_edgemask iirc has</span></span><br><span class="line">debanded = core.std.MaskedMerge(deband, clip, mask)</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>3.Code</category>
