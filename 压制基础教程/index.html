@@ -26,17 +26,16 @@
 <meta property="og:site_name" content="FXXS">
 <meta property="og:description" content="源、编码、透明度对比源：源是指高质量可以用于进行压制编码的视频，一般包括蓝光圆盘、高质量的Web（一般4K的SDR）等。压片时应采用 最优质的源 进行压制，提高压制质量。 随着很多老片的BD推出，很多蓝光源是从低分辨率拉到高分辨率，被称为 Upscaled，在压制时应注意复原为原版的分辨率，不要压制过高的分辨率。关于WEB源应谨慎使用，尤其1080p的web-dl一般都为低质量不可以进行二次压制源">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://fxxs.github.io/Picture/VSRepoGUI.png">
-<meta property="og:image" content="http://fxxs.github.io/Picture/VS%20Editor.png">
-<meta property="og:image" content="http://fxxs.github.io/Picture/Simple.png">
-<meta property="og:image" content="http://fxxs.github.io/Picture/BDInfo.png">
-<meta property="og:image" content="http://fxxs.github.io/Picture/simplex264.png">
-<meta property="article:published_time" content="2024-12-02T02:51:47.449Z">
-<meta property="article:modified_time" content="2024-12-18T09:12:30.656Z">
+<meta property="og:image" content="http://fxxs.github.io/img/VSRepoGUI.png">
+<meta property="og:image" content="http://fxxs.github.io/img/VS20%EF%BF%BDitor.png">
+<meta property="og:image" content="http://fxxs.github.io/img/Simple.png">
+<meta property="og:image" content="http://fxxs.github.io/(/img/simplex264.png">
+<meta property="article:published_time" content="2024-12-25T03:26:12.499Z">
+<meta property="article:modified_time" content="2024-12-25T03:47:58.011Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://fxxs.github.io/Picture/VSRepoGUI.png">
+<meta name="twitter:image" content="http://fxxs.github.io/img/VSRepoGUI.png">
   
     <link rel="alternate" href="/atom.xml" title="FXXS" type="application/atom+xml">
   
@@ -152,7 +151,7 @@
                 <h1 class="kratos-page-title text-center" itemprop="name headline">压制基础教程（FXXS出品）</h1>
             
             <ul class="kratos-page-meta text-center">
-                <li><time datetime="2024-12-02T02:51:47.449Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-12-02</time></li>
+                <li><time datetime="2024-12-25T03:26:12.499Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-12-25</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">ted423</span>
                 </li>
@@ -161,7 +160,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~14.60K
+                            ~14.76K
                         
                         字
                     </li>
@@ -240,6 +239,7 @@
 <li><strong><a target="_blank" rel="noopener" href="https://www.videohelp.com/software/BDInfo">BDinfo</a></strong>: 蓝光原盘信息检测分析软件。</li>
 <li><strong><a target="_blank" rel="noopener" href="https://www.videolan.org/index.zh.html">VLC</a></strong>: 能播放蓝光菜单，辅助确认音轨字幕章节信息</li>
 </ul>
+<p>其他请参考 <a href="/2.Tools/Collection">软件列表</a></p>
 <p>基础部分软件直接使用或者安装即可。<br>AVS和VS为两种方向，推荐选VS</p>
 <p>AVS相关教程Archive</p>
 <h4 id="VapourSynth环境"><a href="#VapourSynth环境" class="headerlink" title="VapourSynth环境"></a>VapourSynth环境</h4><blockquote>
@@ -250,13 +250,13 @@
 <p>**<a target="_blank" rel="noopener" href="http://www.vapoursynth.com/">VapourSynth</a>**：VapourSynth的主体安装程序，安装过程推荐安装所有推荐内容。除了安装位置外推荐使用默认设置。安装完后只包括主程序，以及官方的自带的插件，VS使用过程需要大量的插件以及脚本：主要分为 <strong>Script(.py)脚本</strong> 和 <strong>Plugins(.dll)插件</strong> 两个部分。安装插件脚本，需要将对应文件放入对应目录，目录在官方文档内有详细介绍。在Windows下官方提供了方便的下载管理。下文对于使用到部分将会介绍。</p>
 <p>请注意脚本主要是 Python 环境，Python 版本兼容，通过 import 加载，而dll加载与VS本身，是需要考虑系统兼容，通过 core.XXX 加载，很多插件没有 Release Linux 版本，所以 Linux 环境可能会有部分插件需要自己想办法编译或者没法编译。</p>
 <p><strong>口语环境里，很多人会把脚本也叫成插件，但自己注意区分，以免造成混淆</strong></p>
+<p>VS 最新提供了制作便携版的脚本，但需要注意，升级会需要一些手动操作，如 python 的 vs 包无法卸载。如果是个人使用搭建，建议用安装包</p>
 <p>VapourSynth 文档中列出了放置插件的路径。</p>
 <p>Windows 的推荐路径<code>&lt;AppData&gt;\VapourSynth\plugins32</code> 或 <code>&lt;AppData&gt;\VapourSynth\plugins64</code>。Unix 用户可以创建一个配置文件来指定路径。</p>
 <p>VapourSynth的Python脚本应该放在你的Python site-packages文件夹中。在 Arch Linux上，位于 <code>/usr/lib64/Python3.*/sitepackages/</code>。Windows 用户可以在本地AppData文件夹【译者注：即<code>C:\Users\&lt;用户名&gt;\AppData\Local</code>】中找到这个文件夹。</p>
 <p><strong>需要注意的是 Python 自身也会有个 site-packages 文件夹，注意不要放错位置或者混放，可能会造成不知道加载了什么东西的问题</strong></p>
 <p>**<a target="_blank" rel="noopener" href="https://github.com/theChaosCoder/VSRepoGUI/releases">VSRepoGUI</a>**：官方提供了方便的下载管理插件以及脚本的GUI界面，下载解压后点开后即可使用，推荐放在VS的安装目录内。</p>
-<img src="/Picture/VSRepoGUI.png" alt="image-20200209025555494" style="zoom:80%;" />
-
+<p><img src="/img/VSRepoGUI.png" alt="image"></p>
 <p>通过软件可以查看对应的VS安装信息和脚本插件的所在位置，同时可以实现对插件的脚本安装、更新和卸载，软件插件安装位置，再右上角可以快速点开。在Windows下推荐本软件进行维护插件和脚本。</p>
 <p>VapourSynth 编辑器</p>
 <ul>
@@ -266,8 +266,7 @@
 <li>AvsPmod(长期不更新)</li>
 </ul>
 <p><strong>VapourSynth Editor</strong>：VS Editor是目前较为广泛使用的VS编辑器(目前会使用Mod版本)。下载后，直接解压即可使用。第一次使用时候，需要配置VapourSynth文件的位置。VS plugins paths 可以是用VSRepoGUI中的路径进行查看。</p>
-<img src="/Picture/VS Editor.png" alt="image-20200210015648555" style="zoom: 88%;" />
-
+<p><img src="/img/VS20%EF%BF%BDitor.png" alt="image"></p>
 <p><strong>独立版本</strong></p>
 <p><strong>Yuuno</strong> 是 Jupyter 记事本的一个扩展，允许你编辑和导出 VapourSynth 脚本。你可以通过以下代码来安装。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install yuuno</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yuuno jupyter install</span></span><br></pre></td></tr></table></figure>
@@ -296,14 +295,13 @@
 <li>允许你在一个 Jupyter 编辑器中处理和导出多个脚本</li>
 </ul>
 <h4 id="压制工具"><a href="#压制工具" class="headerlink" title="压制工具"></a>压制工具</h4><p>使用压制工具大部分核心都是x264和x265(x265如无必要不在重复)。本人推荐压制软件功能越为简单越好，推荐2个使用，适合新手的**<a target="_blank" rel="noopener" href="https://github.com/lordmulder/Simple-x264-Launcher">Simple x264&#x2F;x265 Launcher</a><strong>以及适合有经验的纯命令行（CLI）的</strong><a target="_blank" rel="noopener" href="https://www.videohelp.com/software/x264-Encoder">x264.exe</a>和<a target="_blank" rel="noopener" href="https://www.videohelp.com/software/x265-Encoder">x265.exe</a>**。Simple下载安装即可使用，本教程将以此为基础进行讲解。工具需要简单的设置，推荐log文件保存等设置，根据个人习惯修改。</p>
-<p><img src="/Picture/Simple.png" alt="image-20200210024626480"></p>
+<p><img src="/img/Simple.png" alt="image-20200210024626480"></p>
 <blockquote>
 <p>大部分压制组要求，压制工具要求及时更新，使用最新版的压制工具。</p>
 </blockquote>
 <h2 id="压制步骤"><a href="#压制步骤" class="headerlink" title="压制步骤"></a>压制步骤</h2><h3 id="1-压制源分析"><a href="#1-压制源分析" class="headerlink" title="1.压制源分析"></a>1.压制源分析</h3><p>要想做一个较为高质量作品，应采用最好的来源进行压制。HDR电影来源较为单一，4k的原盘和Remux资源为主，版本较少能选择不多。SDR目前可用压制版本较多，各个发行商的在不同时期也发行过不同蓝光版本，随着web的兴起，AZ和NF也都发布了较高码率的4k的sdr版本，所以在SDR压制时，需要对于来源进行对比，选取最为高质量的来源进行压制。对于蓝光原盘与remux两者相同时候，推荐使用Remux的更为方便。</p>
 <p>对于原盘使用 <strong>BDInfo</strong> 检查原盘信息，查看原盘主要视频对应播放列表。对于复杂原盘，可能出现多版本混合的情况，需要确定所需要版本对应的MPLS，并确定原盘的主要码率 。在压制前推荐进行分离提取(Demux)后再进行压制。</p>
-<img src="/Picture/BDInfo.png" alt="BDInfo" style="zoom:95%;" />
-
+<p>![image](&#x2F;img&#x2F;BDInfo.png” alt&#x3D;”BDInfo” style&#x3D;” “ &#x2F;&gt;</p>
 <h3 id="2-分离提取-Demux-与音频转换"><a href="#2-分离提取-Demux-与音频转换" class="headerlink" title="2.分离提取(Demux)与音频转换"></a>2.分离提取(Demux)与音频转换</h3><p>见<a target="_blank" rel="noopener" href="https://github.com/ted423/FXXS-Encode-Guide/blob/main/2.%20Tools/1.%20Demux%26Remux.md">Demux&amp;Remux</a>以及<a target="_blank" rel="noopener" href="https://github.com/ted423/FXXS-Encode-Guide/tree/main/3.%20Audio">Audio</a></p>
 <h3 id="3-输入脚本编写"><a href="#3-输入脚本编写" class="headerlink" title="3.输入脚本编写"></a>3.输入脚本编写</h3><p>压制前一般需要对片源就行处理，一般包括去除黑边、修复脏边脏线、去除片源的一些问题等，并且在压制时一般需要进行部分压制测试，也需使用脚本进行实现。本节将对介绍压制中的最基本脚本的编写，分为VS和AVS两个部分。编写脚本使用对应的编辑器较为方便。以及基础例子如下</p>
 <h5 id="1-AVS例子"><a href="#1-AVS例子" class="headerlink" title="1).AVS例子"></a>1).AVS例子</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FFVideoSource(<span class="string">&quot;J:\BluryBD\After.the.Storm.2016.BluRay.Remux.1080p.AVC.TrueHD.5.1-HiFi.mkv&quot;</span>)</span><br><span class="line">Crop(<span class="number">0</span>, <span class="number">20</span>, -<span class="number">0</span>, -<span class="number">22</span>)</span><br><span class="line">FillBorder(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">bbmod(<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">128</span>,<span class="number">21</span>)</span><br><span class="line">Z_Spline36Resize(<span class="number">1280</span>, <span class="number">692</span>,dither=<span class="string">&quot;error_diffusion&quot;</span>)</span><br></pre></td></tr></table></figure>
@@ -356,7 +354,7 @@
 
 <h3 id="4-压制测试"><a href="#4-压制测试" class="headerlink" title="4.压制测试"></a>4.压制测试</h3><p>在压制前应该进行参数测试，以便获取较高的压制质量，一般需要确定合理<strong>码率大小(crf)<strong>以及对于</strong>码率分配参数(ap-mode、ap-s、qcomp)<strong>以及</strong>psy</strong>等重要参数进行测试。使用抽取测试代码，大约抽取6k帧进行参数测试，送入<strong>Simple-x264</strong>进行测试。</p>
 <h4 id="1-压制参数配置"><a href="#1-压制参数配置" class="headerlink" title="(1).压制参数配置"></a>(1).压制参数配置</h4><p>使用Simple进行压制，其设置如下所示。<strong>在设置界面记得开始log自动保存！！！</strong></p>
-<p><img src="/Picture/simplex264.png" alt="image-20200220003824403"></p>
+<p><img src="/(/img/simplex264.png" alt="image-20200220003824403"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--level <span class="number">4.1</span> --threads <span class="keyword">auto</span> --vbv-bufsize <span class="number">78125</span> --vbv-maxrate <span class="number">62500</span> --colormatrix bt709 --colorprim bt709 --no-mbtree --no-dct-decimate --min-keyint <span class="number">24</span> --me umh --merange <span class="number">48</span> --deblock=<span class="number">-3</span>,<span class="number">-3</span> --ipratio <span class="number">1.3</span> --pbratio <span class="number">1.2</span> --qcomp <span class="number">0.6</span> --aq-mode <span class="number">1</span> --aq-strength <span class="number">0.8</span> --psy-rd <span class="number">1.00</span>:<span class="number">0.00</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="2-CRF测试"><a href="#2-CRF测试" class="headerlink" title="(2).CRF测试"></a>(2).CRF测试</h4><p>CRF测试主要确定合适码率，根据压制目标，确定合理的码率。推荐测试起始CRF为17，根据范围码率以0.5步进进行CRF测试。</p>
@@ -449,7 +447,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-12-18T09:12:30.656Z" itemprop="dateModified">最后编辑：2024-12-18</time>
+                    <time datetime="2024-12-25T03:47:58.011Z" itemprop="dateModified">最后编辑：2024-12-25</time>
                 </div>
             </div>
         </footer>
@@ -458,13 +456,9 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Demux &amp; Remux 操作" href="/2.Tools/Demux&Remux/"><i class="fa fa-angle-left"></i> 上一篇</a>
+                <a title=" 软件列表" href="/2.Tools/Collection/"><i class="fa fa-angle-left"></i> 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" x265参数解析" href="/2.Tools/x265参数/">下一篇 <i class="fa fa-angle-right"></i></a>
-            </div>
             
         </nav>
     

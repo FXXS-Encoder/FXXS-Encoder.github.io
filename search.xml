@@ -94,20 +94,20 @@
 <h2 id="图像的表示方法"><a href="#图像的表示方法" class="headerlink" title="图像的表示方法"></a>图像的表示方法</h2><h3 id="RGB模型"><a href="#RGB模型" class="headerlink" title="RGB模型"></a>RGB模型</h3><p>光的三原色是红(Red)、绿(Green)、蓝(Blue)。现代的显示器技术就是通过组合不同强度的三原色，来达成任何一种可见光的颜色。图像储存中，通过记录每个像素红绿蓝强度，来记录图像的方法，称为RGB模型 (RGB Model)</p>
 <p>常见的图片格式中，PNG和BMP这两种就是基于RGB模型的。</p>
 <p>比如说原图：</p>
-<p><img src="/Picture/Video/Source.webp" alt="原图"></p>
+<p><img src="/(/img/Video/Source.webp" alt="原图"></p>
 <p>分别只显示R G B通道的强度，效果如下：</p>
-<p><img src="/Picture/Video/R.webp" alt="RGB-R"></p>
-<p><img src="/Picture/Video/G.webp" alt="RGB-G"></p>
-<p><img src="/Picture/Video/B.webp" alt="RGB-B"></p>
+<p><img src="/(/img/Video/R.webp" alt="RGB-R"></p>
+<p><img src="/(/img/Video/G.webp" alt="RGB-G"></p>
+<p><img src="/(/img/Video/B.webp" alt="RGB-B"></p>
 <p>三个通道下，信息量和细节程度不一定是均匀分布的。比如说可以注意南小鸟脸上的红晕，在3个平面上的区分程度就不同——红色平面下几乎无从区分，造成区别的主要是绿色和蓝色的平面。外围白色的脸颊，三色都近乎饱和；但是红晕部分，只有红色饱和，绿色和蓝色不饱和。这是造成红色凸显的原因。</p>
 <h2 id="YUV模型"><a href="#YUV模型" class="headerlink" title="YUV模型"></a>YUV模型</h2><p>除了RGB模型，还有一种广泛采用的模型，称为YUV模型，又被称为亮度-色度模型（Luma-Chroma）。它是通过数学转换，将RGB三个通道，转换为一个代表亮度的通道(Y,又称为Luma)，和两个代表色度的通道(UV，并成为Chroma)。</p>
 <p>YUV模型干的是类似的事儿。通过对RGB数据的合理转换，得到另一种表示方式。YUV模型下，还有不同的实现方式。举个用的比较多的YCbCr模型：它把RGB转换成一个亮度(Y)，和 蓝色色度(Cb) 以及 红色色度(Cr)。转换背后复杂的公式大家不需要了解，只需要看看效果：</p>
 <p>只有亮度通道：</p>
-<p><img src="/Picture/Video/Y.webp" alt="YUV-Y"></p>
+<p><img src="/(/img/Video/Y.webp" alt="YUV-Y"></p>
 <p>只有蓝色色度：</p>
-<p><img src="/Picture/Video/Cb.webp" alt="YUV-Cb"></p>
+<p><img src="/(/img/Video/Cb.webp" alt="YUV-Cb"></p>
 <p>只有红色色度：</p>
-<p><img src="/Picture/Video/Cr.webp" alt="YUV-Cr"></p>
+<p><img src="/(/img/Video/Cr.webp" alt="YUV-Cr"></p>
 <p>在图像视频的加工与储存中，YUV格式一般更受欢迎，理由如下：</p>
 <ol>
 <li><p>人眼对亮度的敏感度远高于色度，因此人眼看到的有效信息主要来自于亮度。YUV模型可以将绝大多数的有效信息分配到Y通道。UV通道相对记录的信息少的多。相对于RGB模型较为平均的分配，YUV模型将多数有效信息集中在Y通道，不但减少了冗余信息量，还为压缩提供了便利</p>
@@ -130,7 +130,7 @@
 <p>取pi精度足够高，面积算出来是477.61平方米。所以取pi&#x3D;3.1416是足够的，但是3.14就不够了。</p>
 <p>换言之，即便最终输出的精度要求较低，也不意味着参与运算的数字，以及运算过程，可以保持较低的精度。在最终输出是8bit RGB的前提下，10bit YUV比起8bit YUV依旧具有精度优势的原因就在这里。事实上，8bit YUV转换后，覆盖的精度大概相当于8bit RGB的26%，而10bit转换后的精度大约可以覆盖97%——你想让你家8bit显示器发挥97%的细腻度么？看10bit吧。</p>
 <p>8bit精度不足，主要表现在亮度较低的区域，容易形成色带</p>
-<p><img src="/Picture/Video/8bit.webp" alt="色带"></p>
+<p><img src="/(/img/Video/8bit.webp" alt="色带"></p>
 <p>注意这图右边那一圈圈跟波浪一样的效果。这就是颜色精度不足的表现。</p>
 <p>10bit的优势不只在于显示精度的提高，在提高视频压缩率，减少失真方面，相对8bit也有优势。这方面就不展开了。</p>
 <h2 id="帧、帧的类型V"><a href="#帧、帧的类型V" class="headerlink" title="帧、帧的类型V"></a>帧、帧的类型V</h2><p>电影是由多个“图片”连续播放组成的，每个“图片”被称为<em><strong>帧</strong></em>，电影单位时间内播放的帧的数目称为<em><strong>帧率</strong></em>，常见帧率数值有：<strong>23.97、24、29.97</strong>等等</p>
@@ -139,7 +139,7 @@
 <p><strong>I帧(Intracoded帧)</strong>:此帧是一个独立的帧，它不使用其前后的帧中的任何信息。一般作为参考帧的基础架构，储存完整的帧信息，占用空间较大。</p>
 <p><strong>P帧（Predicted帧）</strong>:P帧又称帧间预测编码帧，需要参考前面的I帧才能进行编码。表示的是当前帧画面与前一帧（前一帧可能是I帧也可能是P帧）的差别。解码时需要用之前缓存的画面叠加上本帧定义的差别，生成最终画面。与I帧相比，P帧通常占用更少的空间。</p>
 <p><strong>B帧（Bi-predictive帧）</strong>:B帧又称双向预测编码帧，也就是B帧记录的是本帧与前后帧的差别。也就是说要解码B帧，不仅要取得之前的缓存画面，还要解码之后的画面，通过前后画面的与本帧数据的叠加取得最终的画面。B帧压缩率高，但是对解码性能要求较高。</p>
-<p><img src="/Picture/I_P_and_B_frames.png" alt="I_P_and_B_frames"></p>
+<p><img src="/(/img/I_P_and_B_frames.png" alt="I_P_and_B_frames"></p>
 <p>不同编码根据自己算法，对于一个视频进行压缩编码，不同的编码方式，对于不同帧处理方式不同，有着自己的标准。</p>
 <h2 id="GOP（关键帧间隔）"><a href="#GOP（关键帧间隔）" class="headerlink" title="GOP（关键帧间隔）"></a>GOP（关键帧间隔）</h2><p>GOP（Group of Pictures）是一组以 MPEG 编码的影片或视讯串流内部的连续图像，以 I 帧开头，到下一个 I 帧结束。一个 GOP 包含如下图像类型：</p>
 <p>I 帧（Intra Coded Picture）：又称帧内编码帧，为关键帧，是一种自带全部信息的独立帧，无需参考其他图像便可独立进行解码，可以简单理解为一张静态画面。视频序列中的第一个帧始终都是I 帧，每个 GOP 由I 帧开始。<br>P 帧（Predictive Coded Picture）：又称帧间预测编码帧，需要参考前面的I帧才能进行编码。表示的是当前帧画面与前一帧（前一帧可能是I帧也可能是P帧）的差别。解码时需要用之前缓存的画面叠加上本帧定义的差别，生成最终画面。与I帧相比，P帧通常占用更少的数据位，但不足是，由于P帧对前面的P和I参考帧有着复杂的依赖性，因此对传输错误非常敏感。<br>B 帧（Bidirectionally Predictive Coded Pictures）：又称双向预测编码帧，也就是B帧记录的是本帧与前后帧的差别。也就是说要解码B帧，不仅要取得之前的缓存画面，还要解码之后的画面，通过前后画面的与本帧数据的叠加取得最终的画面。B帧压缩率高，但是对解码性能要求较高。<br>GOP值表示关键帧的间隔（即两个关键帧之间的帧数），也就是两个IDR帧之间的距离，一个帧组的最大帧数。一般而言，每一秒视频至少需要使用 1 个关键帧。增加关键帧个数可改善视频质量，但会同时增加带宽和网络负载。GOP值（帧数）除以帧率即为时间间隔，如阿里云视频点播默认的GOP值为250帧，帧率为25fps，则时间间隔为10秒。</p>
@@ -364,6 +364,7 @@
 <li><strong><a href="https://www.videohelp.com/software/BDInfo">BDinfo</a></strong>: 蓝光原盘信息检测分析软件。</li>
 <li><strong><a href="https://www.videolan.org/index.zh.html">VLC</a></strong>: 能播放蓝光菜单，辅助确认音轨字幕章节信息</li>
 </ul>
+<p>其他请参考 <a href="/2.Tools/Collection">软件列表</a></p>
 <p>基础部分软件直接使用或者安装即可。<br>AVS和VS为两种方向，推荐选VS</p>
 <p>AVS相关教程Archive</p>
 <h4 id="VapourSynth环境"><a href="#VapourSynth环境" class="headerlink" title="VapourSynth环境"></a>VapourSynth环境</h4><blockquote>
@@ -374,13 +375,13 @@
 <p>**<a href="http://www.vapoursynth.com/">VapourSynth</a>**：VapourSynth的主体安装程序，安装过程推荐安装所有推荐内容。除了安装位置外推荐使用默认设置。安装完后只包括主程序，以及官方的自带的插件，VS使用过程需要大量的插件以及脚本：主要分为 <strong>Script(.py)脚本</strong> 和 <strong>Plugins(.dll)插件</strong> 两个部分。安装插件脚本，需要将对应文件放入对应目录，目录在官方文档内有详细介绍。在Windows下官方提供了方便的下载管理。下文对于使用到部分将会介绍。</p>
 <p>请注意脚本主要是 Python 环境，Python 版本兼容，通过 import 加载，而dll加载与VS本身，是需要考虑系统兼容，通过 core.XXX 加载，很多插件没有 Release Linux 版本，所以 Linux 环境可能会有部分插件需要自己想办法编译或者没法编译。</p>
 <p><strong>口语环境里，很多人会把脚本也叫成插件，但自己注意区分，以免造成混淆</strong></p>
+<p>VS 最新提供了制作便携版的脚本，但需要注意，升级会需要一些手动操作，如 python 的 vs 包无法卸载。如果是个人使用搭建，建议用安装包</p>
 <p>VapourSynth 文档中列出了放置插件的路径。</p>
 <p>Windows 的推荐路径<code>&lt;AppData&gt;\VapourSynth\plugins32</code> 或 <code>&lt;AppData&gt;\VapourSynth\plugins64</code>。Unix 用户可以创建一个配置文件来指定路径。</p>
 <p>VapourSynth的Python脚本应该放在你的Python site-packages文件夹中。在 Arch Linux上，位于 <code>/usr/lib64/Python3.*/sitepackages/</code>。Windows 用户可以在本地AppData文件夹【译者注：即<code>C:\Users\&lt;用户名&gt;\AppData\Local</code>】中找到这个文件夹。</p>
 <p><strong>需要注意的是 Python 自身也会有个 site-packages 文件夹，注意不要放错位置或者混放，可能会造成不知道加载了什么东西的问题</strong></p>
 <p>**<a href="https://github.com/theChaosCoder/VSRepoGUI/releases">VSRepoGUI</a>**：官方提供了方便的下载管理插件以及脚本的GUI界面，下载解压后点开后即可使用，推荐放在VS的安装目录内。</p>
-<img src="/Picture/VSRepoGUI.png" alt="image-20200209025555494" style="zoom:80%;" />
-
+<p><img src="/img/VSRepoGUI.png" alt="image"></p>
 <p>通过软件可以查看对应的VS安装信息和脚本插件的所在位置，同时可以实现对插件的脚本安装、更新和卸载，软件插件安装位置，再右上角可以快速点开。在Windows下推荐本软件进行维护插件和脚本。</p>
 <p>VapourSynth 编辑器</p>
 <ul>
@@ -390,8 +391,7 @@
 <li>AvsPmod(长期不更新)</li>
 </ul>
 <p><strong>VapourSynth Editor</strong>：VS Editor是目前较为广泛使用的VS编辑器(目前会使用Mod版本)。下载后，直接解压即可使用。第一次使用时候，需要配置VapourSynth文件的位置。VS plugins paths 可以是用VSRepoGUI中的路径进行查看。</p>
-<img src="/Picture/VS Editor.png" alt="image-20200210015648555" style="zoom: 88%;" />
-
+<p><img src="/img/VS20%EF%BF%BDitor.png" alt="image"></p>
 <p><strong>独立版本</strong></p>
 <p><strong>Yuuno</strong> 是 Jupyter 记事本的一个扩展，允许你编辑和导出 VapourSynth 脚本。你可以通过以下代码来安装。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install yuuno</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yuuno jupyter install</span></span><br></pre></td></tr></table></figure>
@@ -420,14 +420,13 @@
 <li>允许你在一个 Jupyter 编辑器中处理和导出多个脚本</li>
 </ul>
 <h4 id="压制工具"><a href="#压制工具" class="headerlink" title="压制工具"></a>压制工具</h4><p>使用压制工具大部分核心都是x264和x265(x265如无必要不在重复)。本人推荐压制软件功能越为简单越好，推荐2个使用，适合新手的**<a href="https://github.com/lordmulder/Simple-x264-Launcher">Simple x264&#x2F;x265 Launcher</a><strong>以及适合有经验的纯命令行（CLI）的</strong><a href="https://www.videohelp.com/software/x264-Encoder">x264.exe</a>和<a href="https://www.videohelp.com/software/x265-Encoder">x265.exe</a>**。Simple下载安装即可使用，本教程将以此为基础进行讲解。工具需要简单的设置，推荐log文件保存等设置，根据个人习惯修改。</p>
-<p><img src="/Picture/Simple.png" alt="image-20200210024626480"></p>
+<p><img src="/img/Simple.png" alt="image-20200210024626480"></p>
 <blockquote>
 <p>大部分压制组要求，压制工具要求及时更新，使用最新版的压制工具。</p>
 </blockquote>
 <h2 id="压制步骤"><a href="#压制步骤" class="headerlink" title="压制步骤"></a>压制步骤</h2><h3 id="1-压制源分析"><a href="#1-压制源分析" class="headerlink" title="1.压制源分析"></a>1.压制源分析</h3><p>要想做一个较为高质量作品，应采用最好的来源进行压制。HDR电影来源较为单一，4k的原盘和Remux资源为主，版本较少能选择不多。SDR目前可用压制版本较多，各个发行商的在不同时期也发行过不同蓝光版本，随着web的兴起，AZ和NF也都发布了较高码率的4k的sdr版本，所以在SDR压制时，需要对于来源进行对比，选取最为高质量的来源进行压制。对于蓝光原盘与remux两者相同时候，推荐使用Remux的更为方便。</p>
 <p>对于原盘使用 <strong>BDInfo</strong> 检查原盘信息，查看原盘主要视频对应播放列表。对于复杂原盘，可能出现多版本混合的情况，需要确定所需要版本对应的MPLS，并确定原盘的主要码率 。在压制前推荐进行分离提取(Demux)后再进行压制。</p>
-<img src="/Picture/BDInfo.png" alt="BDInfo" style="zoom:95%;" />
-
+<p>![image](&#x2F;img&#x2F;BDInfo.png” alt&#x3D;”BDInfo” style&#x3D;” “ &#x2F;&gt;</p>
 <h3 id="2-分离提取-Demux-与音频转换"><a href="#2-分离提取-Demux-与音频转换" class="headerlink" title="2.分离提取(Demux)与音频转换"></a>2.分离提取(Demux)与音频转换</h3><p>见<a href="https://github.com/ted423/FXXS-Encode-Guide/blob/main/2.%20Tools/1.%20Demux%26Remux.md">Demux&amp;Remux</a>以及<a href="https://github.com/ted423/FXXS-Encode-Guide/tree/main/3.%20Audio">Audio</a></p>
 <h3 id="3-输入脚本编写"><a href="#3-输入脚本编写" class="headerlink" title="3.输入脚本编写"></a>3.输入脚本编写</h3><p>压制前一般需要对片源就行处理，一般包括去除黑边、修复脏边脏线、去除片源的一些问题等，并且在压制时一般需要进行部分压制测试，也需使用脚本进行实现。本节将对介绍压制中的最基本脚本的编写，分为VS和AVS两个部分。编写脚本使用对应的编辑器较为方便。以及基础例子如下</p>
 <h5 id="1-AVS例子"><a href="#1-AVS例子" class="headerlink" title="1).AVS例子"></a>1).AVS例子</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">FFVideoSource(<span class="string">&quot;J:\BluryBD\After.the.Storm.2016.BluRay.Remux.1080p.AVC.TrueHD.5.1-HiFi.mkv&quot;</span>)</span><br><span class="line">Crop(<span class="number">0</span>, <span class="number">20</span>, -<span class="number">0</span>, -<span class="number">22</span>)</span><br><span class="line">FillBorder(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">bbmod(<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">128</span>,<span class="number">21</span>)</span><br><span class="line">Z_Spline36Resize(<span class="number">1280</span>, <span class="number">692</span>,dither=<span class="string">&quot;error_diffusion&quot;</span>)</span><br></pre></td></tr></table></figure>
@@ -480,7 +479,7 @@
 
 <h3 id="4-压制测试"><a href="#4-压制测试" class="headerlink" title="4.压制测试"></a>4.压制测试</h3><p>在压制前应该进行参数测试，以便获取较高的压制质量，一般需要确定合理<strong>码率大小(crf)<strong>以及对于</strong>码率分配参数(ap-mode、ap-s、qcomp)<strong>以及</strong>psy</strong>等重要参数进行测试。使用抽取测试代码，大约抽取6k帧进行参数测试，送入<strong>Simple-x264</strong>进行测试。</p>
 <h4 id="1-压制参数配置"><a href="#1-压制参数配置" class="headerlink" title="(1).压制参数配置"></a>(1).压制参数配置</h4><p>使用Simple进行压制，其设置如下所示。<strong>在设置界面记得开始log自动保存！！！</strong></p>
-<p><img src="/Picture/simplex264.png" alt="image-20200220003824403"></p>
+<p><img src="/(/img/simplex264.png" alt="image-20200220003824403"></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">--level <span class="number">4.1</span> --threads <span class="keyword">auto</span> --vbv-bufsize <span class="number">78125</span> --vbv-maxrate <span class="number">62500</span> --colormatrix bt709 --colorprim bt709 --no-mbtree --no-dct-decimate --min-keyint <span class="number">24</span> --me umh --merange <span class="number">48</span> --deblock=<span class="number">-3</span>,<span class="number">-3</span> --ipratio <span class="number">1.3</span> --pbratio <span class="number">1.2</span> --qcomp <span class="number">0.6</span> --aq-mode <span class="number">1</span> --aq-strength <span class="number">0.8</span> --psy-rd <span class="number">1.00</span>:<span class="number">0.00</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="2-CRF测试"><a href="#2-CRF测试" class="headerlink" title="(2).CRF测试"></a>(2).CRF测试</h4><p>CRF测试主要确定合适码率，根据压制目标，确定合理的码率。推荐测试起始CRF为17，根据范围码率以0.5步进进行CRF测试。</p>
@@ -633,297 +632,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Irrational Encoding Wizardry 插件</title>
-    <url>/3.Code/Irrational%20Encoding%20Wizardry/</url>
-    <content><![CDATA[<p>他们的插件经常会跟进最新的 VS 版本。</p>
-<p>建议找他们仓库提供的 Discord 连接进群查询插件语法及用法</p>
-<h1 id="vs-deband"><a href="#vs-deband" class="headerlink" title="vs-deband"></a>vs-deband</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> vsdeband <span class="keyword">import</span> F3kdb</span><br><span class="line"><span class="keyword">from</span> vsmasktools <span class="keyword">import</span> dre_edgemask</span><br><span class="line"><span class="keyword">from</span> vstools <span class="keyword">import</span> core, vs</span><br><span class="line"></span><br><span class="line">deband = F3kdb.deband(clip)</span><br><span class="line">mask = dre_edgemask(clip)<span class="comment">#.std.Binarize().std.Maximum()  # please make sure you properly define the Binarize threshold, or better yet use the threshold param dre_edgemask iirc has</span></span><br><span class="line">debanded = core.std.MaskedMerge(deband, clip, mask)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>3.Code</category>
-      </categories>
-      <tags>
-        <tag>Document</tag>
-        <tag>VS(Plugin/Scripts)</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>x265参数解析</title>
-    <url>/2.Tools/x265%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><p><a href="https://tieba.baidu.com/p/6627144750">https://tieba.baidu.com/p/6627144750</a></p>
-</li>
-<li><p><a href="https://x265.readthedocs.io/en/3.1/cli.html">https://x265.readthedocs.io/en/3.1/cli.html</a></p>
-</li>
-<li><p><a href="https://guides.vcb-s.com/basic-guide-07#4-x265-%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90">https://guides.vcb-s.com/basic-guide-07#4-x265-参数解析</a></p>
-</li>
-<li><p><a href="https://silentaperture.gitlab.io/mdbook-guide/encoding/x265.html">https://silentaperture.gitlab.io/mdbook-guide/encoding/x265.html</a></p>
-</li>
-</ul>
-<p><strong>请注意，不能确保完全正确</strong></p>
-<h2 id="crf-qp"><a href="#crf-qp" class="headerlink" title="crf,qp"></a>crf,qp</h2><p><strong>qp</strong> 电脑认为的恒定画质(但一般不进行设置)</p>
-<p><strong>crf</strong> 人眼认为的恒定画质，但是运动时候画质会降低来节省码率</p>
-<p>数值越低画质越好。</p>
-<p>一般低于等于18可以认为和原画差不多(主观观点)</p>
-<h2 id="ctu"><a href="#ctu" class="headerlink" title="ctu &lt;64|32|16&gt;"></a>ctu &lt;64|32|16&gt;</h2><p>分块大小，64速度最慢，32其次</p>
-<p>设成32 对于复杂场景压缩压缩率最高，64 对于简单场景压缩压缩率最高</p>
-<p>推荐用32因为速度比64快10%，并且画质更好一些</p>
-<p>16适合DVD，32适合1080p,64适合4K,720p用16,x265可能就会直接退出</p>
-<h2 id="rd-1-6"><a href="#rd-1-6" class="headerlink" title="rd (1-6)"></a>rd (1-6)</h2><p>分析的复杂度，数值越大画质越高，压出来体积越大，5,6非常慢, 默认3.</p>
-<h2 id="early-skip"><a href="#early-skip" class="headerlink" title="early-skip"></a>early-skip</h2><p>–early-skip, –no-early-skip</p>
-<p>默认开，开了提高压缩速度，关了提高精度，体积小幅度增加</p>
-<h2 id="rdoq-level"><a href="#rdoq-level" class="headerlink" title="rdoq-level"></a>rdoq-level</h2><p>RDOP [rate-distortion optimized quantization] (率失真优化量化)</p>
-<p>默认0,关闭，预设slow时候默认开启。(preset placebo 似乎也还是2)</p>
-<p>x265最重要的参数，没有之一，开了能有助于保存细节，当然会有更大文件体积。关闭可以提高压缩速度，看起来会轻度模糊。开启掉速度30%以上，推荐舍弃其他参数，也要开启这个。</p>
-<p>设成 1 时候 看起来效果最好，但是体积会大30%以上</p>
-<p>设成 2 时候 效果略差，体积只会小幅度增加，推荐使用2</p>
-<h2 id="psy-rd-psy-rdoq"><a href="#psy-rd-psy-rdoq" class="headerlink" title="psy-rd &amp; psy-rdoq"></a>psy-rd &amp; psy-rdoq</h2><p>都是Psycho-visual options的参数</p>
-<p>具体见<a href="https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options">https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options</a></p>
-<p>这两者都会影响码率(经测试，开高psy-rdoq到5所增加的码率通过crf来给画面反而效果更好)</p>
-<p>psy-rd 默认 2.0 有些高，<del>建议开到1.5</del>，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试) 目前看来 VCB 似乎建议开高，国外是推荐真人电影(x264)开到1左右，不过4k 可能需要开到2</p>
-<p>psy-rdoq 一直用1一般就好，开高了保留噪点，画面本身却会变差</p>
-<p>一些测试见Compare</p>
-<h2 id="tu-intra-depth-tu-inter-depth"><a href="#tu-intra-depth-tu-inter-depth" class="headerlink" title="tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;"></a>tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;</h2><p>默认1，开高会小幅增加压缩率，但是特别慢 (preset placebo 似乎就是4)</p>
-<h2 id="max-tu-size"><a href="#max-tu-size" class="headerlink" title="max-tu-size &lt;32|16|8|4&gt;"></a>max-tu-size &lt;32|16|8|4&gt;</h2><p>默认32，开低会降低压缩率，并且不会提速，推荐默认</p>
-<h2 id="max-merge"><a href="#max-merge" class="headerlink" title="max-merge &lt;1..5&gt;"></a>max-merge &lt;1..5&gt;</h2><p>开高小幅度提高压缩率，对速度影响不明显，默认2 (preset placebo 似乎就是5)</p>
-<h2 id="me-merange"><a href="#me-merange" class="headerlink" title="me ,merange"></a>me ,merange</h2><p>me 搜索方式，默认hex ，用umh 或star 能小幅度提高压缩率，但是掉速20%</p>
-<p>merange 搜索范围，默认57，me设成hex时候，对速度影响不大，但是使用umh或star时候，开高掉速严重</p>
-<p>umh比star好</p>
-<ol>
-<li><p>dia</p>
-</li>
-<li><p>hex (default)</p>
-</li>
-<li><p>umh</p>
-</li>
-<li><p>star</p>
-</li>
-<li><p>sea</p>
-</li>
-<li><p>full</p>
-</li>
-</ol>
-<h2 id="subme"><a href="#subme" class="headerlink" title="subme"></a>subme</h2><p>默认2</p>
-<p>开高小幅提高压缩率，开低提高压缩速度，5比3慢10%</p>
-<p>推荐3</p>
-<h2 id="keyint"><a href="#keyint" class="headerlink" title="keyint"></a>keyint</h2><p>最大IDR间隔</p>
-<p>关键帧相关，这个将会影响到点击跳转，开高能提升压缩率(但个人不建议随便动他，720对于一般的24p意味着30秒的时间，60p你可以稍微开高点？)</p>
-<p>默认250</p>
-<h2 id="min-keyint"><a href="#min-keyint" class="headerlink" title="min-keyint"></a>min-keyint</h2><p>最小分组帧数，默认23，推荐改成个位数，提高gop准确度。</p>
-<p>小幅度提高压缩率，对压缩速度没影响</p>
-<p>min-keyint&#x3D;1 的情况对于一些高速切换的场景会因此要强制1秒内一个IDR帧，造成P或者B等参考帧使用效率降低(换场景了参考的意义已经不大了)。</p>
-<p>还有就是这样可以避免一些老旧的设备出现硬解的bug。 - by fch1993</p>
-<h2 id="pmode-no-pmode-4-1-deprecated"><a href="#pmode-no-pmode-4-1-deprecated" class="headerlink" title="pmode &amp; no-pmode (4.1 deprecated)"></a>pmode &amp; no-pmode (4.1 deprecated)</h2><p>并行决策模式</p>
-<p>官方推荐是CPU不饱和才开，编码器将跨多个工作线程分配每个 CU 的分析工作。</p>
-<h2 id="rc-lookahead"><a href="#rc-lookahead" class="headerlink" title="rc-lookahead"></a>rc-lookahead</h2><p>预览帧数，默认20</p>
-<p>开高可以提高分组(gop)准确度，小幅度提高压缩率，同时小幅度降速，推荐40</p>
-<p>crf模式时，rc-lookahead可以提高cutree的准确度（提高画质)</p>
-<h2 id="bframes"><a href="#bframes" class="headerlink" title="bframes"></a>bframes</h2><p>最大b帧数量</p>
-<p>开高小幅度提高压缩率，默认4，开到8，掉速10%</p>
-<p>bframes 开高了会小幅降低画质</p>
-<h2 id="cutree"><a href="#cutree" class="headerlink" title="cutree"></a>cutree</h2><p>–no-cutree since this seems to be a poor implementation of mbtree.</p>
-<p><del>目前测试是静态场景表现不错，具体可以看<a href="https://ted423.github.io/Document/Encode/cutree/">https://ted423.github.io/Document/Encode/cutree/</a></del> 不建议开，码率分配存在非常大的问题(有一处分配了31M的码率结果效果还不如一半码率的x264)</p>
-<p>doom9 上2020年有人说”在快速移动的场景中，我一直在努力解决丑陋的扭曲（用条带涂抹看起来有点像运动模糊的东西），最后发现 x265 的 CUTree 是罪魁祸首。</p>
-<p>关闭它可以解决它，但是当试图在其他场景中保持相同的整体质量时，比特率会爆炸。</p>
-<p>有什么方法可以使 CUTree ‘不那么激进’ 或将其设置为 50% 或某些阈值参数吗？”</p>
-<h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p>参照帧数量，默认3</p>
-<p>开高小幅度提高压缩率，同时小幅度降速，</p>
-<p>3和4速度差不多，推荐4</p>
-<p>VCB:不过实测 ref 增加在 x265 中作用不明显。建议不超过 6</p>
-<h2 id="sao-默认开启"><a href="#sao-默认开启" class="headerlink" title="sao 默认开启"></a>sao 默认开启</h2><p>–sao, –no-sao</p>
-<p>设计目的是去振铃(光环现象)，但是细节丰富地方会去掉太多细节，</p>
-<p>推荐关闭。</p>
-<h2 id="strong-intra-smoothing"><a href="#strong-intra-smoothing" class="headerlink" title="strong-intra-smoothing"></a>strong-intra-smoothing</h2><p>推荐在追求还原度的压制的时候关闭，严重欠码压制时开启(部分情况下，aq2 或者降低 aqs 更为优先)</p>
-<p>对关键帧进行平滑处理，看起来挺吓人的，实际上效果不明显，推荐用<code>--no-strong-intra-smoothing</code>关闭，保留细节(来源贴吧 连接1 的帖内说明)</p>
-<p><a href="http://forum.doom9.net/showthread.php?p=1873696">http://forum.doom9.net/showthread.php?p=1873696</a></p>
-<p>相关讨论，与贴吧给出的结论不同</p>
-<p>个人测试是开的话画面细节丢失，影响蛮大 <del>可能适合低码压制</del></p>
-<p>目前测试是在低码压制上会降低块效应(不知道这么说对不对，aqs psy-rdoq开高会导致块变得严重。特别是4K，44Mbps仍然有些欠码，因此4K欠码压制的情况下，这种现象会非常严重，见 <a href="https://slow.pics/c/uvnpqHrU">https://slow.pics/c/uvnpqHrU</a> 不过这个对比图没有块现象严重的对比，只是用于说明所需码率，因为一个没注意顺手删了)</p>
-<h2 id="lookahead-slices"><a href="#lookahead-slices" class="headerlink" title="lookahead-slices"></a>lookahead-slices</h2><p>设成0有助于提高画质，开高有利于lookahead的并行度，</p>
-<p>推荐设成0，对压缩速度无影响</p>
-<h2 id="deblock-去色块"><a href="#deblock-去色块" class="headerlink" title="deblock 去色块"></a>deblock 去色块</h2><p>要调低 默认太高， 推荐最高调到-1,-1以下，调高了会模糊</p>
-<h2 id="qcomp"><a href="#qcomp" class="headerlink" title="qcomp"></a>qcomp</h2><p>运动时候画质 crf开启时候有效</p>
-<p>开高提高运动时候画质，开低减少文件体积</p>
-<p>推荐0.6-0.7</p>
-<h2 id="frame-threads"><a href="#frame-threads" class="headerlink" title="frame-threads"></a>frame-threads</h2><p>帧线程数量，开高提高cpu利用率，开低有利于小幅度提高压缩率</p>
-<p>如果cpu能够满载可以考虑调到2，如果不能满载考虑使用默认值</p>
-<p>(默认会自动调整)</p>
-<h2 id="aq-strength-默认1-0"><a href="#aq-strength-默认1-0" class="headerlink" title="aq-strength 默认1.0"></a>aq-strength 默认1.0</h2><p>低于1.0首先保留边缘，高于1.0优先保留纹理，这个值也要看aq-mode，噪点多的片可以调低这个值，噪点少的片调高这个值</p>
-<p>不了解不要乱调这个</p>
-<p>VCB:aq-strength 决定了 aq 的强度，一般来说，Anime 的 aq-strength 不用太高（太高了码率也会浪费）。通常，aq-mode&#x3D;1，aq-strength 给 0.8 比较合理；aq-mode&#x3D;2，aq-strength 给 0.9 左右，aq-mode&#x3D;3，aq-strength 给 0.7 左右。</p>
-<h2 id="aq-mode"><a href="#aq-mode" class="headerlink" title="aq-mode"></a>aq-mode</h2><p>目前测试在不足码率压制的情况下,aq1可能会导致画面出现一些奇怪的现象，aq2相对画面更好一些，并且不会出现奇妙的画面(不过测试还不够充分)。</p>
-<p>在给够码率的情况下(噪点比较重的片)，aq1似乎会好些(可以看战火高码版对比图，不过暂时还没放到公网)</p>
-<p>2 x265默认（推荐）</p>
-<p>3 暗处增强，避免暗处被压坏，实际上亮的地方码率也会增加30%以上，所以很 浪费码率(不过就压制而言，通常是差不多码率进行比较，因此浪费码率可以通过调高crf解决)</p>
-<p>aq-mode 4 :优先保留边缘，噪点很多时候用</p>
-<p>VCB:x265 目前有三种 aq 模式。aq-mode 1 是最安全稳定的 aq，适合高码率&#x2F;高画质编码；aq-mode<br>2 相对来说效率最高，适合中低码率的编码；aq-mode 3 对暗场进行加强，适合 8bit 编码防止暗场压烂。一般 10bit编码根据 crf 高低决定 aq 选取，个人建议在 crf &lt;&#x3D; 16 时候使用 aq-mode 1，否则使用 aq-mode 2。注意同 crf下，不同 aq-mode 出来的体积是不一样的，3&gt;1&gt;2。</p>
-<p>补充说明，个人在压制黑白噪点片时，aq2产生了比aq1还大的体积，目测在大颗粒噪点的情况下，aq2会比aq1产生更高的码率</p>
-<h2 id="rskip"><a href="#rskip" class="headerlink" title="rskip &lt;0|1|2&gt;"></a>rskip &lt;0|1|2&gt;</h2><p>开启提高速度，关闭提高画质，0是关闭，默认1</p>
-<p>模式1比0 wmaf 下降0.03左右</p>
-<p>模式2比模式1压缩速度要快30%-50%左右，但是压缩率要低</p>
-<p>对于平滑画面（噪点比较少）画质优于rskip&#x3D;1，但是噪点比较多画面 画质不如rskip&#x3D;1</p>
-<p>rskip&#x3D;2 和ctu&#x3D;64配合不好，同时开启画质压缩率都会下降</p>
-<p><del>推荐rskip&#x3D;2 和ctu&#x3D;32配合</del>(我们一般不开)</p>
-<h2 id="rect"><a href="#rect" class="headerlink" title="rect"></a>rect</h2><p>–rect, –no-rect</p>
-<p>开了小幅度增加压缩率（0%-5%左右 )和画质，有长方形区域时候才有效，否则是空跑，开了掉速30%以上</p>
-<p>推荐关闭增加压缩速度。</p>
-<p>VCB:通常来说，&lt;&#x3D;1080p 下，rect 基本上没什么作用，amp 是几乎完全没作用，但是这俩都是速度黑洞。因此从效率角度建议关闭，或者至少关闭 amp</p>
-<p>个人测试中，1080p开了之后，码率低了一点，画面差了一点</p>
-]]></content>
-      <categories>
-        <category>2.Tools</category>
-      </categories>
-      <tags>
-        <tag>Doc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Demux &amp; Remux 操作</title>
-    <url>/2.Tools/Demux&amp;Remux/</url>
-    <content><![CDATA[<p>通常建议在 Demux &amp; Remux 之前进行扫盘，mkvtoolnix 以及 dgdemux 都可以进行。</p>
-<p>主要判断信息有</p>
-<ul>
-<li>是否是肉酱盘</li>
-<li>是否默认的 mpls 是正确的影片（有些盘会坑人）</li>
-<li>mpls 是否包含了无效的mt2s(这种会导致操作失败)，这种情况，需要 dgdemux,然后勾选 “skip first&#x2F;last M2TS”</li>
-</ul>
-<p>部分剧集原盘 dgdemux 需要开启 “strict playlist times” mkvtoolnix 可以自动处理，useac3to 等其他软件会产生包含长时间黑屏的文件出来。(m2ts本身包含，mlps中做了切割处理)</p>
-<p>Demux作为音轨处理的前置步骤(部分原盘只有DGDemux能正常处理)，目前获取的信息是再TrueHD方面 MakeMKV &gt;&#x3D; 1.15.4 &#x3D; mlp &gt; DGDemux (具体见 mlp 的 Readme)。</p>
-<p>或许考虑使用<a href="https://github.com/domyd/mlp">mlp</a>来专门处理肉酱TrueHD盘</p>
-<p>一些肉酱盘 mkvtoolnix,eac3to,会有 glitching 的问题见<a href="https://github.com/ted423/FXXS-Encode-Guide/issues/14">issue</a>(并不确认eac3to最新版是否解决了问题)。</p>
-<p>一些 mpls 会作为 m2ts 的 index,m2ts 本身前后会包含一些 garbage，见<a href="https://github.com/justdan96/tsMuxer/issues/624">issue</a>,目前 DGDemux 可以通过勾选 ‘strict playlist’ 来正确处理。</p>
-<p>mkvtoolnix也会进行处理，但音轨出现了一些问题。</p>
-<h1 id="DVD"><a href="#DVD" class="headerlink" title="DVD"></a>DVD</h1><p>对于DVD，你可能需要使用MakeMKV，目前的其他软件对DVD都支持不太好，例如mkvtoolnix认不到章节以及字幕轨</p>
-<h1 id="常见的Demux软件有"><a href="#常见的Demux软件有" class="headerlink" title="常见的Demux软件有"></a>常见的Demux软件有</h1><ul>
-<li>UsEac3to&#x2F;eac3to</li>
-<li>DGDemux(现在作为默认的标准软件)</li>
-<li>tsMuxer</li>
-<li>FFmpeg</li>
-<li>gMKVExtractGUI&#x2F;mkvextract</li>
-</ul>
-<p>其中UsEac3to功能非常多，内含了转码功能，但其长期未更新，在部分音轨上可能出现问题。</p>
-<p><strong>其中eac3to可以检测到坏帧并进行输出，故可以用来判断原盘是否有问题</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[v02] Extracting video track number 2...</span><br><span class="line">[v02] Creating file &quot;D:\Rip\00001.mpls_2eng.h264&quot;...</span><br><span class="line">[v02] [0:07:57] The source file seems to be damaged (sync byte missing).  &lt;WARNING&gt;</span><br><span class="line">[v02] [0:07:57] The source file seems to be damaged (discontinuity).  &lt;WARNING&gt;</span><br><span class="line">[v02] [0:20:58] The source file seems to be damaged (sync byte missing).  &lt;WARNING&gt;</span><br><span class="line">[v02] [0:20:58] The source file seems to be damaged (discontinuity).  &lt;WARNING&gt;</span><br><span class="line">[v02] [1:34:37] The source file seems to be damaged (sync byte missing).  &lt;WARNING&gt;</span><br><span class="line">[v02] [1:34:37] The source file seems to be damaged (discontinuity).  &lt;WARNING&gt;</span><br><span class="line">[v02] Video has a gap of 355 frames at playtime 0:07:57.  &lt;WARNING&gt;</span><br><span class="line">[v02] Video has a gap of 383 frames at playtime 0:20:57.  &lt;WARNING&gt;</span><br><span class="line">[v02] Video has a gap of 42 frames at playtime 1:34:35.  &lt;WARNING&gt;</span><br><span class="line">[v02] Video has a gap of 255 frames at playtime 1:34:35.  &lt;WARNING&gt;</span><br><span class="line">Video track 2 contains 141636 frames.</span><br><span class="line">eac3to processing took 1 minute, 17 seconds.</span><br><span class="line">Done.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>前3者支持BD&#x2F;mpls的demux(你可以选用现成的Remux来避免原盘带来的各种问题),不过DGDemux支持原盘，tsMuxer的mkv很多轨道都不认<br>后3者开源免费多平台(有Linux版本)</p>
-<p>DGDemux有Linux版本，不过没有GUI</p>
-<p>tsMuxer拆出的turehd是包含ac3核心的，FFmpeg不认(不能拿来制作DDP)</p>
-<h1 id="选择正确的mpls"><a href="#选择正确的mpls" class="headerlink" title="选择正确的mpls"></a>选择正确的mpls</h1><p>不像二次元原盘可能一个m2ts就一集，乱七八糟的原盘mpls可能发生各种情况。建议关注下以及观察加载 m2ts 的规律。</p>
-<p>一般可以看获取原盘处的BDinfo。</p>
-<p>还有个比较便捷的办法,就是stream里看最大的m2ts，记住名字，然后通过文本编辑器打开mpls看这个m2ts出现在哪。(不过在有DGDemux的情况下，直接在里面看就好了)</p>
-<h1 id="mkvextract"><a href="#mkvextract" class="headerlink" title="mkvextract"></a>mkvextract</h1><p>一般建议用GUI,除非你用Linux<br><a href="https://mkvtoolnix.download/doc/mkvextract.html">https://mkvtoolnix.download/doc/mkvextract.html</a></p>
-<p>Examples</p>
-<p><code>mkvextract inpu.mkv tracks 1:audio.thd</code><br>(需要自己确定轨道ID以及后缀)</p>
-<p>Extracting both chapters and tags in their respective XML formats at the same time:</p>
-<p><code>mkvextract movie.mkv chapters movie-chapters.xml tags movie-tags.xml</code></p>
-<p>Extracting a couple of tracks and their respective timestamps at the same time:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkvextract &quot;Another Movie.mkv&quot; tracks 0:video.h265 &quot;1:main audio.aac&quot; &quot;2:director&#x27;s comments.aac&quot; timestamps_v2 &quot;0:timestamps video.txt&quot; &quot;1:timestamps main audio.txt&quot; &quot;2:timestamps director&#x27;s comments.txt&quot;</span><br></pre></td></tr></table></figure>
-
-<p>Extracting chapters in the Ogg&#x2F;OGM format and re-encoding a text subtitle track to another character set:</p>
-<p><code>mkvextract &quot;My Movie.mkv&quot; chapters --simple &quot;My Chapters.txt&quot; tracks -c MS-ANSI &quot;2:My Subtitles.srt&quot;</code></p>
-<p>关于字幕的一些范例</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkvextract -v sample.mkv tracks 2:chs.sup 3:cht.sup</span><br><span class="line">Extracting track 2 with the CodecID &#x27;S_HDMV/PGS&#x27; to the file &#x27;chs.sup&#x27;. Container format: SUP</span><br><span class="line">Extracting track 3 with the CodecID &#x27;S_HDMV/PGS&#x27; to the file &#x27;cht.sup&#x27;. Container format: SUP</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h1><p>如无必要，不建议使用，需要自己判断音轨深度，默认是拆16bit</p>
-<h2 id="ffprobe"><a href="#ffprobe" class="headerlink" title="ffprobe"></a>ffprobe</h2><p><code>ffprobe &#39;文件&#39;</code> 用于检测文件信息(不过直接看mediainfo就好，而且纯文本输出没有各种GUI看起来那么直观,不过可以用来确认下音轨轨道)</p>
-<p>ffprobe 无法区分音轨是否带Atmos</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Stream #0:1(eng): Audio: dts (DTS-HD MA), 48000 Hz, 5.1(side), s32p (24 bit) (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      title           : DTS-HD MA 5.1</span><br><span class="line">      BPS-eng         : 4133090</span><br><span class="line">      DURATION-eng    : 02:58:09.472000000</span><br><span class="line">      NUMBER_OF_FRAMES-eng: 1002138</span><br><span class="line">      NUMBER_OF_BYTES-eng: 5522569140</span><br><span class="line">      _STATISTICS_WRITING_APP-eng: mkvmerge v29.0.0 (&#x27;Like It Or Not&#x27;) 64-bit</span><br><span class="line">      _STATISTICS_WRITING_DATE_UTC-eng: 2018-12-23 15:53:25</span><br><span class="line">      _STATISTICS_TAGS-eng: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES</span><br></pre></td></tr></table></figure>
-
-<p>如这个就是音轨轨道-&gt;0:1</p>
-<h2 id="拆音轨为单轨道"><a href="#拆音轨为单轨道" class="headerlink" title="拆音轨为单轨道"></a><del>拆音轨为单轨道</del></h2><p>(废弃，Dolby Media Producer Suite需要，不过已经用不到了)</p>
-<p>音轨轨道顺序可以在这里确认<a href="https://trac.ffmpeg.org/wiki/AudioChannelManipulation">https://trac.ffmpeg.org/wiki/AudioChannelManipulation</a></p>
-<p>ffmpeg -i input.wav -filter_complex “channelsplit&#x3D;channel_layout&#x3D;5.1[FL][FR][FC][LFE][BL][BR]” -map “[FL]” -c:a -map “[FR]” R.wav -map “[FC]” C.wav -map “[LFE]” LFE.wav -map “[BL]” Ls.wav -map “[BR]” Rs.wav</p>
-<p>24bit</p>
-<p>ffmpeg -i input.wav -filter_complex “channelsplit&#x3D;channel_layout&#x3D;5.1[FL][FR][FC][LFE][BL][BR]” -map “[FL]” -c:a pcm_s24le L.wav -map “[FR]” -c:a pcm_s24le R.wav -map “[FC]” -c:a pcm_s24le C.wav -map “[LFE]” -c:a pcm_s24le LFE.wav -map “[BL]” -c:a pcm_s24le Ls.wav -map “[BR]” -c:a pcm_s24le Rs.wav</p>
-<h2 id="Encode-flac"><a href="#Encode-flac" class="headerlink" title="Encode flac"></a>Encode flac</h2><p>范例</p>
-<p><code>ffmpeg -c:a flac -compression_level 8 1.flac -i 1.dts</code></p>
-<p><code>ffmpeg -map 0:1  -c:a flac -compression_level 8 a.flac -i 1.mkv </code></p>
-]]></content>
-      <categories>
-        <category>2.Tools</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Linux工具</title>
-    <url>/2.Tools/Linux/</url>
-    <content><![CDATA[<p>主要提供一些可以在 Linux 下使用的工具，但实际很少完全在 Linux 下工作，所以仅供参考</p>
-<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p><a href="https://github.com/gzycode39/docker-vapoursynth-yuuno/">https://github.com/gzycode39/docker-vapoursynth-yuuno/</a></p>
-<h1 id="Info"><a href="#Info" class="headerlink" title="Info"></a>Info</h1><h2 id="BDInfoCLI-ng"><a href="#BDInfoCLI-ng" class="headerlink" title="BDInfoCLI-ng"></a>BDInfoCLI-ng</h2><p><a href="https://github.com/zoffline/BDInfoCLI-ng">https://github.com/zoffline/BDInfoCLI-ng</a></p>
-<p><code>docker run --rm -it -v &lt;BD_PATH&gt;:/mnt/bd -v &lt;REPORT_DEST&gt;:/mnt/report zoffline/bdinfocli-ng /mnt/bd /mnt/report</code> (iso需要挂载后再扫)</p>
-<h1 id="Demux-x2F-Remux"><a href="#Demux-x2F-Remux" class="headerlink" title="Demux&#x2F;Remux"></a>Demux&#x2F;Remux</h1><h2 id="tsMuxer"><a href="#tsMuxer" class="headerlink" title="tsMuxer"></a>tsMuxer</h2><p><a href="https://github.com/justdan96/tsMuxer">https://github.com/justdan96/tsMuxer</a></p>
-<h2 id="mkvtoolnix"><a href="#mkvtoolnix" class="headerlink" title="mkvtoolnix"></a>mkvtoolnix</h2><p><a href="https://mkvtoolnix.download/downloads.html">https://mkvtoolnix.download/downloads.html</a><br>注意章节编辑器名称模板改成英文 <code>Chapter &lt;NUM:2&gt;</code></p>
-<h2 id="DGDemux"><a href="#DGDemux" class="headerlink" title="DGDemux"></a>DGDemux</h2><p><a href="http://rationalqm.us/dgdemux/dgdemux.html">http://rationalqm.us/dgdemux/dgdemux.html</a></p>
-<h1 id="Encode"><a href="#Encode" class="headerlink" title="Encode"></a>Encode</h1><h2 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h2><p><a href="https://ffmpeg.org/ffmpeg-all.html">https://ffmpeg.org/ffmpeg-all.html</a></p>
-<p>范例</p>
-<p><code>ffmpeg -i 1.dts -c:a flac -compression_level 8 1.flac</code></p>
-<p><code>ffmpeg -i 1.mkv -map 0:1  -c:a flac -compression_level 8 chi.flac</code></p>
-<p><code>ffmpeg  -v quiet -ss 00:23:00 -i file  -vcodec png -vframes 1 -pix_fmt rgb24 -y ~/filename.png</code></p>
-<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><p>cutP.py</p>
-]]></content>
-      <categories>
-        <category>2.Tools</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>字幕相关</title>
-    <url>/4.Audio&amp;sub/%E5%AD%97%E5%B9%95%E5%88%B6%E4%BD%9C/</url>
-    <content><![CDATA[<p>本篇内容都作为 Optional</p>
-<h1 id="字幕调轴"><a href="#字幕调轴" class="headerlink" title="字幕调轴"></a>字幕调轴</h1><p>一般来说不少字幕都可以通过平移来解决不同步问题。<br>但还有相当多的会因为源的帧率不同导致同步问题。</p>
-<p>此时应确认原字幕匹配的视频文件的帧率，以及目标视频文件的视频帧率</p>
-<p>以 Blonde and Blonder 2007 举例，现有的都是DVD的字幕，需要制作1080p AMZN web(25fps)的字幕。</p>
-<p>DVD是NTSC的，也就是传说中的5烂2</p>
-<p><strong>Attention</strong> NTSC 的相关事项建议查下资料以作了解。虽然DVD源是29.970 fps，但实际应使用压制处理后的分辨率23.976 fps。</p>
-<p>然后对字幕做帧率转换，大部分的字幕软件都支持，除此之外还可以使用Potplayer</p>
-<p>范例</p>
-<p>对于 Blonde and Blonder 2007 的字幕，帧率由 23.976 fps 转为 25 fps,之后整体向前平移 12s 即可匹配</p>
-<h2 id="字幕轴替换"><a href="#字幕轴替换" class="headerlink" title="字幕轴替换"></a>字幕轴替换</h2><p>有些情况下帧率调整没法解决问题，这种情况下可以完全的调轴(还有些可能就是制作字幕的人造成了一些错误)</p>
-<p>比如你有一个轴不对的中文字幕，找到一条完全匹配的英文字幕。</p>
-<p>你可以使用 Sutittle Edit 的 point sync via other subtitle 功能</p>
-<p>还可以打开拥有正确时间轴的字幕，选所有行，右键，Column, delete text, 然后从其他字幕导入文本，最好再检查下有没有错行</p>
-<h2 id="精调"><a href="#精调" class="headerlink" title="精调"></a>精调</h2><p>Sutittle Edit 不但可以加载画面，甚至可以读取音轨波形，可以通过听以及观察波形来精调。</p>
-<p>就是应该会有点累</p>
-<h1 id="双语合并"><a href="#双语合并" class="headerlink" title="双语合并"></a>双语合并</h1><p>使用srtedit即可，可以自己点点点研究一下就行。</p>
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
-<li>Sutittle Edit 处理ass会导致一些样式丢失</li>
-<li>HDR字幕(包括srt)白颜色下会过亮(与软件可能也有一定关系)，请注意转换成暗色</li>
-</ul>
-]]></content>
-      <categories>
-        <category>4.Audio&amp;sub</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Progressive segmented frame</title>
-    <url>/6.etc/PsF/</url>
-    <content><![CDATA[<p>写作 interlace, 实际是为了塞p的视频</p>
-<p><a href="https://en.wikipedia.org/wiki/Progressive_segmented_frame">https://en.wikipedia.org/wiki/Progressive_segmented_frame</a></p>
-]]></content>
-      <categories>
-        <category>6.etc</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>常见报错</title>
-    <url>/6.etc/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="x265-crash"><a href="#x265-crash" class="headerlink" title="x265 crash"></a>x265 crash</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2022-01-07][21:18:15] WARNING: Input process exited with error (code: 1), your encode might be *incomplete* !!!</span><br><span class="line">[2022-01-07][21:18:15] </span><br><span class="line">[2022-01-07][21:18:15] FATAL ERROR: The encoder process has *crashed* -&gt; your encode probably is *incomplete* !!!</span><br><span class="line">[2022-01-07][21:18:15] Note that this indicates a bug in the current encoder, *not* in Simple x264/x265 Launcher.</span><br><span class="line">[2022-01-07][21:18:15] </span><br><span class="line">[2022-01-07][21:18:15] PROCESS EXITED WITH ERROR CODE: -1073741795</span><br></pre></td></tr></table></figure>
-<p>注意检查CPU指令集，默认使用的是AVX2,有部分CPU不支持，LIKE E5-2690 0</p>
-<p>这种情况下弄个CPU-Z看看就知道了</p>
-<p>另外还有错误的参数可能会导致问题</p>
-<h1 id="压制程序退出"><a href="#压制程序退出" class="headerlink" title="压制程序退出"></a>压制程序退出</h1><p>生成文件被占用或不可写入会导致报错，例如 vs 预览会导致文件被占用。</p>
-<h1 id="Dgdemux-不显示界面"><a href="#Dgdemux-不显示界面" class="headerlink" title="Dgdemux 不显示界面"></a>Dgdemux 不显示界面</h1><p>DGDemux.ini 里有一行 Window_Position 删掉就好了，或者整个ini删掉也行</p>
-<h1 id="大小核调度问题"><a href="#大小核调度问题" class="headerlink" title="大小核调度问题"></a>大小核调度问题</h1><p>管理员模式运行cmd，输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">powercfg -attributes SUB_PROCESSOR 7f2f5cfa-f10c-4823-b5e1-e93ae85f46b5 -ATTRIB_HIDE</span><br><span class="line">powercfg -attributes SUB_PROCESSOR 93b8b6dc-0698-4d1c-9ee4-0644e900c85d -ATTRIB_HIDE</span><br><span class="line">powercfg -attributes SUB_PROCESSOR bae08b81-2d5e-4688-ad6a-13243356654b -ATTRIB_HIDE</span><br><span class="line">powercfg -attributes SUB_PROCESSOR b28a6829-c5f7-444e-8f61-10e24e85c532 -ATTRIB_HIDE</span><br></pre></td></tr></table></figure>
-<p>高级电源设置里”异类线程调度策略”改成”所有处理器”</p>
-]]></content>
-      <categories>
-        <category>6.etc</category>
-      </categories>
-      <tags>
-        <tag>Issue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Collection</title>
+    <title>软件列表</title>
     <url>/2.Tools/Collection/</url>
     <content><![CDATA[<p>A collection of Encode tools and scripts.</p>
 <h1 id="Codec"><a href="#Codec" class="headerlink" title="Codec"></a>Codec</h1><table>
@@ -1191,16 +900,215 @@
       </categories>
   </entry>
   <entry>
-    <title></title>
-    <url>/3.Code/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BB%84%E5%90%88%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>因为平时注意力不集中，所以这些可能是碎片化的，有空可能会整理。<br>另外人菜，请批判性的理解</p>
-<p>（水平问题，自己的脚本就不放出来了）</p>
-<p><a href="https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/Jin.Roh.1999/SDR.720P-ZQ.vpy">https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/Jin.Roh.1999/SDR.720P-ZQ.vpy</a></p>
-<p>22行开始 对(luma平面 - Y)先降噪。然后STPresso对噪点进行处理之后再打回来。</p>
-<hr>
-<p>对帧的一些操作</p>
-<p><a href="https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/A.Silent.Voice.2016/SDR.1080p.D-Z0N3.vpy">https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/A.Silent.Voice.2016/SDR.1080p.D-Z0N3.vpy</a></p>
+    <title>Irrational Encoding Wizardry 插件</title>
+    <url>/3.Code/Irrational%20Encoding%20Wizardry/</url>
+    <content><![CDATA[<p>他们的插件经常会跟进最新的 VS 版本。</p>
+<p>建议找他们仓库提供的 Discord 连接进群查询插件语法及用法</p>
+<h1 id="vs-deband"><a href="#vs-deband" class="headerlink" title="vs-deband"></a>vs-deband</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> vsdeband <span class="keyword">import</span> F3kdb</span><br><span class="line"><span class="keyword">from</span> vsmasktools <span class="keyword">import</span> dre_edgemask</span><br><span class="line"><span class="keyword">from</span> vstools <span class="keyword">import</span> core, vs</span><br><span class="line"></span><br><span class="line">deband = F3kdb.deband(clip)</span><br><span class="line">mask = dre_edgemask(clip)<span class="comment">#.std.Binarize().std.Maximum()  # please make sure you properly define the Binarize threshold, or better yet use the threshold param dre_edgemask iirc has</span></span><br><span class="line">debanded = core.std.MaskedMerge(deband, clip, mask)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>3.Code</category>
+      </categories>
+      <tags>
+        <tag>Document</tag>
+        <tag>VS(Plugin/Scripts)</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>x265参数解析</title>
+    <url>/2.Tools/x265%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><p><a href="https://tieba.baidu.com/p/6627144750">https://tieba.baidu.com/p/6627144750</a></p>
+</li>
+<li><p><a href="https://x265.readthedocs.io/en/3.1/cli.html">https://x265.readthedocs.io/en/3.1/cli.html</a></p>
+</li>
+<li><p><a href="https://guides.vcb-s.com/basic-guide-07#4-x265-%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90">https://guides.vcb-s.com/basic-guide-07#4-x265-参数解析</a></p>
+</li>
+<li><p><a href="https://silentaperture.gitlab.io/mdbook-guide/encoding/x265.html">https://silentaperture.gitlab.io/mdbook-guide/encoding/x265.html</a></p>
+</li>
+</ul>
+<p><strong>请注意，不能确保完全正确</strong></p>
+<h2 id="crf-qp"><a href="#crf-qp" class="headerlink" title="crf,qp"></a>crf,qp</h2><p><strong>qp</strong> 电脑认为的恒定画质(但一般不进行设置)</p>
+<p><strong>crf</strong> 人眼认为的恒定画质，但是运动时候画质会降低来节省码率</p>
+<p>数值越低画质越好。</p>
+<p>一般低于等于18可以认为和原画差不多(主观观点)</p>
+<h2 id="ctu"><a href="#ctu" class="headerlink" title="ctu &lt;64|32|16&gt;"></a>ctu &lt;64|32|16&gt;</h2><p>分块大小，64速度最慢，32其次</p>
+<p>设成32 对于复杂场景压缩压缩率最高，64 对于简单场景压缩压缩率最高</p>
+<p>推荐用32因为速度比64快10%，并且画质更好一些</p>
+<p>16适合DVD，32适合1080p,64适合4K,720p用16,x265可能就会直接退出</p>
+<h2 id="rd-1-6"><a href="#rd-1-6" class="headerlink" title="rd (1-6)"></a>rd (1-6)</h2><p>分析的复杂度，数值越大画质越高，压出来体积越大，5,6非常慢, 默认3.</p>
+<h2 id="early-skip"><a href="#early-skip" class="headerlink" title="early-skip"></a>early-skip</h2><p>–early-skip, –no-early-skip</p>
+<p>默认开，开了提高压缩速度，关了提高精度，体积小幅度增加</p>
+<h2 id="rdoq-level"><a href="#rdoq-level" class="headerlink" title="rdoq-level"></a>rdoq-level</h2><p>RDOP [rate-distortion optimized quantization] (率失真优化量化)</p>
+<p>默认0,关闭，预设slow时候默认开启。(preset placebo 似乎也还是2)</p>
+<p>x265最重要的参数，没有之一，开了能有助于保存细节，当然会有更大文件体积。关闭可以提高压缩速度，看起来会轻度模糊。开启掉速度30%以上，推荐舍弃其他参数，也要开启这个。</p>
+<p>设成 1 时候 看起来效果最好，但是体积会大30%以上</p>
+<p>设成 2 时候 效果略差，体积只会小幅度增加，推荐使用2</p>
+<h2 id="psy-rd-psy-rdoq"><a href="#psy-rd-psy-rdoq" class="headerlink" title="psy-rd &amp; psy-rdoq"></a>psy-rd &amp; psy-rdoq</h2><p>都是Psycho-visual options的参数</p>
+<p>具体见<a href="https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options">https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options</a></p>
+<p>这两者都会影响码率(经测试，开高psy-rdoq到5所增加的码率通过crf来给画面反而效果更好)</p>
+<p>psy-rd 默认 2.0 有些高，<del>建议开到1.5</del>，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试) 目前看来 VCB 似乎建议开高，国外是推荐真人电影(x264)开到1左右，不过4k 可能需要开到2</p>
+<p>psy-rdoq 一直用1一般就好，开高了保留噪点，画面本身却会变差</p>
+<p>一些测试见Compare</p>
+<h2 id="tu-intra-depth-tu-inter-depth"><a href="#tu-intra-depth-tu-inter-depth" class="headerlink" title="tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;"></a>tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;</h2><p>默认1，开高会小幅增加压缩率，但是特别慢 (preset placebo 似乎就是4)</p>
+<h2 id="max-tu-size"><a href="#max-tu-size" class="headerlink" title="max-tu-size &lt;32|16|8|4&gt;"></a>max-tu-size &lt;32|16|8|4&gt;</h2><p>默认32，开低会降低压缩率，并且不会提速，推荐默认</p>
+<h2 id="max-merge"><a href="#max-merge" class="headerlink" title="max-merge &lt;1..5&gt;"></a>max-merge &lt;1..5&gt;</h2><p>开高小幅度提高压缩率，对速度影响不明显，默认2 (preset placebo 似乎就是5)</p>
+<h2 id="me-merange"><a href="#me-merange" class="headerlink" title="me ,merange"></a>me ,merange</h2><p>me 搜索方式，默认hex ，用umh 或star 能小幅度提高压缩率，但是掉速20%</p>
+<p>merange 搜索范围，默认57，me设成hex时候，对速度影响不大，但是使用umh或star时候，开高掉速严重</p>
+<p>umh比star好</p>
+<ol>
+<li><p>dia</p>
+</li>
+<li><p>hex (default)</p>
+</li>
+<li><p>umh</p>
+</li>
+<li><p>star</p>
+</li>
+<li><p>sea</p>
+</li>
+<li><p>full</p>
+</li>
+</ol>
+<h2 id="subme"><a href="#subme" class="headerlink" title="subme"></a>subme</h2><p>默认2</p>
+<p>开高小幅提高压缩率，开低提高压缩速度，5比3慢10%</p>
+<p>推荐3</p>
+<h2 id="keyint"><a href="#keyint" class="headerlink" title="keyint"></a>keyint</h2><p>最大IDR间隔</p>
+<p>关键帧相关，这个将会影响到点击跳转，开高能提升压缩率(但个人不建议随便动他，720对于一般的24p意味着30秒的时间，60p你可以稍微开高点？)</p>
+<p>默认250</p>
+<h2 id="min-keyint"><a href="#min-keyint" class="headerlink" title="min-keyint"></a>min-keyint</h2><p>最小分组帧数，默认23，推荐改成个位数，提高gop准确度。</p>
+<p>小幅度提高压缩率，对压缩速度没影响</p>
+<p>min-keyint&#x3D;1 的情况对于一些高速切换的场景会因此要强制1秒内一个IDR帧，造成P或者B等参考帧使用效率降低(换场景了参考的意义已经不大了)。</p>
+<p>还有就是这样可以避免一些老旧的设备出现硬解的bug。 - by fch1993</p>
+<h2 id="pmode-no-pmode-4-1-deprecated"><a href="#pmode-no-pmode-4-1-deprecated" class="headerlink" title="pmode &amp; no-pmode (4.1 deprecated)"></a>pmode &amp; no-pmode (4.1 deprecated)</h2><p>并行决策模式</p>
+<p>官方推荐是CPU不饱和才开，编码器将跨多个工作线程分配每个 CU 的分析工作。</p>
+<h2 id="rc-lookahead"><a href="#rc-lookahead" class="headerlink" title="rc-lookahead"></a>rc-lookahead</h2><p>预览帧数，默认20</p>
+<p>开高可以提高分组(gop)准确度，小幅度提高压缩率，同时小幅度降速，推荐40</p>
+<p>crf模式时，rc-lookahead可以提高cutree的准确度（提高画质)</p>
+<h2 id="bframes"><a href="#bframes" class="headerlink" title="bframes"></a>bframes</h2><p>最大b帧数量</p>
+<p>开高小幅度提高压缩率，默认4，开到8，掉速10%</p>
+<p>bframes 开高了会小幅降低画质</p>
+<h2 id="cutree"><a href="#cutree" class="headerlink" title="cutree"></a>cutree</h2><p>–no-cutree since this seems to be a poor implementation of mbtree.</p>
+<p><del>目前测试是静态场景表现不错，具体可以看<a href="https://ted423.github.io/Document/Encode/cutree/">https://ted423.github.io/Document/Encode/cutree/</a></del> 不建议开，码率分配存在非常大的问题(有一处分配了31M的码率结果效果还不如一半码率的x264)</p>
+<p>doom9 上2020年有人说”在快速移动的场景中，我一直在努力解决丑陋的扭曲（用条带涂抹看起来有点像运动模糊的东西），最后发现 x265 的 CUTree 是罪魁祸首。</p>
+<p>关闭它可以解决它，但是当试图在其他场景中保持相同的整体质量时，比特率会爆炸。</p>
+<p>有什么方法可以使 CUTree ‘不那么激进’ 或将其设置为 50% 或某些阈值参数吗？”</p>
+<h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p>参照帧数量，默认3</p>
+<p>开高小幅度提高压缩率，同时小幅度降速，</p>
+<p>3和4速度差不多，推荐4</p>
+<p>VCB:不过实测 ref 增加在 x265 中作用不明显。建议不超过 6</p>
+<h2 id="sao-默认开启"><a href="#sao-默认开启" class="headerlink" title="sao 默认开启"></a>sao 默认开启</h2><p>–sao, –no-sao</p>
+<p>设计目的是去振铃(光环现象)，但是细节丰富地方会去掉太多细节，</p>
+<p>推荐关闭。</p>
+<h2 id="strong-intra-smoothing"><a href="#strong-intra-smoothing" class="headerlink" title="strong-intra-smoothing"></a>strong-intra-smoothing</h2><p>推荐在追求还原度的压制的时候关闭，严重欠码压制时开启(部分情况下，aq2 或者降低 aqs 更为优先)</p>
+<p>对关键帧进行平滑处理，看起来挺吓人的，实际上效果不明显，推荐用<code>--no-strong-intra-smoothing</code>关闭，保留细节(来源贴吧 连接1 的帖内说明)</p>
+<p><a href="http://forum.doom9.net/showthread.php?p=1873696">http://forum.doom9.net/showthread.php?p=1873696</a></p>
+<p>相关讨论，与贴吧给出的结论不同</p>
+<p>个人测试是开的话画面细节丢失，影响蛮大 <del>可能适合低码压制</del></p>
+<p>目前测试是在低码压制上会降低块效应(不知道这么说对不对，aqs psy-rdoq开高会导致块变得严重。特别是4K，44Mbps仍然有些欠码，因此4K欠码压制的情况下，这种现象会非常严重，见 <a href="https://slow.pics/c/uvnpqHrU">https://slow.pics/c/uvnpqHrU</a> 不过这个对比图没有块现象严重的对比，只是用于说明所需码率，因为一个没注意顺手删了)</p>
+<h2 id="lookahead-slices"><a href="#lookahead-slices" class="headerlink" title="lookahead-slices"></a>lookahead-slices</h2><p>设成0有助于提高画质，开高有利于lookahead的并行度，</p>
+<p>推荐设成0，对压缩速度无影响</p>
+<h2 id="deblock-去色块"><a href="#deblock-去色块" class="headerlink" title="deblock 去色块"></a>deblock 去色块</h2><p>要调低 默认太高， 推荐最高调到-1,-1以下，调高了会模糊</p>
+<h2 id="qcomp"><a href="#qcomp" class="headerlink" title="qcomp"></a>qcomp</h2><p>运动时候画质 crf开启时候有效</p>
+<p>开高提高运动时候画质，开低减少文件体积</p>
+<p>推荐0.6-0.7</p>
+<h2 id="frame-threads"><a href="#frame-threads" class="headerlink" title="frame-threads"></a>frame-threads</h2><p>帧线程数量，开高提高cpu利用率，开低有利于小幅度提高压缩率</p>
+<p>如果cpu能够满载可以考虑调到2，如果不能满载考虑使用默认值</p>
+<p>(默认会自动调整)</p>
+<h2 id="aq-strength-默认1-0"><a href="#aq-strength-默认1-0" class="headerlink" title="aq-strength 默认1.0"></a>aq-strength 默认1.0</h2><p>低于1.0首先保留边缘，高于1.0优先保留纹理，这个值也要看aq-mode，噪点多的片可以调低这个值，噪点少的片调高这个值</p>
+<p>不了解不要乱调这个</p>
+<p>VCB:aq-strength 决定了 aq 的强度，一般来说，Anime 的 aq-strength 不用太高（太高了码率也会浪费）。通常，aq-mode&#x3D;1，aq-strength 给 0.8 比较合理；aq-mode&#x3D;2，aq-strength 给 0.9 左右，aq-mode&#x3D;3，aq-strength 给 0.7 左右。</p>
+<h2 id="aq-mode"><a href="#aq-mode" class="headerlink" title="aq-mode"></a>aq-mode</h2><p>目前测试在不足码率压制的情况下,aq1可能会导致画面出现一些奇怪的现象，aq2相对画面更好一些，并且不会出现奇妙的画面(不过测试还不够充分)。</p>
+<p>在给够码率的情况下(噪点比较重的片)，aq1似乎会好些(可以看战火高码版对比图，不过暂时还没放到公网)</p>
+<p>2 x265默认（推荐）</p>
+<p>3 暗处增强，避免暗处被压坏，实际上亮的地方码率也会增加30%以上，所以很 浪费码率(不过就压制而言，通常是差不多码率进行比较，因此浪费码率可以通过调高crf解决)</p>
+<p>aq-mode 4 :优先保留边缘，噪点很多时候用</p>
+<p>VCB:x265 目前有三种 aq 模式。aq-mode 1 是最安全稳定的 aq，适合高码率&#x2F;高画质编码；aq-mode<br>2 相对来说效率最高，适合中低码率的编码；aq-mode 3 对暗场进行加强，适合 8bit 编码防止暗场压烂。一般 10bit编码根据 crf 高低决定 aq 选取，个人建议在 crf &lt;&#x3D; 16 时候使用 aq-mode 1，否则使用 aq-mode 2。注意同 crf下，不同 aq-mode 出来的体积是不一样的，3&gt;1&gt;2。</p>
+<p>补充说明，个人在压制黑白噪点片时，aq2产生了比aq1还大的体积，目测在大颗粒噪点的情况下，aq2会比aq1产生更高的码率</p>
+<h2 id="rskip"><a href="#rskip" class="headerlink" title="rskip &lt;0|1|2&gt;"></a>rskip &lt;0|1|2&gt;</h2><p>开启提高速度，关闭提高画质，0是关闭，默认1</p>
+<p>模式1比0 wmaf 下降0.03左右</p>
+<p>模式2比模式1压缩速度要快30%-50%左右，但是压缩率要低</p>
+<p>对于平滑画面（噪点比较少）画质优于rskip&#x3D;1，但是噪点比较多画面 画质不如rskip&#x3D;1</p>
+<p>rskip&#x3D;2 和ctu&#x3D;64配合不好，同时开启画质压缩率都会下降</p>
+<p><del>推荐rskip&#x3D;2 和ctu&#x3D;32配合</del>(我们一般不开)</p>
+<h2 id="rect"><a href="#rect" class="headerlink" title="rect"></a>rect</h2><p>–rect, –no-rect</p>
+<p>开了小幅度增加压缩率（0%-5%左右 )和画质，有长方形区域时候才有效，否则是空跑，开了掉速30%以上</p>
+<p>推荐关闭增加压缩速度。</p>
+<p>VCB:通常来说，&lt;&#x3D;1080p 下，rect 基本上没什么作用，amp 是几乎完全没作用，但是这俩都是速度黑洞。因此从效率角度建议关闭，或者至少关闭 amp</p>
+<p>个人测试中，1080p开了之后，码率低了一点，画面差了一点</p>
 ]]></content>
+      <categories>
+        <category>2.Tools</category>
+      </categories>
+      <tags>
+        <tag>Doc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Demux &amp; Remux 操作</title>
+    <url>/2.Tools/Demux&amp;Remux/</url>
+    <content><![CDATA[<p>通常建议在 Demux &amp; Remux 之前进行扫盘，mkvtoolnix 以及 dgdemux 都可以进行。</p>
+<p>主要判断信息有</p>
+<ul>
+<li>是否是肉酱盘</li>
+<li>是否默认的 mpls 是正确的影片（有些盘会坑人）</li>
+<li>mpls 是否包含了无效的mt2s(这种会导致操作失败)，这种情况，需要 dgdemux,然后勾选 “skip first&#x2F;last M2TS”</li>
+</ul>
+<p>部分剧集原盘 dgdemux 需要开启 “strict playlist times” mkvtoolnix 可以自动处理，useac3to 等其他软件会产生包含长时间黑屏的文件出来。(m2ts本身包含，mlps中做了切割处理)</p>
+<p>Demux作为音轨处理的前置步骤(部分原盘只有DGDemux能正常处理)，目前获取的信息是再TrueHD方面 MakeMKV &gt;&#x3D; 1.15.4 &#x3D; mlp &gt; DGDemux (具体见 mlp 的 Readme)。</p>
+<p>或许考虑使用<a href="https://github.com/domyd/mlp">mlp</a>来专门处理肉酱TrueHD盘</p>
+<p>一些肉酱盘 mkvtoolnix,eac3to,会有 glitching 的问题见<a href="https://github.com/ted423/FXXS-Encode-Guide/issues/14">issue</a>(并不确认eac3to最新版是否解决了问题)。</p>
+<p>一些 mpls 会作为 m2ts 的 index,m2ts 本身前后会包含一些 garbage，见<a href="https://github.com/justdan96/tsMuxer/issues/624">issue</a>,目前 DGDemux 可以通过勾选 ‘strict playlist’ 来正确处理。</p>
+<p>mkvtoolnix也会进行处理，但音轨出现了一些问题。</p>
+<h1 id="DVD"><a href="#DVD" class="headerlink" title="DVD"></a>DVD</h1><p>对于DVD，你可能需要使用MakeMKV，目前的其他软件对DVD都支持不太好，例如mkvtoolnix认不到章节以及字幕轨</p>
+<h1 id="常见的Demux软件有"><a href="#常见的Demux软件有" class="headerlink" title="常见的Demux软件有"></a>常见的Demux软件有</h1><ul>
+<li>UsEac3to&#x2F;eac3to</li>
+<li>DGDemux(现在作为默认的标准软件)</li>
+<li>tsMuxer</li>
+<li>FFmpeg</li>
+<li>gMKVExtractGUI&#x2F;mkvextract</li>
+</ul>
+<p>其中UsEac3to功能非常多，内含了转码功能，但其长期未更新，在部分音轨上可能出现问题。</p>
+<p><strong>其中eac3to可以检测到坏帧并进行输出，故可以用来判断原盘是否有问题</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[v02] Extracting video track number 2...</span><br><span class="line">[v02] Creating file &quot;D:\Rip\00001.mpls_2eng.h264&quot;...</span><br><span class="line">[v02] [0:07:57] The source file seems to be damaged (sync byte missing).  &lt;WARNING&gt;</span><br><span class="line">[v02] [0:07:57] The source file seems to be damaged (discontinuity).  &lt;WARNING&gt;</span><br><span class="line">[v02] [0:20:58] The source file seems to be damaged (sync byte missing).  &lt;WARNING&gt;</span><br><span class="line">[v02] [0:20:58] The source file seems to be damaged (discontinuity).  &lt;WARNING&gt;</span><br><span class="line">[v02] [1:34:37] The source file seems to be damaged (sync byte missing).  &lt;WARNING&gt;</span><br><span class="line">[v02] [1:34:37] The source file seems to be damaged (discontinuity).  &lt;WARNING&gt;</span><br><span class="line">[v02] Video has a gap of 355 frames at playtime 0:07:57.  &lt;WARNING&gt;</span><br><span class="line">[v02] Video has a gap of 383 frames at playtime 0:20:57.  &lt;WARNING&gt;</span><br><span class="line">[v02] Video has a gap of 42 frames at playtime 1:34:35.  &lt;WARNING&gt;</span><br><span class="line">[v02] Video has a gap of 255 frames at playtime 1:34:35.  &lt;WARNING&gt;</span><br><span class="line">Video track 2 contains 141636 frames.</span><br><span class="line">eac3to processing took 1 minute, 17 seconds.</span><br><span class="line">Done.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>前3者支持BD&#x2F;mpls的demux(你可以选用现成的Remux来避免原盘带来的各种问题),不过DGDemux支持原盘，tsMuxer的mkv很多轨道都不认<br>后3者开源免费多平台(有Linux版本)</p>
+<p>DGDemux有Linux版本，不过没有GUI</p>
+<p>tsMuxer拆出的turehd是包含ac3核心的，FFmpeg不认(不能拿来制作DDP)</p>
+<h1 id="选择正确的mpls"><a href="#选择正确的mpls" class="headerlink" title="选择正确的mpls"></a>选择正确的mpls</h1><p>不像二次元原盘可能一个m2ts就一集，乱七八糟的原盘mpls可能发生各种情况。建议关注下以及观察加载 m2ts 的规律。</p>
+<p>一般可以看获取原盘处的BDinfo。</p>
+<p>还有个比较便捷的办法,就是stream里看最大的m2ts，记住名字，然后通过文本编辑器打开mpls看这个m2ts出现在哪。(不过在有DGDemux的情况下，直接在里面看就好了)</p>
+<h1 id="mkvextract"><a href="#mkvextract" class="headerlink" title="mkvextract"></a>mkvextract</h1><p>一般建议用GUI,除非你用Linux<br><a href="https://mkvtoolnix.download/doc/mkvextract.html">https://mkvtoolnix.download/doc/mkvextract.html</a></p>
+<p>Examples</p>
+<p><code>mkvextract inpu.mkv tracks 1:audio.thd</code><br>(需要自己确定轨道ID以及后缀)</p>
+<p>Extracting both chapters and tags in their respective XML formats at the same time:</p>
+<p><code>mkvextract movie.mkv chapters movie-chapters.xml tags movie-tags.xml</code></p>
+<p>Extracting a couple of tracks and their respective timestamps at the same time:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkvextract &quot;Another Movie.mkv&quot; tracks 0:video.h265 &quot;1:main audio.aac&quot; &quot;2:director&#x27;s comments.aac&quot; timestamps_v2 &quot;0:timestamps video.txt&quot; &quot;1:timestamps main audio.txt&quot; &quot;2:timestamps director&#x27;s comments.txt&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Extracting chapters in the Ogg&#x2F;OGM format and re-encoding a text subtitle track to another character set:</p>
+<p><code>mkvextract &quot;My Movie.mkv&quot; chapters --simple &quot;My Chapters.txt&quot; tracks -c MS-ANSI &quot;2:My Subtitles.srt&quot;</code></p>
+<p>关于字幕的一些范例</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkvextract -v sample.mkv tracks 2:chs.sup 3:cht.sup</span><br><span class="line">Extracting track 2 with the CodecID &#x27;S_HDMV/PGS&#x27; to the file &#x27;chs.sup&#x27;. Container format: SUP</span><br><span class="line">Extracting track 3 with the CodecID &#x27;S_HDMV/PGS&#x27; to the file &#x27;cht.sup&#x27;. Container format: SUP</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h1><p>如无必要，不建议使用，需要自己判断音轨深度，默认是拆16bit</p>
+<h2 id="ffprobe"><a href="#ffprobe" class="headerlink" title="ffprobe"></a>ffprobe</h2><p><code>ffprobe &#39;文件&#39;</code> 用于检测文件信息(不过直接看mediainfo就好，而且纯文本输出没有各种GUI看起来那么直观,不过可以用来确认下音轨轨道)</p>
+<p>ffprobe 无法区分音轨是否带Atmos</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Stream #0:1(eng): Audio: dts (DTS-HD MA), 48000 Hz, 5.1(side), s32p (24 bit) (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      title           : DTS-HD MA 5.1</span><br><span class="line">      BPS-eng         : 4133090</span><br><span class="line">      DURATION-eng    : 02:58:09.472000000</span><br><span class="line">      NUMBER_OF_FRAMES-eng: 1002138</span><br><span class="line">      NUMBER_OF_BYTES-eng: 5522569140</span><br><span class="line">      _STATISTICS_WRITING_APP-eng: mkvmerge v29.0.0 (&#x27;Like It Or Not&#x27;) 64-bit</span><br><span class="line">      _STATISTICS_WRITING_DATE_UTC-eng: 2018-12-23 15:53:25</span><br><span class="line">      _STATISTICS_TAGS-eng: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES</span><br></pre></td></tr></table></figure>
+
+<p>如这个就是音轨轨道-&gt;0:1</p>
+<h2 id="拆音轨为单轨道"><a href="#拆音轨为单轨道" class="headerlink" title="拆音轨为单轨道"></a><del>拆音轨为单轨道</del></h2><p>(废弃，Dolby Media Producer Suite需要，不过已经用不到了)</p>
+<p>音轨轨道顺序可以在这里确认<a href="https://trac.ffmpeg.org/wiki/AudioChannelManipulation">https://trac.ffmpeg.org/wiki/AudioChannelManipulation</a></p>
+<p>ffmpeg -i input.wav -filter_complex “channelsplit&#x3D;channel_layout&#x3D;5.1[FL][FR][FC][LFE][BL][BR]” -map “[FL]” -c:a -map “[FR]” R.wav -map “[FC]” C.wav -map “[LFE]” LFE.wav -map “[BL]” Ls.wav -map “[BR]” Rs.wav</p>
+<p>24bit</p>
+<p>ffmpeg -i input.wav -filter_complex “channelsplit&#x3D;channel_layout&#x3D;5.1[FL][FR][FC][LFE][BL][BR]” -map “[FL]” -c:a pcm_s24le L.wav -map “[FR]” -c:a pcm_s24le R.wav -map “[FC]” -c:a pcm_s24le C.wav -map “[LFE]” -c:a pcm_s24le LFE.wav -map “[BL]” -c:a pcm_s24le Ls.wav -map “[BR]” -c:a pcm_s24le Rs.wav</p>
+<h2 id="Encode-flac"><a href="#Encode-flac" class="headerlink" title="Encode flac"></a>Encode flac</h2><p>范例</p>
+<p><code>ffmpeg -c:a flac -compression_level 8 1.flac -i 1.dts</code></p>
+<p><code>ffmpeg -map 0:1  -c:a flac -compression_level 8 a.flac -i 1.mkv </code></p>
+]]></content>
+      <categories>
+        <category>2.Tools</category>
+      </categories>
   </entry>
   <entry>
     <title>Advanced HD Video Encoding Guide</title>
@@ -1235,10 +1143,10 @@
 <p>简而言之: 用 <code>core.resize.Spline36</code> 来缩小分辨率。</p>
 <h3 id="3-2-滤镜-Filtering"><a href="#3-2-滤镜-Filtering" class="headerlink" title="3.2 滤镜(Filtering)"></a>3.2 滤镜(Filtering)</h3><p>这有几件值得一提的事。首先，大多数蓝光片都是YUV420P8，范围有限(with limited range)。这里的第一组信息是YUV。这意味着我们视频的平面中Y是 <strong>亮度(luma)</strong> 平面，U和V是 <strong>色度(chroma)</strong> 平面。</p>
 <p>YUV平面下的颜色，本例是4:2:0，指定了我们的平面大小。这方面最常见的三种变化是：4:2:0，这意味着色度平面是亮度平面的一半大小（例如，一个1920×1080的视频将有960×540的色度平面）；4:2:2，这意味着这种情况下的色度平面是水平分辨率的一半；垂直分辨率的全部；4:4:4，这意味着所有平面都是全分辨率。在播放过程中，视频播放器将色度平面放大到与亮度平面相同的大小。所以较小的色度平面并不明显，但在放大像素时，人们肯定能看出其中的差别。为了说明这一点，这里有个由AnoHana提供的例子，分别是在4:2:0与4:4:4下从720p放大至1080p的两种版本：</p>
-<p><img src="/Picture/AHDVEG-pics/Figure1.png" alt="Figure1"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure1.png" alt="Figure1"></p>
 <p>图1：两倍放大下，左边是YUV420，右边是YUV444。用 <code>fvf.Debic</code> 降低分辨率，然后用 <code>nnedi3_rpow2.nnedi3</code>和 <code>resize.Bilinear</code> 放大像素。</p>
 <p>在这种情况下，最差的调整工具（bilinear）被用于色度平面。如果你使用类似 带有 KrigBilateral配置的mpv 时，这应该看起来好得多。<br>另一个例子：《寄生虫》 SDR UHD缩放为1080p 4:2:0与4:4:4的比较。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure2.png" alt="Figure2"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure2.png" alt="Figure2"></p>
 <p>图2：《寄生虫》（Parasite (2019)） SDR UHD缩小为1080p情况下4:2:0与4:4:4的比较。感谢HyerrDoktyer提供。</p>
 <p>下一个要解释的信息是P8。这指的是 **位深(Bit depth)**，本例中是8-bit。现在大多数视频都存储在8-bit，因为8-bit的 AVC【译者注：H.264】 具有最好的硬件兼容性。 然而，由于8-bit导致位深没有足够的值(0-255)可用，它很容易引入例如 <strong>色带(Banding)</strong> 之类的错误。更高的位深在这方面没有这么大的问题，且由于其更好的准确性，10-bit实际上更能以较小的文件体积存储视频。然而，10-bit的 AVC 几乎没有硬件兼容性可言，而且需要更长的时间来编码，因此PT用户通常不喜欢它。实际上大多数内容是以10-bit或12-bit制作的。 由于精度的提高，最流行的滤镜处理位深是16-bit。值得注意的是，UHD蓝光将采用YUV420P10，即10-bit。 </p>
 <p>最后一部分，则要讲述的内容是限制范围(limited range)。在全范围(full range)8-bit中，我们可以用0至255之间的每一个值。可是，电视通常无法显示这些值，因而亮度被限制在16至235、色度被限制在16至240。大多数消费内容（如蓝光盘）也被限制在有限的范围内。假如你给电视一个全范围的视频，它将简单粗暴地将所有16及以下或235&#x2F;240及以上的数值显示为相同效果(make … the same value)（例如：黑色或白色）。</p>
@@ -1269,7 +1177,7 @@
 <li><code>output_depth</code> 你应该将其设置为你想在去色带处理后的任意位深。如果你一直在8-bit下进行处理，你可以忽略这个选项。</li>
 </ul>
 <p>一个相当简单去色带的例子：</p>
-<p><img src="/Picture/AHDVEG-pics/Figure3.png" alt="Figure3"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure3.png" alt="Figure3"></p>
 <p>图3：两倍放大下，左边为源，右边为 <code>deband = core.f3kdb.Deband(src, y=64, cr=0, cb=0, grainy=32, grainc=0, range=15, keep_tv_range=True)</code> 处理后的效果。</p>
 <p>如果你想把 <code>f3kdb</code> 和 <code>gradfun3</code> 两种遮罩一起使用，你可以使用 <code>fag3kdb</code> 替代。我建议在去色带力度非常强时尝试这个方法，但 <code>retinex_edgemask</code> 或 <code>debandmask</code> 在大多数情况下效果更好（尽管比前者的速度要慢很多）。</p>
 <p>最常用的替代品是 <code>gradfun3</code>，它可能主要是由于其参数不太直接而不太受欢迎。它的工作原理是将源平滑处理，并通过 <code>mvf.LimitFilter</code> 将其限制在 <code>thr</code> 和 <code>elast</code>指定的值内，然后通过其内部遮罩与源合并（尽管使用外置遮罩也是可行的）。<br>许多人认为 <code>gradfun3</code> 比 <code>f3kdb</code> 的处理结果更平滑。因为它与 <code>f3kdb</code> 相比有更多的选项，而且使用它在大多数时候不必为遮罩而烦恼，所以值得了解如何去使用：</p>
@@ -1288,7 +1196,7 @@
 <li><code>elast</code>是 “软阈值的弹性”。更高的值会在去色带遮罩和源之间做更多的混合。</li>
 </ul>
 <p>如果去色带处理后的片段与未经处理的相比噪点很少，此时你应该考虑使用一个单独的函数来添加匹配的噪点，这样场景就更容易融合在一起。 如果有很多噪点，你可能要考虑使用 <code>adptvgrnMod</code>、<code>adaptive_grain</code> 或 <code>GrainFactory3</code>；对于不太明显的噪点或对于通常只有很少噪点的明亮场景，你也可以使用 <code>grain.Add</code>。这个话题将在后面的[3.2.10](####3.2.10 颗粒化(Graining))中进一步阐述。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure4.png" alt="Figure4"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure4.png" alt="Figure4"></p>
 <p>图4：左边是源，右边是滤镜处理后的。这里的色带可能很难发现，但我不能在这个PDF中加入更大的图片。不过，这个效果应该是显而易见的。</p>
 <p>如果你想进行自动色带检测，你可以使用一个基于 <code>bandmask</code> 的检测函数，叫做 <code>banddtct</code>。确保适当调整数值并检查全部输出。[3.2.17](####3.2.17 论坛和博客文章)中有一个解释它的论坛帖子链接。你也可以在运行 <code>adptvgrnMod</code> 或<code>adaptive_grain</code> 时使用一个高的 <code>luma_scaling</code> 值，希望噪点能完全覆盖它。 更多关于这个的内容在[3.2.10](####3.2.10 颗粒化(Graining))中继续讨论。</p>
 <h4 id="3-2-4-修复脏线-Dirty-Lines-及不合适的边缘-Borders"><a href="#3-2-4-修复脏线-Dirty-Lines-及不合适的边缘-Borders" class="headerlink" title="3.2.4 修复脏线(Dirty Lines)及不合适的边缘(Borders)"></a>3.2.4 修复脏线(Dirty Lines)及不合适的边缘(Borders)</h4><p>另一个非常常见的问题，至少在真人电影的内容中，是脏线。这类问题通常出现在视频的边界上，与周围的行相比，某一行或某一列的像素通常表现出过低的亮度值。通常情况下，这是由于不适当地缩小分辨率，更明显的是在应用边框后的缩小分辨率。脏线也可能发生，因为视频编辑者往往不知道他们是在YUV422下工作的，这意味着他们的竖向像素值不必是偶数；而消费者内容将是YUV420，意味着竖向像素值必须是偶数，导致额外的黑行。</p>
@@ -1331,14 +1239,14 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">top_crop = <span class="number">138</span></span><br><span class="line">bot_crop = <span class="number">138</span></span><br><span class="line">top_fill = <span class="number">1</span></span><br><span class="line">bot_fill = <span class="number">0</span></span><br><span class="line">src_height = src.height - (top_crop + bot_crop) - (top_fill + bot_fill)</span><br><span class="line">crop = core.std.Crop(src, top=top_crop, bottom=bot_crop)</span><br><span class="line">fix = core.fb.FillBorders(crop, top=top_fill, bottom=bot_fill, mode=<span class="string">&quot;fillmargins&quot;</span>)</span><br><span class="line">resize = core.resize.Spline36(<span class="number">1280</span>, <span class="number">536</span>, src_top=top_fill, src_height=src_height)</span><br></pre></td></tr></table></figure>
 
 <p>如果你要处理对角线的边框，正确的做法是使用蒙版覆盖源，用<code>FillBorders</code> 调用合并源。为此举一个例子（来自D-Z0N3压制的作品《你的名字》）：</p>
-<p><img src="/Picture/AHDVEG-pics/Figure5.png" alt="Figure5"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure5.png" alt="Figure5"></p>
 <p>图5：该示例为《你的名字》（Your Name (2016)）中不恰当地使用边框。D-Z0N3的使用了蒙版，而Geek没有。 因此，Geek缺乏任何类似的纹理，而D-Z0N3则尽可能地保留它。使用 <code>FillBorders</code> 中的镜像模式可能更明智，但事后看来是20&#x2F;20【译者注： “20&#x2F;20视力”称为“完美”视力】。</p>
 <p>D-Z0N3使用的代码（16-bit下）：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mask = core.std.ShufflePlanes(src, <span class="number">0</span>, vs.GRAY).std.Binarize(<span class="number">43500</span>)</span><br><span class="line">cf = core.fb.FillBorders(src, top=<span class="number">6</span>).std.MaskedMerge(src, mask)</span><br></pre></td></tr></table></figure>
 
 <p>在附录中的图22下有一个例子，说明为什么要使用蒙版。 </p>
 <p>为了说明脏线可能是什么样子，这里有一个 <code>ContinuityFixer</code> 和纯色的 <code>FillBorders</code> 对比的例子。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure6.png" alt="Figure6"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure6.png" alt="Figure6"></p>
 <p>图6：来源于的D-Z0N3的压制作品《无声的声音》（A Slinet Voice (2016)）的脏线修复与过滤。在最上面的三行使用 <code>ContinuityFixer</code>，在最左边的两列使用<code>FillBorders</code>。 当前画面放大15倍。</p>
 <p>脏线很难发现。如果你在随机检查不同帧的边界时候不能发现存在脏线，那么可能就没有问题。如果你发现有每边都有小黑线边界，那么可以使用类似下面的脚本：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">black_detect</span>(<span class="params">clip, thresh=<span class="literal">None</span></span>):</span><br><span class="line">	<span class="keyword">if</span> thresh == <span class="literal">None</span>:</span><br><span class="line">		thresh = (<span class="number">25</span> * (<span class="number">1</span> &lt;&lt; clip.<span class="built_in">format</span>.bits_per_sample) - <span class="number">1</span>) / <span class="number">255</span></span><br><span class="line">	mask = core.std.ShufflePlanes(clip, <span class="number">0</span>, vs.GRAY).std.Binarize(&#123;<span class="number">0</span>&#125;<span class="string">&quot;.format(thresh)).std.Invert().std.Maximum().std.Inflate().std.Maximum().std.Inflate()</span></span><br><span class="line"><span class="string">	l = core.std.Crop(mask, right=clip.width / 2)</span></span><br><span class="line"><span class="string">	r = core.std.Crop(mask, left=clip.width / 2)</span></span><br><span class="line"><span class="string">	mask_test = core.std.StackHorizontal([r, l])</span></span><br><span class="line"><span class="string">	t = core.std.Crop(mask_test, top=clip.height / 2)</span></span><br><span class="line"><span class="string">	b = core.std.Crop(mask_test, bottom=clip.height / 2)</span></span><br><span class="line"><span class="string">	mask_test = core.std.StackVertical([t, b])</span></span><br><span class="line"><span class="string">return mask_test</span></span><br></pre></td></tr></table></figure>
@@ -1471,7 +1379,7 @@
 <p>请注意，还有很多非常好的抗锯齿方法，以及许多不同类型的遮罩，你可以使用（例如，其他边缘遮罩，无限接近两种遮罩的结合(clamping one method’s changes to those of another method)等等）。然而，大多数方法都是基于与 <code>TAA</code> 实现的非常相似的方法。</p>
 <p>如果你的整个视频都受到锯齿的影响，那么放大像素的效果就很糟糕，这也不是太不可能的。在这种情况下，在决定你是否需要执行抗锯齿操作之前，先降低分辨率或调整大小。</p>
 <p>这有一个抗锯齿修复例子（来自《悠哉日常大王》(劇場版 のんのんびより ばけーしょん（2018）)）：</p>
-<p><img src="/Picture/AHDVEG-pics/Figure7.png" alt="Figure7"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure7.png" alt="Figure7"></p>
 <p>图7：左边为带有锯齿的源，右边为滤镜处理后</p>
 <p>在这个例子中，我们进行了以下操作：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mask = kgf.retinex_edgemask(src).std.Binarize(<span class="number">65500</span>).std.Maximum().std.Inflate()</span><br><span class="line">aa = taa.TAAmbk(src, aatype=<span class="number">2</span>, mtype=<span class="number">0</span>, opencl=<span class="literal">True</span>)</span><br><span class="line">out = core.std.MaskedMerge(src, aa, mask)</span><br></pre></td></tr></table></figure>
@@ -1508,14 +1416,14 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mask = kgf.retinex_edgemask(src).std.Binarize(<span class="number">15000</span>).std.Inflate()</span><br><span class="line">new_y = core.std.MaskedMerge(src, upscaled, mask)</span><br><span class="line">new_clip = core.std.ShufflePlanes([new_y, u, v], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], vs.YUV)</span><br></pre></td></tr></table></figure>
 
 <p>为了说明区别，这里有一些放大至源分辨率的例子。请注意，通过视频播放器将YUV444分辨率缩小后的画面放大会更好看。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure8.png" alt="Figure8"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure8.png" alt="Figure8"></p>
 <p>图8：蓝光源，左边是通过 <code>bicubic</code> 放大函数将720p的画面提升到1080p，右边是用<code>Debilinear</code> 和 <code>nnedi3</code> 重新缩放。</p>
 <p>重要的是要注意，这当然也可以用于实景拍摄的画面。一个例子是《权力的游戏》第一季的UHD蓝光片，它是双线性(bilinear)升频的。虽然在截图中并不明显，但在播放过程中的差异是惊人的。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure9.png" alt="Figure9"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure9.png" alt="Figure9"></p>
 <p>图9：《权力的游戏》（Games of Throne:Seaon 1 (2011)）UHD蓝光源，左边是通过 <code>bilinear</code> 像素放大函数将1080p的画面提升到2160p，右边是用 <code>Debilinear</code> 和 <code>nnedi3</code> 重新缩放。</p>
 <p>如果你的视频在每一帧中都有多个源分辨率（即不同的层有不同的分辨率），你可以通过 <code>getnative</code> 输出多个结果来注意到这一点，你最好的办法是通过 <code>Spline36</code> 缩小到最低分辨率。虽然从技术上讲，你可以屏蔽每个图层，将它们全部缩小到它们的源分辨率，然后再将每个图层放大回去，但这太费劲了，不值得这么做。</p>
 <h4 id="3-2-7-去振铃-Deringing"><a href="#3-2-7-去振铃-Deringing" class="headerlink" title="3.2.7 去振铃(Deringing)"></a>3.2.7 去振铃(Deringing)</h4><p>术语 “振铃” 可以指大多数边缘伪影，其中最常见的是<strong>蚊式噪声(mosquito noise)</strong> 和 <strong>边缘增强伪影(edge enhancement artifacts)</strong> 。振铃是低质量视频源中十分常见。然而，由于拍摄设备原因和糟糕的压缩方法，即使是高比特率的音乐会也很容易出现这种情况。为了解决这个问题，建议使用 <code>HQDeringmod</code> 或 <code>EdgeCleaner</code>（来自 <code>scoll</code>）等软件，我建议使用前者。这些方法主要目的是模糊和锐化边缘，然后通过边缘遮罩进行合并。它们简单易用，所以你可以自己阅读和了解它们，并熟悉它们的用途。由于 <code>rgvs.Repair</code> 可能相当激进，如果你使用这些函数，并且默认值不能产生足够好的结果，我建议你尝试修复数值。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure10.jpg" alt="Figure10"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure10.jpg" alt="Figure10"></p>
 <p>图10：左边是源，右边是经 <code>HQDeringmod(mrad=5, msmooth=10, drrep=0)</code> 处理后的。 这是非常暴力的去振铃方式，我一般不推荐。该示例图像是来自One Ok Rock演唱会，码率37 mbps蓝光视频。</p>
 <h4 id="3-2-8-去光晕-Dehaloing"><a href="#3-2-8-去光晕-Dehaloing" class="headerlink" title="3.2.8 去光晕(Dehaloing)"></a>3.2.8 去光晕(Dehaloing)</h4><p>光晕如其名：边缘周围的粗而亮的线条。这一问题常出现在没有正确地调整大小后。你可能也会发现，像素缩小(descaling)参数不足或对低质量视频缩小分辨率会产生明显的光晕。为了解决这个问题，你应该使用<code>havsfunc</code>的<code>DeHalo_alpha</code> 或其已蒙版处理的同类产品 <code>FineDehalo</code>。如果使用前者，你必须编写你自己的掩码，因为无掩码的去晕通常会导致糟糕的结果。关于如何写一个简单的去光晕遮罩，请看<a href="https://guide.encode.moe/encoding/masking-limiting-etc.html#example-build-a-simple-dehalo-mask">encode.moe的指南</a>。</p>
 <p>由于 <code>FineDehalo</code> 是 <code>DeHalo_alpha</code> 的衍生函数，因此它们共享一些参数。</p>
@@ -1543,12 +1451,12 @@
 <h4 id="3-2-12-色彩校正-Detinting"><a href="#3-2-12-色彩校正-Detinting" class="headerlink" title="3.2.12 色彩校正(Detinting)"></a>3.2.12 色彩校正(Detinting)</h4><p>如果你有一个较好并但偏色的片源和一个较差且无色彩渲染的片源，而你想去掉偏色层(you’d like to<br>remove tint)，你可以通过 <code>timecube</code> 和 Dr.Dre 的颜色匹配工具来实现。首先，在该工具中添加两张参考截图，导出LUT，保存它，并通过以下方式添加它：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">clip = core.resize.Point(src, matrix_in_s=<span class="string">&quot;709&quot;</span>, <span class="built_in">format</span>=vs.RGBS)</span><br><span class="line">detint = core.timecube.Cube(clip, <span class="string">&quot;LUT.cube&quot;</span>)</span><br><span class="line">out = core.resize.Point(detint, matrix=<span class="number">1</span>, <span class="built_in">format</span>=vs.YUV420P16)</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Picture/AHDVEG-pics/Figure11.png" alt="Figure11"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure11.png" alt="Figure11"></p>
 <p>图11：左为偏色的源，右为色彩纠正后的。这个例子来自于D-Z0N3压制的《你的名字》（Your name (2016)）。此帧中还进行了抗锯齿处理。</p>
 <p>同样，如果你有所谓的**伽马(gamma)<strong>错误，或者更准确地说，</strong>双范围(double range)**压缩（将有限范围的压缩完全应用于已经过范围受限处理的片段），只需做以下工作（适用于16-bit）：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">out = core.std.Levels(src, gamma=<span class="number">0.88</span>, min_in=<span class="number">4096</span>, max_in=<span class="number">60160</span>, min_out=<span class="number">4096</span>, max_out=<span class="number">60160</span>, planes=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Picture/AHDVEG-pics/Figure12.png" alt="Figure12"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure12.png" alt="Figure12"></p>
 <p>图12：左由双范围(double range)处理，右由伽马(gamma)修复处理</p>
 <p>通常会要求的使用值为0.88，但其他伽玛值也不是不可以。如果黑色的亮度值是218而不是235，这就是必要的。不要在低位深下进行这种操作，原因如图23所示。如果色度平面也受到影响，则必须单独处理它们：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">out = core.std.Levels(src, gamma=<span class="number">0.88</span>, min_in=<span class="number">4096</span>, max_in=<span class="number">61440</span>,min_out=<span class="number">4096</span>, max_out=<span class="number">61440</span>, planes=[<span class="number">1</span>, <span class="number">2</span>])</span><br></pre></td></tr></table></figure>
@@ -1558,7 +1466,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">out = core.resize.Point(src, matrix_in_s=<span class="string">&#x27;470bg&#x27;</span>, matrix_s=<span class="string">&#x27;709&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>‘470bg’就是通常所说的601。调整大小的原因是，矩阵转换发生在 YUV 到 RGB 转换之间，这意味着我们需要提高色度。 我们使用点调整大小，因为它是绝对的。要知道你是否应该这样做，你需要一些参考来源，最好不是网络来源。从技术上讲，你可以识别不好的颜色，并意识到有必要改变矩阵。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure13.png" alt="Figure13"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure13.png" alt="Figure13"></p>
 <p>图13：使用了TayTO压制的《燃烧》（Burning (2018)）进行矩阵转换的例子。最值得关注的地方是她的粉红色胸罩和背景中的红色。</p>
 <h4 id="3-2-13-去硬字幕和图标-Dehardsubbing-and-Delogoing"><a href="#3-2-13-去硬字幕和图标-Dehardsubbing-and-Delogoing" class="headerlink" title="3.2.13 去硬字幕和图标(Dehardsubbing and Delogoing)"></a>3.2.13 去硬字幕和图标(Dehardsubbing and Delogoing)</h4><p>虽然这个问题在动画片中特别常见，但它也发生在一些实拍片源中，而且许多音乐视频或音乐会在电视台播放时都有标识，因此值得研究如何删除硬拷贝或标识。对于logo，<code>Delogo</code> 插件非常值得考虑。要使用它，你将需要 Logo 的 <code>.lgd</code> 文件。你可以通过你最喜欢的搜索引擎简单地查找这个，应该会找到一些东西。从那里，用这个插件做什么应该是相当直接的。</p>
 <p>最常见的去除硬字幕的方法是比较两个来源，一个有硬字幕，一个没有硬拷贝的参考来源。我推荐的函数是 <code>kagefunc33</code>的<code>hardsubmask</code> 和 <code>hardsubmask_fades</code>。前者只对有黑白字幕的资源有用，而后者可用于标识和移动字幕。两者的重要参数是扩展选项，这意味着对 <code>std.max</code> 的调用。根据你的视频源质量和检测到的数量，可能需要降低这些参数值。</p>
@@ -1590,7 +1498,7 @@
 <p>虽然边缘遮罩对去色带很有帮助，但它们往往也会检测到色带本身的边缘，而且通常相当慢。很好的替代品包括 <code>GradFun3</code> 和 <code>debandmask</code>。 后者非常快，能得到更好的结果，但它经由膨胀处理。对于 <code>GradFun3</code>，你可以使用Frechdachs制作的 <code>Fag3kdb</code>。我建议尽可能使用 <code>debandmask</code>，但在较暗的场景中，边缘遮罩通常被证明能产生更好的结果，所以要做一些测试进行选择。要从 <code>GradFun3</code> 中得到一个蒙版输出，你可以这么做：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mask = fvf.GradFun3(src, debug=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Picture/AHDVEG-pics/Figure14.png" alt="Figure14"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure14.png" alt="Figure14"></p>
 <p>图14：<code>GradFun3</code>（左上）、<code>debandmask</code>（右上）、<code>retinex_edgemask</code>（左下）和 <code>retinex_edgemask.std.Maximum().std.Inflate()</code>（右下）的比较</p>
 <p>针对那些对使用和不使用遮罩的强力去色带之间的区别感到好奇的人，我们准备了附录中的图26作为参考，对比一个简单的边缘遮罩对去色带的影响。当使用亮度&#x2F;色度遮罩时，请不要忘记测试你是否应该在之前的遮罩上使用适当的边缘遮罩或去色带专用遮罩，因为简单的亮度遮罩会使边缘被破坏。附录中的图27和28有这方面的例子。</p>
 <p>现在我们已经介绍了常见的蒙版，让我们继续介绍那些能帮助你操作的蒙版或创建你自己的蒙版。在这我只简单介绍，因为他们的文档写的非常详细。</p>
@@ -1632,7 +1540,7 @@
 
 <p>如果你想了解更多，我建议阅读<a href="https://guide.encode.moe/encoding/masking-limiting-etc.html">Irrational Encoding Wizardry GitHub小组的指南</a> ，并阅读大多数你喜欢的 VapourSynth 和 Python 函数相关手册。几乎所有的优秀压制员都应该使用一些蒙版，或者针对特定的情况开发自己的蒙版。</p>
 <h4 id="3-2-15-滤镜顺序"><a href="#3-2-15-滤镜顺序" class="headerlink" title="3.2.15 滤镜顺序"></a>3.2.15 滤镜顺序</h4><p>以错误的顺序使用滤镜会导致破坏性的或失败的过滤。正因为如此，建议使用以下顺序：</p>
-<p><img src="/Picture/AHDVEG-pics/Figure15.png" alt="Figure15"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure15.png" alt="Figure15"></p>
 <p>图15：推荐应用每个滤镜的顺序。在某些情况下，降噪可能必须先于调整大小前进行。</p>
 <h4 id="3-2-16-脚本范例"><a href="#3-2-16-脚本范例" class="headerlink" title="3.2.16 脚本范例"></a>3.2.16 脚本范例</h4><p>Mirai (2018):</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> vapoursynth <span class="keyword">as</span> vs</span><br><span class="line">core = vs.get_core()</span><br><span class="line"><span class="keyword">import</span> fvsfunc <span class="keyword">as</span> fvf</span><br><span class="line"><span class="keyword">import</span> mvsfunc <span class="keyword">as</span> mvf</span><br><span class="line"><span class="keyword">import</span> kagefunc <span class="keyword">as</span> kgf</span><br><span class="line"><span class="keyword">import</span> vsTAAmbk <span class="keyword">as</span> taa</span><br><span class="line"><span class="keyword">import</span> havsfunc <span class="keyword">as</span> haf</span><br><span class="line"><span class="keyword">from</span> debandmask <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> rekt <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> adptvgrnMod <span class="keyword">import</span> *</span><br><span class="line">src = core.ffms2.Source(<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Going up to 16-bit, as I like to work in this depth.</span></span><br><span class="line">b16 = mvf.Depth(src, <span class="number">16</span>).std.Crop(top=<span class="number">20</span>, bottom=<span class="number">22</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Filling the first row and filling the chroma of the first two rows.</span></span><br><span class="line">fb1 = core.fb.FillBorders(b16, top=<span class="number">1</span>)</span><br><span class="line">fb2 = core.fb.FillBorders(b16, top=<span class="number">2</span>)</span><br><span class="line">b16 = core.std.Merge(fb1, fb2, [<span class="number">0</span>,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Super light denoising. No point in BM3D for denoising this weak.</span></span><br><span class="line">b16 = core.knlm.KNLMeansCL(b16, a=<span class="number">3</span>, h=<span class="number">0.1</span>, d=<span class="number">2</span>, device_type=<span class="string">&#x27;gpu&#x27;</span>,</span><br><span class="line">device_id=<span class="number">0</span>, channels=<span class="string">&#x27;Y&#x27;</span>)</span><br><span class="line">b16 = core.knlm.KNLMeansCL(b16, a=<span class="number">2</span>, h=<span class="number">0.2</span>, d=<span class="number">1</span>, device_type=<span class="string">&#x27;gpu&#x27;</span>,</span><br><span class="line">device_id=<span class="number">0</span>, channels=<span class="string">&#x27;UV&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Soft dehalo.</span></span><br><span class="line">b16 = haf.FineDehalo(b16, rx=<span class="number">2.0</span>, thmi=<span class="number">80</span>, thma=<span class="number">128</span>, thlimi=<span class="number">25</span>, thlima=<span class="number">100</span>,darkstr=<span class="number">0.5</span>, brightstr=<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Dirty lines during credits. Cleaning edges, then halos.</span></span><br><span class="line">cf = core.std.Crop(b16, left=<span class="number">94</span>, top=<span class="number">292</span>, right=<span class="number">1018</span>,bottom=<span class="number">290</span>).fb.FillBorders(top=<span class="number">1</span>, left=<span class="number">1</span>,</span><br><span class="line">bottom=<span class="number">1</span>).edgefixer.ContinuityFixer(left=[<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>], top=[<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],right=<span class="number">2</span>, bottom= [<span class="number">0</span>, <span class="number">2</span>, <span class="number">2</span>], radius=<span class="number">15</span>)</span><br><span class="line">fb = rekt_fast(b16, <span class="keyword">lambda</span> x: core.fb.FillBorders(x, left=<span class="number">2</span>, top=<span class="number">2</span>,right=<span class="number">1</span>, bottom=<span class="number">2</span>).std.Merge(cf, [<span class="number">1</span>,<span class="number">0</span>]), left=<span class="number">94</span>, top=<span class="number">292</span>, right=<span class="number">1018</span>,bottom=<span class="number">290</span>)</span><br><span class="line">dh = rekt_fast(fb, <span class="keyword">lambda</span> x: haf.FineDehalo(x, rx=<span class="number">2.0</span>, thmi=<span class="number">80</span>, thma=<span class="number">128</span>,thlimi=<span class="number">25</span>, thlima=<span class="number">100</span>, darkstr=<span class="number">0.5</span>, brightstr=<span class="number">2.3</span>), left=<span class="number">94</span>, top=<span class="number">292</span>,right=<span class="number">1018</span>, bottom=<span class="number">290</span>)</span><br><span class="line">sf = fvf.rfs(b16, dh, <span class="string">&quot;[1434 2296]&quot;</span>)</span><br><span class="line">cf = core.std.Crop(b16, left=<span class="number">94</span>, top=<span class="number">302</span>, right=<span class="number">1018</span>,bottom=<span class="number">300</span>).fb.FillBorders(left=<span class="number">1</span>).edgefixer.ContinuityFixer(left=[<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>], top=<span class="number">1</span>, right=<span class="number">1</span>, bottom= [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>], radius=<span class="number">5</span>)</span><br><span class="line">fb = rekt_fast(b16, <span class="keyword">lambda</span> x: core.fb.FillBorders(x, left=<span class="number">2</span>, top=<span class="number">1</span>,right=<span class="number">1</span>, bottom=<span class="number">2</span>).std.Merge(cf, [<span class="number">1</span>,<span class="number">0</span>]), left=<span class="number">94</span>, top=<span class="number">302</span>, right=<span class="number">1018</span>,bottom=<span class="number">300</span>)</span><br><span class="line">dh = rekt_fast(fb, <span class="keyword">lambda</span> x: haf.FineDehalo(x, rx=<span class="number">2.0</span>, thmi=<span class="number">80</span>, thma=<span class="number">128</span>,thlimi=<span class="number">25</span>, thlima=<span class="number">100</span>, darkstr=<span class="number">0.5</span>, brightstr=<span class="number">1.5</span>), left=<span class="number">94</span>, top=<span class="number">302</span>,right=<span class="number">1018</span>, bottom=<span class="number">300</span>)</span><br><span class="line">sf = fvf.rfs(sf, dh, <span class="string">&quot;[133711 135117] [135360 136057] [136143 137216] [137282 138288] [138377 138757] [138820 140782]&quot;</span>)</span><br><span class="line">cf = core.std.Crop(b16, left=<span class="number">94</span>, top=<span class="number">302</span>, right=<span class="number">1018</span>,bottom=<span class="number">300</span>).fb.FillBorders(left=<span class="number">1</span>).edgefixer.ContinuityFixer(left=[<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>], top=<span class="number">1</span>, right=<span class="number">1</span>, bottom= [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>], radius=<span class="number">5</span>)</span><br><span class="line">fb = rekt_fast(b16, <span class="keyword">lambda</span> x: core.fb.FillBorders(x, left=<span class="number">2</span>, top=<span class="number">1</span>,right=<span class="number">1</span>, bottom=<span class="number">2</span>).std.Merge(cf, [<span class="number">1</span>,<span class="number">0</span>]), left=<span class="number">94</span>, top=<span class="number">302</span>, right=<span class="number">1018</span>,bottom=<span class="number">300</span>)</span><br><span class="line">dh = rekt_fast(fb, <span class="keyword">lambda</span> x: haf.FineDehalo(x, rx=<span class="number">2.0</span>, thmi=<span class="number">80</span>, thma=<span class="number">128</span>,thlimi=<span class="number">25</span>, thlima=<span class="number">100</span>, darkstr=<span class="number">0.5</span>, brightstr=<span class="number">1.5</span>).f3kdb.Deband(y=<span class="number">48</span>,cb=<span class="number">0</span>, cr=<span class="number">0</span>, <span class="built_in">range</span>=<span class="number">5</span>, grainy=<span class="number">64</span>, grainc=<span class="number">32</span>, output_depth=<span class="number">16</span>,keep_tv_range=<span class="literal">True</span>), left=<span class="number">94</span>, top=<span class="number">302</span>, right=<span class="number">1018</span>, bottom=<span class="number">300</span>)</span><br><span class="line">sf = fvf.rfs(sf, dh, <span class="string">&quot;[135118 135296] [138305 138376]&quot;</span>)</span><br><span class="line">mask = core.std.ShufflePlanes(b16, <span class="number">0</span>, vs.GRAY).std.Trim(<span class="number">2400</span>, <span class="number">2401</span>) *src.num_frames</span><br><span class="line">mask = rekt(mask, core.std.BlankClip(b16, <span class="number">1920</span>, <span class="number">1038</span>, <span class="built_in">format</span>=vs.GRAY16),left=<span class="number">666</span>, top=<span class="number">292</span>, right=<span class="number">1114</span>, bottom=<span class="number">744</span>)</span><br><span class="line">dh_lim = core.std.MaskedMerge(dh, b16, mask)</span><br><span class="line">sf = fvf.rfs(sf, dh_lim, <span class="string">&quot;[2297 2329]&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4:3 cropped scene. Replacing borders with my own black borders in order to keep them from having a different shade of black.</span></span><br><span class="line">crop = core.std.Crop(b16, left=<span class="number">254</span>, right=<span class="number">254</span>)</span><br><span class="line">fb = core.fb.FillBorders(crop, left=<span class="number">1</span>, right=<span class="number">1</span>).std.Merge(crop,[<span class="number">1</span>,<span class="number">0</span>]).edgefixer.ContinuityFixer(left=<span class="number">1</span>, right=<span class="number">1</span>, top=<span class="number">0</span>, bottom=<span class="number">0</span>,</span><br><span class="line">radius=<span class="number">50</span>).std.AddBorders(left=<span class="number">254</span>, right=<span class="number">254</span>, color=[<span class="number">4096</span>, <span class="number">32768</span>,<span class="number">32768</span>])</span><br><span class="line">sf = fvf.rfs(sf, fb, <span class="string">&quot;[33448 34196]&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Placebo edgemask binarized so we only get the obvious edges, then</span></span><br><span class="line">inflated.</span><br><span class="line">mask = kgf.retinex_edgemask(b16).std.Binarize(<span class="number">65500</span>).std.Maximum().std.Inflate()</span><br><span class="line"><span class="comment"># Strong aliasing.</span></span><br><span class="line">aa = taa.TAAmbk(b16, aatype=<span class="number">2</span>, mtype=<span class="number">0</span>, opencl=<span class="literal">False</span>)</span><br><span class="line">aa = core.std.MaskedMerge(b16, aa, mask)</span><br><span class="line">sf = fvf.ReplaceFramesSimple(sf, aa, mappings=<span class="string">&quot;[4225 4727] [18340 18387] [129780 131148]&quot;</span>)</span><br><span class="line"><span class="comment"># Mild aliasing.</span></span><br><span class="line">aa = taa.TAAmbk(b16, aatype=<span class="number">3</span>, mtype=<span class="number">0</span>, opencl=<span class="literal">False</span>)</span><br><span class="line">aa = core.std.MaskedMerge(b16, aa, mask)</span><br><span class="line">sf = fvf.ReplaceFramesSimple(sf, aa, mappings=<span class="string">&quot;[55394 55451] [55649 55782] [120840 120901]&quot;</span>)</span><br><span class="line"><span class="comment"># Very strong aliasing.</span></span><br><span class="line">aa = taa.TAAmbk(b16, aatype=<span class="number">6</span>, mtype=<span class="number">0</span>, repair=<span class="number">16</span>)</span><br><span class="line">aa = core.std.MaskedMerge(b16, aa, mask)</span><br><span class="line">sf = fvf.ReplaceFramesSimple(sf, aa, mappings=<span class="string">&quot;[107405 107462]&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Strong aliasing that I tried to fix with a terrible mask.</span></span><br><span class="line">mask = kgf.retinex_edgemask(b16).std.Binarize(<span class="number">65500</span>).std.Maximum().std.Minimum(coordinates=[<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>]).std.Deflate().std.Deflate()</span><br><span class="line">aa = taa.TAAmbk(b16, aatype=<span class="number">6</span>, mtype=<span class="number">0</span>, opencl=<span class="literal">False</span>)</span><br><span class="line">aa = core.std.MaskedMerge(b16, aa, mask)</span><br><span class="line">sf = fvf.ReplaceFramesSimple(sf, aa, mappings=<span class="string">&quot;[55510 55580]&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># I simply marked this, it would require a lot of work, so I just decidedagainst doing this.</span></span><br><span class="line"><span class="comment">#sf = fvf.rfs(sf, ?, &quot;[65880 66478]&quot;)</span></span><br><span class="line"><span class="comment">#sf = fvf.rfs(sf, ?, &quot;[120902 121051] [121790 121905] [122388 122528] [123038 123153] [126686 126812] [128740 128953]&quot;)  #Banding? [121063 121095] [121906 121968] [122530 122576]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Graining an area with no grain.</span></span><br><span class="line">gr = adptvgrnMod(b16, strength=<span class="number">2.5</span>, size=<span class="number">1.25</span>, sharp=<span class="number">35</span>, static=<span class="literal">False</span>,</span><br><span class="line">luma_scaling=<span class="number">3</span>, grain_chroma=<span class="literal">False</span>)</span><br><span class="line">sf = fvf.rfs(sf, gr, <span class="string">&quot;[120840 120901]&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Debanding with the standard debandmask. All of these debanding areas had almost no grain, so I added some on top.</span></span><br><span class="line">dbmask = debandmask(b16, lo=<span class="number">6144</span>, hi=<span class="number">12288</span>, lothr=<span class="number">320</span>, hithr=<span class="number">384</span>, mrad=<span class="number">2</span>)</span><br><span class="line">deband = core.f3kdb.Deband(b16, y=<span class="number">34</span>, cb=<span class="number">0</span>, cr=<span class="number">0</span>, <span class="built_in">range</span>=<span class="number">10</span>, grainy=<span class="number">16</span>,grainc=<span class="number">8</span>, output_depth=<span class="number">16</span>, keep_tv_range=<span class="literal">True</span>)</span><br><span class="line">merge = core.std.MaskedMerge(deband, b16, dbmask)</span><br><span class="line">merge = adptvgrnMod(merge, strength=<span class="number">2</span>, size=<span class="number">1.5</span>, sharp=<span class="number">25</span>, static=<span class="literal">False</span>,luma_scaling=<span class="number">5</span>, grain_chroma=<span class="literal">True</span>)</span><br><span class="line">sf = fvf.rfs(sf, merge, <span class="string">&quot;[3174 3254] [3540 3655] [7463 7749] [41056 41597] [63482 64106] [91033 91164]&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Debanding with retinex.</span></span><br><span class="line">mask = kgf.retinex_edgemask(b16).std.Maximum().std.Inflate().std.Maximum().std.Inflate()</span><br><span class="line">deband = core.f3kdb.Deband(b16, y=<span class="number">48</span>, cb=<span class="number">48</span>, cr=<span class="number">48</span>, <span class="built_in">range</span>=<span class="number">15</span>, grainy=<span class="number">16</span>, grainc=<span class="number">16</span>, output_depth=<span class="number">16</span>, keep_tv_range=<span class="literal">True</span>)</span><br><span class="line">merge = core.std.MaskedMerge(deband, b16, mask)</span><br><span class="line">merge = adptvgrnMod(merge, strength=<span class="number">2.2</span>, size=<span class="number">1.25</span>, sharp=<span class="number">15</span>, static=<span class="literal">False</span>,luma_scaling=<span class="number">5</span>, grain_chroma=<span class="literal">True</span>)</span><br><span class="line">sf = fvf.rfs(sf, merge, <span class="string">&quot;[77952 78034] [93358 93443]&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Debanding with gradfun3 mask.</span></span><br><span class="line">deband = Fag3kdb(b16, thry=<span class="number">54</span>, thrc=<span class="number">54</span>, radiusy=<span class="number">10</span>, radiusc=<span class="number">6</span>, grainy=<span class="number">32</span>, grainc=<span class="number">16</span>)</span><br><span class="line">sf = fvf.rfs(sf, deband, <span class="string">&quot;[25 263]&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Dithering back to 8-bit.</span></span><br><span class="line">final = mvf.Depth(sf, <span class="number">8</span>, dither=<span class="number">7</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Replacing black areas with a simple black screen in order to keep slight variations from happening. Usually not necessary, though.</span></span><br><span class="line">blank = core.std.BlankClip(src.std.Crop(top=<span class="number">20</span>, bottom=<span class="number">22</span>), <span class="number">1920</span>, <span class="number">1038</span>, color=[<span class="number">16</span>, <span class="number">128</span>, <span class="number">128</span>])</span><br><span class="line">final = fvf.rfs(final, blank, <span class="string">&quot;[0 24] [1352 1433] [58945 59016] [75563 75633] [78351 78421] [81130 81141] [81261 81272] [93967 94062 [99889 99959] [118093 118147] [140928 140951]&quot;</span>)</span><br><span class="line"></span><br><span class="line">final.set_output()</span><br></pre></td></tr></table></figure>
@@ -1888,30 +1796,30 @@
 <li>Scrooge @ Concertos, COC, FidelityTM</li>
 <li>xCreamEnte @ EPSiLON, HDBEE, SiGMA</li>
 </ul>
-<h2 id="8-附录"><a href="#8-附录" class="headerlink" title="8 附录"></a>8 附录</h2><p><img src="/Picture/AHDVEG-pics/Figure16.png" alt="Figure16"></p>
+<h2 id="8-附录"><a href="#8-附录" class="headerlink" title="8 附录"></a>8 附录</h2><p><img src="/(/img/AHDVEG-pics/Figure16.png" alt="Figure16"></p>
 <p>图16：不同降低分辨率函数的效果比较。将源从1080p缩小到720p，然后被裁剪。所有参数都保留默认值。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure17.png" alt="Figure17"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure17.png" alt="Figure17"></p>
 <p>图17：放大以后的大小。来自于Commie压制的《你的名字》（Your Name (2016)），相较于源进行了裁剪，然后被放大了2倍。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure18.png" alt="Figure18"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure18.png" alt="Figure18"></p>
 <p>图18：不同参数的双三次(bicubic)放大比较。记住，这些只是视频的小片段，双三次放大总是会导致伪影，特别是锯齿。尖锐的双三次曲线(b&#x3D;0, c&#x3D;1)特别容易产生锯齿伪影。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure19.png" alt="Figure19"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure19.png" alt="Figure19"></p>
 <p>图19：缩小并放大到原始分辨率的调整器比较。所有内容都被缩小到源分辨率的一半，然后使用<code>nnedi3_rpow2</code>放大回去。所有参数都保留默认值。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure20.png" alt="Figure20"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure20.png" alt="Figure20"></p>
 <p>图20：缩小并放大到原始分辨率的调整器比较。所有内容都被缩小到源分辨率的一半，然后用相同的调整器放大回去。所有参数都保留默认值。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure21.png" alt="Figure21"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure21.png" alt="Figure21"></p>
 <p>图21：抖动类型的比较。输入源为8-bit视频，向上抖动并用 <code>f3kdb</code> 去色带，输出为16-bit，然后抖动至8-bit。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure22.png" alt="Figure22"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure22.png" alt="Figure22"></p>
 <p>图22：一个说明为什么不适当的对角边界fx是个坏主意的例子。上面是源，下面是Geek使用边缘遮罩后的。来自Geek压制的《精灵旅社2》（Hotel Transylvania 2 (2015))。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure23.png" alt="Figure23"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure23.png" alt="Figure23"></p>
 <p>图23：在16-bit（右)和8-bit（左)分别进行伽马修复(gamma bug fix)的比较</p>
-<p><img src="/Picture/AHDVEG-pics/Figure24.png" alt="Figure24"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure24.png" alt="Figure24"></p>
 <p>图24：不同**边缘遮罩(edgemask)**的比较。从左上角到右下角：source,  <code>Prewitt</code>, <code>Sobel</code>, <code>Kirsch</code>, <code> TCanny</code>，和<code>retinex_edgemask</code>。所有设置都保留默认值。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure25.png" alt="Figure25"><br>图25：更精确的边缘遮罩(edgemask)的比较。从左上角到右下角：source, <code>retinex_edgemask</code>, <code>Kirsch</code>, <code>Sobel</code>。请注意，这是在质量极差且场景灯光昏暗的源上进行对比，因此 <code>retinex_edgemask</code> 和 <code>Kirsch</code> 两种遮罩的区别比常规情况更大。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure26.png" alt="Figure26"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure25.png" alt="Figure25"><br>图25：更精确的边缘遮罩(edgemask)的比较。从左上角到右下角：source, <code>retinex_edgemask</code>, <code>Kirsch</code>, <code>Sobel</code>。请注意，这是在质量极差且场景灯光昏暗的源上进行对比，因此 <code>retinex_edgemask</code> 和 <code>Kirsch</code> 两种遮罩的区别比常规情况更大。</p>
+<p><img src="/(/img/AHDVEG-pics/Figure26.png" alt="Figure26"></p>
 <p>图26：去色带时使用与不使用边缘遮罩(edgemask)的比较。从左上到右下分别是：源，源中裁剪区域标记，裁剪区域，裁剪区域上的遮罩（<code>kgf.retinex_edgemask(src).std. binated(5000).std. maximum ().std.Inflate()</code>），无蒙版去色带（<code>f3kdb.Deband(y=90, grainy=32,grainc=16)</code>），和蒙版去色带。通过平滑级别，伽马值提高了50%。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure27.png" alt="Figure27"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure27.png" alt="Figure27"></p>
 <p>图27： 一个例子说明为什么简单的 <strong>亮度遮罩(luma mask)</strong> 往往是不够的。取自1080p的O2STK对《了不起的狐狸爸爸 》（Fantastic Mr. Fox (2009)）进行了编码。O2STK使用了 <code>GradFun3</code> 和一个亮度遮罩。 标记为 Masked 的截图是 <code>f3kdb</code>用RGB截图的简单<code>Sobel</code>遮罩。</p>
-<p><img src="/Picture/AHDVEG-pics/Figure28.png" alt="Figure28"></p>
+<p><img src="/(/img/AHDVEG-pics/Figure28.png" alt="Figure28"></p>
 <p>图28：来自Geek的《Hotel Transylvania 2》压制作品：另一个例子说明了为什么在没有正确屏蔽的情况下，你应该始终警惕细节是否平滑甚至遭到破坏。<br>虽然我们不能确定这里是否使用了遮罩，但这很可能是未使用遮罩的 <code>f3kdb</code> 的结果。 <em>sunnighty似乎更常使用 <code>GradFun3</code> 蒙版，这在这个案例中可能有很大帮助。不知道这里发生了什么。但我猜测他们在蒙版遇到了非故意的情况从而产生了问题。</em></p>
 <h2 id="9-【译者注】"><a href="#9-【译者注】" class="headerlink" title="9 【译者注】"></a>9 【译者注】</h2><p>本文翻译主要基于<a href="https://www.deepl.com/translator">DeepL翻译器</a>，在此基础上大量参考<a href="https://github.com/typing-more/encode_guide/blob/master/%E9%AB%98%E6%B8%85%E8%A7%86%E9%A2%91%E8%BD%AC%E7%A0%81%E8%BF%9B%E9%98%B6%E6%8C%87%E5%8D%97.md">typing-more&#x2F;高清视频转码进阶指南.md</a>，在此表示由衷感谢！</p>
 <p>部分名词解释借鉴 VCB-Studio、Encode Mystery，一并感谢！</p>
@@ -1921,6 +1829,97 @@
       <categories>
         <category>6.etc</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Linux工具</title>
+    <url>/2.Tools/Linux/</url>
+    <content><![CDATA[<p>主要提供一些可以在 Linux 下使用的工具，但实际很少完全在 Linux 下工作，所以仅供参考</p>
+<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p><a href="https://github.com/gzycode39/docker-vapoursynth-yuuno/">https://github.com/gzycode39/docker-vapoursynth-yuuno/</a></p>
+<h1 id="Info"><a href="#Info" class="headerlink" title="Info"></a>Info</h1><h2 id="BDInfoCLI-ng"><a href="#BDInfoCLI-ng" class="headerlink" title="BDInfoCLI-ng"></a>BDInfoCLI-ng</h2><p><a href="https://github.com/zoffline/BDInfoCLI-ng">https://github.com/zoffline/BDInfoCLI-ng</a></p>
+<p><code>docker run --rm -it -v &lt;BD_PATH&gt;:/mnt/bd -v &lt;REPORT_DEST&gt;:/mnt/report zoffline/bdinfocli-ng /mnt/bd /mnt/report</code> (iso需要挂载后再扫)</p>
+<h1 id="Demux-x2F-Remux"><a href="#Demux-x2F-Remux" class="headerlink" title="Demux&#x2F;Remux"></a>Demux&#x2F;Remux</h1><h2 id="tsMuxer"><a href="#tsMuxer" class="headerlink" title="tsMuxer"></a>tsMuxer</h2><p><a href="https://github.com/justdan96/tsMuxer">https://github.com/justdan96/tsMuxer</a></p>
+<h2 id="mkvtoolnix"><a href="#mkvtoolnix" class="headerlink" title="mkvtoolnix"></a>mkvtoolnix</h2><p><a href="https://mkvtoolnix.download/downloads.html">https://mkvtoolnix.download/downloads.html</a><br>注意章节编辑器名称模板改成英文 <code>Chapter &lt;NUM:2&gt;</code></p>
+<h2 id="DGDemux"><a href="#DGDemux" class="headerlink" title="DGDemux"></a>DGDemux</h2><p><a href="http://rationalqm.us/dgdemux/dgdemux.html">http://rationalqm.us/dgdemux/dgdemux.html</a></p>
+<h1 id="Encode"><a href="#Encode" class="headerlink" title="Encode"></a>Encode</h1><h2 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h2><p><a href="https://ffmpeg.org/ffmpeg-all.html">https://ffmpeg.org/ffmpeg-all.html</a></p>
+<p>范例</p>
+<p><code>ffmpeg -i 1.dts -c:a flac -compression_level 8 1.flac</code></p>
+<p><code>ffmpeg -i 1.mkv -map 0:1  -c:a flac -compression_level 8 chi.flac</code></p>
+<p><code>ffmpeg  -v quiet -ss 00:23:00 -i file  -vcodec png -vframes 1 -pix_fmt rgb24 -y ~/filename.png</code></p>
+<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><p>cutP.py</p>
+]]></content>
+      <categories>
+        <category>2.Tools</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>字幕相关</title>
+    <url>/4.Audio&amp;sub/%E5%AD%97%E5%B9%95%E5%88%B6%E4%BD%9C/</url>
+    <content><![CDATA[<p>本篇内容都作为 Optional</p>
+<h1 id="字幕调轴"><a href="#字幕调轴" class="headerlink" title="字幕调轴"></a>字幕调轴</h1><p>一般来说不少字幕都可以通过平移来解决不同步问题。<br>但还有相当多的会因为源的帧率不同导致同步问题。</p>
+<p>此时应确认原字幕匹配的视频文件的帧率，以及目标视频文件的视频帧率</p>
+<p>以 Blonde and Blonder 2007 举例，现有的都是DVD的字幕，需要制作1080p AMZN web(25fps)的字幕。</p>
+<p>DVD是NTSC的，也就是传说中的5烂2</p>
+<p><strong>Attention</strong> NTSC 的相关事项建议查下资料以作了解。虽然DVD源是29.970 fps，但实际应使用压制处理后的分辨率23.976 fps。</p>
+<p>然后对字幕做帧率转换，大部分的字幕软件都支持，除此之外还可以使用Potplayer</p>
+<p>范例</p>
+<p>对于 Blonde and Blonder 2007 的字幕，帧率由 23.976 fps 转为 25 fps,之后整体向前平移 12s 即可匹配</p>
+<h2 id="字幕轴替换"><a href="#字幕轴替换" class="headerlink" title="字幕轴替换"></a>字幕轴替换</h2><p>有些情况下帧率调整没法解决问题，这种情况下可以完全的调轴(还有些可能就是制作字幕的人造成了一些错误)</p>
+<p>比如你有一个轴不对的中文字幕，找到一条完全匹配的英文字幕。</p>
+<p>你可以使用 Sutittle Edit 的 point sync via other subtitle 功能</p>
+<p>还可以打开拥有正确时间轴的字幕，选所有行，右键，Column, delete text, 然后从其他字幕导入文本，最好再检查下有没有错行</p>
+<h2 id="精调"><a href="#精调" class="headerlink" title="精调"></a>精调</h2><p>Sutittle Edit 不但可以加载画面，甚至可以读取音轨波形，可以通过听以及观察波形来精调。</p>
+<p>就是应该会有点累</p>
+<h1 id="双语合并"><a href="#双语合并" class="headerlink" title="双语合并"></a>双语合并</h1><p>使用srtedit即可，可以自己点点点研究一下就行。</p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
+<li>Sutittle Edit 处理ass会导致一些样式丢失</li>
+<li>HDR字幕(包括srt)白颜色下会过亮(与软件可能也有一定关系)，请注意转换成暗色</li>
+</ul>
+]]></content>
+      <categories>
+        <category>4.Audio&amp;sub</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Progressive segmented frame</title>
+    <url>/6.etc/PsF/</url>
+    <content><![CDATA[<p>写作 interlace, 实际是为了塞p的视频</p>
+<p><a href="https://en.wikipedia.org/wiki/Progressive_segmented_frame">https://en.wikipedia.org/wiki/Progressive_segmented_frame</a></p>
+]]></content>
+      <categories>
+        <category>6.etc</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>常见报错</title>
+    <url>/6.etc/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="x265-crash"><a href="#x265-crash" class="headerlink" title="x265 crash"></a>x265 crash</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2022-01-07][21:18:15] WARNING: Input process exited with error (code: 1), your encode might be *incomplete* !!!</span><br><span class="line">[2022-01-07][21:18:15] </span><br><span class="line">[2022-01-07][21:18:15] FATAL ERROR: The encoder process has *crashed* -&gt; your encode probably is *incomplete* !!!</span><br><span class="line">[2022-01-07][21:18:15] Note that this indicates a bug in the current encoder, *not* in Simple x264/x265 Launcher.</span><br><span class="line">[2022-01-07][21:18:15] </span><br><span class="line">[2022-01-07][21:18:15] PROCESS EXITED WITH ERROR CODE: -1073741795</span><br></pre></td></tr></table></figure>
+<p>注意检查CPU指令集，默认使用的是AVX2,有部分CPU不支持，LIKE E5-2690 0</p>
+<p>这种情况下弄个CPU-Z看看就知道了</p>
+<p>另外还有错误的参数可能会导致问题</p>
+<h1 id="压制程序退出"><a href="#压制程序退出" class="headerlink" title="压制程序退出"></a>压制程序退出</h1><p>生成文件被占用或不可写入会导致报错，例如 vs 预览会导致文件被占用。</p>
+<h1 id="Dgdemux-不显示界面"><a href="#Dgdemux-不显示界面" class="headerlink" title="Dgdemux 不显示界面"></a>Dgdemux 不显示界面</h1><p>DGDemux.ini 里有一行 Window_Position 删掉就好了，或者整个ini删掉也行</p>
+<h1 id="大小核调度问题"><a href="#大小核调度问题" class="headerlink" title="大小核调度问题"></a>大小核调度问题</h1><p>管理员模式运行cmd，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">powercfg -attributes SUB_PROCESSOR 7f2f5cfa-f10c-4823-b5e1-e93ae85f46b5 -ATTRIB_HIDE</span><br><span class="line">powercfg -attributes SUB_PROCESSOR 93b8b6dc-0698-4d1c-9ee4-0644e900c85d -ATTRIB_HIDE</span><br><span class="line">powercfg -attributes SUB_PROCESSOR bae08b81-2d5e-4688-ad6a-13243356654b -ATTRIB_HIDE</span><br><span class="line">powercfg -attributes SUB_PROCESSOR b28a6829-c5f7-444e-8f61-10e24e85c532 -ATTRIB_HIDE</span><br></pre></td></tr></table></figure>
+<p>高级电源设置里”异类线程调度策略”改成”所有处理器”</p>
+]]></content>
+      <categories>
+        <category>6.etc</category>
+      </categories>
+      <tags>
+        <tag>Issue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/3.Code/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BB%84%E5%90%88%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>因为平时注意力不集中，所以这些可能是碎片化的，有空可能会整理。<br>另外人菜，请批判性的理解</p>
+<p>（水平问题，自己的脚本就不放出来了）</p>
+<p><a href="https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/Jin.Roh.1999/SDR.720P-ZQ.vpy">https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/Jin.Roh.1999/SDR.720P-ZQ.vpy</a></p>
+<p>22行开始 对(luma平面 - Y)先降噪。然后STPresso对噪点进行处理之后再打回来。</p>
+<hr>
+<p>对帧的一些操作</p>
+<p><a href="https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/A.Silent.Voice.2016/SDR.1080p.D-Z0N3.vpy">https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/A.Silent.Voice.2016/SDR.1080p.D-Z0N3.vpy</a></p>
+]]></content>
   </entry>
   <entry>
     <title></title>

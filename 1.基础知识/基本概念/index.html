@@ -26,21 +26,21 @@
 <meta property="og:site_name" content="FXXS">
 <meta property="og:description" content="视频格式本文大部分参考以及直接引用http:&#x2F;&#x2F;vcb-s.com&#x2F;archives&#x2F;2726 https:&#x2F;&#x2F;help.aliyun.com&#x2F;document_detail&#x2F;99380.html 视频的基础参数分辨率视频是由连续的图像构成的。每一张图像，我们称为一 帧(frame) 。图像则是由像素(pixel)构成的。一张图像有多少像素，称为这个图像的 分辨率。比如说1920×1080的图像，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://fxxs.github.io/Picture/Video/Source.webp">
-<meta property="og:image" content="http://fxxs.github.io/Picture/Video/R.webp">
-<meta property="og:image" content="http://fxxs.github.io/Picture/Video/G.webp">
-<meta property="og:image" content="http://fxxs.github.io/Picture/Video/B.webp">
-<meta property="og:image" content="http://fxxs.github.io/Picture/Video/Y.webp">
-<meta property="og:image" content="http://fxxs.github.io/Picture/Video/Cb.webp">
-<meta property="og:image" content="http://fxxs.github.io/Picture/Video/Cr.webp">
-<meta property="og:image" content="http://fxxs.github.io/Picture/Video/8bit.webp">
-<meta property="og:image" content="http://fxxs.github.io/Picture/I_P_and_B_frames.png">
-<meta property="article:published_time" content="2022-10-24T10:51:15.761Z">
-<meta property="article:modified_time" content="2024-09-20T15:00:50.874Z">
+<meta property="og:image" content="http://fxxs.github.io/(/img/Video/Source.webp">
+<meta property="og:image" content="http://fxxs.github.io/(/img/Video/R.webp">
+<meta property="og:image" content="http://fxxs.github.io/(/img/Video/G.webp">
+<meta property="og:image" content="http://fxxs.github.io/(/img/Video/B.webp">
+<meta property="og:image" content="http://fxxs.github.io/(/img/Video/Y.webp">
+<meta property="og:image" content="http://fxxs.github.io/(/img/Video/Cb.webp">
+<meta property="og:image" content="http://fxxs.github.io/(/img/Video/Cr.webp">
+<meta property="og:image" content="http://fxxs.github.io/(/img/Video/8bit.webp">
+<meta property="og:image" content="http://fxxs.github.io/(/img/I_P_and_B_frames.png">
+<meta property="article:published_time" content="2024-09-20T17:09:29.845Z">
+<meta property="article:modified_time" content="2024-12-25T03:48:06.492Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://fxxs.github.io/Picture/Video/Source.webp">
+<meta name="twitter:image" content="http://fxxs.github.io/(/img/Video/Source.webp">
   
     <link rel="alternate" href="/atom.xml" title="FXXS" type="application/atom+xml">
   
@@ -156,7 +156,7 @@
                 <h1 class="kratos-page-title text-center" itemprop="name headline">基本概念</h1>
             
             <ul class="kratos-page-meta text-center">
-                <li><time datetime="2022-10-24T10:51:15.761Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2022-10-24</time></li>
+                <li><time datetime="2024-09-20T17:09:29.845Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-09-21</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">ted423</span>
                 </li>
@@ -232,20 +232,20 @@
 <h2 id="图像的表示方法"><a href="#图像的表示方法" class="headerlink" title="图像的表示方法"></a>图像的表示方法</h2><h3 id="RGB模型"><a href="#RGB模型" class="headerlink" title="RGB模型"></a>RGB模型</h3><p>光的三原色是红(Red)、绿(Green)、蓝(Blue)。现代的显示器技术就是通过组合不同强度的三原色，来达成任何一种可见光的颜色。图像储存中，通过记录每个像素红绿蓝强度，来记录图像的方法，称为RGB模型 (RGB Model)</p>
 <p>常见的图片格式中，PNG和BMP这两种就是基于RGB模型的。</p>
 <p>比如说原图：</p>
-<p><img src="/Picture/Video/Source.webp" alt="原图"></p>
+<p><img src="/(/img/Video/Source.webp" alt="原图"></p>
 <p>分别只显示R G B通道的强度，效果如下：</p>
-<p><img src="/Picture/Video/R.webp" alt="RGB-R"></p>
-<p><img src="/Picture/Video/G.webp" alt="RGB-G"></p>
-<p><img src="/Picture/Video/B.webp" alt="RGB-B"></p>
+<p><img src="/(/img/Video/R.webp" alt="RGB-R"></p>
+<p><img src="/(/img/Video/G.webp" alt="RGB-G"></p>
+<p><img src="/(/img/Video/B.webp" alt="RGB-B"></p>
 <p>三个通道下，信息量和细节程度不一定是均匀分布的。比如说可以注意南小鸟脸上的红晕，在3个平面上的区分程度就不同——红色平面下几乎无从区分，造成区别的主要是绿色和蓝色的平面。外围白色的脸颊，三色都近乎饱和；但是红晕部分，只有红色饱和，绿色和蓝色不饱和。这是造成红色凸显的原因。</p>
 <h2 id="YUV模型"><a href="#YUV模型" class="headerlink" title="YUV模型"></a>YUV模型</h2><p>除了RGB模型，还有一种广泛采用的模型，称为YUV模型，又被称为亮度-色度模型（Luma-Chroma）。它是通过数学转换，将RGB三个通道，转换为一个代表亮度的通道(Y,又称为Luma)，和两个代表色度的通道(UV，并成为Chroma)。</p>
 <p>YUV模型干的是类似的事儿。通过对RGB数据的合理转换，得到另一种表示方式。YUV模型下，还有不同的实现方式。举个用的比较多的YCbCr模型：它把RGB转换成一个亮度(Y)，和 蓝色色度(Cb) 以及 红色色度(Cr)。转换背后复杂的公式大家不需要了解，只需要看看效果：</p>
 <p>只有亮度通道：</p>
-<p><img src="/Picture/Video/Y.webp" alt="YUV-Y"></p>
+<p><img src="/(/img/Video/Y.webp" alt="YUV-Y"></p>
 <p>只有蓝色色度：</p>
-<p><img src="/Picture/Video/Cb.webp" alt="YUV-Cb"></p>
+<p><img src="/(/img/Video/Cb.webp" alt="YUV-Cb"></p>
 <p>只有红色色度：</p>
-<p><img src="/Picture/Video/Cr.webp" alt="YUV-Cr"></p>
+<p><img src="/(/img/Video/Cr.webp" alt="YUV-Cr"></p>
 <p>在图像视频的加工与储存中，YUV格式一般更受欢迎，理由如下：</p>
 <ol>
 <li><p>人眼对亮度的敏感度远高于色度，因此人眼看到的有效信息主要来自于亮度。YUV模型可以将绝大多数的有效信息分配到Y通道。UV通道相对记录的信息少的多。相对于RGB模型较为平均的分配，YUV模型将多数有效信息集中在Y通道，不但减少了冗余信息量，还为压缩提供了便利</p>
@@ -268,7 +268,7 @@
 <p>取pi精度足够高，面积算出来是477.61平方米。所以取pi&#x3D;3.1416是足够的，但是3.14就不够了。</p>
 <p>换言之，即便最终输出的精度要求较低，也不意味着参与运算的数字，以及运算过程，可以保持较低的精度。在最终输出是8bit RGB的前提下，10bit YUV比起8bit YUV依旧具有精度优势的原因就在这里。事实上，8bit YUV转换后，覆盖的精度大概相当于8bit RGB的26%，而10bit转换后的精度大约可以覆盖97%——你想让你家8bit显示器发挥97%的细腻度么？看10bit吧。</p>
 <p>8bit精度不足，主要表现在亮度较低的区域，容易形成色带</p>
-<p><img src="/Picture/Video/8bit.webp" alt="色带"></p>
+<p><img src="/(/img/Video/8bit.webp" alt="色带"></p>
 <p>注意这图右边那一圈圈跟波浪一样的效果。这就是颜色精度不足的表现。</p>
 <p>10bit的优势不只在于显示精度的提高，在提高视频压缩率，减少失真方面，相对8bit也有优势。这方面就不展开了。</p>
 <h2 id="帧、帧的类型V"><a href="#帧、帧的类型V" class="headerlink" title="帧、帧的类型V"></a>帧、帧的类型V</h2><p>电影是由多个“图片”连续播放组成的，每个“图片”被称为<em><strong>帧</strong></em>，电影单位时间内播放的帧的数目称为<em><strong>帧率</strong></em>，常见帧率数值有：<strong>23.97、24、29.97</strong>等等</p>
@@ -277,7 +277,7 @@
 <p><strong>I帧(Intracoded帧)</strong>:此帧是一个独立的帧，它不使用其前后的帧中的任何信息。一般作为参考帧的基础架构，储存完整的帧信息，占用空间较大。</p>
 <p><strong>P帧（Predicted帧）</strong>:P帧又称帧间预测编码帧，需要参考前面的I帧才能进行编码。表示的是当前帧画面与前一帧（前一帧可能是I帧也可能是P帧）的差别。解码时需要用之前缓存的画面叠加上本帧定义的差别，生成最终画面。与I帧相比，P帧通常占用更少的空间。</p>
 <p><strong>B帧（Bi-predictive帧）</strong>:B帧又称双向预测编码帧，也就是B帧记录的是本帧与前后帧的差别。也就是说要解码B帧，不仅要取得之前的缓存画面，还要解码之后的画面，通过前后画面的与本帧数据的叠加取得最终的画面。B帧压缩率高，但是对解码性能要求较高。</p>
-<p><img src="/Picture/I_P_and_B_frames.png" alt="I_P_and_B_frames"></p>
+<p><img src="/(/img/I_P_and_B_frames.png" alt="I_P_and_B_frames"></p>
 <p>不同编码根据自己算法，对于一个视频进行压缩编码，不同的编码方式，对于不同帧处理方式不同，有着自己的标准。</p>
 <h2 id="GOP（关键帧间隔）"><a href="#GOP（关键帧间隔）" class="headerlink" title="GOP（关键帧间隔）"></a>GOP（关键帧间隔）</h2><p>GOP（Group of Pictures）是一组以 MPEG 编码的影片或视讯串流内部的连续图像，以 I 帧开头，到下一个 I 帧结束。一个 GOP 包含如下图像类型：</p>
 <p>I 帧（Intra Coded Picture）：又称帧内编码帧，为关键帧，是一种自带全部信息的独立帧，无需参考其他图像便可独立进行解码，可以简单理解为一张静态画面。视频序列中的第一个帧始终都是I 帧，每个 GOP 由I 帧开始。<br>P 帧（Predictive Coded Picture）：又称帧间预测编码帧，需要参考前面的I帧才能进行编码。表示的是当前帧画面与前一帧（前一帧可能是I帧也可能是P帧）的差别。解码时需要用之前缓存的画面叠加上本帧定义的差别，生成最终画面。与I帧相比，P帧通常占用更少的数据位，但不足是，由于P帧对前面的P和I参考帧有着复杂的依赖性，因此对传输错误非常敏感。<br>B 帧（Bidirectionally Predictive Coded Pictures）：又称双向预测编码帧，也就是B帧记录的是本帧与前后帧的差别。也就是说要解码B帧，不仅要取得之前的缓存画面，还要解码之后的画面，通过前后画面的与本帧数据的叠加取得最终的画面。B帧压缩率高，但是对解码性能要求较高。<br>GOP值表示关键帧的间隔（即两个关键帧之间的帧数），也就是两个IDR帧之间的距离，一个帧组的最大帧数。一般而言，每一秒视频至少需要使用 1 个关键帧。增加关键帧个数可改善视频质量，但会同时增加带宽和网络负载。GOP值（帧数）除以帧率即为时间间隔，如阿里云视频点播默认的GOP值为250帧，帧率为25fps，则时间间隔为10秒。</p>
@@ -348,7 +348,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-09-20T15:00:50.874Z" itemprop="dateModified">最后编辑：2024-09-20</time>
+                    <time datetime="2024-12-25T03:48:06.492Z" itemprop="dateModified">最后编辑：2024-12-25</time>
                 </div>
             </div>
         </footer>
@@ -357,12 +357,12 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" 封装格式(MP4/MKV…)、编码格式(H.264/H.265/AC3/AAC…)、编码器(x265/x264/SVT-AV1)" href="/1.基础知识/编码、编码器与封装格式/"><i class="fa fa-angle-left"></i> 上一篇</a>
+                <a title=" 常见报错" href="/6.etc/常见问题/"><i class="fa fa-angle-left"></i> 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" 对比" href="/6.etc/Compare/">下一篇 <i class="fa fa-angle-right"></i></a>
+                <a title=" Progressive segmented frame" href="/6.etc/PsF/">下一篇 <i class="fa fa-angle-right"></i></a>
             </div>
             
         </nav>
