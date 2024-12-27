@@ -7,8 +7,8 @@
     <link rel="icon" href="/img/favicon.svg">
   
   
-  <title>文章归档: 2023-07 | FXXS</title>
-  <link rel="canonical" href="http://fxxs.github.io/archives/2023/07/index.html">
+  <title>使用Dolby Media Encoder制作DDP/EAC3音轨教程 | FXXS</title>
+  <link rel="canonical" href="http://fxxs.github.io/Archive/%E4%BD%BF%E7%94%A8Dolby%20Media%20Encoder%E5%88%B6%E4%BD%9CDDP%E9%9F%B3%E8%BD%A8%E6%95%99%E7%A8%8B/">
   <meta name="author" content="ted423" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -17,16 +17,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="FXXS" />
+    <meta name="keywords" content="" />
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="文章归档: 2023-07">
-<meta property="og:url" content="http://fxxs.github.io/archives/2023/07/index.html">
+  <meta name="description" content="需注意，AMD Ryzen 5X00X 系列无法使用虚拟机 软件会崩溃 部分音轨制作后无人声，请制作完后注意检查 有些情况下mkvtoolnix会报告包含无效数据，这种时候需要重新制作 制作前准备 MacOS 10.15以下 无物理MacOS环境请使用VMware+VM Unlocker搭建虚拟机环境  VMware 15 Player (16版本也可使用，其他版本未测) 下载 (非商业用途无需激">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Dolby Media Encoder制作DDP&#x2F;EAC3音轨教程">
+<meta property="og:url" content="http://fxxs.github.io/Archive/%E4%BD%BF%E7%94%A8Dolby%20Media%20Encoder%E5%88%B6%E4%BD%9CDDP%E9%9F%B3%E8%BD%A8%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="FXXS">
+<meta property="og:description" content="需注意，AMD Ryzen 5X00X 系列无法使用虚拟机 软件会崩溃 部分音轨制作后无人声，请制作完后注意检查 有些情况下mkvtoolnix会报告包含无效数据，这种时候需要重新制作 制作前准备 MacOS 10.15以下 无物理MacOS环境请使用VMware+VM Unlocker搭建虚拟机环境  VMware 15 Player (16版本也可使用，其他版本未测) 下载 (非商业用途无需激">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://fxxs.github.io/(/img/des-pics/des-0vm.png">
+<meta property="og:image" content="http://fxxs.github.io/(/img/DDP-pics/des-0shell.png">
+<meta property="og:image" content="http://fxxs.github.io/(/img/DDP-pics/des-0done.png">
+<meta property="og:image" content="http://fxxs.github.io/(/img/DDP-pics/des-1eac3to.png">
+<meta property="og:image" content="http://fxxs.github.io/(/img/DDP-pics/des-1eac3.png">
+<meta property="og:image" content="http://fxxs.github.io/(/img/DDP-pics/des-2job.png">
+<meta property="og:image" content="http://fxxs.github.io/(/img/DDP-pics/des-2format.png">
+<meta property="og:image" content="http://fxxs.github.io/(/img/DDP-pics/des-2wavs.png">
+<meta property="og:image" content="http://fxxs.github.io/(/img/DDP-pics/des-3settings.png">
+<meta property="og:image" content="http://fxxs.github.io/(/img/DDP-pics/des-3processing.png">
+<meta property="og:image" content="http://fxxs.github.io/(/img/DDP-pics/des-4encode1.png">
+<meta property="article:published_time" content="2024-12-25T03:49:04.096Z">
+<meta property="article:modified_time" content="2024-12-25T03:48:31.000Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://fxxs.github.io/(/img/des-pics/des-0vm.png">
   
     <link rel="alternate" href="/atom.xml" title="FXXS" type="application/atom+xml">
   
@@ -134,55 +150,141 @@
 
         
 
+            <article itemscope itemtype="https://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://fxxs.github.io/Archive/%E4%BD%BF%E7%94%A8Dolby%20Media%20Encoder%E5%88%B6%E4%BD%9CDDP%E9%9F%B3%E8%BD%A8%E6%95%99%E7%A8%8B/">
+    <div class="kratos-hentry kratos-page-inner clearfix">
+        <header class="kratos-page-header">
             
-<style>
-  .post-meta time{color:#00a7e0}
-  @media (max-width:767px){.posts-collapse{margin:0 20px}
-  .posts-collapse .post-meta,
-  .posts-collapse .post-title{display:block;width:auto;text-align:left}}
-  .posts-collapse{position:relative}
-  .posts-collapse::after{content:" ";position:absolute;top:20px;left:0;margin-left:-2px;width:4px;height:calc(100% - 35px);background:#f5f5f5;z-index:-1}
-  @media (max-width:991px){.posts-collapse{margin:0 20px}}
-  .posts-collapse .collection-title{position:relative}
-  .posts-collapse .collection-title h1,
-  .posts-collapse .collection-title h2{margin-left:20px}
-  .posts-collapse .collection-title small{color:#bbb;margin-left:5px}
-  .posts-collapse .collection-title::before{content:" ";position:absolute;left:0;top:50%;margin-left:-4px;margin-top:-4px;width:8px;height:8px;background:#bbb;border-radius:50%}
-  .posts-collapse .post-header{position:relative;transition-duration:.2s;transition-timing-function:ease-in-out;transition-delay:0s;transition-property:border}
-  .posts-collapse .post-header::before{content:" ";position:absolute;left:0;top:12px;width:6px;height:6px;margin-left:-4px;background:#bbb;border-radius:50%;border:1px solid #fff;transition: all .3s ease-in-out}
-  .posts-collapse .post-header:hover{border-bottom-color:#666}
-  .posts-collapse .post-header:hover::before{background:#222}
-  .posts-collapse .post-meta{position:absolute;font-size:12px;left:20px;top:5px}
-  .posts-collapse .kr-comments-count{display:none}
-  .posts-collapse .post-title{margin-left:70px;font-size:16px;font-weight:400;line-height:inherit}
-  .posts-collapse .post-title::after{margin-left:3px;opacity:.6}
-  .posts-collapse .post-title a{color:#666;border-bottom:none}
-</style>
-
-  <article>
-      <div class="kratos-hentry kratos-page-inner clearfix">
-          <header class="kratos-page-header">
-            <h1 class="kratos-page-title text-center" itemprop="name headline">文章归档</h1>
-          </header>
-          <div class="kratos-page-content kr-archive">
-            <div id="archives">
-              <div class="post-block archive post" style="margin-left: 2em;">
-                <h3 class="archive-page-counter">当前共有 22 篇文章 (゜-゜)つロ 干杯~</h3>
-                <div class="posts-collapse">
-                  
-                  
-                    
-                    
-                    
-                  
-                </div>
-              </div>
-            </div>
+                <h1 class="kratos-page-title text-center" itemprop="name headline">使用Dolby Media Encoder制作DDP/EAC3音轨教程</h1>
+            
+            <ul class="kratos-page-meta text-center">
+                <li><time datetime="2024-12-25T03:49:04.096Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-12-25</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">ted423</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~1.61K
+                        
+                        字
+                    </li>
+                
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-page-content kr-post">
+            
+            
+            
+            <hr />
+            <div itemprop="articleBody"><p>需注意，AMD Ryzen 5X00X 系列无法使用虚拟机 软件会崩溃</p>
+<p>部分音轨制作后无人声，请制作完后注意检查</p>
+<p>有些情况下mkvtoolnix会报告包含无效数据，这种时候需要重新制作</p>
+<h2 id="制作前准备"><a href="#制作前准备" class="headerlink" title="制作前准备"></a>制作前准备</h2><ul>
+<li><p>MacOS 10.15以下</p>
+<p>无物理MacOS环境请使用VMware+<a target="_blank" rel="noopener" href="https://github.com/DrDonk/unlocker">VM Unlocker</a>搭建虚拟机环境</p>
+<ul>
+<li>VMware 15 Player (16版本也可使用，其他版本未测) <a target="_blank" rel="noopener" href="https://www.vmware.com/go/downloadplayer">下载</a> (非商业用途无需激活但无快照功能)</li>
+<li>VMware 15 Workstation 15.5.0 <a target="_blank" rel="noopener" href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.5.0-14665864.exe">下载</a> (请自备激活码)</li>
+</ul>
+</li>
+<li><p>Dolby Media Producer Suite</p>
+</li>
+</ul>
+<h3 id="环境依赖"><a href="#环境依赖" class="headerlink" title="环境依赖"></a>环境依赖</h3><p>VMware与MacOS的安装不再赘述，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/337036027">推荐阅读</a>，主要介绍虚拟机解锁MacOS流程，以Windows为例：</p>
+<p><img src="/(/img/des-pics/des-0vm.png" alt="vm-unlocker"> </p>
+<p>(一些AMD CPU 电脑的VMWare 不需要这个可以直接使用，Linux脚本存在一些问题，不过直接将Win脚本获取的那些文件放在指定地方也可以)</p>
+<p>将压缩包解压至任意位置并进入windows文件夹，<strong>按住Shift并右键空白位置</strong>，选择<strong>Windows Powershell&#x2F;Windows终端中打开</strong>。</p>
+<p>在Powershell终端中输入 <code>(/img/DDP-pics/unlocker.exe install</code></p>
+<p><img src="/(/img/DDP-pics/des-0shell.png" alt="poweshell"></p>
+<p>稍等片刻，会有UAC提示（如果开启的话），点击<strong>是</strong>，随后跳出CMD命令行</p>
+<p><img src="/(/img/DDP-pics/des-0done.png" alt="done"></p>
+<p>出现<strong>Press any key to continue…</strong> 即为成功，可以关闭窗口，解锁MacOS完成，可以打开VMware安装MacOS。</p>
+<h2 id="开始工作"><a href="#开始工作" class="headerlink" title="开始工作"></a>开始工作</h2><h4 id="使用eac3to提取音轨"><a href="#使用eac3to提取音轨" class="headerlink" title="使用eac3to提取音轨"></a>使用eac3to提取音轨</h4><p>导入原盘文件，找到原盘中需要提取多声道的音轨序号，例如图中为序号3的DTS-MA 5.1声道的音轨，<strong>输出为wavs</strong>，<strong>Add</strong>并<strong>Run CL</strong>，等待输出。</p>
+<p><img src="/(/img/DDP-pics/des-1eac3to.png" alt="eac3to read"></p>
+<p>输出完毕后会得到六个<code>.wav</code>文件，如图。假若提取的是7.1声道音轨，获得到八个<code>.wav</code>文件，相比5.1声道音轨多出BL、BR两个文件。由于Dolby Media Producer Suite音轨命名与eac3to分轨命名略有差异，为方便软件自动匹配，需要更改文件名以适用于DDP，具体为 <strong>“SL&#x3D;Ls、SR&#x3D;Rs、BL&#x3D;Lrs、BR&#x3D;Rrs”</strong>。</p>
+<p><img src="/(/img/DDP-pics/des-1eac3.png" alt="eac3to output"></p>
+<h4 id="Dolby-Media-Encoder-SE使用"><a href="#Dolby-Media-Encoder-SE使用" class="headerlink" title="Dolby Media Encoder SE使用"></a>Dolby Media Encoder SE使用</h4><ol>
+<li><p>新建Job</p>
+<p><img src="/(/img/DDP-pics/des-2job.png" alt="New Job"></p>
+</li>
+<li><p>导入音频</p>
+<p>勾选<strong>Dolby Digital Plus</strong>，制作5.1时选<strong>Standard</strong> &#x2F; 7.1时选<strong>Blu-ray Disc</strong>，点击<code>Destination Path</code>右侧的 <strong>···</strong> 选择输出路径，再选择任意音轨右侧的 <strong>···</strong> 选择对应音轨文件。</p>
+<p>若在输出音轨之后没有手动更改过文件名，则会出现匹配不上的情况，此时需要手动选择剩余未匹配到音轨的文件。</p>
+<p>制作<strong>5.1</strong>音轨时选择<code>5.1 EX-L,R,C,LFE,Ls,Rs</code>；制作<strong>7.1</strong>音轨时选择<code>7.1-L,R,C,LFE,Ls,Rs,Lrs,Rrs</code></p>
+<p>之后任选一个音轨进行导入对应文件，如果在提取音轨后没有改名，则需要手动选择缺失的音轨其对应文件，最终填满所有音轨。</p>
+<p><img src="/(/img/DDP-pics/des-2format.png" alt="Format &amp; Target"></p>
+<p>此页设置完成时如图。</p>
+<p><img src="/(/img/DDP-pics/des-2wavs.png" alt="Channel Config"></p>
+</li>
+<li><p>参数设置</p>
+<p>填充完音轨，还需要设置一些参数，如图。</p>
+<p>Data Rate根据声道而变，<strong>5.1</strong>音轨时选择<strong>1024 kbps</strong>，<strong>7.1</strong>音轨时选择<strong>1536 kbps</strong>。</p>
+<p><img src="/(/img/DDP-pics/des-3settings.png" alt="Encode Settings"></p>
+<p><img src="/(/img/DDP-pics/des-3processing.png" alt="Encode Settings"></p>
+<p>参数设置完毕，点击右上角的<strong>Encode</strong>开始压制。</p>
+</li>
+<li><p>文件输出</p>
+<p>由于我们没有新建Project，故此处不再新建，点击<strong>No</strong>。稍等片刻，左侧的窗口中Status将会发生变化。</p>
+<p><img src="/(/img/DDP-pics/des-4encode1.png" alt="Encode Settings"></p>
+<p>由于该软件为单线程应用，其压制过程会非常缓慢，耐心等待。</p>
+<p>最后得到后缀为<code>.ec3</code>(7.1时为<code>.eb3</code>)的文件，即为DDP音轨文件。</p>
+</li>
+</ol>
+<h2 id="特别感谢"><a href="#特别感谢" class="headerlink" title="特别感谢"></a>特别感谢</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://t.me/c/1467204597/42995">韩小王大佬提供的参数设置</a> | <a href="(/img/DDP-pics/des-5refer.png">备份</a></li>
+<li><a target="_blank" rel="noopener" href="https://t.me/c/1467204597/63052">MJ大佬的纠错及7.1声道制作</a></li>
+</ul>
+<h2 id="Credit"><a href="#Credit" class="headerlink" title="Credit"></a>Credit</h2><p>教程遵守<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh">CC BY 4.0</a>，使用到的项目各自遵守其规范，转载请指明出处！</p>
+</div>
         </div>
-      </div>
-      
-  </article>
-
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+            
+            
+                <div class="post-actions text-center clearfix" id="post-actions">
+                
+                
+                    <a class="share" href="javascript:;" onclick="krOpenShareModal()"><i class="fa fa-share-alt"></i> 分享</a>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    
+                </div>
+                <div class="pull-date">
+                    <time datetime="2024-12-25T03:48:31.000Z" itemprop="dateModified">最后编辑：2024-12-25</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" FXXS新手压制流程 V1.5" href="/Archive/FXXS新手压制流程(参考，未检查完)/"><i class="fa fa-angle-left"></i> 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" 压制基础教程（FXXS出品）" href="/压制基础教程/">下一篇 <i class="fa fa-angle-right"></i></a>
+            </div>
+            
+        </nav>
+    
+    
+        <div class="comment-post">
+            <div id="disqus_thread" class="kr-comments lazy-load" data-path="/Archive/%E4%BD%BF%E7%94%A8Dolby%20Media%20Encoder%E5%88%B6%E4%BD%9CDDP%E9%9F%B3%E8%BD%A8%E6%95%99%E7%A8%8B/" data-full-path="http://fxxs.github.io/Archive/%E4%BD%BF%E7%94%A8Dolby%20Media%20Encoder%E5%88%B6%E4%BD%9CDDP%E9%9F%B3%E8%BD%A8%E6%95%99%E7%A8%8B/"></div>
+        </div>
+    
+</article>
 
         
 
