@@ -41,6 +41,7 @@
 <p><a href="https://github.com/vcb-s">https://github.com/vcb-s</a></p>
 <p><a href="https://github.com/AmusementClub">https://github.com/AmusementClub</a></p>
 <p><a href="https://github.com/Beatrice-Raws">https://github.com/Beatrice-Raws</a></p>
+<p><a href="https://github.com/HomeOfVapourSynthEvolution">https://github.com/HomeOfVapourSynthEvolution</a></p>
 <p><a href="https://github.com/HomeOfAviSynthPlusEvolution">https://github.com/HomeOfAviSynthPlusEvolution</a> 只有一个人 <a href="https://github.com/msg7086">msg7086</a></p>
 ]]></content>
   </entry>
@@ -682,7 +683,7 @@
 <p>为了在一个给定的区间应用一个滤镜，请使用如下方法：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">filtered = my_filter(src)</span><br><span class="line">out = awf.rfs(src, filtered, mappings=<span class="string">&quot;[FIRST_FRAME LAST_FRAME]&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="滤镜-Filtering"><a href="#滤镜-Filtering" class="headerlink" title="滤镜(Filtering)"></a>滤镜(Filtering)</h3><p>这有几件值得一提的事。首先，大多数蓝光片都是YUV420P8，范围有限(with limited range)。这里的第一组信息是YUV。这意味着我们视频的平面中Y是 <strong>亮度(luma)</strong> 平面，U和V是 <strong>色度(chroma)</strong> 平面。</p>
+<h2 id="滤镜-Filtering"><a href="#滤镜-Filtering" class="headerlink" title="滤镜(Filtering)"></a>滤镜(Filtering)</h2><p>这有几件值得一提的事。首先，大多数蓝光片都是YUV420P8，范围有限(with limited range)。这里的第一组信息是YUV。这意味着我们视频的平面中Y是 <strong>亮度(luma)</strong> 平面，U和V是 <strong>色度(chroma)</strong> 平面。</p>
 <p>YUV平面下的颜色，本例是4:2:0，指定了我们的平面大小。这方面最常见的三种变化是：4:2:0，这意味着色度平面是亮度平面的一半大小（例如，一个1920×1080的视频将有960×540的色度平面）；4:2:2，这意味着这种情况下的色度平面是水平分辨率的一半；垂直分辨率的全部；4:4:4，这意味着所有平面都是全分辨率。在播放过程中，视频播放器将色度平面放大到与亮度平面相同的大小。所以较小的色度平面并不明显，但在放大像素时，人们肯定能看出其中的差别。为了说明这一点，这里有个由AnoHana提供的例子，分别是在4:2:0与4:4:4下从720p放大至1080p的两种版本：</p>
 <p><img src="/img/AHDVEG-pics/Figure1.png" alt="Figure1"></p>
 <p>图1：两倍放大下，左边是YUV420，右边是YUV444。用 <code>fvf.Debic</code> 降低分辨率，然后用 <code>nnedi3_rpow2.nnedi3</code>和 <code>resize.Bilinear</code> 放大像素。</p>
@@ -691,20 +692,19 @@
 <p>图2：《寄生虫》（Parasite (2019)） SDR UHD缩小为1080p情况下4:2:0与4:4:4的比较。感谢HyerrDoktyer提供。</p>
 <p>下一个要解释的信息是P8。这指的是 **位深(Bit depth)**，本例中是8-bit。现在大多数视频都存储在8-bit，因为8-bit的 AVC【译者注：H.264】 具有最好的硬件兼容性。 然而，由于8-bit导致位深没有足够的值(0-255)可用，它很容易引入例如 <strong>色带(Banding)</strong> 之类的错误。更高的位深在这方面没有这么大的问题，且由于其更好的准确性，10-bit实际上更能以较小的文件体积存储视频。然而，10-bit的 AVC 几乎没有硬件兼容性可言，而且需要更长的时间来编码，因此PT用户通常不喜欢它。实际上大多数内容是以10-bit或12-bit制作的。 由于精度的提高，最流行的滤镜处理位深是16-bit。值得注意的是，UHD蓝光将采用YUV420P10，即10-bit。 </p>
 <p>最后一部分，则要讲述的内容是限制范围(limited range)。在全范围(full range)8-bit中，我们可以用0至255之间的每一个值。可是，电视通常无法显示这些值，因而亮度被限制在16至235、色度被限制在16至240。大多数消费内容（如蓝光盘）也被限制在有限的范围内。假如你给电视一个全范围的视频，它将简单粗暴地将所有16及以下或235&#x2F;240及以上的数值显示为相同效果(make … the same value)（例如：黑色或白色）。</p>
-<h3 id="抖动-Dithering"><a href="#抖动-Dithering" class="headerlink" title="抖动(Dithering)"></a>抖动(Dithering)</h3><p>尽管如果你将以与源文件相同的位深输出，就没有必要在高位深下工作，但为了输出时避免四舍五入的错误，建议在滤镜链的最后使用抖动降低位深，这可能会导致色带的伪影（图23是一个例子）。幸运的是，即使你不选择以高位深来编写脚本，大多数插件都可以在内部用高位深工作。由于抖动的速度相当快，而且更高的位深确实能带来更好的精度，所以除了一些为8-bit写的函数稍慢之外，通常没有理由不在更高的位深下工作。</p>
+<h2 id="抖动-Dithering"><a href="#抖动-Dithering" class="headerlink" title="抖动(Dithering)"></a>抖动(Dithering)</h2><p>尽管如果你将以与源文件相同的位深输出，就没有必要在高位深下工作，但为了输出时避免四舍五入的错误，建议在滤镜链的最后使用抖动降低位深，这可能会导致色带的伪影（图23是一个例子）。幸运的是，即使你不选择以高位深来编写脚本，大多数插件都可以在内部用高位深工作。由于抖动的速度相当快，而且更高的位深确实能带来更好的精度，所以除了一些为8-bit写的函数稍慢之外，通常没有理由不在更高的位深下工作。</p>
 <p>如果你想了解更多关于抖动的信息，维基百科上的内容相当丰富，也有很多值得一读的研究出版物。在这里你只需要明白，只有当压制源和使用滤镜后的片段之间存在实际差异时，你使用的抖动方法才是重要的。由于抖动是对不同位深的四舍五入的一种选择，只有与实际整数的偏移才会有差异。一些算法可能在不同的情况上比其他的更好，因此，有理由使用非标准的算法。例如，如果你想将某个视频的色带去除，并以8-bit的形式输出，但在正确压缩方面存在问题时，你可能想考虑有序抖动，因为众所周知，它在这种情况下的表现略好（尽管它看起来不那么棒）。要做到这一点，请使用以下代码：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">source_16 = fvf.Depth(src, <span class="number">16</span>)</span><br><span class="line">deband = core.f3kdb.Deband(source_16, output_depth=<span class="number">16</span>)</span><br><span class="line">out = fvf.Depth(deband, <span class="number">8</span>, dither=<span class="string">&#x27;ordered&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>同样，这只会影响实际的去色带区域。这在大多数情况下并不推荐，因为有序抖动的效果相当难看，但如果你在压缩去色带区域时遇到困难，这依然值得考虑。显然你应该使用遮罩并调整去色带函数的参数，后面会有更多关于此的内容。</p>
 <p>为了向上或向下抖动，你可以使用 <code>fvsfunc14</code>(fvf) 或 <code>mvsfunc15</code>(mvf) 中的 <code>Depth</code> 函数。这两者之间的区别是，fvf 仅使用内置调整工具，而 mvf 不仅可以内置调整工具，而且也支持 <code>fmtconv</code>，它比较慢，但有更多的抖动（和缩放）选项。然而，两者都具有标准的 Filter Lite error_diffusion 抖动类型，所以如果你只是使用默认值，我会推荐 fvf。为了说明优质抖动与劣质抖动之间的区别，在附录中的图21下提供一些例子。 请注意，你可能要放大到相当大的程度才能发现其区别。有些PDF阅读器可能会不正确地显示这些图像。</p>
 <p>我建议在大多数情况下使用 <strong>Filter Lite</strong>（fvf 的默认值 或 <code>mvf.Depth(dither=3)</code> 即 mvf 默认值)。其他如 <strong>Ostromoukhov</strong> (<code>mvf.Depth(dither=7)</code>), <strong>void and cluster</strong> (<code>fmtc.bitdepth(dither=8)</code>), <strong>standard Bayer ordered</strong> (<code>fvf.Depth(dither=&#39;ordered&#39;)</code> 或 <code>mvf.Depth(dither=0)</code>) 有时也会有用。不过，<strong>Filter Lite</strong> 通常更适用。</p>
-<h3 id="去色带-Debanding-去色块-Deblocking"><a href="#去色带-Debanding-去色块-Deblocking" class="headerlink" title="去色带(Debanding) &amp; 去色块(Deblocking)"></a>去色带(Debanding) &amp; 去色块(Deblocking)</h3><h4 id="去色带-Debanding"><a href="#去色带-Debanding" class="headerlink" title="去色带(Debanding)"></a>去色带(Debanding)</h4><p>最常见的问题。当位深不足和劣化设置导致色彩因为平滑梯度出现可分辨的断层，就是色带现象。</p>
+<h2 id="去色带-Debanding-去色块-Deblocking"><a href="#去色带-Debanding-去色块-Deblocking" class="headerlink" title="去色带(Debanding) &amp; 去色块(Deblocking)"></a>去色带(Debanding) &amp; 去色块(Deblocking)</h2><h3 id="去色带-Debanding"><a href="#去色带-Debanding" class="headerlink" title="去色带(Debanding)"></a>去色带(Debanding)</h3><p>最常见的问题。当位深不足和劣化设置导致色彩因为平滑梯度出现可分辨的断层，就是色带现象。</p>
 <p>这些可以通过执行类似模糊的操作并限制其输出来修复。</p>
 <p>请注意,由于模糊是一个非常具有破坏性的过程,因此建议仅将其应用于视频的必要部分,并使用掩码来进一步限制更改。</p>
 <p>关于去色带，需要注意的一点是，你应该尽量使用遮罩，最好是边缘遮罩或类似的东西。详见 遮罩(Masking)</p>
 <p>在 VapourSynth 中，有很优秀的工具可以用来修复色带：neo_f3kdb, fvsfunc’s gradfun3(有内置遮罩) and vs-placebo’s placebo.Deband。 </p>
-<p><strong>neo_f3kdb</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">deband = core.neo_f3kdb.deband(src=clip, <span class="built_in">range</span>=<span class="number">15</span>, y=<span class="number">64</span>, cb=<span class="number">64</span>, cr=<span class="number">64</span>, grainy=<span class="number">64</span>, grainc=<span class="number">64</span>, dynamic_grain=<span class="literal">False</span>, sample_mode=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="neo-f3kdb"><a href="#neo-f3kdb" class="headerlink" title="neo_f3kdb"></a>neo_f3kdb</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">deband = core.neo_f3kdb.deband(src=clip, <span class="built_in">range</span>=<span class="number">15</span>, y=<span class="number">64</span>, cb=<span class="number">64</span>, cr=<span class="number">64</span>, grainy=<span class="number">64</span>, grainc=<span class="number">64</span>, dynamic_grain=<span class="literal">False</span>, sample_mode=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 
 <p>这些设置对一些人来说可能是不言自明的，但还是说明一下各参数的作用：</p>
 <ul>
@@ -716,8 +716,7 @@
 <li><code>dynamic_grain</code> 默认情况下，<code>f3kdb</code>添加的噪点是静态的。这样压缩效果更好，因为动态显然更少，但它在实拍内容中看起来不正常，所以除非你正在处理动画内容，否则通常建议将其设置为 <code>True</code>。</li>
 <li><code>sample_mode</code>  README 有解释，考虑换到 4, 因为它的细节损失可能较少。</li>
 </ul>
-<p><strong>GradFun3</strong></p>
-<p>f3kdb 最受欢迎的替代品是 gradfun3。该函数需要更多资源，参数也不太直观，但在 f3kdb 遇到困难时也很有用。由于有大量参数，本指南仅介绍最重要的参数</p>
+<h4 id="GradFun3"><a href="#GradFun3" class="headerlink" title="GradFun3"></a>GradFun3</h4><p>f3kdb 最受欢迎的替代品是 gradfun3。该函数需要更多资源，参数也不太直观，但在 f3kdb 遇到困难时也很有用。由于有大量参数，本指南仅介绍最重要的参数</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> fvsfunc <span class="keyword">as</span> fvf</span><br><span class="line">deband = fvf.GradFun3(src, thr=<span class="number">0.35</span>, radius=<span class="number">12</span>, elast=<span class="number">3.0</span>, mask=<span class="number">2</span>, mode=<span class="number">3</span>, smode=<span class="number">2</span>, debug=<span class="literal">False</span>, planes=<span class="built_in">list</span>(<span class="built_in">range</span>(src.<span class="built_in">format</span>.num_planes)), ref=src)</span><br></pre></td></tr></table></figure>
 
 <p>很多这些值是用于 <code>fmtconv </code> 位深转换的，因此它的文档可以证明其是有帮助的。<code>GradFun3</code>中的降低分辨率与其他缩小方法没有什么不同，所以我不会讨论这个。其他一些可能感兴趣的参数是：</p>
@@ -732,7 +731,7 @@
 <li><code>debug</code> 允许你查看遮罩。</li>
 <li><code>elast</code>是 “软阈值的弹性”。更高的值会在去色带遮罩和源之间做更多的混合。</li>
 </ul>
-<p><strong>placebo.Deband</strong><br>这款 Deband 对于 VapourSynth 来说相当新，但它非常擅长修复强带。然而，同样地，它也容易造成不必要的细节损失，因此只应在必要时使用，最好与细节&#x2F;边缘遮罩结合使用。它的（当前）参数：</p>
+<h4 id="placebo-Deband"><a href="#placebo-Deband" class="headerlink" title="placebo.Deband"></a>placebo.Deband</h4><p>这款 Deband 对于 VapourSynth 来说相当新，但它非常擅长修复强带。然而，同样地，它也容易造成不必要的细节损失，因此只应在必要时使用，最好与细节&#x2F;边缘遮罩结合使用。它的（当前）参数：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">placebo.Deband(clip clip[, int planes = 1, int iterations = 1, float threshold = 4.0, float radius = 16.0, float grain = 6.0, int dither = True, int dither_algo = 0])</span><br></pre></td></tr></table></figure>
 <p>此功能将来很可能会发生重大变化，因此 README 也非常值得一读。</p>
 <p>参数</p>
@@ -743,12 +742,28 @@
 <li><code>radius</code> 与以前的功能相同。与 <code>f3kdb</code>的<code>range</code> 具有相同的效果。</li>
 <li><code>grain</code> 跟 f3kdb 一致, 但做的更好</li>
 </ul>
-<h4 id="去色块-Deblocking"><a href="#去色块-Deblocking" class="headerlink" title="去色块(Deblocking)"></a>去色块(Deblocking)</h4><p>解锁主要相当于平滑源，通常在上面再加一个掩码。这里最流行的函数是来自 <code>havsfunc</code>的<code>Deblock_QED</code>。其主要参数是</p>
+<h4 id="vs-deband"><a href="#vs-deband" class="headerlink" title="vs-deband"></a><a href="https://github.com/Jaded-Encoding-Thaumaturgy/vs-deband">vs-deband</a></h4><p>untest</p>
+<p>他们的插件经常会跟进最新的 VS 版本。</p>
+<p>建议找他们仓库提供的 Discord 连接进群查询插件语法及用法</p>
+<p>example</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> vsdeband <span class="keyword">import</span> F3kdb</span><br><span class="line"><span class="keyword">from</span> vsmasktools <span class="keyword">import</span> dre_edgemask</span><br><span class="line"><span class="keyword">from</span> vstools <span class="keyword">import</span> core, vs</span><br><span class="line"></span><br><span class="line">deband = F3kdb.deband(clip)</span><br><span class="line">mask = dre_edgemask(clip)<span class="comment">#.std.Binarize().std.Maximum()  # please make sure you properly define the Binarize threshold, or better yet use the threshold param dre_edgemask iirc has</span></span><br><span class="line">debanded = core.std.MaskedMerge(deband, clip, mask)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="去色块-Deblocking"><a href="#去色块-Deblocking" class="headerlink" title="去色块(Deblocking)"></a>去色块(Deblocking)</h3><p>解锁主要相当于平滑源，通常在上面再加一个掩码。这里最流行的函数是来自 <code>havsfunc</code>的<code>Deblock_QED</code>。其主要参数是</p>
 <ul>
 <li>quant1：块边缘解锁的强度。默认值是24。你可能想显著提高这个值</li>
 <li>quant2：区块内部解锁的强度。默认值是26。同样，提高这个值可能被证明是有益的。</li>
 </ul>
 <p>其他流行的选项有 <code>deblock.Deblock</code>，它相当强大，但几乎总是有效；<code>dfttest.DFTT</code>，效果较弱，但仍然相当积极；以及 <code>fvf.AutoDeblock</code>，它对解锁MPEG-2源相当有用，可以应用于整个视频。另一种流行的方法是简单的去色带，因为去色块和去色带是非常类比似的。这对AVC蓝光资源来说是一个不错的选择。</p>
+<p>example</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> havsfunc <span class="keyword">as</span> haf</span><br><span class="line">db = haf.Deblock_QED(s16, quant1=<span class="number">30</span>, quant2=<span class="number">32</span>)</span><br></pre></td></tr></table></figure>
+
+<p>deblock.Deblock 指的 <a href="https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Deblock">VapourSynth-Deblock</a></p>
+<p>Irrational Encoding Wizardry 系列插件位于<a href="https://github.com/Jaded-Encoding-Thaumaturgy/vs-denoise">vs-denoise</a>里的<a href="https://github.com/Jaded-Encoding-Thaumaturgy/vs-denoise/blob/3d62ad3372c226cbf41a96013e0d1247b3976a07/vsdenoise/deblock.py#L23">dpir</a></p>
+<p>example</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> vsdenoise</span><br><span class="line">deblock = vsdenoise.dpir(clip, strength=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
 <h3 id="修复脏线-Dirty-Lines-及不合适的边缘-Borders"><a href="#修复脏线-Dirty-Lines-及不合适的边缘-Borders" class="headerlink" title="修复脏线(Dirty Lines)及不合适的边缘(Borders)"></a>修复脏线(Dirty Lines)及不合适的边缘(Borders)</h3><p>另一个非常常见的问题，至少在真人电影的内容中，是脏线。这类问题通常出现在视频的边界上，与周围的行相比，某一行或某一列的像素通常表现出过低的亮度值。通常情况下，这是由于不适当地缩小分辨率，更明显的是在应用边框后的缩小分辨率。脏线也可能发生，因为视频编辑者往往不知道他们是在YUV422下工作的，这意味着他们的竖向像素值不必是偶数；而消费者内容将是YUV420，意味着竖向像素值必须是偶数，导致额外的黑行。</p>
 <p>另一种形式的脏线是在黑条上出现色度平面时表现出来的。 通常情况下，这些应该被裁剪掉。然而，相反的情况也可能发生，即具有合法的亮度信息的平面但缺乏色度信息。 有六种常用的滤镜用于修复脏线。</p>
 <ul>
@@ -1641,20 +1656,6 @@
       <categories>
         <category>2.Tools</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Irrational Encoding Wizardry 插件</title>
-    <url>/3.Code/Irrational%20Encoding%20Wizardry/</url>
-    <content><![CDATA[<p>他们的插件经常会跟进最新的 VS 版本。</p>
-<p>建议找他们仓库提供的 Discord 连接进群查询插件语法及用法</p>
-<h1 id="vs-deband"><a href="#vs-deband" class="headerlink" title="vs-deband"></a>vs-deband</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> vsdeband <span class="keyword">import</span> F3kdb</span><br><span class="line"><span class="keyword">from</span> vsmasktools <span class="keyword">import</span> dre_edgemask</span><br><span class="line"><span class="keyword">from</span> vstools <span class="keyword">import</span> core, vs</span><br><span class="line"></span><br><span class="line">deband = F3kdb.deband(clip)</span><br><span class="line">mask = dre_edgemask(clip)<span class="comment">#.std.Binarize().std.Maximum()  # please make sure you properly define the Binarize threshold, or better yet use the threshold param dre_edgemask iirc has</span></span><br><span class="line">debanded = core.std.MaskedMerge(deband, clip, mask)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>3.Code</category>
-      </categories>
-      <tags>
-        <tag>Document</tag>
-        <tag>VS(Plugin/Scripts)</tag>
-      </tags>
   </entry>
   <entry>
     <title>x265参数解析</title>
