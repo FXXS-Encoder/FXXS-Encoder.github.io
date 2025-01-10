@@ -7,8 +7,8 @@
     <link rel="icon" href="/img/favicon.svg">
   
   
-  <title>标签: Doc | FXXS</title>
-  <link rel="canonical" href="http://fxxs.github.io/tags/Doc/index.html">
+  <title>Dloby E 音轨说明 | FXXS</title>
+  <link rel="canonical" href="http://fxxs.github.io/4.Audio&sub/DlobyE/">
   <meta name="author" content="ted423" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -17,13 +17,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="FXXS" />
+    <meta name="keywords" content="" />
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="标签: Doc">
-<meta property="og:url" content="http://fxxs.github.io/tags/Doc/index.html">
+  <meta name="description" content="这个音轨主要目前没有任何封装工具支持。 FEED 源里把这个格式外面包了一层 PCM 使用，直接的话，是没有任何本地播放器支持的。 处理办法见这里  https:&#x2F;&#x2F;github.com&#x2F;nilaoda&#x2F;Blog&#x2F;discussions&#x2F;14 命令行摘抄 1ffmpeg -non_pcm_mode copy -i 1.ts -map 0:a:1 -c:a pcm_s16le -f s16le 1.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dloby E 音轨说明">
+<meta property="og:url" content="http://fxxs.github.io/4.Audio&sub/DlobyE/index.html">
 <meta property="og:site_name" content="FXXS">
+<meta property="og:description" content="这个音轨主要目前没有任何封装工具支持。 FEED 源里把这个格式外面包了一层 PCM 使用，直接的话，是没有任何本地播放器支持的。 处理办法见这里  https:&#x2F;&#x2F;github.com&#x2F;nilaoda&#x2F;Blog&#x2F;discussions&#x2F;14 命令行摘抄 1ffmpeg -non_pcm_mode copy -i 1.ts -map 0:a:1 -c:a pcm_s16le -f s16le 1.">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-01-10T04:31:23.737Z">
+<meta property="article:modified_time" content="2025-01-10T04:37:13.857Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -134,85 +138,86 @@
 
         
 
-            <!-- Breadcrumb for tag & category page -->
-
-    <article class="kratos-hentry kratos-entry-border clearfix">
-    <div class="kratos-breadcrumb">
-        <a href="/">
-            <i class="fa fa-home"></i>
-        </a>
-        <i class="fa fa-angle-right"></i>
-        
-            <a href="/tags/">
-                标签
-            </a>
-            <i class="fa fa-angle-right"></i>
-            <a href="/tags/Doc">
-                Doc
-            </a>
-        
-        
-    </div>
-</article>
-
-
-
-
-    
-    
-        <article class="kratos-hentry clearfix" itemscope itemtype="https://schema.org/Article">
-    <div class="kratos-entry-border clearfix">
-        
-        <div class="kratos-entry-post-main">
+            <article itemscope itemtype="https://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://fxxs.github.io/4.Audio&amp;sub/DlobyE/">
+    <div class="kratos-hentry kratos-page-inner clearfix">
+        <header class="kratos-page-header">
+            
+                <h1 class="kratos-page-title text-center" itemprop="name headline">Dloby E 音轨说明</h1>
+            
+            <ul class="kratos-page-meta text-center">
+                <li><time datetime="2025-01-10T04:31:23.737Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2025-01-10</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">ted423</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            262
+                        
+                        字
+                    </li>
+                
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-page-content kr-post">
             
             
-            <div class="kratos-entry-post-inner">
-                <header class="kratos-entry-header">
-                        <a class="label-link" href="/categories/2-Tools/">2.Tools</a>
-                    <h2 class="kratos-entry-title"><a href="/2.Tools/x265%E5%8F%82%E6%95%B0/" itemprop="mainEntityOfPage"><span itemprop="name headline">x265参数解析</span></a>
-                </header>
-                <div class="kratos-entry-content">
-                    <p itemProp="description">
-                        
-                            参考资料
-https:&#x2F;&#x2F;tieba.baidu.com&#x2F;p&#x2F;6627144750
+            
+            <hr />
+            <div itemprop="articleBody"><p>这个音轨主要目前没有任何封装工具支持。</p>
+<p>FEED 源里把这个格式外面包了一层 PCM 使用，直接的话，是没有任何本地播放器支持的。</p>
+<p>处理办法见这里 </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nilaoda/Blog/discussions/14">https://github.com/nilaoda/Blog/discussions/14</a></p>
+<p>命令行摘抄</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -non_pcm_mode copy -i 1.ts -map 0:a:1 -c:a pcm_s16le -f s16le 1.dat -y</span><br></pre></td></tr></table></figure>
 
-https:&#x2F;&#x2F;x265.readthedocs.io&#x2F;en&#x2F;3.1&#x2F;cli.html
-
-https:&#x2F;&#x2F;guides.vcb-s.com&#x2F;basi...
-                        
-                    </p>
+<p>ffmpeg 支持解码 Dloby E，之后我弄了 deew 处理。只不过算有损转有损。但毕竟没法直接封装</p>
+</div>
+        </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+            
+            
+                <div class="post-actions text-center clearfix" id="post-actions">
+                
+                
+                    <a class="share" href="javascript:;" onclick="krOpenShareModal()"><i class="fa fa-share-alt"></i> 分享</a>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    
+                </div>
+                <div class="pull-date">
+                    <time datetime="2025-01-10T04:37:13.857Z" itemprop="dateModified">最后编辑：2025-01-10</time>
                 </div>
             </div>
-        </div>
-        <footer class="kratos-entry-post-meta">
-            <span class="pull-left">
-                <time datetime="2024-12-08T14:45:04.532Z" itemprop="datePublished">
-                    <a><i class="fa fa-calendar"></i> 2024-12-08</a>
-                </time>
-                <a>
-                    
-                        <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/Doc/" rel="tag">Doc</a>
-                    
-                </a>
-                
-                
-            </span>
-            <span class="pull-right">
-                <a class="read-more" href="/2.Tools/x265%E5%8F%82%E6%95%B0/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
-            </span>
         </footer>
     </div>
-</article>
     
-
-
-
-
-
-
-
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 压制基础教程（FXXS出品）" href="/压制基础教程/"><i class="fa fa-angle-left"></i> 上一篇</a>
+            </div>
+            
+            
+        </nav>
+    
+    
+        <div class="comment-post">
+            <div id="disqus_thread" class="kr-comments lazy-load" data-path="/4.Audio&sub/DlobyE/" data-full-path="http://fxxs.github.io/4.Audio&sub/DlobyE/"></div>
+        </div>
+    
+</article>
 
         
 

@@ -6,7 +6,7 @@
   <link href="http://fxxs.github.io/atom.xml" rel="self"/>
   
   <link href="http://fxxs.github.io/"/>
-  <updated>2025-01-06T02:03:14.453Z</updated>
+  <updated>2025-01-10T04:37:13.857Z</updated>
   <id>http://fxxs.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Dloby E 音轨说明</title>
+    <link href="http://fxxs.github.io/4.Audio&amp;sub/DlobyE/"/>
+    <id>http://fxxs.github.io/4.Audio&amp;sub/DlobyE/</id>
+    <published>2025-01-10T04:31:23.737Z</published>
+    <updated>2025-01-10T04:37:13.857Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个音轨主要目前没有任何封装工具支持。</p><p>FEED 源里把这个格式外面包了一层 PCM 使用，直接的话，是没有任何本地播放器支持的。</p><p>处理办法见这里 </p><p><a href="https://github.com/nilaoda/Blog/discussions/14">https://github.com/nilaoda/Blog/discussions/14</a></p><p>命令行摘抄</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -non_pcm_mode copy -i 1.ts -map 0:a:1 -c:a pcm_s16le -f s16le 1.dat -y</span><br></pre></td></tr></table></figure><p>ffmpeg 支持解码 Dloby E，之后我弄了 deew 处理。只不过算有损转有损。但毕竟没法直接封装</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这个音轨主要目前没有任何封装工具支持。&lt;/p&gt;
+&lt;p&gt;FEED 源里把这个格式外面包了一层 PCM 使用，直接的话，是没有任何本地播放器支持的。&lt;/p&gt;
+&lt;p&gt;处理办法见这里 &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/nilaoda/Blog/</summary>
+      
+    
+    
+    
+    <category term="4.Audio&amp;sub" scheme="http://fxxs.github.io/categories/4-Audio-sub/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>压制基础教程（FXXS出品）</title>
