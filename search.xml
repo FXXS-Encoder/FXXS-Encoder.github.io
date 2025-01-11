@@ -2116,19 +2116,19 @@ Maximum Frame-Average Light Level : <b>1076</b> cd/m2
 <p>可能因其更新本教程内容会有所滞后，遇到区别时请以上游的<a href="https://github.com/pcroland/deew#readme">README</a>为准。</p>
 </blockquote>
 <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
-<li><p><a href="https://github.com/pcroland/deew">DEEW</a></p>
-</li>
-<li><p><a href="https://ffmpeg.org/about.html">FFmpeg</a>：<a href="https://www.gyan.dev/ffmpeg/builds/">从 gyan.dev 下载</a> | <a href="https://github.com/BtbN/FFmpeg-Builds/releases">从 Github 下载</a></p>
-<p>  若 <strong>从 gyan.dev 下载</strong>，请选择 <em><a href="https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z">ffmpeg-git-essentials.7z</a></em> 版本；<strong>从 Github 下载</strong>则选择 <em>ffmpeg-master-latest-win64-lgpl</em> 版本即可，足够制作使用。</p>
-<p>  解压并记录解压位置。</p>
-</li>
-<li><p>Dolby Encoding Engine with Dolby AC-4 x64 (+license)</p>
-</li>
+<li><a href="https://github.com/pcroland/deew">DEEW</a></li>
+<li><a href="https://ffmpeg.org/about.html">FFmpeg</a>：<a href="https://www.gyan.dev/ffmpeg/builds/">从 gyan.dev 下载</a> | <a href="https://github.com/BtbN/FFmpeg-Builds/releases">从 Github 下载</a></li>
 </ul>
-<h2 id="开始工作"><a href="#开始工作" class="headerlink" title="开始工作"></a>开始工作</h2><p>使用DGDemux提取音轨</p>
-<p>或直接将带有音频的视频输入</p>
-<p>适合于Remux文件，无需任何提取，直接将<code>REMUX.mkv</code>作为输入源，默认将第一个音轨进行转换。</p>
-<h2 id="Dolby-Encoding-Engine-Wrapper使用"><a href="#Dolby-Encoding-Engine-Wrapper使用" class="headerlink" title="Dolby Encoding Engine Wrapper使用"></a>Dolby Encoding Engine Wrapper使用</h2><p>按住<code>Shift</code>键并右键空白区域，选择 <strong>在 Windows终端 中打开</strong> &#x2F; <strong>在此处打开 Powershell 窗口</strong>，输入</p>
+<p>推荐使用 winget，记得安装到全局。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">winget.exe install --id &quot;BtbN.FFmpeg.GPL.7.1&quot; --exact --source winget --accept-source-agreements --disable-interactivity --scope machine --silent  --accept-package-agreements --force</span><br></pre></td></tr></table></figure>
+
+<pre><code>解压并记录解压位置。
+</code></pre>
+<ul>
+<li>Dolby Encoding Engine with Dolby AC-4 x64 (+license)</li>
+</ul>
+<h2 id="Dolby-Encoding-Engine-Wrapper使用"><a href="#Dolby-Encoding-Engine-Wrapper使用" class="headerlink" title="Dolby Encoding Engine Wrapper使用"></a>Dolby Encoding Engine Wrapper使用</h2><p>deew 支持输入音轨以及带有音轨的 mkv(mp4 不太清楚)</p>
+<p>按住<code>Shift</code>键并右键空白区域，选择 <strong>在 Windows终端 中打开</strong> &#x2F; <strong>在此处打开 Powershell 窗口</strong>，输入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">.\deew.exe -v</span><br></pre></td></tr></table></figure>
 
 <p>确认正常返回版本号即可开始制作。</p>
@@ -2143,7 +2143,6 @@ Maximum Frame-Average Light Level : <b>1076</b> cd/m2
 <li><p>以DTS7.1为输入源 制作DDP7.1@1536kbps &#x2F; 1024kbps</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">deew.exe -i 00001.mpls_3eng.dts</span><br><span class="line">deew.exe -b 1024 -i 00001.mpls_3eng.dts</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p><img src="https://camo.githubusercontent.com/b93af93ef2097658248d07c9dd6ea979bff23aa910e6d70382fa88ba03ee0ccc/68747470733a2f2f74656c656772612e70682f66696c652f6566643261316433353139626466383766636130332e676966" alt="DEEW encoding"></p>
 <p>完成后将在运行目录下找到与输入名称相同的<code>.ec3</code>文件，制作完成。</p>
 <p>补充范例拓展，有需要的类推</p>
 <ul>
@@ -2163,7 +2162,6 @@ Maximum Frame-Average Light Level : <b>1076</b> cd/m2
 </ul>
 <h2 id="特别感谢"><a href="#特别感谢" class="headerlink" title="特别感谢"></a>特别感谢</h2><p><a href="https://github.com/pcroland">pcroland</a>&#x2F;</p>
 <p>所有对DEE无限制使用做出贡献的人</p>
-<h2 id="Credit"><a href="#Credit" class="headerlink" title="Credit"></a>Credit</h2><p>教程遵守<a href="https://creativecommons.org/licenses/by/4.0/deed.zh">CC BY 4.0</a>，使用到的项目各自遵守其规范，转载请指明出处！</p>
 ]]></content>
       <categories>
         <category>4.Audio&amp;sub</category>
