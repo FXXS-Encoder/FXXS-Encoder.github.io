@@ -1791,9 +1791,6 @@
       <categories>
         <category>2.Tools</category>
       </categories>
-      <tags>
-        <tag>Doc</tag>
-      </tags>
   </entry>
   <entry>
     <title>Linux工具</title>
@@ -2096,10 +2093,6 @@ Maximum Frame-Average Light Level : <b>1076</b> cd/m2
       <categories>
         <category>3.Code</category>
       </categories>
-      <tags>
-        <tag>Document</tag>
-        <tag>HDR</tag>
-      </tags>
   </entry>
   <entry>
     <title>使用DEEW制作DDP/EAC3音轨教程</title>
