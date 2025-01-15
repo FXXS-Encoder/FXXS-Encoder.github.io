@@ -1419,7 +1419,12 @@
 </tr>
 <tr>
 <td><a href="https://github.com/msg7086/x265-Yuuki-Asuna">x265-Yuuki</a></td>
-<td>x265-Yuuki codec</td>
+<td>x265-Yuuki 长期未更新</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Patman86/x265-Mod-by-Patman">x265-Mod-by-Patman</a></td>
+<td>x265 codec</td>
 <td></td>
 </tr>
 <tr>
@@ -1650,28 +1655,12 @@
       </categories>
   </entry>
   <entry>
-    <title>Dloby E 音轨说明</title>
-    <url>/4.Audio&amp;sub/DlobyE/</url>
-    <content><![CDATA[<p>这个音轨主要目前没有任何封装工具支持。</p>
-<p>FEED 源里把这个格式外面包了一层 PCM 使用，直接的话，是没有任何本地播放器支持的。</p>
-<p>处理办法见这里 </p>
-<p><a href="https://github.com/nilaoda/Blog/discussions/14">https://github.com/nilaoda/Blog/discussions/14</a></p>
-<p>命令行摘抄</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffmpeg -non_pcm_mode copy -i 1.ts -map 0:a:1 -c:a pcm_s16le -f s16le 1.dat -y</span><br></pre></td></tr></table></figure>
-
-<p>ffmpeg 支持解码 Dloby E，之后我弄了 deew 处理。只不过算有损转有损。但毕竟没法直接封装</p>
-]]></content>
-      <categories>
-        <category>4.Audio&amp;sub</category>
-      </categories>
-  </entry>
-  <entry>
     <title>x265参数解析</title>
     <url>/2.Tools/x265%E5%8F%82%E6%95%B0/</url>
     <content><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li><p><a href="https://tieba.baidu.com/p/6627144750">https://tieba.baidu.com/p/6627144750</a></p>
 </li>
-<li><p><a href="https://x265.readthedocs.io/en/3.1/cli.html">https://x265.readthedocs.io/en/3.1/cli.html</a></p>
+<li><p><a href="https://x265.readthedocs.io/en/master/cli.html">https://x265.readthedocs.io/en/master/cli.html</a> (可以选版本)</p>
 </li>
 <li><p><a href="https://guides.vcb-s.com/basic-guide-07#4-x265-%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90">https://guides.vcb-s.com/basic-guide-07#4-x265-参数解析</a></p>
 </li>
@@ -1698,8 +1687,8 @@
 <h2 id="psy-rd-psy-rdoq"><a href="#psy-rd-psy-rdoq" class="headerlink" title="psy-rd &amp; psy-rdoq"></a>psy-rd &amp; psy-rdoq</h2><p>都是Psycho-visual options的参数</p>
 <p>具体见<a href="https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options">https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options</a></p>
 <p>这两者都会影响码率(经测试，开高psy-rdoq到5所增加的码率通过crf来给画面反而效果更好)</p>
-<p>psy-rd 默认 2.0 有些高，<del>建议开到1.5</del>，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试) 目前看来 VCB 似乎建议开高，国外是推荐真人电影(x264)开到1左右，不过4k 可能需要开到2</p>
-<p>psy-rdoq 一直用1一般就好，开高了保留噪点，画面本身却会变差</p>
+<p>psy-rd 默认 2.0 有些高，建议开到1.5，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试) 目前看来 VCB 似乎建议开高，国外是推荐真人电影(x264)开到1左右，不过4k 可能需要开到2</p>
+<p>psy-rdoq 其实这玩意儿，可以理解为你想保留的细节大小，你想保留的越小，就给更高。-VCB</p>
 <p>一些测试见Compare</p>
 <h2 id="tu-intra-depth-tu-inter-depth"><a href="#tu-intra-depth-tu-inter-depth" class="headerlink" title="tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;"></a>tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;</h2><p>默认1，开高会小幅增加压缩率，但是特别慢 (preset placebo 似乎就是4)</p>
 <h2 id="max-tu-size"><a href="#max-tu-size" class="headerlink" title="max-tu-size &lt;32|16|8|4&gt;"></a>max-tu-size &lt;32|16|8|4&gt;</h2><p>默认32，开低会降低压缩率，并且不会提速，推荐默认</p>
@@ -1790,6 +1779,22 @@
 ]]></content>
       <categories>
         <category>2.Tools</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Dloby E 音轨说明</title>
+    <url>/4.Audio&amp;sub/DlobyE/</url>
+    <content><![CDATA[<p>这个音轨主要目前没有任何封装工具支持。</p>
+<p>FEED 源里把这个格式外面包了一层 PCM 使用，直接的话，是没有任何本地播放器支持的。</p>
+<p>处理办法见这里 </p>
+<p><a href="https://github.com/nilaoda/Blog/discussions/14">https://github.com/nilaoda/Blog/discussions/14</a></p>
+<p>命令行摘抄</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffmpeg -non_pcm_mode copy -i 1.ts -map 0:a:1 -c:a pcm_s16le -f s16le 1.dat -y</span><br></pre></td></tr></table></figure>
+
+<p>ffmpeg 支持解码 Dloby E，之后我弄了 deew 处理。只不过算有损转有损。但毕竟没法直接封装</p>
+]]></content>
+      <categories>
+        <category>4.Audio&amp;sub</category>
       </categories>
   </entry>
   <entry>
