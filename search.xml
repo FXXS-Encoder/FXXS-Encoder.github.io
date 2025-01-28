@@ -1691,12 +1691,6 @@
 <p>x265最重要的参数，没有之一，开了能有助于保存细节，当然会有更大文件体积。关闭可以提高压缩速度，看起来会轻度模糊。开启掉速度30%以上，推荐舍弃其他参数，也要开启这个。</p>
 <p>设成 1 时候 看起来效果最好，但是体积会大30%以上</p>
 <p>设成 2 时候 效果略差，体积只会小幅度增加，推荐使用2</p>
-<h2 id="psy-rd-psy-rdoq"><a href="#psy-rd-psy-rdoq" class="headerlink" title="psy-rd &amp; psy-rdoq"></a>psy-rd &amp; psy-rdoq</h2><p>都是Psycho-visual options的参数</p>
-<p>具体见<a href="https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options">https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options</a></p>
-<p>这两者都会影响码率(经测试，开高psy-rdoq到5所增加的码率通过crf来给画面反而效果更好)</p>
-<p>psy-rd 默认 2.0 有些高，建议开到1.5，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试) 目前看来 VCB 似乎建议开高，国外是推荐真人电影(x264)开到1左右，不过4k 可能需要开到2</p>
-<p>psy-rdoq 其实这玩意儿，可以理解为你想保留的细节大小，你想保留的越小，就给更高。-VCB</p>
-<p>一些测试见Compare</p>
 <h2 id="tu-intra-depth-tu-inter-depth"><a href="#tu-intra-depth-tu-inter-depth" class="headerlink" title="tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;"></a>tu-intra-depth &lt;1..4&gt; tu-inter-depth &lt;1..4&gt;</h2><p>默认1，开高会小幅增加压缩率，但是特别慢 (preset placebo 似乎就是4)</p>
 <h2 id="max-tu-size"><a href="#max-tu-size" class="headerlink" title="max-tu-size &lt;32|16|8|4&gt;"></a>max-tu-size &lt;32|16|8|4&gt;</h2><p>默认32，开低会降低压缩率，并且不会提速，推荐默认</p>
 <h2 id="max-merge"><a href="#max-merge" class="headerlink" title="max-merge &lt;1..5&gt;"></a>max-merge &lt;1..5&gt;</h2><p>开高小幅度提高压缩率，对速度影响不明显，默认2 (preset placebo 似乎就是5)</p>
@@ -1755,15 +1749,9 @@
 <h2 id="lookahead-slices"><a href="#lookahead-slices" class="headerlink" title="lookahead-slices"></a>lookahead-slices</h2><p>设成0有助于提高画质，开高有利于lookahead的并行度，</p>
 <p>推荐设成0，对压缩速度无影响</p>
 <h2 id="deblock-去色块"><a href="#deblock-去色块" class="headerlink" title="deblock 去色块"></a>deblock 去色块</h2><p>要调低 默认太高， 推荐最高调到-1,-1以下，调高了会模糊</p>
-<h2 id="qcomp"><a href="#qcomp" class="headerlink" title="qcomp"></a>qcomp</h2><p>运动时候画质 crf开启时候有效</p>
-<p>开高提高运动时候画质，开低减少文件体积</p>
-<p>推荐0.6-0.7</p>
 <h2 id="frame-threads"><a href="#frame-threads" class="headerlink" title="frame-threads"></a>frame-threads</h2><p>帧线程数量，开高提高cpu利用率，开低有利于小幅度提高压缩率</p>
 <p>如果cpu能够满载可以考虑调到2，如果不能满载考虑使用默认值</p>
 <p>(默认会自动调整)</p>
-<h2 id="aq-strength-默认1-0"><a href="#aq-strength-默认1-0" class="headerlink" title="aq-strength 默认1.0"></a>aq-strength 默认1.0</h2><p>低于1.0首先保留边缘，高于1.0优先保留纹理，这个值也要看aq-mode，噪点多的片可以调低这个值，噪点少的片调高这个值</p>
-<p>不了解不要乱调这个</p>
-<p>VCB:aq-strength 决定了 aq 的强度，一般来说，Anime 的 aq-strength 不用太高（太高了码率也会浪费）。通常，aq-mode&#x3D;1，aq-strength 给 0.8 比较合理；aq-mode&#x3D;2，aq-strength 给 0.9 左右，aq-mode&#x3D;3，aq-strength 给 0.7 左右。</p>
 <h2 id="aq-mode"><a href="#aq-mode" class="headerlink" title="aq-mode"></a>aq-mode</h2><p>目前测试在不足码率压制的情况下,aq1可能会导致画面出现一些奇怪的现象，aq2相对画面更好一些，并且不会出现奇妙的画面(不过测试还不够充分)。</p>
 <p>在给够码率的情况下(噪点比较重的片)，aq1似乎会好些(可以看战火高码版对比图，不过暂时还没放到公网)</p>
 <p>2 x265默认（推荐）</p>
@@ -1771,6 +1759,22 @@
 <p>aq-mode 4 :优先保留边缘，噪点很多时候用</p>
 <p>VCB:x265 目前有三种 aq 模式。aq-mode 1 是最安全稳定的 aq，适合高码率&#x2F;高画质编码；aq-mode<br>2 相对来说效率最高，适合中低码率的编码；aq-mode 3 对暗场进行加强，适合 8bit 编码防止暗场压烂。一般 10bit编码根据 crf 高低决定 aq 选取，个人建议在 crf &lt;&#x3D; 16 时候使用 aq-mode 1，否则使用 aq-mode 2。注意同 crf下，不同 aq-mode 出来的体积是不一样的，3&gt;1&gt;2。</p>
 <p>补充说明，个人在压制黑白噪点片时，aq2产生了比aq1还大的体积，目测在大颗粒噪点的情况下，aq2会比aq1产生更高的码率</p>
+<h1 id="根据源决定"><a href="#根据源决定" class="headerlink" title="根据源决定"></a>根据源决定</h1><p>–colorprim 9 for HDR, 1 for SDR.</p>
+<p>–colormatrix 9 for HDR, 1 for SDR.</p>
+<p>–transfer 16 for HDR, 1 for SDR.</p>
+<p>–hdr10 for HDR.</p>
+<h2 id="qcomp"><a href="#qcomp" class="headerlink" title="qcomp"></a>qcomp</h2><p>运动时候画质 crf开启时候有效</p>
+<p>开高提高运动时候画质，开低减少文件体积</p>
+<p>推荐0.6-0.7</p>
+<h2 id="aq-strength-默认1-0"><a href="#aq-strength-默认1-0" class="headerlink" title="aq-strength 默认1.0"></a>aq-strength 默认1.0</h2><p>低于1.0首先保留边缘，高于1.0优先保留纹理，这个值也要看aq-mode，噪点多的片可以调低这个值，噪点少的片调高这个值</p>
+<p>不了解不要乱调这个</p>
+<p>VCB:aq-strength 决定了 aq 的强度，一般来说，Anime 的 aq-strength 不用太高（太高了码率也会浪费）。通常，aq-mode&#x3D;1，aq-strength 给 0.8 比较合理；aq-mode&#x3D;2，aq-strength 给 0.9 左右，aq-mode&#x3D;3，aq-strength 给 0.7 左右。</p>
+<h2 id="psy-rd-psy-rdoq"><a href="#psy-rd-psy-rdoq" class="headerlink" title="psy-rd &amp; psy-rdoq"></a>psy-rd &amp; psy-rdoq</h2><p>都是Psycho-visual options的参数</p>
+<p>具体见<a href="https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options">https://x265.readthedocs.io/en/latest/cli.html#psycho-visual-options</a></p>
+<p>这两者都会影响码率(经测试，开高psy-rdoq到5所增加的码率通过crf来给画面反而效果更好)</p>
+<p>psy-rd 默认 2.0 有些高，建议开到1.5，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试) 目前看来 VCB 似乎建议开高，国外是推荐真人电影(x264)开到1左右，不过4k 可能需要开到2</p>
+<p>psy-rdoq 其实这玩意儿，可以理解为你想保留的细节大小，你想保留的越小，就给更高。-VCB</p>
+<p>一些测试见Compare</p>
 ]]></content>
       <categories>
         <category>2.Tools</category>
