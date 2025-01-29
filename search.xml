@@ -1669,9 +1669,13 @@
 </ul>
 <p><strong>请注意，不能确保完全正确</strong></p>
 <p>#基本设置(不区分源)</p>
-<h2 id="preset"><a href="#preset" class="headerlink" title="preset"></a>preset</h2><p>–preset veryslow or slower</p>
+<h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><p>–preset veryslow or slower</p>
 <p>–no-open-gop</p>
 <p>–rskip 0 rskip是放弃某些质量用来加速</p>
+<p>–high-tier</p>
+<p>–range limited</p>
+<p>–aud</p>
+<p>–repeat-headers</p>
 <h2 id="rect-amp"><a href="#rect-amp" class="headerlink" title="rect &amp; amp"></a>rect &amp; amp</h2><p>–no-rect rect提供更好的分割能力，能找到潜在的匹配块，它很可能被证明是有用的,但它可能不值得。(画面复杂。离子特效多的情况下会考虑开 rect -VCB)</p>
 <p>–no-amp 类似rect，即使可能稍微有点用</p>
 <p>VCB:通常来说，&lt;&#x3D;1080p 下，rect 基本上没什么作用，amp 是几乎完全没作用，但是这俩都是速度黑洞。因此从效率角度建议关闭，或者至少关闭 amp</p>
@@ -1697,7 +1701,7 @@
 <h2 id="me-merange"><a href="#me-merange" class="headerlink" title="me ,merange"></a>me ,merange</h2><p>me 搜索方式，默认hex ，用umh 或star 能小幅度提高压缩率，但是掉速20%</p>
 <p>merange 搜索范围，默认57，me设成hex时候，对速度影响不大，但是使用umh或star时候，开高掉速严重</p>
 <p>umh比star好</p>
-<ol>
+<ol start="0">
 <li><p>dia</p>
 </li>
 <li><p>hex (default)</p>
@@ -1711,6 +1715,11 @@
 <li><p>full</p>
 </li>
 </ol>
+<blockquote>
+<p>如果你的视频分辨率低，merange 可以适当降低； 如果你的视频帧率高，merange 也可以适当降低，因为高帧率视频里帧与帧之间变化小。 理论上 24 和 60 你可以给砍半 merange 都没问题。<br>当然了，画面动态大的打斗片，多给点总是没错的。<br>1080p 下 32 足矣，4k 下可以考虑给到像 x265 preset 默认的 57。-VCB</p>
+</blockquote>
+<p>merange 不建议低于32 -Advanced Encoding Guide</p>
+<p>me 追求快就用 umh，一般只会开 star。sea，full 都是暴力穷举类型的算法，开了纯属冬天太冷想要取暖用的。-VCB</p>
 <h2 id="subme"><a href="#subme" class="headerlink" title="subme"></a>subme</h2><p>开高小幅提高压缩率，开低提高压缩速度，5比3慢10%</p>
 <p>推荐5,可以开7,但是会导致锐化</p>
 <h2 id="keyint"><a href="#keyint" class="headerlink" title="keyint"></a>keyint</h2><p>最大IDR间隔</p>
