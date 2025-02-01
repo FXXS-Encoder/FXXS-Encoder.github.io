@@ -1668,13 +1668,17 @@
 </li>
 </ul>
 <p><strong>请注意，不能确保完全正确</strong></p>
-<h1 id="基本设置-不区分源"><a href="#基本设置-不区分源" class="headerlink" title="基本设置(不区分源)"></a>基本设置(不区分源)</h1><h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><p>–preset veryslow or slower</p>
-<p>–no-open-gop</p>
-<p>–rskip 0 rskip是放弃某些质量用来加速</p>
-<p>–high-tier</p>
-<p>–range limited</p>
-<p>–aud</p>
-<p>–repeat-headers</p>
+<h1 id="基本设置-不区分源"><a href="#基本设置-不区分源" class="headerlink" title="基本设置(不区分源)"></a>基本设置(不区分源)</h1><h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><p><code>--preset veryslow</code> or slower</p>
+<p><code>--no-open-gop</code></p>
+<p><code>--rskip 0</code> rskip是放弃某些质量用来加速</p>
+<p><code>--high-tier</code></p>
+<p><code>--range limited</code></p>
+<p><code>--aud</code></p>
+<p><code>--repeat-headers</code></p>
+<p><code>--hist-scenecut</code> 判断转场，VCB建议开着</p>
+<p><code>--no-sao</code>  设计目的是去振铃(光环现象)，但是细节丰富地方会去掉太多细节</p>
+<p><code>--no-early-skip</code> 加速开关，影响的溯块中不同算法的先后顺序，一般不会去开。</p>
+<p><code>--no-strong-intra-smoothing</code></p>
 <h2 id="rect-amp"><a href="#rect-amp" class="headerlink" title="rect &amp; amp"></a>rect &amp; amp</h2><p>–no-rect rect提供更好的分割能力，能找到潜在的匹配块，它很可能被证明是有用的,但它可能不值得。(画面复杂。离子特效多的情况下会考虑开 rect -VCB)</p>
 <p>–no-amp 类似rect，即使可能稍微有点用</p>
 <p>VCB:通常来说，&lt;&#x3D;1080p 下，rect 基本上没什么作用，amp 是几乎完全没作用，但是这俩都是速度黑洞。因此从效率角度建议关闭，或者至少关闭 amp</p>
@@ -1683,12 +1687,7 @@
 <p><strong>crf</strong> 人眼认为的恒定画质，但是运动时候画质会降低来节省码率</p>
 <p>数值越低画质越好。</p>
 <p>一般低于等于18可以认为和原画差不多(主观观点)</p>
-<h2 id="ctu"><a href="#ctu" class="headerlink" title="ctu &lt;64|32|16&gt;"></a>ctu &lt;64|32|16&gt;</h2><p>分块大小，64速度最慢，32其次</p>
-<p>ctu 开的越大，平面的涂抹也越严重，速度也越慢，但是有损压缩效率越高， 值得一提的是， x265 的默认 preset，其实是偏向 4k 级别高分辨率视频给的<br>ctu 64 下，cu 的划分会耗费更多计算量，并且 cu 更倾向于变得更大。这使得给 cu 下更大 TU 的 qp 值给的不是很精确，看起来就是糊。-VCB</p>
-<p>16适合DVD，32适合1080p,64适合4K,720p用16,x265可能就会直接退出</p>
 <h2 id="rd-1-6"><a href="#rd-1-6" class="headerlink" title="rd (1-6)"></a>rd (1-6)</h2><p>分析的复杂度，数值越大画质越高，压出来体积越大，5,6非常慢, 默认3.</p>
-<h2 id="early-skip"><a href="#early-skip" class="headerlink" title="early-skip"></a>early-skip</h2><p>–early-skip, –no-early-skip</p>
-<p>默认开，开了提高压缩速度，关了提高精度，体积小幅度增加</p>
 <h2 id="rdoq-level"><a href="#rdoq-level" class="headerlink" title="rdoq-level"></a>rdoq-level</h2><p>RDOP [rate-distortion optimized quantization] (率失真优化量化)</p>
 <p>默认0,关闭，预设slow时候默认开启。(preset placebo 似乎也还是2)</p>
 <p>x265最重要的参数，没有之一，开了能有助于保存细节，当然会有更大文件体积。关闭可以提高压缩速度，看起来会轻度模糊。开启掉速度30%以上，推荐舍弃其他参数，也要开启这个。</p>
@@ -1745,9 +1744,6 @@
 <p>开高小幅度提高压缩率，同时小幅度降速，</p>
 <p>3和4速度差不多，推荐4</p>
 <p>VCB:不过实测 ref 增加在 x265 中作用不明显。建议不超过 6</p>
-<h2 id="sao-默认开启"><a href="#sao-默认开启" class="headerlink" title="sao 默认开启"></a>sao 默认开启</h2><p>–sao, –no-sao</p>
-<p>设计目的是去振铃(光环现象)，但是细节丰富地方会去掉太多细节，</p>
-<p>推荐关闭。</p>
 <h2 id="strong-intra-smoothing"><a href="#strong-intra-smoothing" class="headerlink" title="strong-intra-smoothing"></a>strong-intra-smoothing</h2><p>推荐在追求还原度的压制的时候关闭，严重欠码压制时开启(部分情况下，aq2 或者降低 aqs 更为优先)</p>
 <p>对关键帧进行平滑处理，看起来挺吓人的，实际上效果不明显，推荐用<code>--no-strong-intra-smoothing</code>关闭，保留细节(来源贴吧 连接1 的帖内说明)</p>
 <p><a href="http://forum.doom9.net/showthread.php?p=1873696">http://forum.doom9.net/showthread.php?p=1873696</a></p>
@@ -1760,17 +1756,28 @@
 <h2 id="frame-threads"><a href="#frame-threads" class="headerlink" title="frame-threads"></a>frame-threads</h2><p>帧线程数量，开高提高cpu利用率，开低有利于小幅度提高压缩率</p>
 <p>如果cpu能够满载可以考虑调到2，如果不能满载考虑使用默认值</p>
 <p>(默认会自动调整)</p>
-<h2 id="aq-mode"><a href="#aq-mode" class="headerlink" title="aq-mode"></a>aq-mode</h2><p>目前测试在不足码率压制的情况下,aq1可能会导致画面出现一些奇怪的现象，aq2相对画面更好一些，并且不会出现奇妙的画面(不过测试还不够充分)。</p>
-<p>在给够码率的情况下(噪点比较重的片)，aq1似乎会好些(可以看战火高码版对比图，不过暂时还没放到公网)</p>
-<p>2 x265默认（推荐）</p>
-<p>3 暗处增强，避免暗处被压坏，实际上亮的地方码率也会增加30%以上，所以很 浪费码率(不过就压制而言，通常是差不多码率进行比较，因此浪费码率可以通过调高crf解决)</p>
-<p>aq-mode 4 :优先保留边缘，噪点很多时候用</p>
-<p>VCB:x265 目前有三种 aq 模式。aq-mode 1 是最安全稳定的 aq，适合高码率&#x2F;高画质编码；aq-mode<br>2 相对来说效率最高，适合中低码率的编码；aq-mode 3 对暗场进行加强，适合 8bit 编码防止暗场压烂。一般 10bit编码根据 crf 高低决定 aq 选取，个人建议在 crf &lt;&#x3D; 16 时候使用 aq-mode 1，否则使用 aq-mode 2。注意同 crf下，不同 aq-mode 出来的体积是不一样的，3&gt;1&gt;2。</p>
-<p>补充说明，个人在压制黑白噪点片时，aq2产生了比aq1还大的体积，目测在大颗粒噪点的情况下，aq2会比aq1产生更高的码率</p>
+<h2 id="aq-mode"><a href="#aq-mode" class="headerlink" title="aq-mode"></a>aq-mode</h2><p>aq 是防止平面过度量化的功能，用被量化程度去进行 qp 值的补偿 -VCB(其实我没看懂)</p>
+<p>目前测试在不足码率压制的情况下,aq1可能会导致画面出现一些奇怪的现象，aq2相对画面更好一些，并且不会出现奇妙的画面</p>
+<p>不同的 aq-mode 需要的 aqs 可能不一样</p>
+<ol start="0">
+<li>关闭</li>
+<li>为平面内的简单分配</li>
+<li>x265默认 进行帧间 aq-variance 计算，允许跨帧进行调整（推荐）</li>
+<li>暗处增强，避免暗处被压坏 具有自方差和对黑暗场景的 bias 和自适应量化。</li>
+<li>优先保留边缘 （会摧毁平面，但会给更多码率线条和纹理和暗场。除非你追求压缩率，喂给编码器的东西也有针对性处理防止出现 Artifact，不然别开 -VCB 注意该意见可能比较适合动画）</li>
+<li>具有自方差和对黑暗场景的 bias 和自适应量化，并且优先保留边缘（仅aMod）</li>
+</ol>
+<p><code>--aq-mode 2</code> 会强调动态和高频部分，平面码率会被削（整体视频码率也就低了），开了很容易平面上出瑕疵，所以如果想开，最好喂视频之前就把平面抹抹干净，并且给 0.9 及以上的 strength。-VCB (该意见可能相对动画来说)</p>
+<p>《Advanced Encoding Guide》的推荐是 3或4 带上<code>--hevc-aq</code></p>
+<p><code>--hevc-aq</code><br>“根据一个编码单元相对于帧平均空间活动的空间活动来缩放量化步长 “。 这种AQ方法利用每个编码单元中子单元的最小方差来表示编码单元的空间复杂性。” 与大多数 x265 文档一样,这听起来比实际情况要奇特得多。打开其他模式时请勿启用。</p>
 <h1 id="根据源决定"><a href="#根据源决定" class="headerlink" title="根据源决定"></a>根据源决定</h1><p>–colorprim 9 for HDR, 1 for SDR.</p>
 <p>–colormatrix 9 for HDR, 1 for SDR.</p>
 <p>–transfer 16 for HDR, 1 for SDR.</p>
 <p>–hdr10 for HDR.</p>
+<h2 id="ctu"><a href="#ctu" class="headerlink" title="ctu &lt;64|32|16&gt;"></a>ctu &lt;64|32|16&gt;</h2><p>分块大小，64速度最慢，32其次</p>
+<p>ctu 开的越大，平面的涂抹也越严重，速度也越慢，但是有损压缩效率越高， 值得一提的是， x265 的默认 preset，其实是偏向 4k 级别高分辨率视频给的<br>ctu 64 下，cu 的划分会耗费更多计算量，并且 cu 更倾向于变得更大。这使得给 cu 下更大 TU 的 qp 值给的不是很精确，看起来就是糊。-VCB</p>
+<p>16适合DVD，32适合1080p,64适合4K,720p用16,x265可能就会直接退出</p>
+<p>《Advanced Encoding Guide》中把这个归类为不调的参数，不过实际可能因为他们只用x265压4K或HDR有关。</p>
 <h2 id="qcomp"><a href="#qcomp" class="headerlink" title="qcomp"></a>qcomp</h2><p>运动时候画质 crf开启时候有效</p>
 <p>开高提高运动时候画质，开低减少文件体积</p>
 <p>推荐0.6-0.7</p>
