@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="FXXS">
 <meta property="og:description" content="通常建议在 Demux &amp; Remux 之前进行扫盘，mkvtoolnix 以及 dgdemux 都可以进行。 主要判断信息有  是否是肉酱盘 是否默认的 mpls 是正确的影片（有些盘会坑人） mpls 是否包含了无效的mt2s(这种会导致操作失败)，这种情况，需要 dgdemux,然后勾选 “skip first&#x2F;last M2TS”  部分剧集原盘 dgdemux 需要开启">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-02T02:51:17.055Z">
-<meta property="article:modified_time" content="2024-12-04T06:52:30.977Z">
+<meta property="article:published_time" content="2024-12-05T13:40:33.564Z">
+<meta property="article:modified_time" content="2025-03-31T13:58:37.243Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -149,7 +149,7 @@
                 <h1 class="kratos-page-title text-center" itemprop="name headline">Demux & Remux 操作</h1>
             
             <ul class="kratos-page-meta text-center">
-                <li><time datetime="2024-12-02T02:51:17.055Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-12-02</time></li>
+                <li><time datetime="2024-12-05T13:40:33.564Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-12-05</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">ted423</span>
                 </li>
@@ -158,7 +158,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~4.92K
+                            ~5.04K
                         
                         字
                     </li>
@@ -187,6 +187,7 @@
 <p>Demux作为音轨处理的前置步骤(部分原盘只有DGDemux能正常处理)，目前获取的信息是再TrueHD方面 MakeMKV &gt;&#x3D; 1.15.4 &#x3D; mlp &gt; DGDemux (具体见 mlp 的 Readme)。</p>
 <p>或许考虑使用<a target="_blank" rel="noopener" href="https://github.com/domyd/mlp">mlp</a>来专门处理肉酱TrueHD盘</p>
 <p>一些肉酱盘 mkvtoolnix,eac3to,会有 glitching 的问题见<a target="_blank" rel="noopener" href="https://github.com/ted423/FXXS-Encode-Guide/issues/14">issue</a>(并不确认eac3to最新版是否解决了问题)。</p>
+<p><strong>目前发现肉酱盘的PCM也会出问题，ffmpeg报’ Invalid PCM packet, data has size 2 but at least a size of 4 was expected’</strong>，使用 Dgdemux 之后正常转换</p>
 <p>一些 mpls 会作为 m2ts 的 index,m2ts 本身前后会包含一些 garbage，见<a target="_blank" rel="noopener" href="https://github.com/justdan96/tsMuxer/issues/624">issue</a>,目前 DGDemux 可以通过勾选 ‘strict playlist’ 来正确处理。</p>
 <p>mkvtoolnix也会进行处理，但音轨出现了一些问题。</p>
 <h1 id="DVD"><a href="#DVD" class="headerlink" title="DVD"></a>DVD</h1><p>对于DVD，你可能需要使用MakeMKV，目前的其他软件对DVD都支持不太好，例如mkvtoolnix认不到章节以及字幕轨</p>
@@ -255,7 +256,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-12-04T06:52:30.977Z" itemprop="dateModified">最后编辑：2024-12-04</time>
+                    <time datetime="2025-03-31T13:58:37.243Z" itemprop="dateModified">最后编辑：2025-03-31</time>
                 </div>
             </div>
         </footer>
@@ -264,12 +265,12 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" 封装格式(MP4/MKV…)、编码格式(H.264/H.265/AC3/AAC…)、编码器(x265/x264/SVT-AV1)" href="/1.基础知识/编码、编码器与封装格式/"><i class="fa fa-angle-left"></i> 上一篇</a>
+                <a title=" Linux工具" href="/2.Tools/Linux/"><i class="fa fa-angle-left"></i> 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" Linux工具" href="/2.Tools/Linux/">下一篇 <i class="fa fa-angle-right"></i></a>
+                <a title=" README FXXS压制教程 FXXS Encode Guide" href="/README/">下一篇 <i class="fa fa-angle-right"></i></a>
             </div>
             
         </nav>
