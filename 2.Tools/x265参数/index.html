@@ -158,7 +158,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~5.23K
+                            ~5.27K
                         
                         字
                     </li>
@@ -198,8 +198,8 @@
 <p><code>--no-sao</code>  设计目的是去振铃(光环现象)，但是细节丰富地方会去掉太多细节</p>
 <p><code>--no-early-skip</code> 加速开关，影响的溯块中不同算法的先后顺序，一般不会去开。</p>
 <p><code>--no-strong-intra-smoothing</code></p>
-<h2 id="rect-amp"><a href="#rect-amp" class="headerlink" title="rect &amp; amp"></a>rect &amp; amp</h2><p>–no-rect rect提供更好的分割能力，能找到潜在的匹配块，它很可能被证明是有用的,但它可能不值得。(画面复杂。离子特效多的情况下会考虑开 rect -VCB)</p>
-<p>–no-amp 类似rect，即使可能稍微有点用</p>
+<h2 id="rect-amp"><a href="#rect-amp" class="headerlink" title="rect &amp; amp"></a>rect &amp; amp</h2><p>--no-rect rect提供更好的分割能力，能找到潜在的匹配块，它很可能被证明是有用的,但它可能不值得。(画面复杂。离子特效多的情况下会考虑开 rect -VCB)</p>
+<p>--no-amp 类似rect，即使可能稍微有点用</p>
 <p>VCB:通常来说，&lt;&#x3D;1080p 下，rect 基本上没什么作用，amp 是几乎完全没作用，但是这俩都是速度黑洞。因此从效率角度建议关闭，或者至少关闭 amp</p>
 <p>个人测试中，1080p开了之后，码率低了一点，画面差了一点</p>
 <h2 id="crf-qp"><a href="#crf-qp" class="headerlink" title="crf,qp"></a>crf,qp</h2><p><strong>qp</strong> 电脑认为的恒定画质(但一般不进行设置)</p>
@@ -248,11 +248,11 @@
 <h2 id="bframes"><a href="#bframes" class="headerlink" title="bframes"></a>bframes</h2><p>最大b帧数量，推荐16</p>
 <p>开高小幅度提高压缩率，默认4，开到8，掉速10%</p>
 <p>bframes 开高了会小幅降低画质</p>
-<h2 id="cutree"><a href="#cutree" class="headerlink" title="cutree"></a>cutree</h2><p>–no-cutree since this seems to be a poor implementation of mbtree.</p>
+<h2 id="cutree"><a href="#cutree" class="headerlink" title="cutree"></a>cutree</h2><p>--no-cutree since this seems to be a poor implementation of mbtree.</p>
 <p><del>目前测试是静态场景表现不错，具体可以看<a target="_blank" rel="noopener" href="https://ted423.github.io/Document/Encode/cutree/">https://ted423.github.io/Document/Encode/cutree/</a></del> 不建议开，码率分配存在非常大的问题(有一处分配了31M的码率结果效果还不如一半码率的x264)</p>
-<p>doom9 上2020年有人说”在快速移动的场景中，我一直在努力解决丑陋的扭曲（用条带涂抹看起来有点像运动模糊的东西），最后发现 x265 的 CUTree 是罪魁祸首。</p>
+<p>doom9 上2020年有人说&quot;在快速移动的场景中，我一直在努力解决丑陋的扭曲（用条带涂抹看起来有点像运动模糊的东西），最后发现 x265 的 CUTree 是罪魁祸首。</p>
 <p>关闭它可以解决它，但是当试图在其他场景中保持相同的整体质量时，比特率会爆炸。</p>
-<p>有什么方法可以使 CUTree ‘不那么激进’ 或将其设置为 50% 或某些阈值参数吗？”</p>
+<p>有什么方法可以使 CUTree &#39;不那么激进&#39; 或将其设置为 50% 或某些阈值参数吗？&quot;</p>
 <h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p>参照帧数量，默认3</p>
 <p>开高小幅度提高压缩率，同时小幅度降速，</p>
 <p>3和4速度差不多，推荐4</p>
@@ -282,11 +282,11 @@
 </ol>
 <p><code>--aq-mode 2</code> 会强调动态和高频部分，平面码率会被削（整体视频码率也就低了），开了很容易平面上出瑕疵，所以如果想开，最好喂视频之前就把平面抹抹干净，并且给 0.9 及以上的 strength。-VCB (该意见可能相对动画来说)</p>
 <p>《Advanced Encoding Guide》的推荐是 3或4 带上<code>--hevc-aq</code></p>
-<p><code>--hevc-aq</code><br>“根据一个编码单元相对于帧平均空间活动的空间活动来缩放量化步长 “。 这种AQ方法利用每个编码单元中子单元的最小方差来表示编码单元的空间复杂性。” 与大多数 x265 文档一样,这听起来比实际情况要奇特得多。打开其他模式时请勿启用。</p>
-<h1 id="根据源决定"><a href="#根据源决定" class="headerlink" title="根据源决定"></a>根据源决定</h1><p>–colorprim 9 for HDR, 1 for SDR.</p>
-<p>–colormatrix 9 for HDR, 1 for SDR.</p>
-<p>–transfer 16 for HDR, 1 for SDR.</p>
-<p>–hdr10 for HDR.</p>
+<p><code>--hevc-aq</code><br>&quot;根据一个编码单元相对于帧平均空间活动的空间活动来缩放量化步长 &quot;。 这种AQ方法利用每个编码单元中子单元的最小方差来表示编码单元的空间复杂性。&quot; 与大多数 x265 文档一样,这听起来比实际情况要奇特得多。打开其他模式时请勿启用。</p>
+<h1 id="根据源决定"><a href="#根据源决定" class="headerlink" title="根据源决定"></a>根据源决定</h1><p>--colorprim 9 for HDR, 1 for SDR.</p>
+<p>--colormatrix 9 for HDR, 1 for SDR.</p>
+<p>--transfer 16 for HDR, 1 for SDR.</p>
+<p>--hdr10 for HDR.</p>
 <h2 id="ctu"><a href="#ctu" class="headerlink" title="ctu &lt;64|32|16&gt;"></a>ctu &lt;64|32|16&gt;</h2><p>分块大小，64速度最慢，32其次</p>
 <p>ctu 开的越大，平面的涂抹也越严重，速度也越慢，但是有损压缩效率越高， 值得一提的是， x265 的默认 preset，其实是偏向 4k 级别高分辨率视频给的<br>ctu 64 下，cu 的划分会耗费更多计算量，并且 cu 更倾向于变得更大。这使得给 cu 下更大 TU 的 qp 值给的不是很精确，看起来就是糊。-VCB</p>
 <p>16适合DVD，32适合1080p,64适合4K,720p用16,x265可能就会直接退出</p>
@@ -337,7 +337,7 @@
             
             
             <div class="nav-next clearfix">
-                <a title=" 使用DEEW制作DDP/EAC3音轨教程" href="/4.Audio&sub/使用DEEW制作DDP音轨教程/">下一篇 <i class="fa fa-angle-right"></i></a>
+                <a title=" x265 HDR 参数计算方法" href="/3.Code/x265 HDR 参数计算方法/">下一篇 <i class="fa fa-angle-right"></i></a>
             </div>
             
         </nav>
