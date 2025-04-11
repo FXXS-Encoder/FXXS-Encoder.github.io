@@ -1657,6 +1657,203 @@
       </categories>
   </entry>
   <entry>
+    <title>QTGMC 去交错</title>
+    <url>/2.Tools/QTGMC/</url>
+    <content><![CDATA[<p>翻译自 avisynth 文档</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src  = haf.QTGMC(src, Preset=&quot;slow&quot;, SourceMatch=1, Lossless=2, TFF=True)</span><br></pre></td></tr></table></figure>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>大多数用户仅需使用预设选项。&quot;预设&quot;功能会为指定编码速度选择合理配置。可选预设包括：</p>
+<p>&quot;Placebo&quot;（实验性） • &quot;Very Slow&quot;（极慢） • &quot;Slower&quot;（较慢） • &quot;Slow&quot;（慢速） • &quot;Medium&quot;（中等） • &quot;Fast&quot;（快速） • &quot;Faster&quot;（更快） • &quot;Very Fast&quot;（极快） • &quot;Super Fast&quot;（超快） • &quot;Ultra Fast&quot;（终极速） • &quot;Draft&quot;（草稿）<br>默认预设为&quot;Slower&quot;（较慢）。请勿盲目追求最慢设置，其画质提升可能微乎其微却需耗费大量时间。特别提示：高清素材使用极端设置效果提升有限。高清（HD）素材的处理速度比标清（SD）慢6到8倍。</p>
+<h1 id="核心参数设置"><a href="#核心参数设置" class="headerlink" title="核心参数设置"></a>核心参数设置</h1><p>要点提示：最实用的参数是TR2，用于控制输出画面的平滑度。</p>
+<p>TR0 (1,2) 用于生成运动搜索画面的时间二项式平滑半径。通常：2&#x3D;画质优先，1&#x3D;速度优先</p>
+<p>TR1 (1,2) 对插值生成的初始输出画面应用的时间二项式平滑半径。通常：2&#x3D;画质优先，1&#x3D;速度优先</p>
+<p>TR2 (0,1,2,3) 用于最终画面稳定&#x2F;降噪的时间线性平滑半径。数值越高，输出画面越平滑</p>
+<p>Rep0 (int) 修复运动搜索画面（0&#x3D;关闭）：修正因TR0时间平滑导致的非预期模糊</p>
+<p>Rep1 (int) 修复初始输出画面（0&#x3D;关闭）：修正因TR1时间平滑导致的非预期模糊</p>
+<p>Rep2 (int) 修复最终输出画面（0&#x3D;关闭）：修正因TR2时间平滑导致的非预期模糊（若未启用Rep1，也会修复TR1导致的模糊）</p>
+<p>RepChroma (bool) 修复模式是否影响色度。默认值：True（启用）</p>
+<p>RepX语法说明：</p>
+<p>第一位数字（0-5）：控制可消除的细密闪烁线条的最大宽度（1像素至约3像素）</p>
+<p>第二位数字（0-3）：控制在检测到的线条边缘略微恢复细节</p>
+<p>若仅输入单数字，则视为第一位数字（例如 &quot;5&quot; 等同于 &quot;50&quot;）</p>
+<p>算法原理详解<br>核心流程：</p>
+<ol start="0">
+<li>对源素材片段进行 Bob 处理(场分离)。对 Bob 处理(场分离)后的结果进行时域平滑以消除闪烁 (shimmer)，然后分析其运动。</li>
+<li>更精确地对源素材片段进行插值（例如使用 NNEDI3）。利用上一步的运动分析结果，通过运动补偿对这个插值结果进行时域平滑处理。这样可以在保留细节的同时消除闪烁。对结果进行重新锐化以抵消可能产生的模糊。</li>
+<li>最后进行一次轻度的时域平滑，以优化最终效果（在视频处理语境下，通常指去除残留的噪点、瑕疵或不稳定因素，使画面更纯净。）</li>
+</ol>
+<p>阶段说明：</p>
+<p>阶段0 &amp; 1：使用二项式平滑（类高斯分布）消除去隔行闪烁，对应参数TR0（运动分析阶段）和TR1（初始输出阶段）</p>
+<p>阶段2：使用线性平滑进行最终优化，对应参数TR2</p>
+<p>技术要点：</p>
+<p>TR0&#x2F;TR1建议≥1以确保消闪效果，TR0&#x3D;2可提升运动匹配精度</p>
+<p>TR1&#x2F;TR2值越大画面越稳定且降噪更强，但会牺牲细节并可能加剧运动分析错误导致的伪影</p>
+<p>锐化参数可部分补偿平滑导致的模糊</p>
+<p>消闪原理<br>算法专攻&quot;场分离闪烁&quot;（隔行信号插值产生的水平线闪烁）。修复模块Rep0&#x2F;Rep1&#x2F;Rep2通过只允许水平方向的修正变化，有效防止时间平滑导致的运动模糊。</p>
+<h1 id="运动分析参数"><a href="#运动分析参数" class="headerlink" title="运动分析参数"></a>运动分析参数</h1><p>要点提示：预设已优化参数组合，非必要请勿修改。调整前请详阅MVTools2文档</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>取值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SrchClipPP</td>
+<td>0-3</td>
+<td>运动搜索画面预过滤：0&#x3D;无，1&#x3D;简易模糊，2&#x3D;高斯模糊，3&#x3D;高斯模糊+边缘柔化</td>
+</tr>
+<tr>
+<td>SubPel</td>
+<td>1&#x2F;2&#x2F;4</td>
+<td>运动分析亚像素精度：1&#x3D;整像素，2&#x3D;1&#x2F;2像素，4&#x3D;1&#x2F;4像素</td>
+</tr>
+<tr>
+<td>SubPelInterp</td>
+<td>0-2</td>
+<td>亚像素插值算法：0&#x3D;双线性（柔化），1&#x3D;双立方（锐利），2&#x3D;维纳（极锐）</td>
+</tr>
+<tr>
+<td>Blocksize</td>
+<td>4-32</td>
+<td>运动匹配块尺寸</td>
+</tr>
+<tr>
+<td>Overlap</td>
+<td>0-块尺寸&#x2F;2</td>
+<td>运动分析块重叠量（提升块边缘平滑度但增加计算量）</td>
+</tr>
+<tr>
+<td>Search</td>
+<td>0-5</td>
+<td>运动匹配搜索算法（详见MVTools2文档）</td>
+</tr>
+<tr>
+<td>PelSearch</td>
+<td>-</td>
+<td>最细亚像素层级的搜索参数</td>
+</tr>
+<tr>
+<td>ChromaMotion</td>
+<td>bool</td>
+<td>是否分析色度运动（关闭可提速但可能误判）</td>
+</tr>
+<tr>
+<td>Lambda</td>
+<td>0+</td>
+<td>运动矢量场一致性系数（需按公式缩放）</td>
+</tr>
+<tr>
+<td>LSAD</td>
+<td>0+</td>
+<td>复杂运动区域降低一致性需求参数</td>
+</tr>
+<tr>
+<td>PNew</td>
+<td>0+</td>
+<td>新运动矢量选择惩罚系数</td>
+</tr>
+<tr>
+<td>GlobalMotion</td>
+<td>bool</td>
+<td>是否估计全局（摄像机）运动辅助分析</td>
+</tr>
+</tbody></table>
+<p>默认参数组合：</p>
+<p>TrueMotion&#x3D;false时：Lambda&#x3D;(1000*块尺寸²)&#x2F;64, LSAD&#x3D;400, PNew&#x3D;25</p>
+<p>TrueMotion&#x3D;true时：Lambda&#x3D;(100*块尺寸²)&#x2F;64, LSAD&#x3D;1200, PNew&#x3D;50</p>
+<h1 id="插值参数"><a href="#插值参数" class="headerlink" title="插值参数"></a>插值参数</h1><p>要点提示：预设已优化插值方案，推荐使用NNEDI3系算法</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EdiMode</td>
+<td>插值算法：可选NNEDI3（推荐）、EEDI3、Yadif等</td>
+</tr>
+<tr>
+<td>NNSize</td>
+<td>NNEDI3预测区域尺寸（非线性质级关系，详见NNEDI3文档）</td>
+</tr>
+<tr>
+<td>NNeurons</td>
+<td>NNEDI神经元数量（0-4，值越大质量越优）</td>
+</tr>
+<tr>
+<td>EdiMaxD</td>
+<td>EEDI系算法的空间搜索距离</td>
+</tr>
+<tr>
+<td>EdiThreads</td>
+<td>多线程数（0&#x3D;自动&#x3D;逻辑处理器数）</td>
+</tr>
+<tr>
+<td>示例配置：</td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">QTGMC( Preset=&quot;Slow&quot;, EdiMode=&quot;EEDI3&quot;, EdiMaxD=16 )  # 指定EEDI3算法+16像素搜索半径</span><br><span class="line">QTGMC( Preset=&quot;Very Slow&quot;, EdiThreads=2 )            # 多线程优化配置</span><br></pre></td></tr></table></figure>
+<h1 id="锐化参数"><a href="#锐化参数" class="headerlink" title="锐化参数"></a>锐化参数</h1><p>要点提示：建议始终根据实际效果调整Sharpness参数（默认1.0偏锐，使用源匹配时默认0.2）</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sharpness</td>
+<td>锐化强度（0.0为原始画面）</td>
+</tr>
+<tr>
+<td>SLMode</td>
+<td>锐化限制模式：0&#x3D;关闭，[1&#x2F;3&#x3D;空间限制]，[2&#x2F;4&#x3D;时间限制]</td>
+</tr>
+<tr>
+<td>SLRad</td>
+<td>限制半径（时间模式仅支持0&#x2F;1&#x2F;3）</td>
+</tr>
+<tr>
+<td>SOvs</td>
+<td>时间限制模式下允许的过冲量（微量过锐化许可）</td>
+</tr>
+<tr>
+<td>SVThin</td>
+<td>单像素线细化强度（修复插值导致的线条膨胀）</td>
+</tr>
+<tr>
+<td>技术细节：</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>时间限制模式（SLMode&#x3D;2&#x2F;4）防过锐效果更强但更吃性能</p>
+<p>后期限制模式（SLMode&#x3D;3&#x2F;4）可保留更多锐度但可能产生伪影</p>
+<p>Sbb参数可混合锐化前后画面提升细节保真度</p>
+<h1 id="源匹配-无损-Source-Match-Lossless"><a href="#源匹配-无损-Source-Match-Lossless" class="headerlink" title="源匹配 &#x2F; 无损 (Source Match &#x2F; Lossless)"></a>源匹配 &#x2F; 无损 (Source Match &#x2F; Lossless)</h1><p>注意：此功能的效果既微妙又精确，仅用于追求极致细节。请先确保您能够分辨出这些极致的细节。</p>
+<p>核心要点 (Key Points):</p>
+<p>源匹配 (Source-match) 通过额外的处理来创建保真度更高的输出。</p>
+<p>通过设置 SourceMatch &#x3D; 1, 2 或 3 来启用。数值越高，速度越慢，但精度也越高。</p>
+<p>可与 无损 (Lossless) 设置（尤其是 Lossless&#x3D;2）结合使用，以获取更多细节。</p>
+<p>使用 MatchPreset（类似于 Preset）来调整速度。</p>
+<p>该功能会保留源中的瑕疵 (artefacts)，因此最适合用于高质量的源素材。</p>
+<p>默认情况下，Sharpness（锐度）会变为 0.2，且锐度限制 (SLMode) 会被关闭，因此请谨慎调整锐度。</p>
+<p>快速入门 (Quickstart):</p>
+<p>以下模板的质量依次提高，但处理速度也依次变慢。请根据需要选择预设，但请注意，那些处理速度非常快的预设并不适合（与此功能搭配使用）。默认 Sharpness 为 0.2，但您可能希望稍微将其调高。</p>
+<p>对于干净的源素材，设置 TR2&#x3D;1。</p>
+<p>如果需要更强的降噪效果，设置 TR2&#x3D;2 或 TR2&#x3D;3（速度更慢），或者使用（其他的）噪点处理功能。</p>
+]]></content>
+      <categories>
+        <category>2.Tools</category>
+      </categories>
+      <tags>
+        <tag>建设中</tag>
+        <tag>Plugins&amp;Scripts</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Demux &amp; Remux 操作</title>
     <url>/2.Tools/Demux&amp;Remux/</url>
     <content><![CDATA[<p>通常建议在 Demux &amp; Remux 之前进行扫盘，mkvtoolnix 以及 dgdemux 都可以进行。</p>
@@ -2140,16 +2337,20 @@ Maximum Frame-Average Light Level : <b>1076</b> cd/m2
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>常见的组合操作</title>
     <url>/3.Code/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BB%84%E5%90%88%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>因为平时注意力不集中，所以这些可能是碎片化的，有空可能会整理。<br>另外人菜，请批判性的理解</p>
+    <content><![CDATA[<p>连接已挂</p>
+<p>因为平时注意力不集中，所以这些可能是碎片化的，有空可能会整理。<br>另外人菜，请批判性的理解</p>
 <p>（水平问题，自己的脚本就不放出来了）</p>
-<p><a href="https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/Jin.Roh.1999/SDR.720P-ZQ.vpy">https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/Jin.Roh.1999/SDR.720P-ZQ.vpy</a></p>
+<p><del><a href="https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/Jin.Roh.1999/SDR.720P-ZQ.vpy">https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/Jin.Roh.1999/SDR.720P-ZQ.vpy</a></del></p>
 <p>22行开始 对(luma平面 - Y)先降噪。然后STPresso对噪点进行处理之后再打回来。</p>
 <hr>
 <p>对帧的一些操作</p>
-<p><a href="https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/A.Silent.Voice.2016/SDR.1080p.D-Z0N3.vpy">https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/A.Silent.Voice.2016/SDR.1080p.D-Z0N3.vpy</a></p>
+<p><del><a href="https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/A.Silent.Voice.2016/SDR.1080p.D-Z0N3.vpy">https://git.concertos.live/OpusGang/EncodeScripts/src/branch/master/A.Silent.Voice.2016/SDR.1080p.D-Z0N3.vpy</a></del></p>
 ]]></content>
+      <categories>
+        <category>3.Code</category>
+      </categories>
   </entry>
   <entry>
     <title>Linux工具</title>
