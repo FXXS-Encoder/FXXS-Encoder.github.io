@@ -226,7 +226,7 @@
 <p>x265是开源免费编码器，另外还有一些商业的编码器，例如<a href="http://www.strongene.com/">视骏</a>,<a href="https://www.nvidia.com/en-us/geforce/guides/broadcasting-guide/">NVENC</a></p>
 <h3 id="qaac"><a href="#qaac" class="headerlink" title="qaac"></a>qaac</h3><p>qaac 是基于 Apple 编码器的命令行 AAC&#x2F;ALAC 编码器前端。 从 1.00 开始，qaac 直接使用 CoreAudioToolbox.dll。 因此，不再需要安装 QuickTime。 但是，需要 Apple 应用程序支持。 支持 AAC-LC、AAC-HE、ALAC 编码。一般我们制作出来的是LC </p>
 <p>(qaac开放源代码，似乎是Copyleft的并且没有任何限制)</p>
-<h2 id="封装格式"><a href="#封装格式" class="headerlink" title="封装格式"></a>封装格式</h2><p>比较常见的MP4，MKV，RMVB，TS，FLV，AVI等很多，各种封装格式支持的编码是不一样的。</p>
+<h2 id="封装格式-媒体容器-Media-container"><a href="#封装格式-媒体容器-Media-container" class="headerlink" title="封装格式 媒体容器(Media container)"></a>封装格式 媒体容器(Media container)</h2><p>比较常见的MP4，MKV，RMVB，TS，FLV，AVI等很多，各种封装格式支持的编码是不一样的。</p>
 <p>MKV vs MP4，主要的区别在于：</p>
 <ol>
 <li>MKV支持封装FLAC作为音频，MP4则不支持。但是MP4也可以封装无损音轨(比如说ALAC，虽然普遍认为ALAC的效率不如FLAC优秀)</li>
@@ -234,7 +234,7 @@
 <li>MP4作为工业标准，在视频编辑软件和播放设备上的兼容性一般好于MKV。这也是vcb-s那些为移动设备优化的视频基本上选择MP4封装的原因。</li>
 </ol>
 <p>还有一些过时的封装格式，比如RM、AVI等等。</p>
-<h2 id="编码格式"><a href="#编码格式" class="headerlink" title="编码格式"></a>编码格式</h2><p>通常mediainfo需要封装格式才能显示比较完整的信息，如.pcm .aac .hevc不能显示时长等信息。.hevc在播放器中是无法使用进度条的。</p>
+<h2 id="编码格式-codec"><a href="#编码格式-codec" class="headerlink" title="编码格式(codec)"></a>编码格式(codec)</h2><p>通常mediainfo需要封装格式才能显示比较完整的信息，如.pcm .aac .hevc不能显示时长等信息。.hevc在播放器中是无法使用进度条的。</p>
 <p>LPCM(Linear pulse-code modulation) 一般也会叫PCM，但是一种特定类型的 PCM，其跟PCM(Pulse Code Modulation)有区别，其量化级别是线性均匀的。</p>
 <p>H.26X系列：由ITU（国际电信联盟）主导，包括H.261、H.262、H.263、H.264、H.265。</p>
 <ul>
