@@ -1094,7 +1094,7 @@
 <p><code>--range limited</code></p>
 <p><code>--aud</code></p>
 <p><code>--repeat-headers</code></p>
-<p><code>--hist-scenecut</code> 判断转场，VCB建议开着</p>
+<p><code>--hist-scenecut</code> 判断转场，VCB建议开着，不过目前看来这个参数还处于beta阶段</p>
 <p><code>--no-sao</code>  设计目的是去振铃(光环现象)，但是细节丰富地方会去掉太多细节</p>
 <p><code>--no-early-skip</code> 加速开关，影响的溯块中不同算法的先后顺序，一般不会去开。</p>
 <p><code>--no-strong-intra-smoothing</code></p>
