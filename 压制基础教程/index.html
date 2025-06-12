@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://fxxs.github.io/img/BDInfo.png">
 <meta property="og:image" content="http://fxxs.github.io/(/img/simplex264.png">
 <meta property="article:published_time" content="2025-03-31T16:04:11.633Z">
-<meta property="article:modified_time" content="2025-04-05T12:46:05.988Z">
+<meta property="article:modified_time" content="2025-06-12T02:49:17.557Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -211,7 +211,7 @@
 <h2 id="8-bit-与-10-bit"><a href="#8-bit-与-10-bit" class="headerlink" title="8-bit 与 10-bit"></a>8-bit 与 10-bit</h2><p>x264 8-bit，x265 10-bit。对于x264，8-bit有更多的硬件兼容性（10-bit几乎没有），而且速度明显更快。然而，10-bit x264通常能够节省相当多的空间，同时仍然比x265快。此外，10-bit编码在保留梯度方面要好得多（也就是说，你不必担心色带再次出现），这使得它在编码无噪点内容（比如动漫）方面非常受欢迎。</p>
 <h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>x264参数(1080p)<br>注意事项，level 4.1 不支持 1080p@60fps，，4.2 ptp 会提示 DXVA:	Incompatible，这主要涉及一个早期设备的硬解兼容性问题，比较直观的解释就是 6年前的 firefly-rk3288 的开发板都支持 2160p@60fps 的 H264 硬解。</p>
 <p>而 x265 吃了后出的红利，基本不用担心这块，不过也有逗逼不懂喜欢瞎设 level-idc,遇到这种的你知道他是菜逼就行了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--crf * --preset placebo --profile high --level 4.1 --no-fast-pskip --threads auto --deblock -3,-3 --me umh --subme 10 --vbv-bufsize 78125 --vbv-maxrate 62500 --colormatrix bt709 --colorprim bt709 --merange 48 --rc-lookahead 60 --aq-mode 2 --no-mbtree  --no-dct-decimate --min-keyint 24  --ipratio 1.3 --pbratio 1.2 --aq-strength 0.8 --qcomp 0.65 --psy-rd 1.05:0.00 --bframes 16</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--crf * --preset placebo --profile high --level 4.1 --no-fast-pskip --threads auto --deblock -3,-3 --me umh --subme 11 --vbv-bufsize 78125 --vbv-maxrate 62500 --colormatrix bt709 --colorprim bt709 --merange 48 --rc-lookahead 60 --aq-mode 2 --no-mbtree  --no-dct-decimate --min-keyint 24  --ipratio 1.3 --pbratio 1.2 --aq-strength 0.8 --qcomp 0.65 --psy-rd 1.05:0.00 --bframes 16</span><br></pre></td></tr></table></figure>
 <p>(crf可以用18)<br>ref说明</p>
 <ul>
 <li>480p ref&#x3D;16</li>
@@ -467,7 +467,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-04-05T12:46:05.988Z" itemprop="dateModified">最后编辑：2025-04-05</time>
+                    <time datetime="2025-06-12T02:49:17.557Z" itemprop="dateModified">最后编辑：2025-06-12</time>
                 </div>
             </div>
         </footer>
