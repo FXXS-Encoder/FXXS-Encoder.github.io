@@ -27,7 +27,7 @@
 <meta property="og:description" content="vs-placebo一个基于 libplacebo 的 VapourSynth 插件接口。 placebo.Deband(clip clip[, int planes &#x3D; 1, int iterations &#x3D; 1, float threshold &#x3D; 4.0, float radius &#x3D; 16.0, float grain &#x3D; 6.0, int dither &#x3D; True, int dithe">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-08T02:07:27.257Z">
-<meta property="article:modified_time" content="2025-07-08T02:08:32.844Z">
+<meta property="article:modified_time" content="2025-07-08T02:13:42.203Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="建设中">
 <meta property="article:tag" content="Plugins&amp;Scripts">
@@ -187,7 +187,7 @@
 <hr>
 <h4 id="placebo-Tonemap-clip-clip-int-src-csp-int-dst-csp-int-dst-prim-float-src-max-float-src-min-float-dst-max-float-dst-min-int-dynamic-peak-detection-float-smoothing-period-float-scen"><a href="#placebo-Tonemap-clip-clip-int-src-csp-int-dst-csp-int-dst-prim-float-src-max-float-src-min-float-dst-max-float-dst-min-int-dynamic-peak-detection-float-smoothing-period-float-scen" class="headerlink" title="placebo.Tonemap(clip clip[, int src_csp, int dst_csp, int dst_prim, float src_max, float src_min, float dst_max, float dst_min, int dynamic_peak_detection, float smoothing_period, float scen[...])"></a><code>placebo.Tonemap(clip clip[, int src_csp, int dst_csp, int dst_prim, float src_max, float src_min, float dst_max, float dst_min, int dynamic_peak_detection, float smoothing_period, float scen[...])</code></h4><p>执行色彩映射（包括从 HDR 到 SDR 的色调映射，也可以做更多）。<br>要求输入为 RGB48 或 YUVxxxP16。<br>输出为 RGB48 或 YUV444P16，取决于输入色彩空间。</p>
 <ul>
-<li><code>src_csp, dst_csp</code>：<br>参考 <code>tonemap.c</code> 中的 <code>supported_colorspace</code> 获取有效的 src&#x2F;dst 色彩空间。<br>例如, 从 [BT.2020, PQ] (HDR) 到传统 [BT.709, BT.1886] (SDR) 映射，使用 <code>src_csp=1, dst_csp=0</code>。</li>
+<li><code>src_csp, dst_csp</code>：<br>参考 <code>tonemap.c</code> 中的 <code>supported_colorspace</code> <a target="_blank" rel="noopener" href="https://github.com/Lypheo/vs-placebo/blob/14083805df08cd478539c15464a7183da2c0032e/src/tonemap.c#L19">获取有效的 src&#x2F;dst 色彩空间</a>。<br>例如, 从 [BT.2020, PQ] (HDR) 到传统 [BT.709, BT.1886] (SDR) 映射，使用 <code>src_csp=1, dst_csp=0</code>。</li>
 <li><code>dst_prim</code>：目标色域。见 <a target="_blank" rel="noopener" href="https://github.com/haasn/libplacebo/blob/master/src/include/libplacebo/colorspace.h#L193">pl_color_primaries</a>。</li>
 <li><code>src_max, src_min, dst_max, dst_min</code>：源&#x2F;目标显示亮度，单位为nits（cd&#x2F;m²）。源亮度可由属性推导。</li>
 <li><code>dynamic_peak_detection</code>：启用信号统计以优化HDR色调映射质量。默认启用。</li>
@@ -283,7 +283,7 @@
                     <a class="tag-none-link" href="/tags/Plugins-Scripts/" rel="tag">Plugins&Scripts</a>, <a class="tag-none-link" href="/tags/%E5%BB%BA%E8%AE%BE%E4%B8%AD/" rel="tag">建设中</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-07-08T02:08:32.844Z" itemprop="dateModified">最后编辑：2025-07-08</time>
+                    <time datetime="2025-07-08T02:13:42.203Z" itemprop="dateModified">最后编辑：2025-07-08</time>
                 </div>
             </div>
         </footer>
