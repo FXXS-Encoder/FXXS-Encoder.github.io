@@ -6,7 +6,7 @@
   <link href="http://fxxs.github.io/atom.xml" rel="self"/>
   
   <link href="http://fxxs.github.io/"/>
-  <updated>2025-07-24T03:41:15.989Z</updated>
+  <updated>2025-07-24T03:47:54.002Z</updated>
   <id>http://fxxs.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://fxxs.github.io/2.Tools/KNLMeansCL_Issue/"/>
     <id>http://fxxs.github.io/2.Tools/KNLMeansCL_Issue/</id>
     <published>2025-07-24T03:32:24.420Z</published>
-    <updated>2025-07-24T03:41:15.989Z</updated>
+    <updated>2025-07-24T03:47:54.002Z</updated>
     
-    <content type="html"><![CDATA[<p>好像是从 2024年9月13号 开始的驱动(32.0.101.6078)都有问题，具体版本并不确定。但 2025 到现在的驱动似乎都有问题。</p><p>最后换到了 Intel-UHD-Graphics-Driver_83MGG_WIN64_31.0.101.4502_A00 才解决。</p><p>intel 12代 - 14代 的核显都是 Intel(R) UHD Graphics 770，驱动都是同样的。但是 intel 官方没再提供老驱动了，我是戴尔官网下载的。<a href="https://www.dell.com/support/home/zh-cn/drivers/driversdetails?driverid=83mgg">https://www.dell.com/support/home/zh-cn/drivers/driversdetails?driverid=83mgg</a></p><p>但是注意 2024 2025 有很多 CVE 哈。使用有风险</p><p><a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-01259.html">https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-01259.html</a></p>]]></content>
+    <content type="html"><![CDATA[<p>好像是从 2024年9月13号 开始的驱动(32.0.101.6078)都有问题，具体版本并不确定。但 2025 到现在的驱动似乎都有问题。</p><p>最后换到了 Intel-UHD-Graphics-Driver_83MGG_WIN64_31.0.101.4502_A00(2023年10月8号) 才解决。</p><p>intel 12代 - 14代 的核显都是 Intel(R) UHD Graphics 770，驱动都是同样的。但是 intel 官方没再提供老驱动了，我是戴尔官网下载的。<a href="https://www.dell.com/support/home/zh-cn/drivers/driversdetails?driverid=83mgg">https://www.dell.com/support/home/zh-cn/drivers/driversdetails?driverid=83mgg</a></p><p>但是注意 2024 2025 有很多 CVE 哈。使用有风险</p><p><a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-01259.html">https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-01259.html</a></p>]]></content>
     
     
       
