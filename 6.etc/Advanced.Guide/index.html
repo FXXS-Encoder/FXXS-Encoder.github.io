@@ -53,7 +53,7 @@
 <meta property="og:image" content="http://fxxs.github.io/img/AHDVEG-pics/Figure27.png">
 <meta property="og:image" content="http://fxxs.github.io/img/AHDVEG-pics/Figure28.png">
 <meta property="article:published_time" content="2025-01-11T07:17:29.027Z">
-<meta property="article:modified_time" content="2025-01-11T06:32:36.000Z">
+<meta property="article:modified_time" content="2025-07-31T03:49:02.517Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="建设中">
 <meta name="twitter:card" content="summary">
@@ -185,7 +185,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~59.35K
+                            ~59.47K
                         
                         字
                     </li>
@@ -206,7 +206,10 @@
             <div itemprop="articleBody"><p>说明：并非所有内容都是正确的，部分内容仍待完善。</p>
 <p>最新的原文地址在<a target="_blank" rel="noopener" href="https://silentaperture.gitlab.io/mdbook-guide/introduction.html">https://silentaperture.gitlab.io/mdbook-guide/introduction.html</a></p>
 <p>【译者注：本文为《Advanced HD Video Encoding Guide》老版本的翻译，限制于译者压制与翻译水平均有限，翻译可能产生偏差甚至误导，在此表示歉意。如遇不明之处还请<a target="_blank" rel="noopener" href="https://github.com/FXXS-Encoder/FXXS-Encoder.github.io/releases/tag/encode_guide_English">查看原文</a>。同时有些内容随着时间变迁用法有些不同，请读者遇到相关问题时查阅相关内容。】<br>【译者再注：由于所有图片所在图床一起随时间而逝，所有附图均由PDF中提取再经由Photoshop拼接，过程中可能造成些许损失，但应该不影响区分。】</p>
-<h1 id="VapourSynth-脚本-vpy"><a href="#VapourSynth-脚本-vpy" class="headerlink" title="VapourSynth 脚本(vpy)"></a>VapourSynth 脚本(vpy)</h1><h2 id="缩放-Resizing"><a href="#缩放-Resizing" class="headerlink" title="缩放(Resizing)"></a>缩放(Resizing)</h2><p>首先请注意，后面会有一个单独的部分来介绍 <strong>降低分辨率(Descaling)</strong> 。而在这，我将解释调整大小的方法以及哪种调整器分别适合什么情况。<br>如果你想调整大小，重要的是不要超过必要的长宽比的改变。如果你要缩小尺寸，首先要搞明白宽度和高度应该是多少。如果你想缩小分辨率到720p，首先要裁剪，然后弄清楚你是缩放至720高还是1280宽。如果是前者，你的宽度应该是：</p>
+<h1 id="VapourSynth-脚本-vpy"><a href="#VapourSynth-脚本-vpy" class="headerlink" title="VapourSynth 脚本(vpy)"></a>VapourSynth 脚本(vpy)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">props_viewer = core.text.FrameProps(clip, alignment=<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+<p>打印视频信息的代码</p>
+<p>另外还有视频打印帧信息的函数 <code>awf.FrameInfo</code>,不过这个到具体的页面详细介绍（现在好像还没写）</p>
+<h2 id="缩放-Resizing"><a href="#缩放-Resizing" class="headerlink" title="缩放(Resizing)"></a>缩放(Resizing)</h2><p>首先请注意，后面会有一个单独的部分来介绍 <strong>降低分辨率(Descaling)</strong> 。而在这，我将解释调整大小的方法以及哪种调整器分别适合什么情况。<br>如果你想调整大小，重要的是不要超过必要的长宽比的改变。如果你要缩小尺寸，首先要搞明白宽度和高度应该是多少。如果你想缩小分辨率到720p，首先要裁剪，然后弄清楚你是缩放至720高还是1280宽。如果是前者，你的宽度应该是：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">width = <span class="built_in">round</span>(<span class="number">720</span> * src.height / (<span class="number">2</span> * src.width)) * <span class="number">2</span></span><br></pre></td></tr></table></figure>
 
 <p>对于后者，你会发现高度的代码与其非常相似：</p>
@@ -949,7 +952,7 @@
                     <a class="tag-none-link" href="/tags/%E5%BB%BA%E8%AE%BE%E4%B8%AD/" rel="tag">建设中</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-01-11T06:32:36.000Z" itemprop="dateModified">最后编辑：2025-01-11</time>
+                    <time datetime="2025-07-31T03:49:02.517Z" itemprop="dateModified">最后编辑：2025-07-31</time>
                 </div>
             </div>
         </footer>

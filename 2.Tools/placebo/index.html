@@ -27,7 +27,7 @@
 <meta property="og:description" content="这个可能不能使用 intel 的核显跑，不过 AMD Radeon(TM) Graphics 的核显似乎可以。 一个基于 libplacebo 的 VapourSynth 插件接口。 placebo.Deband(clip clip[, int planes &#x3D; 1, int iterations &#x3D; 1, float threshold &#x3D; 4.0, float radius &#x3D; 16.0, f">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-08T02:07:27.257Z">
-<meta property="article:modified_time" content="2025-07-08T07:50:10.907Z">
+<meta property="article:modified_time" content="2025-07-31T03:43:12.615Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="建设中">
 <meta property="article:tag" content="Plugins&amp;Scripts">
@@ -159,7 +159,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~3.72K
+                            ~5.10K
                         
                         字
                     </li>
@@ -173,12 +173,12 @@
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8E-libplacebo-%E7%9A%84-VapourSynth-%E6%8F%92%E4%BB%B6%E6%8E%A5%E5%8F%A3%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">一个基于 libplacebo 的 VapourSynth 插件接口。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Debugging-libplacebo-%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">Debugging libplacebo 处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-Linux-%E4%B8%8A%E6%9E%84%E5%BB%BA%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">在 Linux 上构建：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-Windows-%E7%89%88%E6%9C%AC%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">Linux 交叉编译 Windows 版本：</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8E-libplacebo-%E7%9A%84-VapourSynth-%E6%8F%92%E4%BB%B6%E6%8E%A5%E5%8F%A3%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">一个基于 libplacebo 的 VapourSynth 插件接口。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Debugging-libplacebo-%E5%A4%84%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">Debugging libplacebo 处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-Linux-%E4%B8%8A%E6%9E%84%E5%BB%BA%EF%BC%9A"><span class="toc-number">1.3.</span> <span class="toc-text">在 Linux 上构建：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-Windows-%E7%89%88%E6%9C%AC%EF%BC%9A"><span class="toc-number">1.4.</span> <span class="toc-text">Linux 交叉编译 Windows 版本：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number"></span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Matrix-%E5%80%BC%E5%88%97%E8%A1%A8"><span class="toc-number">1.</span> <span class="toc-text">_Matrix 值列表</span></a></li></ol>
                 </div>
             
             <hr />
             <div itemprop="articleBody"><p>这个可能不能使用 intel 的核显跑，不过 AMD Radeon(TM) Graphics 的核显似乎可以。</p>
-<h3 id="一个基于-libplacebo-的-VapourSynth-插件接口。"><a href="#一个基于-libplacebo-的-VapourSynth-插件接口。" class="headerlink" title="一个基于 libplacebo 的 VapourSynth 插件接口。"></a>一个基于 <a target="_blank" rel="noopener" href="https://code.videolan.org/videolan/libplacebo">libplacebo</a> 的 VapourSynth 插件接口。</h3><hr>
+<h2 id="一个基于-libplacebo-的-VapourSynth-插件接口。"><a href="#一个基于-libplacebo-的-VapourSynth-插件接口。" class="headerlink" title="一个基于 libplacebo 的 VapourSynth 插件接口。"></a>一个基于 <a target="_blank" rel="noopener" href="https://code.videolan.org/videolan/libplacebo">libplacebo</a> 的 VapourSynth 插件接口。</h2><hr>
 <p><code>placebo.Deband(clip clip[, int planes = 1, int iterations = 1, float threshold = 4.0, float radius = 16.0, float grain = 6.0, int dither = True, int dither_algo = 0])</code></p>
 <p>输入需要为8或16位整数或32位浮点数。</p>
 <ul>
@@ -268,6 +268,8 @@
 <p>不建议不用包管理器直接安装到系统。<br>否则只需 <code>DESTDIR= ninja -C build install</code>。</p>
 <hr>
 <h3 id="Linux-交叉编译-Windows-版本："><a href="#Linux-交叉编译-Windows-版本：" class="headerlink" title="Linux 交叉编译 Windows 版本："></a>Linux 交叉编译 Windows 版本：</h3><p>有一个基于 <code>mpv-winbuild-cmake</code> 的实验性构建系统：<a target="_blank" rel="noopener" href="https://github.com/quietvoid/mpv-winbuild-cmake/commits/vs-placebo-libdovi">https://github.com/quietvoid/mpv-winbuild-cmake/commits/vs-placebo-libdovi</a><br>建议在 Arch Linux 下使用，可能会有不同体验（YMMV）。</p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="Matrix-值列表"><a href="#Matrix-值列表" class="headerlink" title="_Matrix 值列表"></a>_Matrix 值列表</h2><p>Display P3 没有自己专属的 _Matrix (矩阵系数)，它通常借用 BT.709 或 BT.2020 的矩阵。(通常是9)</p>
+<p>0	vs.MATRIX_RGB	RGB	用于表示内容已经是 RGB 格式，不需要 YUV&lt;-&gt;RGB 转换。<br>1	vs.MATRIX_BT709	Rec. ITU-R BT.709-6	绝大多数高清 (HD) SDR 内容。例如 1080p 的蓝光碟、网络流媒体等。<br>2	vs.MATRIX_UNSPECIFIED	Unspecified	未指定。VapourSynth 会默认当做 BT.709 处理，但这是一个信号，表明源信息可能不完整。<br>3	(Reserved)	(保留值)	-<br>4	vs.MATRIX_FCC	FCC-73.682	美国 NTSC 模拟电视系统（1953年）。非常古老，基本不会遇到。<br>5	vs.MATRIX_BT470_BG	Rec. ITU-R BT.470-4 System B, G	欧洲 PAL&#x2F;SECAM 标清 (SD) 模拟电视。用于处理旧的欧洲 DVD 或电视录像。<br>6	vs.MATRIX_SMPTE170M	SMPTE-170M (2004)	北美&#x2F;日本 NTSC 标清 (SD) 数字电视和 DVD。与 BT.601 几乎等同。这是最常见的 SD 内容矩阵。<br>7	vs.MATRIX_SMPTE240M	SMPTE-240M (1999)	一种早期的、已被淘汰的 HD 标准。非常罕见。<br>8	vs.MATRIX_YCGCO	Y&#39;Cg&#39;Co&#39;	一种计算效率更高的色彩空间，主要用于一些特定的编解码器（如 H.264 的无损模式）。不常见。<br>9	vs.MATRIX_BT2020_NCL	Rec. ITU-R BT.2020 (Non-Constant Luminance)	所有现代超高清 (UHD) 内容，包括 4K&#x2F;8K 的 HDR10, HLG, Dolby Vision 以及 SDR 内容。这是 UHD 蓝光和流媒体的标准。<br>10	vs.MATRIX_BT2020_CL	Rec. ITU-R BT.2020 (Constant Luminance)	BT.2020 的恒定亮度版本。主要用于专业制作和中间格式，消费级内容中几乎见不到。<br>11	vs.MATRIX_SMPTE2085	SMPTE ST 2085	一种用于 HDR&#x2F;WCG 的 Y&#39;Dz&#39;Dx&#39; 色彩空间，与 Dolby Vision 的 ICtCp 类似，但应用不广。<br>12	vs.MATRIX_CHROMA_NCL	Chromaticity-derived NCL	基于色度推导的非恒定亮度矩阵。用于一些特殊场景，不常见。<br>13	vs.MATRIX_CHROMA_CL	Chromaticity-derived CL	基于色度推导的恒定亮度矩阵。不常见。<br>14	vs.MATRIX_ICTCP	Rec. ITU-R BT.2100-0 ICtCp	Dolby Vision 和其他一些先进 HDR 系统使用的色彩空间。ICtCp 在感知均匀性上优于 Y&#39;CbCr，能更高效地编码颜色。</p>
 </div>
         </div>
         
@@ -288,7 +290,7 @@
                     <a class="tag-none-link" href="/tags/Plugins-Scripts/" rel="tag">Plugins&Scripts</a>, <a class="tag-none-link" href="/tags/%E5%BB%BA%E8%AE%BE%E4%B8%AD/" rel="tag">建设中</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-07-08T07:50:10.907Z" itemprop="dateModified">最后编辑：2025-07-08</time>
+                    <time datetime="2025-07-31T03:43:12.615Z" itemprop="dateModified">最后编辑：2025-07-31</time>
                 </div>
             </div>
         </footer>
@@ -335,7 +337,7 @@
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8E-libplacebo-%E7%9A%84-VapourSynth-%E6%8F%92%E4%BB%B6%E6%8E%A5%E5%8F%A3%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">一个基于 libplacebo 的 VapourSynth 插件接口。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Debugging-libplacebo-%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">Debugging libplacebo 处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-Linux-%E4%B8%8A%E6%9E%84%E5%BB%BA%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">在 Linux 上构建：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-Windows-%E7%89%88%E6%9C%AC%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">Linux 交叉编译 Windows 版本：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8E-libplacebo-%E7%9A%84-VapourSynth-%E6%8F%92%E4%BB%B6%E6%8E%A5%E5%8F%A3%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">一个基于 libplacebo 的 VapourSynth 插件接口。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Debugging-libplacebo-%E5%A4%84%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">Debugging libplacebo 处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-Linux-%E4%B8%8A%E6%9E%84%E5%BB%BA%EF%BC%9A"><span class="toc-number">1.3.</span> <span class="toc-text">在 Linux 上构建：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-Windows-%E7%89%88%E6%9C%AC%EF%BC%9A"><span class="toc-number">1.4.</span> <span class="toc-text">Linux 交叉编译 Windows 版本：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number"></span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Matrix-%E5%80%BC%E5%88%97%E8%A1%A8"><span class="toc-number">1.</span> <span class="toc-text">_Matrix 值列表</span></a></li></ol>
     </div>
 </aside>
                 
