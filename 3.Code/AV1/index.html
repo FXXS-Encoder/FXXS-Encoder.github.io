@@ -19,15 +19,15 @@
   
     <meta name="keywords" content="Notes, 建设中" />
   
-  <meta name="description" content="鉴于 AV1 最初是为网络应用而设计的编解码器，它的优势不在于实现（完美的）透明度，而在于生成视觉上悦目的编码成品——即在文件体积很小的情况下，只有最轻微的可感知瑕疵。 by JET 以下都是笔记 大部分基于原版的参数都是预设就好，一般只要 preset 就行，似乎 preset 4 的效果比 preset 2 要好，速度还快。 大量噪点的片可以开 --film-grain 14 ，效果比 8 要">
+  <meta name="description" content="鉴于 AV1 最初是为网络应用而设计的编解码器，它的优势不在于实现（完美的）透明度，而在于生成视觉上悦目的编码成品——即在文件体积很小的情况下，只有最轻微的可感知瑕疵。 by JET 以下都是笔记 大部分基于原版的参数都是预设就好，一般只要 preset 就行，似乎 preset 4 的效果比 preset 2 要好，速度还快。  --preset 2 是（在推荐范围内）最慢的预设，它以极小的速度">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AV1">
 <meta property="og:url" content="http://fxxs.github.io/3.Code/AV1/index.html">
 <meta property="og:site_name" content="FXXS">
-<meta property="og:description" content="鉴于 AV1 最初是为网络应用而设计的编解码器，它的优势不在于实现（完美的）透明度，而在于生成视觉上悦目的编码成品——即在文件体积很小的情况下，只有最轻微的可感知瑕疵。 by JET 以下都是笔记 大部分基于原版的参数都是预设就好，一般只要 preset 就行，似乎 preset 4 的效果比 preset 2 要好，速度还快。 大量噪点的片可以开 --film-grain 14 ，效果比 8 要">
+<meta property="og:description" content="鉴于 AV1 最初是为网络应用而设计的编解码器，它的优势不在于实现（完美的）透明度，而在于生成视觉上悦目的编码成品——即在文件体积很小的情况下，只有最轻微的可感知瑕疵。 by JET 以下都是笔记 大部分基于原版的参数都是预设就好，一般只要 preset 就行，似乎 preset 4 的效果比 preset 2 要好，速度还快。  --preset 2 是（在推荐范围内）最慢的预设，它以极小的速度">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-08-05T07:57:16.180Z">
-<meta property="article:modified_time" content="2025-08-05T08:08:16.603Z">
+<meta property="article:modified_time" content="2025-08-05T08:26:37.114Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="建设中">
 <meta property="article:tag" content="Notes">
@@ -159,7 +159,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            372
+                            702
                         
                         字
                     </li>
@@ -176,6 +176,9 @@
             <div itemprop="articleBody"><p>鉴于 AV1 最初是为网络应用而设计的编解码器，它的优势不在于实现（完美的）透明度，而在于生成视觉上悦目的编码成品——即在文件体积很小的情况下，只有最轻微的可感知瑕疵。 by <a target="_blank" rel="noopener" href="https://jaded-encoding-thaumaturgy.github.io/JET-guide/master/encoding/svtav1/">JET</a></p>
 <p>以下都是笔记</p>
 <p>大部分基于原版的参数都是预设就好，一般只要 preset 就行，似乎 preset 4 的效果比 preset 2 要好，速度还快。</p>
+<blockquote>
+<p>--preset 2 是（在推荐范围内）最慢的预设，它以极小的速度损失换来了出色的效率提升。使用比 2 更慢的预设被认为是进入了“安慰剂”领域（即收效甚微），并且还有人担心更慢的预设会导致画面更模糊。<br>--preset 4 的速度则明显更快，而且有报告称其最终成品的保真度比预设 2 更高。它通常被认为是效速比（效率与速度的权衡）更佳的选择。最好的做法是，用你自己的常用内容来对这两种预设进行测试（理想情况下使用小的测试样本），然后决定你更偏好哪一个。<br>--preset 3 则处在 2 和 4 之间一个颇为尴尬的中间位置，没有什么特别的理由能让人放弃另外两者而选择它。顺便一提，预设 5 及以上更适用于实时应用场景，因此不在本文的讨论范围之内。<br>by JET</p>
+</blockquote>
 <p>大量噪点的片可以开 <code>--film-grain 14</code> ，效果比 8 要好，8的话会遗留很多横纹，而14的情况下，虽然画面很多噪点没了，但细节保留的更好一些，见下妻物语压制。</p>
 <p>svt-av1的 evb 效果不错，<code>--enable-variance-boost 1 --variance-boost-strength 3 --variance-octile 4</code>,但目前感觉同码率透明度是不如 x265 和 x264。</p>
 </div>
@@ -198,7 +201,7 @@
                     <a class="tag-none-link" href="/tags/Notes/" rel="tag">Notes</a>, <a class="tag-none-link" href="/tags/%E5%BB%BA%E8%AE%BE%E4%B8%AD/" rel="tag">建设中</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-08-05T08:08:16.603Z" itemprop="dateModified">最后编辑：2025-08-05</time>
+                    <time datetime="2025-08-05T08:26:37.114Z" itemprop="dateModified">最后编辑：2025-08-05</time>
                 </div>
             </div>
         </footer>
