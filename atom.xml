@@ -6,7 +6,7 @@
   <link href="http://fxxs.github.io/atom.xml" rel="self"/>
   
   <link href="http://fxxs.github.io/"/>
-  <updated>2025-08-05T08:33:11.009Z</updated>
+  <updated>2025-08-05T08:38:23.500Z</updated>
   <id>http://fxxs.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://fxxs.github.io/3.Code/AV1/"/>
     <id>http://fxxs.github.io/3.Code/AV1/</id>
     <published>2025-08-05T07:57:16.180Z</published>
-    <updated>2025-08-05T08:33:11.009Z</updated>
+    <updated>2025-08-05T08:38:23.500Z</updated>
     
-    <content type="html"><![CDATA[<p>鉴于 AV1 最初是为网络应用而设计的编解码器，它的优势不在于实现（完美的）透明度，而在于生成视觉上悦目的编码成品——即在文件体积很小的情况下，只有最轻微的可感知瑕疵。 by <a href="https://jaded-encoding-thaumaturgy.github.io/JET-guide/master/encoding/svtav1/">JET</a></p><p>以下都是笔记</p><p>大部分基于原版的参数都是预设就好，一般只要 preset 就行，似乎 preset 4 的效果比 preset 2 要好，速度还快。</p><blockquote><p>--preset 2 是（在推荐范围内）最慢的预设，它以极小的速度损失换来了出色的效率提升。使用比 2 更慢的预设被认为是进入了“安慰剂”领域（即收效甚微），并且还有人担心更慢的预设会导致画面更模糊。<br>--preset 4 的速度则明显更快，而且有报告称其最终成品的保真度比预设 2 更高。它通常被认为是效速比（效率与速度的权衡）更佳的选择。最好的做法是，用你自己的常用内容来对这两种预设进行测试（理想情况下使用小的测试样本），然后决定你更偏好哪一个。<br>--preset 3 则处在 2 和 4 之间一个颇为尴尬的中间位置，没有什么特别的理由能让人放弃另外两者而选择它。顺便一提，预设 5 及以上更适用于实时应用场景，因此不在本文的讨论范围之内。<br>by JET</p></blockquote><p>大量噪点的片可以开 <code>--film-grain 14</code> ，效果比 8 要好，8的话会遗留很多横纹，而14的情况下，虽然画面很多噪点没了，但细节保留的更好一些，见下妻物语压制。</p><p>svt-av1的 evb 效果不错，<code>--enable-variance-boost 1 --variance-boost-strength 3 --variance-octile 4</code>,但目前感觉同码率透明度是不如 x265 和 x264。(似乎<code>--variance-octile</code>不建议修改)</p>]]></content>
+    <content type="html"><![CDATA[<p>鉴于 AV1 最初是为网络应用而设计的编解码器，它的优势不在于实现（完美的）透明度，而在于生成视觉上悦目的编码成品——即在文件体积很小的情况下，只有最轻微的可感知瑕疵。 by <a href="https://jaded-encoding-thaumaturgy.github.io/JET-guide/master/encoding/svtav1/">JET</a></p><p>以下都是笔记</p><p>大部分基于原版的参数都是预设就好，一般只要 preset 就行，似乎 preset 4 的效果比 preset 2 要好，速度还快。</p><blockquote><p>--preset 2 是（在推荐范围内）最慢的预设，它以极小的速度损失换来了出色的效率提升。使用比 2 更慢的预设被认为是进入了“安慰剂”领域（即收效甚微），并且还有人担心更慢的预设会导致画面更模糊。<br>--preset 4 的速度则明显更快，而且有报告称其最终成品的保真度比预设 2 更高。它通常被认为是效速比（效率与速度的权衡）更佳的选择。最好的做法是，用你自己的常用内容来对这两种预设进行测试（理想情况下使用小的测试样本），然后决定你更偏好哪一个。<br>--preset 3 则处在 2 和 4 之间一个颇为尴尬的中间位置，没有什么特别的理由能让人放弃另外两者而选择它。顺便一提，预设 5 及以上更适用于实时应用场景，因此不在本文的讨论范围之内。<br>by JET</p></blockquote><p>大量噪点的片可以开 <code>--film-grain 14</code> ，效果比 8 要好，8的话会遗留很多横纹，而14的情况下，虽然画面很多噪点没了，但细节保留的更好一些，见下妻物语压制。</p><blockquote><p>内的颗粒合成功能有集成的降噪步骤 (--film-grain-denoise)，但效果很糟糕，所以最好让它保持禁用状态（这也是默认设置）。<br>by JET</p></blockquote><p>svt-av1的 evb 效果不错，<code>--enable-variance-boost 1 --variance-boost-strength 3 --variance-octile 4</code>,但目前感觉同码率透明度是不如 x265 和 x264。(似乎<code>--variance-octile</code>不建议修改)</p><p>JET中说的，还未进行测试</p><blockquote><p>--tile-columns 1 --tile-rows 0: at 1080p and above.<br>--tile-columns 2 --tile-rows 0: at 4K and above.</p></blockquote>]]></content>
     
     
       
