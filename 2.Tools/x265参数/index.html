@@ -27,7 +27,7 @@
 <meta property="og:description" content="参考资料 https:&#x2F;&#x2F;tieba.baidu.com&#x2F;p&#x2F;6627144750  https:&#x2F;&#x2F;x265.readthedocs.io&#x2F;en&#x2F;master&#x2F;cli.html (可以选版本)  https:&#x2F;&#x2F;guides.vcb-s.com&#x2F;basic-guide-07#4-x265-参数解析  https:&#x2F;&#x2F;silentaperture.gitlab.io&#x2F;mdbook-guide&#x2F;en">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-07T14:50:12.526Z">
-<meta property="article:modified_time" content="2025-08-06T06:02:01.723Z">
+<meta property="article:modified_time" content="2025-08-06T06:16:09.678Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -158,7 +158,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~7.13K
+                            ~7.08K
                         
                         字
                     </li>
@@ -308,8 +308,7 @@
 <p>psy-rd 默认 2.0 有些高，建议开到1.5，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试) 目前看来 VCB 似乎建议开高，国外是推荐真人电影(x264)开到1左右，不过4k 可能需要开到2</p>
 <p>psy-rdoq 其实这玩意儿，可以理解为你想保留的细节大小，你想保留的越小，就给更高。-VCB</p>
 <p>一些测试见Compare</p>
-<h2 id="Pools-Numa"><a href="#Pools-Numa" class="headerlink" title="Pools &amp; Numa"></a>Pools &amp; Numa</h2><p><del>x265 中2个 Numa 是4个 pools。<code>--pools &#39;+,+,-,-&#39;</code></del>（先划掉了，因为虽然AI在夸我，但我感觉不太对）</p>
-<h3 id="CPU-区别"><a href="#CPU-区别" class="headerlink" title="CPU 区别"></a>CPU 区别</h3><blockquote>
+<h2 id="Pools-Numa"><a href="#Pools-Numa" class="headerlink" title="Pools &amp; Numa"></a>Pools &amp; Numa</h2><h3 id="CPU-区别"><a href="#CPU-区别" class="headerlink" title="CPU 区别"></a>CPU 区别</h3><blockquote>
 <p>Intel 和 AMD 在 NUMA 的物理实现和拓扑结构上有着显著的不同，这直接影响了它们在操作系统中的表现以及像 x265 这样的软件如何最优地利用它们。</p>
 </blockquote>
 <blockquote>
@@ -324,7 +323,7 @@
 </ul>
 <p>官方文档: <a target="_blank" rel="noopener" href="https://www.amd.com/content/dam/amd/en/documents/epyc-technical-docs/tuning-guides/amd-epyc-7002-tg-hpc-56827.pdf">https://www.amd.com/content/dam/amd/en/documents/epyc-technical-docs/tuning-guides/amd-epyc-7002-tg-hpc-56827.pdf</a></p>
 <p>查到的一些讨论 <a target="_blank" rel="noopener" href="http://wp.xin.at/archives/5478">http://wp.xin.at/archives/5478</a></p>
-<h3 id="pools"><a href="#pools" class="headerlink" title="pools"></a>pools</h3><p>EPYC上，在只&#39;+,-&#39;或&#39;64,-&#39;，x265可能会开启单线程模式，但是&#39;+,+&#39;却会单 pool 创建到 node1 上，不确定是不是 x265 本身是不是有些啥问题。</p>
+<h3 id="pools"><a href="#pools" class="headerlink" title="pools"></a>pools</h3><p>EPYC上，在只&#39;+,-&#39;或&#39;64,-&#39;，x265可能会开启单线程模式，但是&#39;+,+&#39;却会单 pool 创建到 node1 上，不确定是不是 x265 本身是不是有些啥问题。（其实印象里以前 Intel 似乎也有类似问题）</p>
 <p><code>--pools &#39;+,+&#39;</code>会在node0上，<code>--pools &#39;+,+,-,-&#39;</code>会跑到node01上。<code>--pools &#39;-,+&#39;</code>正常 Work</p>
 <p>另见<a target="_blank" rel="noopener" href="https://github.com/lordmulder/Simple-x264-Launcher/issues/34">issue</a>，一般 wpp 默认开启</p>
 <p>x265 会根据 CPU 自动配置线程数量，目前测试是两个 Numa 线程数翻倍的情况下，压制速度没有区别。</p>
@@ -359,7 +358,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-08-06T06:02:01.723Z" itemprop="dateModified">最后编辑：2025-08-06</time>
+                    <time datetime="2025-08-06T06:16:09.678Z" itemprop="dateModified">最后编辑：2025-08-06</time>
                 </div>
             </div>
         </footer>
