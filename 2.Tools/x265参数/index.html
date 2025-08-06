@@ -27,7 +27,7 @@
 <meta property="og:description" content="参考资料 https:&#x2F;&#x2F;tieba.baidu.com&#x2F;p&#x2F;6627144750  https:&#x2F;&#x2F;x265.readthedocs.io&#x2F;en&#x2F;master&#x2F;cli.html (可以选版本)  https:&#x2F;&#x2F;guides.vcb-s.com&#x2F;basic-guide-07#4-x265-参数解析  https:&#x2F;&#x2F;silentaperture.gitlab.io&#x2F;mdbook-guide&#x2F;en">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-07T14:50:12.526Z">
-<meta property="article:modified_time" content="2025-08-06T03:44:37.265Z">
+<meta property="article:modified_time" content="2025-08-06T04:28:10.805Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -158,7 +158,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~6.52K
+                            ~6.67K
                         
                         字
                     </li>
@@ -308,9 +308,16 @@
 <p>psy-rd 默认 2.0 有些高，建议开到1.5，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试) 目前看来 VCB 似乎建议开高，国外是推荐真人电影(x264)开到1左右，不过4k 可能需要开到2</p>
 <p>psy-rdoq 其实这玩意儿，可以理解为你想保留的细节大小，你想保留的越小，就给更高。-VCB</p>
 <p>一些测试见Compare</p>
-<h2 id="Pools-Numa"><a href="#Pools-Numa" class="headerlink" title="Pools &amp; Numa"></a>Pools &amp; Numa</h2><p>x265 中2个 Numa 是4个 pools。<code>--pools &#39;+,+,-,-&#39;</code>,另见<a target="_blank" rel="noopener" href="https://github.com/lordmulder/Simple-x264-Launcher/issues/34">issue</a>，一般 wpp 默认开启</p>
+<h2 id="Pools-Numa"><a href="#Pools-Numa" class="headerlink" title="Pools &amp; Numa"></a>Pools &amp; Numa</h2><p><del>x265 中2个 Numa 是4个 pools。<code>--pools &#39;+,+,-,-&#39;</code></del>（先划掉了，因为虽然AI在夸我，但我感觉不太对）</p>
+<p>在只&#39;+,-&#39;或&#39;64,-&#39;，x265可能会开启单线程模式，但是&#39;+,+&#39;却会单 pool 创建到 node1 上，不确定是不是 x265 本身是不是有些啥问题。</p>
+<p>另见<a target="_blank" rel="noopener" href="https://github.com/lordmulder/Simple-x264-Launcher/issues/34">issue</a>，一般 wpp 默认开启</p>
+<blockquote>
 <p>--pools &quot;+,-&quot; 是错误用法：这个设置会人为地放弃一半的 CPU 性能，不应该用于追求最高速度。它主要用于调试或在不同 NUMA 架构的机器上获得可复现的编码结果。（单一线程池下会默认禁用 wpp 以及一些并行的参数）</p>
+</blockquote>
+<blockquote>
 <p>坚持使用默认设置：对于多 NUMA 系统的性能最大化，最好的方法就是不加任何线程参数，让 x265 自动检测并创建 --pools &quot;+,+&quot;。(不能开启单一线程池，但通常来说，在多 Numa 的情况下，不建议所有 Numa 一起跑，建议是两个 pools)</p>
+</blockquote>
+<p>可能都是错的</p>
 <p>x265 会根据 CPU 自动配置线程数量，目前测试是两个 Numa 线程数翻倍的情况下，压制速度没有区别。</p>
 <p>x265 有两种主要的并行方式：</p>
 <p>帧级并行（Frame-level Parallelism）：最高效的方式。多个线程同时处理不同的帧。</p>
@@ -321,7 +328,7 @@
 <p>因此，x265 的开发者做出了一个明智的决定：如果只有一个线程池，就认为帧级并行已经足够，此时禁用 WPP 可以减少不必要的同步开销，从而可能获得微小的性能提升或简化调度逻辑。</p>
 <h2 id="pmode-no-pmode-4-1-deprecated"><a href="#pmode-no-pmode-4-1-deprecated" class="headerlink" title="pmode &amp; no-pmode (4.1 deprecated)"></a>pmode &amp; no-pmode (4.1 deprecated)</h2><p>并行决策模式</p>
 <p>官方推荐是CPU不饱和才开，编码器将跨多个工作线程分配每个 CU 的分析工作。</p>
-<p>--追加说明，<code>--pme</code>、<code>--lookahead-slices</code> 也在4.1中禁用了。<br> pmode 和 wpp 是技术上互斥的，ps，我以前犯蠢不知道</p>
+<p>--追加说明，<code>--pme</code>、<code>--lookahead-slices</code> 也在4.1中禁用了。<br>pmode 和 wpp 是设计理念和实际效果上是冲突的，ps，我以前犯蠢不知道</p>
 </div>
         </div>
         
@@ -342,7 +349,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-08-06T03:44:37.265Z" itemprop="dateModified">最后编辑：2025-08-06</time>
+                    <time datetime="2025-08-06T04:28:10.805Z" itemprop="dateModified">最后编辑：2025-08-06</time>
                 </div>
             </div>
         </footer>
