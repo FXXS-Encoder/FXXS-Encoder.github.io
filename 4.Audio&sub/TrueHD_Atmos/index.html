@@ -19,15 +19,15 @@
   
     <meta name="keywords" content="" />
   
-  <meta name="description" content="Author: saindriches 直到不久前，在 PC 上解码 TrueHD Atmos 的方案都是使用 Dolby Reference Player，输出的音频已经经过对象音频渲染，只能选择一种固定的声道布局，例如 7.1.4、9.1.6 等。为了获得原始的解码结果，以近期的 TrueHD 解码器作为参考，通过逆向工程重新实现，现已开源。 项目地址：https:&#x2F;&#x2F;github.com&#x2F;t">
+  <meta name="description" content="直到不久前，在 PC 上解码 TrueHD Atmos 的方案都是使用 Dolby Reference Player，输出的音频已经经过对象音频渲染，只能选择一种固定的声道布局，例如 7.1.4、9.1.6 等。为了获得原始的解码结果，以近期的 TrueHD 解码器作为参考，通过逆向工程重新实现，现已开源。 项目地址：https:&#x2F;&#x2F;github.com&#x2F;truehdd&#x2F;truehdd，其中包含中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TrueHDD - 开源 TrueHD Atmos 解码器">
 <meta property="og:url" content="http://fxxs.github.io/4.Audio&sub/TrueHD_Atmos/index.html">
 <meta property="og:site_name" content="FXXS">
-<meta property="og:description" content="Author: saindriches 直到不久前，在 PC 上解码 TrueHD Atmos 的方案都是使用 Dolby Reference Player，输出的音频已经经过对象音频渲染，只能选择一种固定的声道布局，例如 7.1.4、9.1.6 等。为了获得原始的解码结果，以近期的 TrueHD 解码器作为参考，通过逆向工程重新实现，现已开源。 项目地址：https:&#x2F;&#x2F;github.com&#x2F;t">
+<meta property="og:description" content="直到不久前，在 PC 上解码 TrueHD Atmos 的方案都是使用 Dolby Reference Player，输出的音频已经经过对象音频渲染，只能选择一种固定的声道布局，例如 7.1.4、9.1.6 等。为了获得原始的解码结果，以近期的 TrueHD 解码器作为参考，通过逆向工程重新实现，现已开源。 项目地址：https:&#x2F;&#x2F;github.com&#x2F;truehdd&#x2F;truehdd，其中包含中">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-08-16T12:56:43.586Z">
-<meta property="article:modified_time" content="2025-08-16T13:08:14.838Z">
+<meta property="article:published_time" content="2025-08-18T00:33:09.049Z">
+<meta property="article:modified_time" content="2025-08-16T13:14:17.000Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -149,7 +149,7 @@
                 <h1 class="kratos-page-title text-center" itemprop="name headline">TrueHDD - 开源 TrueHD Atmos 解码器</h1>
             
             <ul class="kratos-page-meta text-center">
-                <li><time datetime="2025-08-16T12:56:43.586Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2025-08-16</time></li>
+                <li><time datetime="2025-08-18T00:33:09.049Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2025-08-18</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">saindriches</span>
                 </li>
@@ -158,7 +158,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~3.93K
+                            ~3.91K
                         
                         字
                     </li>
@@ -172,8 +172,7 @@
             
             
             <hr />
-            <div itemprop="articleBody"><p>Author: saindriches</p>
-<p>直到不久前，在 PC 上解码 TrueHD Atmos 的方案都是使用 Dolby Reference Player，输出的音频已经经过对象音频渲染，只能选择一种固定的声道布局，例如 7.1.4、9.1.6 等。<br>为了获得原始的解码结果，以近期的 TrueHD 解码器作为参考，通过逆向工程重新实现，现已开源。</p>
+            <div itemprop="articleBody"><p>直到不久前，在 PC 上解码 TrueHD Atmos 的方案都是使用 Dolby Reference Player，输出的音频已经经过对象音频渲染，只能选择一种固定的声道布局，例如 7.1.4、9.1.6 等。<br>为了获得原始的解码结果，以近期的 TrueHD 解码器作为参考，通过逆向工程重新实现，现已开源。</p>
 <p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/truehdd/truehdd">https://github.com/truehdd/truehdd</a>，其中包含中文的使用说明。</p>
 <p>在开源后的近一个月时间里根据早期用户反馈进行了部分改进，目前的版本为 <strong>0.4.0</strong>，可以在 Releases 获取。目前的 CI 包含 Windows &#x2F; Linux (GNU &#x2F; musl) &#x2F; macOS 的 x86_64 &#x2F; arm64 版本，应该能够覆盖大部分 PC 平台。</p>
 <p>此外，目前已经与开源的渲染器 <a target="_blank" rel="noopener" href="https://cavern.sbence.hu/cavern/doc.php?p=Cavernize">Cavernize</a> 进行集成，Windows 用户可以通过 GUI 进行更加自由的音频渲染（在功能上完全替代 Dolby Reference Player，但请注意 Cavern 的目标并不是匹配 Dolby Reference Player 的输出结果）。</p>
@@ -222,7 +221,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-08-16T13:08:14.838Z" itemprop="dateModified">最后编辑：2025-08-16</time>
+                    <time datetime="2025-08-16T13:14:17.000Z" itemprop="dateModified">最后编辑：2025-08-16</time>
                 </div>
             </div>
         </footer>
