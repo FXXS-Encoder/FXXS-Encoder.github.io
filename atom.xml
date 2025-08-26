@@ -6,7 +6,7 @@
   <link href="http://fxxs.github.io/atom.xml" rel="self"/>
   
   <link href="http://fxxs.github.io/"/>
-  <updated>2025-08-26T01:49:26.814Z</updated>
+  <updated>2025-08-26T02:08:00.409Z</updated>
   <id>http://fxxs.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://fxxs.github.io/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%91%95%E7%96%B5%E8%AF%B4%E6%98%8E/"/>
     <id>http://fxxs.github.io/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%91%95%E7%96%B5%E8%AF%B4%E6%98%8E/</id>
     <published>2025-08-26T01:44:41.731Z</published>
-    <updated>2025-08-26T01:49:26.814Z</updated>
+    <updated>2025-08-26T02:08:00.409Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="伪影-artifact"><a href="#伪影-artifact" class="headerlink" title="伪影(artifact)"></a>伪影(artifact)</h1><p>编码器 “无中生有”，创造出一些不存在的噪点或块效应，因为它在拼命避免“过于平滑”。</p><p>通常因为不当的 aq 或者 psy-rd 引入，一些缩放算法也会导致伪影。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="伪影-artifact"><a href="#伪影-artifact" class="headerlink" title="伪影(artifact)"></a>伪影(artifact)</h1><p>编码器 “无中生有”，创造出一些不存在的噪点或块效应，因为它在拼命避免“过于平滑”。</p><p>通常因为不当的 aq 或者 psy-rd 引入，一些缩放算法也会导致伪影。</p><h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>VCB 的瑕疵说明</p><p><a href="https://guides.vcb-s.com/basic-guide-04/">https://guides.vcb-s.com/basic-guide-04/</a></p>]]></content>
     
     
       
