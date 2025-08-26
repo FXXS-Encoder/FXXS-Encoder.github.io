@@ -27,7 +27,7 @@
 <meta property="og:description" content="参考资料 https:&#x2F;&#x2F;tieba.baidu.com&#x2F;p&#x2F;6627144750  https:&#x2F;&#x2F;x265.readthedocs.io&#x2F;en&#x2F;master&#x2F;cli.html (可以选版本)  https:&#x2F;&#x2F;guides.vcb-s.com&#x2F;basic-guide-07#4-x265-参数解析  https:&#x2F;&#x2F;silentaperture.gitlab.io&#x2F;mdbook-guide&#x2F;en">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-08-18T00:33:09.043Z">
-<meta property="article:modified_time" content="2025-08-26T01:52:39.060Z">
+<meta property="article:modified_time" content="2025-08-26T02:10:38.573Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -158,7 +158,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~7.96K
+                            ~7.95K
                         
                         字
                     </li>
@@ -307,7 +307,7 @@
 <p>这两者都会影响码率(经测试，开高psy-rdoq到5所增加的码率通过crf来给画面反而效果更好)</p>
 <p>psy-rd 默认 2.0 有些高，建议开到1.5，开高反而降低画质(不过这种仅适用高还原度压制，如果希望节省码率，这个可能要再试试) 目前看来 VCB 似乎建议开高，国外是推荐真人电影(x264)开到1左右，不过4k 可能需要开到2</p>
 <p>psy-rd: 它的核心作用是在编码器进行“模式决策”（比如决定一个编码块应该如何分割、使用何种预测方式等）时，引入一个额外的“惩罚项”。这个惩罚项的目标是：阻止编码器为了节省码率而过度简化（模糊化）人眼认为重要的细节和纹理。</p>
-<p>**高强度的 psy-rd 可能会导致<a href="/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%91%95%E7%96%B5%E8%AF%B4%E6%98%8E#%E4%BC%AA%E5%BD%B1-artifact">伪影</a>(artifact) **</p>
+<p><strong>高强度的 psy-rd 可能会导致<a href="/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%91%95%E7%96%B5%E8%AF%B4%E6%98%8E#%E4%BC%AA%E5%BD%B1-artifact">伪影</a>(artifact)</strong></p>
 <p>psy-rdoq 其实这玩意儿，可以理解为你想保留的细节大小，你想保留的越小，就给更高。-VCB</p>
 <p>一些测试见Compare</p>
 <h1 id="测试过但是不使用的参数"><a href="#测试过但是不使用的参数" class="headerlink" title="测试过但是不使用的参数"></a>测试过但是不使用的参数</h1><h2 id="ssim-rd"><a href="#ssim-rd" class="headerlink" title="ssim-rd"></a>ssim-rd</h2><p><code>--ssim-rd</code> 会让 x265 在进行“码率-失真优化”（Rate-Distortion Optimization, RDO）时，使用 SSIM (结构相似性) 作为衡量“失真”的标准，而不是默认的 PSNR (峰值信噪比)。其目标是在同等码率下，生成人眼看起来观感更好、纹理和细节保留更自然的视频，但代价是编码速度会显著变慢。</p>
@@ -367,7 +367,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-08-26T01:52:39.060Z" itemprop="dateModified">最后编辑：2025-08-26</time>
+                    <time datetime="2025-08-26T02:10:38.573Z" itemprop="dateModified">最后编辑：2025-08-26</time>
                 </div>
             </div>
         </footer>
