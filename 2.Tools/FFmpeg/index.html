@@ -27,7 +27,7 @@
 <meta property="og:description" content="版本区别shared: 不包含dll，运行的时候，到相应的dll中调用功能。程序运行过程必须依赖于提供的dll文件。vulkan: Vulkan Support-N: 会是最新的，但不那么stablen4.3.2: Release version LGPL似乎会比GPL少一些功能 ffprobeffprobe &#39;文件&#39; 用于检测文件信息(不过直接看mediainfo就好，而且纯文本">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-10T06:47:07.421Z">
-<meta property="article:modified_time" content="2025-09-08T03:24:52.724Z">
+<meta property="article:modified_time" content="2025-09-08T06:44:35.857Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -158,7 +158,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~2.01K
+                            ~2.20K
                         
                         字
                     </li>
@@ -172,7 +172,7 @@
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">版本区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ffprobe"><span class="toc-number">2.</span> <span class="toc-text">ffprobe</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8C%83%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">范例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E6%B7%B7"><span class="toc-number">4.</span> <span class="toc-text">下混</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Other"><span class="toc-number">5.</span> <span class="toc-text">Other</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%86%E9%9F%B3%E8%BD%A8%E4%B8%BA%E5%8D%95%E8%BD%A8%E9%81%93-%E4%B8%8D%E7%BB%B4%E6%8A%A4"><span class="toc-number">6.</span> <span class="toc-text">拆音轨为单轨道(不维护)</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">版本区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ffprobe"><span class="toc-number">2.</span> <span class="toc-text">ffprobe</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8C%83%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">范例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%87%E5%89%B2"><span class="toc-number">4.</span> <span class="toc-text">切割</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E6%B7%B7"><span class="toc-number">5.</span> <span class="toc-text">下混</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Other"><span class="toc-number">6.</span> <span class="toc-text">Other</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Notes"><span class="toc-number">7.</span> <span class="toc-text">Notes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%86%E9%9F%B3%E8%BD%A8%E4%B8%BA%E5%8D%95%E8%BD%A8%E9%81%93-%E4%B8%8D%E7%BB%B4%E6%8A%A4"><span class="toc-number">8.</span> <span class="toc-text">拆音轨为单轨道(不维护)</span></a></li></ol>
                 </div>
             
             <hr />
@@ -185,9 +185,12 @@
 <p><code>ffmpeg -c:a flac -compression_level 12 1.flac -i 1.dts</code></p>
 <p><code>ffmpeg -map 0:1  -c:a flac -compression_level 12 a.flac -i 1.mkv </code></p>
 <p>截图<br><code>ffmpeg -v quiet -ss 00:23:00 -i file -vcodec png -vframes 1 -pix_fmt rgb24 -y ~/filename.png</code></p>
+<h1 id="切割"><a href="#切割" class="headerlink" title="切割"></a>切割</h1><p>ffmpeg -ss 4.838 -i &#39;.\Taylor.Swift.-.Red.Web-DL.1080i.ProRes.mov&#39; -c:v copy -c:a copy Taylor.Swift.-.Red.mov</p>
+<p>请注意要自己从帧换算到时间，</p>
 <h1 id="下混"><a href="#下混" class="headerlink" title="下混"></a>下混</h1><p>注意未经仔细调研</p>
 <p>ffmpeg -i &quot;movie.mkv&quot;  -c:a flac -ac 6 &quot;5.1.flac&quot;<br>ffmpeg -i &quot;movie.mkv&quot;  -c:a ac3 -ac 2 -b:a 384k &quot;5.1.flac&quot;</p>
 <h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><p><a href="/4.Audio&sub/DlobyE">Dloby E</a></p>
+<h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1><p>FFmpeg 并不会直接修改音频帧率(这个一般都是视频属性)，通常都是修改延展率，需要自行计算</p>
 <h1 id="拆音轨为单轨道-不维护"><a href="#拆音轨为单轨道-不维护" class="headerlink" title="拆音轨为单轨道(不维护)"></a><del>拆音轨为单轨道(不维护)</del></h1><p>可能存在问题，有需要还是看 DEEW 的代码</p>
 <p>(废弃，Dolby Media Producer Suite需要，不过已经用不到了)</p>
 <p>音轨轨道顺序可以在这里确认<a target="_blank" rel="noopener" href="https://trac.ffmpeg.org/wiki/AudioChannelManipulation">https://trac.ffmpeg.org/wiki/AudioChannelManipulation</a></p>
@@ -214,7 +217,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-09-08T03:24:52.724Z" itemprop="dateModified">最后编辑：2025-09-08</time>
+                    <time datetime="2025-09-08T06:44:35.857Z" itemprop="dateModified">最后编辑：2025-09-08</time>
                 </div>
             </div>
         </footer>
@@ -257,7 +260,7 @@
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">版本区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ffprobe"><span class="toc-number">2.</span> <span class="toc-text">ffprobe</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8C%83%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">范例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E6%B7%B7"><span class="toc-number">4.</span> <span class="toc-text">下混</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Other"><span class="toc-number">5.</span> <span class="toc-text">Other</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%86%E9%9F%B3%E8%BD%A8%E4%B8%BA%E5%8D%95%E8%BD%A8%E9%81%93-%E4%B8%8D%E7%BB%B4%E6%8A%A4"><span class="toc-number">6.</span> <span class="toc-text">拆音轨为单轨道(不维护)</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">版本区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ffprobe"><span class="toc-number">2.</span> <span class="toc-text">ffprobe</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8C%83%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">范例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%87%E5%89%B2"><span class="toc-number">4.</span> <span class="toc-text">切割</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E6%B7%B7"><span class="toc-number">5.</span> <span class="toc-text">下混</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Other"><span class="toc-number">6.</span> <span class="toc-text">Other</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Notes"><span class="toc-number">7.</span> <span class="toc-text">Notes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%86%E9%9F%B3%E8%BD%A8%E4%B8%BA%E5%8D%95%E8%BD%A8%E9%81%93-%E4%B8%8D%E7%BB%B4%E6%8A%A4"><span class="toc-number">8.</span> <span class="toc-text">拆音轨为单轨道(不维护)</span></a></li></ol>
     </div>
 </aside>
                 
