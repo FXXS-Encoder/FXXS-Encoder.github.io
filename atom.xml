@@ -6,7 +6,7 @@
   <link href="http://fxxs.github.io/atom.xml" rel="self"/>
   
   <link href="http://fxxs.github.io/"/>
-  <updated>2025-08-26T02:14:56.095Z</updated>
+  <updated>2025-09-08T07:18:32.860Z</updated>
   <id>http://fxxs.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FFmpeg</title>
+    <link href="http://fxxs.github.io/2.Tools/FFmpeg/"/>
+    <id>http://fxxs.github.io/2.Tools/FFmpeg/</id>
+    <published>2025-09-08T07:18:15.092Z</published>
+    <updated>2025-09-08T07:18:32.860Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="版本区别"><a href="#版本区别" class="headerlink" title="版本区别"></a>版本区别</h1><p>shared: 不包含dll，运行的时候，到相应的dll中调用功能。程序运行过程必须依赖于提供的dll文件。<br>vulkan: Vulkan Support<br>-N: 会是最新的，但不那么stable<br>n4.3.2: Release version</p><p>LGPL似乎会比GPL少一些功能</p><h1 id="ffprobe"><a href="#ffprobe" class="headerlink" title="ffprobe"></a>ffprobe</h1><p><code>ffprobe &#39;文件&#39;</code> 用于检测文件信息(不过直接看mediainfo就好，而且纯文本输出没有各种GUI看起来那么直观,不过可以用来确认下音轨轨道)</p><p>ffprobe 无法区分音轨是否带Atmos</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Stream #0:1(eng): Audio: dts (DTS-HD MA), 48000 Hz, 5.1(side), s32p (24 bit) (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      title           : DTS-HD MA 5.1</span><br><span class="line">      BPS-eng         : 4133090</span><br><span class="line">      DURATION-eng    : 02:58:09.472000000</span><br><span class="line">      NUMBER_OF_FRAMES-eng: 1002138</span><br><span class="line">      NUMBER_OF_BYTES-eng: 5522569140</span><br><span class="line">      _STATISTICS_WRITING_APP-eng: mkvmerge v29.0.0 (&#x27;Like It Or Not&#x27;) 64-bit</span><br><span class="line">      _STATISTICS_WRITING_DATE_UTC-eng: 2018-12-23 15:53:25</span><br><span class="line">      _STATISTICS_TAGS-eng: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES</span><br></pre></td></tr></table></figure><h1 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h1><p>注意 ffmpeg 的压缩登记跟 flac.exe libflac 不同</p><p><code>ffmpeg -c:a flac -compression_level 12 1.flac -i 1.dts</code></p><p><code>ffmpeg -map 0:1  -c:a flac -compression_level 12 a.flac -i 1.mkv </code></p><p>截图<br><code>ffmpeg -v quiet -ss 00:23:00 -i file -vcodec png -vframes 1 -pix_fmt rgb24 -y ~/filename.png</code></p><h1 id="切割"><a href="#切割" class="headerlink" title="切割"></a>切割</h1><p>ffmpeg -ss 4.838 -i &#39;.\Taylor.Swift.-.Red.Web-DL.1080i.ProRes.mov&#39; -c:v copy -c:a copy Taylor.Swift.-.Red.mov</p><p>请注意要自己从帧换算到时间，</p><h1 id="下混"><a href="#下混" class="headerlink" title="下混"></a>下混</h1><p>注意未经仔细调研</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i &quot;movie.mkv&quot;  -c:a flac -ac 6 &quot;5.1.flac&quot;</span><br><span class="line">ffmpeg -i &quot;movie.mkv&quot;  -c:a ac3 -ac 2 -b:a 384k &quot;5.1.flac&quot;</span><br></pre></td></tr></table></figure><h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><p><a href="/4.Audio&sub/DlobyE">Dloby E</a></p><h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1><p>FFmpeg 并不会直接修改音频帧率(这个一般都是视频属性)，通常都是修改延展率，需要自行计算</p><h1 id="拆音轨为单轨道-不维护"><a href="#拆音轨为单轨道-不维护" class="headerlink" title="拆音轨为单轨道(不维护)"></a><del>拆音轨为单轨道(不维护)</del></h1><p>可能存在问题，有需要还是看 DEEW 的代码</p><p>(废弃，Dolby Media Producer Suite需要，不过已经用不到了)</p><p>音轨轨道顺序可以在这里确认<a href="https://trac.ffmpeg.org/wiki/AudioChannelManipulation">https://trac.ffmpeg.org/wiki/AudioChannelManipulation</a></p><p>ffmpeg -i input.wav -filter_complex &quot;channelsplit&#x3D;channel_layout&#x3D;5.1[FL][FR][FC][LFE][BL][BR]&quot; -map &quot;[FL]&quot; -c:a -map &quot;[FR]&quot; R.wav -map &quot;[FC]&quot; C.wav -map &quot;[LFE]&quot; LFE.wav -map &quot;[BL]&quot; Ls.wav -map &quot;[BR]&quot; Rs.wav</p><p>24bit</p><p>ffmpeg -i input.wav -filter_complex &quot;channelsplit&#x3D;channel_layout&#x3D;5.1[FL][FR][FC][LFE][BL][BR]&quot; -map &quot;[FL]&quot; -c:a pcm_s24le L.wav -map &quot;[FR]&quot; -c:a pcm_s24le R.wav -map &quot;[FC]&quot; -c:a pcm_s24le C.wav -map &quot;[LFE]&quot; -c:a pcm_s24le LFE.wav -map &quot;[BL]&quot; -c:a pcm_s24le Ls.wav -map &quot;[BR]&quot; -c:a pcm_s24le Rs.wav</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;版本区别&quot;&gt;&lt;a href=&quot;#版本区别&quot; class=&quot;headerlink&quot; title=&quot;版本区别&quot;&gt;&lt;/a&gt;版本区别&lt;/h1&gt;&lt;p&gt;shared: 不包含dll，运行的时候，到相应的dll中调用功能。程序运行过程必须依赖于提供的dll文件。&lt;br&gt;vulk</summary>
+      
+    
+    
+    
+    <category term="2.Tools" scheme="http://fxxs.github.io/categories/2-Tools/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>基础瑕疵介绍</title>
@@ -466,29 +488,6 @@
     
     
     <category term="Compare" scheme="http://fxxs.github.io/tags/Compare/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>字幕相关</title>
-    <link href="http://fxxs.github.io/4.Audio&amp;sub/%E5%AD%97%E5%B9%95%E5%88%B6%E4%BD%9C/"/>
-    <id>http://fxxs.github.io/4.Audio&amp;sub/%E5%AD%97%E5%B9%95%E5%88%B6%E4%BD%9C/</id>
-    <published>2025-01-10T07:48:27.816Z</published>
-    <updated>2024-09-28T09:37:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本篇内容都作为 Optional</p><h1 id="字幕调轴"><a href="#字幕调轴" class="headerlink" title="字幕调轴"></a>字幕调轴</h1><p>一般来说不少字幕都可以通过平移来解决不同步问题。<br>但还有相当多的会因为源的帧率不同导致同步问题。</p><p>此时应确认原字幕匹配的视频文件的帧率，以及目标视频文件的视频帧率</p><p>以 Blonde and Blonder 2007 举例，现有的都是DVD的字幕，需要制作1080p AMZN web(25fps)的字幕。</p><p>DVD是NTSC的，也就是传说中的5烂2</p><p><strong>Attention</strong> NTSC 的相关事项建议查下资料以作了解。虽然DVD源是29.970 fps，但实际应使用压制处理后的分辨率23.976 fps。</p><p>然后对字幕做帧率转换，大部分的字幕软件都支持，除此之外还可以使用Potplayer</p><p>范例</p><p>对于 Blonde and Blonder 2007 的字幕，帧率由 23.976 fps 转为 25 fps,之后整体向前平移 12s 即可匹配</p><h2 id="字幕轴替换"><a href="#字幕轴替换" class="headerlink" title="字幕轴替换"></a>字幕轴替换</h2><p>有些情况下帧率调整没法解决问题，这种情况下可以完全的调轴(还有些可能就是制作字幕的人造成了一些错误)</p><p>比如你有一个轴不对的中文字幕，找到一条完全匹配的英文字幕。</p><p>你可以使用 Sutittle Edit 的 point sync via other subtitle 功能</p><p>还可以打开拥有正确时间轴的字幕，选所有行，右键，Column, delete text, 然后从其他字幕导入文本，最好再检查下有没有错行</p><h2 id="精调"><a href="#精调" class="headerlink" title="精调"></a>精调</h2><p>Sutittle Edit 不但可以加载画面，甚至可以读取音轨波形，可以通过听以及观察波形来精调。</p><p>就是应该会有点累</p><h1 id="双语合并"><a href="#双语合并" class="headerlink" title="双语合并"></a>双语合并</h1><p>使用srtedit即可，可以自己点点点研究一下就行。</p><h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul><li>Sutittle Edit 处理ass会导致一些样式丢失</li><li>HDR字幕(包括srt)白颜色下会过亮(与软件可能也有一定关系)，请注意转换成暗色</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;本篇内容都作为 Optional&lt;/p&gt;
-&lt;h1 id=&quot;字幕调轴&quot;&gt;&lt;a href=&quot;#字幕调轴&quot; class=&quot;headerlink&quot; title=&quot;字幕调轴&quot;&gt;&lt;/a&gt;字幕调轴&lt;/h1&gt;&lt;p&gt;一般来说不少字幕都可以通过平移来解决不同步问题。&lt;br&gt;但还有相当多的会因为</summary>
-      
-    
-    
-    
-    <category term="4.Audio&amp;sub" scheme="http://fxxs.github.io/categories/4-Audio-sub/"/>
-    
     
   </entry>
   
