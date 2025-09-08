@@ -27,7 +27,7 @@
 <meta property="og:description" content="版本区别shared: 不包含dll，运行的时候，到相应的dll中调用功能。程序运行过程必须依赖于提供的dll文件。vulkan: Vulkan Support-N: 会是最新的，但不那么stablen4.3.2: Release version LGPL似乎会比GPL少一些功能 ffprobeffprobe &#39;文件&#39; 用于检测文件信息(不过直接看mediainfo就好，而且纯文本">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-08T07:18:15.092Z">
-<meta property="article:modified_time" content="2025-09-08T07:18:32.860Z">
+<meta property="article:modified_time" content="2025-09-08T08:04:10.430Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,7 @@
 <h1 id="切割"><a href="#切割" class="headerlink" title="切割"></a>切割</h1><p>ffmpeg -ss 4.838 -i &#39;.\Taylor.Swift.-.Red.Web-DL.1080i.ProRes.mov&#39; -c:v copy -c:a copy Taylor.Swift.-.Red.mov</p>
 <p>请注意要自己从帧换算到时间，</p>
 <h1 id="下混"><a href="#下混" class="headerlink" title="下混"></a>下混</h1><p>注意未经仔细调研</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i &quot;movie.mkv&quot;  -c:a flac -ac 6 &quot;5.1.flac&quot;</span><br><span class="line">ffmpeg -i &quot;movie.mkv&quot;  -c:a ac3 -ac 2 -b:a 384k &quot;5.1.flac&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i &quot;movie.mkv&quot;  -c:a flac -ac 6 &quot;5.1.flac&quot;</span><br><span class="line">ffmpeg -i &quot;movie.mkv&quot;  -c:a ac3 -ac 2 -b:a 384k &quot;2.ac3&quot;</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><p><a href="/4.Audio&sub/DlobyE">Dloby E</a></p>
@@ -219,7 +219,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-09-08T07:18:32.860Z" itemprop="dateModified">最后编辑：2025-09-08</time>
+                    <time datetime="2025-09-08T08:04:10.430Z" itemprop="dateModified">最后编辑：2025-09-08</time>
                 </div>
             </div>
         </footer>
