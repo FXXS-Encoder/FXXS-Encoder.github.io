@@ -27,7 +27,7 @@
 <meta property="og:description" content="通常建议在 Demux &amp; Remux 之前进行扫盘，mkvtoolnix 以及 dgdemux 都可以进行。 主要判断信息有  是否是肉酱盘 是否默认的 mpls 是正确的影片（有些盘会坑人） mpls 是否包含了无效的mt2s(这种会导致操作失败)，这种情况，需要 dgdemux,然后勾选 &quot;skip first&#x2F;last M2TS&quot;  部分剧集原盘 dg">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-31T13:59:00.133Z">
-<meta property="article:modified_time" content="2025-09-08T06:43:03.283Z">
+<meta property="article:modified_time" content="2025-09-26T09:31:37.050Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -88,7 +88,7 @@
     <style>#kratos-widget-area #krw-toc .toc-item>.toc-child{max-height:unset}@media (min-width: 1200px) {.container {width:75%}}@media (min-width: 992px) {.col-md-8 {width: 75%;}.col-md-4 {width: 25%;}}</style>
 
   
-<meta name="generator" content="Hexo 8.0.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
     <body class="custom-background">
         <div id="kratos-wrapper">
@@ -158,7 +158,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~3.83K
+                            ~3.97K
                         
                         字
                     </li>
@@ -172,7 +172,7 @@
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DVD"><span class="toc-number">1.</span> <span class="toc-text">DVD</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84Demux%E8%BD%AF%E4%BB%B6%E6%9C%89"><span class="toc-number">2.</span> <span class="toc-text">常见的Demux软件有</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84mpls"><span class="toc-number">3.</span> <span class="toc-text">选择正确的mpls</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mkvextract"><span class="toc-number">4.</span> <span class="toc-text">mkvextract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FFmpeg"><span class="toc-number">5.</span> <span class="toc-text">FFmpeg</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DVD"><span class="toc-number">1.</span> <span class="toc-text">DVD</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84Demux%E8%BD%AF%E4%BB%B6%E6%9C%89"><span class="toc-number">2.</span> <span class="toc-text">常见的Demux软件有</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84mpls"><span class="toc-number">3.</span> <span class="toc-text">选择正确的mpls</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mkvextract"><span class="toc-number">4.</span> <span class="toc-text">mkvextract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FFmpeg"><span class="toc-number">5.</span> <span class="toc-text">FFmpeg</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Menu"><span class="toc-number">6.</span> <span class="toc-text">Menu</span></a></li></ol>
                 </div>
             
             <hr />
@@ -225,6 +225,12 @@
 
 
 <h1 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h1><p>如无必要，不建议使用，需要自己判断音轨深度，默认是拆16bit 其他见<a href="/2.Tools/FFmpeg">FFmpeg</a></p>
+<h1 id="Menu"><a href="#Menu" class="headerlink" title="Menu"></a>Menu</h1><p>Mediainfo 里的章节转为 Mkvtoolnix 能认的格式</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fireattack/chapter_converter">https://github.com/fireattack/chapter_converter</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m chapter_converter .\menu.txt -o out.txt</span><br></pre></td></tr></table></figure>
+
+
+
 </div>
         </div>
         
@@ -245,7 +251,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-09-08T06:43:03.283Z" itemprop="dateModified">最后编辑：2025-09-08</time>
+                    <time datetime="2025-09-26T09:31:37.050Z" itemprop="dateModified">最后编辑：2025-09-26</time>
                 </div>
             </div>
         </footer>
@@ -292,7 +298,7 @@
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DVD"><span class="toc-number">1.</span> <span class="toc-text">DVD</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84Demux%E8%BD%AF%E4%BB%B6%E6%9C%89"><span class="toc-number">2.</span> <span class="toc-text">常见的Demux软件有</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84mpls"><span class="toc-number">3.</span> <span class="toc-text">选择正确的mpls</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mkvextract"><span class="toc-number">4.</span> <span class="toc-text">mkvextract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FFmpeg"><span class="toc-number">5.</span> <span class="toc-text">FFmpeg</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DVD"><span class="toc-number">1.</span> <span class="toc-text">DVD</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84Demux%E8%BD%AF%E4%BB%B6%E6%9C%89"><span class="toc-number">2.</span> <span class="toc-text">常见的Demux软件有</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84mpls"><span class="toc-number">3.</span> <span class="toc-text">选择正确的mpls</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mkvextract"><span class="toc-number">4.</span> <span class="toc-text">mkvextract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FFmpeg"><span class="toc-number">5.</span> <span class="toc-text">FFmpeg</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Menu"><span class="toc-number">6.</span> <span class="toc-text">Menu</span></a></li></ol>
     </div>
 </aside>
                 
