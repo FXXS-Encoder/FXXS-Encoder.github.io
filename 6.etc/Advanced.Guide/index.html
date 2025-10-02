@@ -53,7 +53,7 @@
 <meta property="og:image" content="http://fxxs.github.io/img/AHDVEG-pics/Figure27.png">
 <meta property="og:image" content="http://fxxs.github.io/img/AHDVEG-pics/Figure28.png">
 <meta property="article:published_time" content="2025-09-08T12:43:43.837Z">
-<meta property="article:modified_time" content="2025-10-02T11:56:49.777Z">
+<meta property="article:modified_time" content="2025-10-02T12:00:33.880Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="建设中">
 <meta name="twitter:card" content="summary">
@@ -209,7 +209,7 @@
 <h1 id="VapourSynth-脚本-vpy"><a href="#VapourSynth-脚本-vpy" class="headerlink" title="VapourSynth 脚本(vpy)"></a>VapourSynth 脚本(vpy)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">props_viewer = core.text.FrameProps(clip, alignment=<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
 <p>打印视频信息的代码</p>
 <p>另外还有视频打印帧信息的函数 <code>awf.FrameInfo</code>,不过这个到具体的页面详细介绍（现在好像还没写）</p>
-<h2 id="缩放-Resizing"><a href="#缩放-Resizing" class="headerlink" title="缩放(Resizing)"></a>缩放(Resizing)</h2><p>首先请注意，后面会有一个单独的部分来介绍 <strong>降低分辨率(Descaling)</strong> 。而在这，我将解释调整大小的方法以及哪种调整器分别适合什么情况。<br>如果你想调整大小，重要的是不要超过必要的长宽比的改变。如果你要缩小尺寸，首先要搞明白宽度和高度应该是多少。如果你想缩小分辨率到720p，首先要裁剪，然后弄清楚你是缩放至720高还是1280宽。如果是前者，你的宽度应该是：</p>
+<h2 id="缩放-Resizing"><a href="#缩放-Resizing" class="headerlink" title="缩放(Resizing)"></a>缩放(Resizing)</h2><p>首先请注意，后面会有一个单独的部分来介绍 <strong>还原分辨率(Descaling)</strong> 。而在这，我将解释调整大小的方法以及哪种调整器分别适合什么情况。<br>如果你想调整大小，重要的是不要超过必要的长宽比的改变。如果你要缩小尺寸，首先要搞明白宽度和高度应该是多少。如果你想缩小分辨率到720p，首先要裁剪，然后弄清楚你是缩放至720高还是1280宽。如果是前者，你的宽度应该是：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">width = <span class="built_in">round</span>(<span class="number">720</span> * src.height / (<span class="number">2</span> * src.width)) * <span class="number">2</span></span><br></pre></td></tr></table></figure>
 
 <p>对于后者，你会发现高度的代码与其非常相似：</p>
@@ -543,7 +543,7 @@
 <h2 id="去振铃-Deringing"><a href="#去振铃-Deringing" class="headerlink" title="去振铃(Deringing)"></a>去振铃(Deringing)</h2><p>术语 &quot;振铃&quot; 可以指大多数边缘<a href="/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%91%95%E7%96%B5%E8%AF%B4%E6%98%8E#%E4%BC%AA%E5%BD%B1-artifact">伪影</a>(artifact)，其中最常见的是<strong>蚊式噪声(mosquito noise)</strong> 和 <strong>边缘增强伪影(edge enhancement artifacts)</strong> 。振铃是低质量视频源中十分常见。然而，由于拍摄设备原因和糟糕的压缩方法，即使是高比特率的音乐会也很容易出现这种情况。为了解决这个问题，建议使用 <code>HQDeringmod</code> 或 <code>EdgeCleaner</code>（来自 <code>scoll</code>）等软件，我建议使用前者。这些方法主要目的是模糊和锐化边缘，然后通过边缘遮罩进行合并。它们简单易用，所以你可以自己阅读和了解它们，并熟悉它们的用途。由于 <code>rgvs.Repair</code> 可能相当激进，如果你使用这些函数，并且默认值不能产生足够好的结果，我建议你尝试修复数值。</p>
 <p><img src="/img/AHDVEG-pics/Figure10.jpg" alt="Figure10"></p>
 <p>图10：左边是源，右边是经 <code>HQDeringmod(mrad=5, msmooth=10, drrep=0)</code> 处理后的。 这是非常暴力的去振铃方式，我一般不推荐。该示例图像是来自One Ok Rock演唱会，码率37 mbps蓝光视频。</p>
-<h2 id="去光晕-Dehaloing"><a href="#去光晕-Dehaloing" class="headerlink" title="去光晕(Dehaloing)"></a>去光晕(Dehaloing)</h2><p>光晕如其名：边缘周围的粗而亮的线条。这一问题常出现在没有正确地调整大小后。你可能也会发现，像素缩小(descaling)参数不足或对低质量视频缩小分辨率会产生明显的光晕。为了解决这个问题，你应该使用<code>havsfunc</code>的<code>DeHalo_alpha</code> 或其已蒙版处理的同类产品 <code>FineDehalo</code>。如果使用前者，你必须编写你自己的掩码，因为无掩码的去晕通常会导致糟糕的结果。关于如何写一个简单的去光晕遮罩，请看<a target="_blank" rel="noopener" href="https://guide.encode.moe/encoding/masking-limiting-etc.html#example-build-a-simple-dehalo-mask">encode.moe的指南</a>。</p>
+<h2 id="去光晕-Dehaloing"><a href="#去光晕-Dehaloing" class="headerlink" title="去光晕(Dehaloing)"></a>去光晕(Dehaloing)</h2><p>光晕如其名：边缘周围的粗而亮的线条。这一问题常出现在没有正确地调整大小后。你可能也会发现，还原分辨率(descaling)参数不足或对低质量视频缩小分辨率会产生明显的光晕。为了解决这个问题，你应该使用<code>havsfunc</code>的<code>DeHalo_alpha</code> 或其已蒙版处理的同类产品 <code>FineDehalo</code>。如果使用前者，你必须编写你自己的掩码，因为无掩码的去晕通常会导致糟糕的结果。关于如何写一个简单的去光晕遮罩，请看<a target="_blank" rel="noopener" href="https://guide.encode.moe/encoding/masking-limiting-etc.html#example-build-a-simple-dehalo-mask">encode.moe的指南</a>。</p>
 <p>由于 <code>FineDehalo</code> 是 <code>DeHalo_alpha</code> 的衍生函数，因此它们共享一些参数。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FineDehalo(src, rx=<span class="number">2.0</span>, ry=<span class="literal">None</span>, thmi=<span class="number">80</span>, thma=<span class="number">128</span>, thlimi=<span class="number">50</span>, thlima=<span class="number">100</span>,</span><br><span class="line">darkstr=<span class="number">1.0</span>, brightstr=<span class="number">1.0</span>, showmask=<span class="number">0</span>, contra=<span class="number">0.0</span>, excl=<span class="literal">True</span>,edgeproc=<span class="number">0.0</span>) <span class="comment"># ry defaults to rx</span></span><br><span class="line">DeHalo_alpha(clp, rx=<span class="number">2.0</span>, ry=<span class="number">2.0</span>, darkstr=<span class="number">1.0</span>, brightstr=<span class="number">1.0</span>, lowsens=<span class="number">50</span>,highsens=<span class="number">50</span>, ss=<span class="number">1.5</span>)</span><br></pre></td></tr></table></figure>
 
@@ -952,7 +952,7 @@
                     <a class="tag-none-link" href="/tags/%E5%BB%BA%E8%AE%BE%E4%B8%AD/" rel="tag">建设中</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-10-02T11:56:49.777Z" itemprop="dateModified">最后编辑：2025-10-02</time>
+                    <time datetime="2025-10-02T12:00:33.880Z" itemprop="dateModified">最后编辑：2025-10-02</time>
                 </div>
             </div>
         </footer>
