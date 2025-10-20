@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+    <link rel="icon" href="/img/favicon.svg">
+  
+  
+  <title>QTGMC 去交错 | FXXS</title>
+  <link rel="canonical" href="http://fxxs.github.io/2.Tools/VIVTC/">
+  <meta name="author" content="ted423" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="Plugins&Scripts, 建设中" />
+  
+  <meta name="description" content="翻译自 https:&#x2F;&#x2F;amusementclub.github.io&#x2F;doc&#x2F;plugins&#x2F;vivtc.html VFMVFM 是一种场匹配滤镜，用于从经过胶片过带（Telecine）处理的视频流中恢复原始的逐行帧。VFM 的输出会包含重复帧，因此必须再使用像 VDecimate 这样的抽帧滤镜进行后续处理。与 TFM 不同，VFM 本身不具备任何后处理功能。不过，你可以像下面这样编写自己的脚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QTGMC 去交错">
+<meta property="og:url" content="http://fxxs.github.io/2.Tools/VIVTC/index.html">
+<meta property="og:site_name" content="FXXS">
+<meta property="og:description" content="翻译自 https:&#x2F;&#x2F;amusementclub.github.io&#x2F;doc&#x2F;plugins&#x2F;vivtc.html VFMVFM 是一种场匹配滤镜，用于从经过胶片过带（Telecine）处理的视频流中恢复原始的逐行帧。VFM 的输出会包含重复帧，因此必须再使用像 VDecimate 这样的抽帧滤镜进行后续处理。与 TFM 不同，VFM 本身不具备任何后处理功能。不过，你可以像下面这样编写自己的脚">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-20T14:07:01.059Z">
+<meta property="article:modified_time" content="2025-10-20T14:35:18.651Z">
+<meta property="article:author" content="ted423">
+<meta property="article:tag" content="Plugins&amp;Scripts">
+<meta property="article:tag" content="建设中">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="FXXS" type="application/atom+xml">
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kr-core.min.css" media="all"></link>
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/highlight.js/night-eighties.min.css" media="all"></link>
+  
+  <link rel="stylesheet" id="theme-light-css" href="/css/kr-theme/light.min.css" media="all"></link>
+  <link rel="stylesheet" id="theme-dark-css" href="/css/kr-theme/dark.min.css" media="(prefers-color-scheme: dark)"></link>
+  <script src="/js/kr-theme.min.js"></script>
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></link>
+  
+    <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></link>
+  
+  
+    <link rel="stylesheet" href="/vendors/viewerjs@1.11.6/dist/viewer.min.css"></link>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  
+    <script src="/vendors/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
+  
+  <!-- 自定义站点横幅和背景 -->
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('');
+      }
+      html[data-theme="dark"] .kratos-cover.kratos-cover-2 {
+        background-image: url('');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('');
+        }
+        html[data-theme="dark"] body.custom-background {
+          background-image: url('');
+        }
+      }
+    
+    
+      .widget-kratos-about .photo-background {
+        background-image: url('/images/default.webp');
+      }
+      html[data-theme="dark"] .widget-kratos-about .photo-background {
+        background-image: url('/images/default.webp');
+      }
+    
+  </style>
+
+  <!-- 额外的追加注入项 -->
+  
+    <style>#kratos-widget-area #krw-toc .toc-item>.toc-child{max-height:unset}@media (min-width: 1200px) {.container {width:75%}}@media (min-width: 992px) {.col-md-8 {width: 75%;}.col-md-4 {width: 25%;}}</style>
+
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">FXXS</a></div>
+                    <div id="kratos-nav-toggle-wrapper" class="nav-toggle">
+                        <a id="kratos-nav-toggle" class="kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>FXXS</h2> <br />
+                        <span>FXXS</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+
+
+        
+
+            
+
+            <section class="kr-main-col col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://fxxs.github.io/2.Tools/VIVTC/">
+    <div class="kratos-hentry kratos-page-inner clearfix">
+        <header class="kratos-page-header">
+            
+                <h1 class="kratos-page-title text-center" itemprop="name headline">QTGMC 去交错</h1>
+            
+            <ul class="kratos-page-meta text-center">
+                <li><time datetime="2025-10-20T14:07:01.059Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2025-10-20</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">ted423</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~5.20K
+                        
+                        字
+                    </li>
+                
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-page-content kr-post">
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VFM"><span class="toc-number">1.</span> <span class="toc-text">VFM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VDecimate"><span class="toc-number">2.</span> <span class="toc-text">VDecimate</span></a></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><p>翻译自 <a target="_blank" rel="noopener" href="https://amusementclub.github.io/doc/plugins/vivtc.html">https://amusementclub.github.io/doc/plugins/vivtc.html</a></p>
+<h1 id="VFM"><a href="#VFM" class="headerlink" title="VFM"></a>VFM</h1><p>VFM 是一种场匹配滤镜，用于从经过胶片过带（Telecine）处理的视频流中恢复原始的逐行帧。VFM 的输出会包含重复帧，因此必须再使用像 VDecimate 这样的抽帧滤镜进行后续处理。<br>与 TFM 不同，VFM 本身不具备任何后处理功能。<br>不过，你可以像下面这样编写自己的脚本来实现后处理（请确保去交错器和 VFM 的参考场设置相同，以避免画面出现抖动）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import vapoursynth as vs</span><br><span class="line">import functools</span><br><span class="line"></span><br><span class="line">input_clip = vs.core.std.BlankClip(format=vs.YUV420P8, length=1000, color=[255, 128, 128])</span><br><span class="line"></span><br><span class="line">def postprocess(n, f, clip, deinterlaced):</span><br><span class="line">   if f.props[&#x27;_Combed&#x27;] &gt; 0:</span><br><span class="line">      return deinterlaced</span><br><span class="line">   else:</span><br><span class="line">      return clip</span><br><span class="line"></span><br><span class="line">matched_clip = vs.core.vivtc.VFM(input_clip, 1)</span><br><span class="line">deinterlaced_clip = vs.core.eedi3.eedi3(matched_clip, field=1)</span><br><span class="line">postprocessed_clip = vs.core.std.FrameEval(matched_clip, functools.partial(postprocess, clip=matched_clip, deinterlaced=deinterlaced_clip), prop_src=matched_clip)</span><br><span class="line">decimated_clip = vs.core.vivtc.VDecimate(postprocessed_clip)</span><br><span class="line">decimated_clip.set_output()</span><br></pre></td></tr></table></figure>
+
+<p>VFM 会为其输出的每一帧添加以下属性：</p>
+<ul>
+<li><p><strong><code>VFMMics</code></strong><br>一个包含五个整数的数组。</p>
+<p>它会包含五种可能匹配模式 (p&#x2F;c&#x2F;n&#x2F;b&#x2F;u) 的 “mic” 值。根据 <code>micout</code> 和 <code>micmatch</code> 的设置，其中一些值可能未被设置（显示为 -1）。</p>
+<p>这些数值代表了在该帧的任意块（block）中发现的<strong>梳理像素</strong>（combed pixels）的最高密度。（“梳理&#x2F;拉丝”是指由于错误的场组合而产生的横向交错线条伪影）。</p>
+</li>
+<li><p><strong><code>_Combed</code></strong><br>如果 VFM 认为该帧是梳理帧（有拉丝），则为 1，否则为 0。</p>
+</li>
+<li><p><strong><code>VFMMatch</code></strong><br>用于该帧的匹配模式。</p>
+<ul>
+<li><code>0 = p</code> (previous, 使用前一帧的场)</li>
+<li><code>1 = c</code> (current, 使用当前帧的场)</li>
+<li><code>2 = n</code> (next, 使用后一帧的场)</li>
+<li><code>3 = b</code> (blend&#x2F;both, 混合或两者)</li>
+<li><code>4 = u</code> (unmatched, 未匹配或另一种组合)</li>
+</ul>
+</li>
+<li><p><strong><code>VFMSceneChange</code></strong><br>如果 VFM 认为该帧是场景切换点，则为 1，否则为 0。</p>
+</li>
+</ul>
+<p>参数 (Parameters):</p>
+<ul>
+<li><p><strong><code>clip</code></strong><br>输入剪辑。支持 YUV420P8、YUV422P8、YUV440P8、YUV444P8 和 GRAY8 格式。必须具有固定的格式和尺寸。</p>
+</li>
+<li><p><strong><code>order</code></strong><br>设置剪辑的场序。通常场序信息是从 <code>_FieldBased</code> 帧属性中获取的。此参数仅在 <code>_FieldBased</code> 属性值无效或不存在时使用。</p>
+<p>如果场序设置错误，VFM 在 <code>mode=0</code> 下的输出将会有明显的错误。</p>
+<ul>
+<li><code>0</code> - 底场优先 (Bottom Field First, BFF)</li>
+<li><code>1</code> - 顶场优先 (Top Field First, TFF)</li>
+</ul>
+</li>
+<li><p><strong><code>field</code></strong><br>设置用于匹配的参考场。这是指在进行 p 或 n 匹配时，VFM 将从当前帧中提取的场。建议将此设置与场序（<code>order</code>）保持一致，除非在该设置下你遇到了匹配失败的问题。在某些情况下，更改用于匹配的参考场会对匹配性能产生很大影响。</p>
+<ul>
+<li><code>0</code> - 底场</li>
+<li><code>1</code> - 顶场</li>
+<li><code>2</code> - 与场序相同</li>
+<li><code>3</code> - 与场序相反</li>
+</ul>
+<p><code>0</code> 和 <code>1</code> 会忽略 <code>_FieldBased</code> 帧属性。<code>2</code> 和 <code>3</code> 会根据从 <code>_FieldBased</code> 属性获取的场序进行自适应调整。</p>
+<p><strong>默认值: 2</strong></p>
+</li>
+<li><p><strong><code>mode</code></strong><br>设置要使用的匹配模式或策略。</p>
+<ul>
+<li><strong>模式 0 (2-way match)</strong> 是所有选项中最安全的，因为它不会冒险在可能的情况下因重复帧而产生画面抖动。但如果视频中有错误的剪辑点或混合场，它最终可能会输出带拉丝的帧，即使一个好的匹配可能实际存在。</li>
+<li><strong>模式 5 (3-way match + 尝试第4&#x2F;5种匹配)</strong> 在产生抖动方面风险最高，但如果存在一个好的帧，它几乎总能找到。</li>
+<li>其他设置（模式 1, 2, 3, 4）在“产生抖动和重复帧的风险”与“在有错误剪辑、孤立场、混合场的片段中找到好匹配”之间取得了不同的平衡。</li>
+</ul>
+<p>请注意，这里的“梳理状态”与 <code>_Combed</code> 帧属性不同。它是一个相对和绝对阈值比较的组合，即使原始帧的 <code>_Combed</code> 标志未被设置，也可能导致匹配模式被更改。</p>
+<ul>
+<li><code>0 = 2-way match (p/c)</code>：双向匹配</li>
+<li><code>1 = 2-way match + 3rd match on combed (p/c + n)</code>：双向匹配，若有拉丝则尝试第三种匹配</li>
+<li><code>2 = 2-way match + 3rd match (same order) on combed (p/c + u)</code>：双向匹配，若有拉丝则尝试第三种匹配（同序）</li>
+<li><code>3 = 2-way match + 3rd match on combed + 4th/5th matches if still combed (p/c + n + u/b)</code>：双向匹配，若有拉丝则尝试第三种，若仍有拉丝则尝试第四&#x2F;五种</li>
+<li><code>4 = 3-way match (p/c/n)</code>：三向匹配</li>
+<li><code>5 = 3-way match + 4th/5th matches on combed (p/c/n + u/b)</code>：三向匹配，若有拉丝则尝试第四&#x2F;五种</li>
+</ul>
+<p>末尾括号中的字母表示在 <code>order=1</code> 和 <code>field=1</code> 的假设下，每种模式会使用的匹配类型。</p>
+<p><strong>默认值: 1</strong></p>
+</li>
+<li><p><strong><code>mchroma</code></strong><br>设置在匹配比较中是否包含色度（chroma）信息。在大多数情况下，建议保持启用。只有当你的剪辑有严重的色度问题，如严重的彩虹效应或其他伪影时，才应将其设置为 <code>false</code>。将其设置为 <code>false</code> 也可以用来提速，但会牺牲一些准确性。</p>
+<p><strong>默认值: true</strong></p>
+</li>
+<li><p><strong><code>cthresh</code></strong><br>这是用于梳理帧检测的区域梳理阈值。它实质上控制了拉丝需要多“强”或多“明显”才会被检测到。值越大，意味着拉丝必须更明显；值越小，意味着不太明显或较弱的拉丝也会被检测到。有效设置范围从 -1（每个像素都将被检测为梳理）到 255（没有像素会被检测为梳理）。这基本上是一个像素差异值。一个较好的范围是 8 到 12。</p>
+<p><strong>默认值: 9</strong></p>
+</li>
+<li><p><strong><code>mi</code></strong><br>在一个 <code>blockx</code> x <code>blocky</code> 大小的块内，需要有多少个梳理像素才将该帧判定为梳理帧。<code>cthresh</code> 控制了拉丝的“可见度”，而此设置则控制了在任何局部区域（由 <code>blockx</code> 和 <code>blocky</code> 定义的窗口）需要“有多少”拉丝。最小值为 0，最大值为 <code>blocky * blockx</code>（此时没有帧会被检测为梳理帧）。</p>
+<p><strong>默认值: 80</strong></p>
+</li>
+<li><p><strong><code>chroma</code></strong><br>设置在判断梳理帧时是否考虑色度信息。只有当你的源视频有色度问题（如彩虹效应等）并且这些问题在启用色度检测时导致了麻烦，才禁用此项。实际上，使用 <code>chroma=false</code> 通常更可靠，除非源视频中存在仅在色度通道出现的拉丝。</p>
+<p><strong>默认值: true</strong></p>
+</li>
+<li><p><strong><code>blockx</code>, <code>blocky</code></strong><br>设置在梳理帧检测期间使用的窗口大小。这关系到在多大的区域内需要达到 <code>mi</code> 个梳理像素才能将帧声明为梳理帧。更多信息请参见 <code>mi</code> 参数的描述。可能的值是 4 到 512 之间的任何 2 的幂次方。</p>
+<p><strong>默认值: 16, 16</strong></p>
+</li>
+<li><p><strong><code>y0</code>, <code>y1</code></strong><br>从 <code>y0</code> 到 <code>y1</code> 的行将被排除在场匹配决策之外。这可以用来忽略字幕、台标或其他可能干扰匹配的元素。将 <code>y0</code> 设置为与 <code>y1</code> 相等以禁用此功能。</p>
+<p><strong>默认值: 16, 16</strong></p>
+</li>
+<li><p><strong><code>scthresh</code></strong><br>设置场景切换阈值，作为亮度平面上最大变化的百分比。较好的值在 8 到 14 的范围内。</p>
+<p><strong>默认值: 12</strong></p>
+</li>
+<li><p><strong><code>micmatch</code></strong><br>当 <code>micmatch</code> 大于 0 时，VFM 在决定最终使用哪种匹配模式时会考虑匹配的 mic 值。只有在当前匹配模式下可能被使用的匹配才会被考虑。<code>micmatch</code> 有 3 个可能的设置：</p>
+<ul>
+<li><code>0</code> - 禁用。模式 1、2 和 3 实际上变得与模式 0 相同。模式 5 变得与模式 4 相同。</li>
+<li><code>1</code> - mic 匹配将仅在场景切换点附近使用。请参见 <code>scthresh</code> 参数。</li>
+<li><code>2</code> - mic 匹配将在所有地方使用。</li>
+</ul>
+<p><strong>默认值: 1</strong></p>
+</li>
+<li><p><strong><code>micout</code></strong><br>如果为 <code>true</code>，VFM 将为所有可能的匹配模式 (p&#x2F;c&#x2F;n&#x2F;b&#x2F;u) 计算 mic 值。否则，只会计算 <code>mode</code> 参数所允许的匹配模式的 mic 值。</p>
+<p><strong>默认值: false</strong></p>
+</li>
+<li><p><strong><code>clip2</code></strong><br>VFM 将用 <code>clip2</code> 来创建输出帧。如果使用了 <code>clip2</code>，VFM 将基于 <code>clip</code> 执行所有计算，但会从 <code>clip2</code> 复制选定的场。这可以用来绕过 VFM 的视频格式限制。例如，如果你有一个 YUV444P16 的输入剪辑：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yv12 = vs.core.resize.Bicubic(clip=original, <span class="built_in">format</span>=vs.YUV420P8)</span><br><span class="line">fieldmatched = vs.core.vivtc.VFM(clip=yv12, order=<span class="number">1</span>, chroma=<span class="literal">False</span>, clip2=original)</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong><br>在这个例子中，色度被忽略了，因为所使用的到 YUV420P8 的转换无法精确保留它。</p>
+</li>
+</ul>
+<h1 id="VDecimate"><a href="#VDecimate" class="headerlink" title="VDecimate"></a>VDecimate</h1><p><code>VDecimate</code> 是一个抽帧滤镜。它会从每 <code>cycle</code> 帧中删除一帧——最可能是重复的那一帧（相当于 TDecimate 中的 mode 0）。</p>
+<p>参数 (Parameters):</p>
+<ul>
+<li><p><strong><code>clip</code></strong><br>输入剪辑。必须具有固定的格式和尺寸、已知的长度、整数样本类型，且位深度在 8 到 16 位之间。</p>
+</li>
+<li><p><strong><code>cycle</code></strong><br>一个周期的帧数。每 <code>cycle</code> 帧中将有一帧被删除。</p>
+<p><strong>默认值: 5</strong></p>
+</li>
+<li><p><strong><code>chroma</code></strong><br>控制在计算帧差异度量时是否考虑色度。</p>
+<p><strong>默认值: 当输入剪辑有色度时为 true</strong></p>
+</li>
+<li><p><strong><code>dupthresh</code></strong><br>设置重复检测的阈值。如果一帧的差异度量小于或等于此值，则它被声明为重复帧。该值是 <code>blockx</code> 和 <code>blocky</code> 定义的块最大变化的百分比，所以 <code>1.1</code> 意味着最大可能变化的 1.1%。</p>
+<p><strong>默认值: 1.1</strong></p>
+</li>
+<li><p><strong><code>scthresh</code></strong><br>设置检测场景变化的阈值。该值是亮度平面上最大变化的百分比。较好的值在 10 到 15 之间。</p>
+<p><strong>默认值: 15</strong></p>
+</li>
+<li><p><strong><code>blockx</code>, <code>blocky</code></strong><br>设置用于度量计算的块大小。较大的块能更好地抑制噪点，但对小范围移动的检测能力较差。可能的值是 4 到 512 之间的任何 2 的幂次方。</p>
+<p><strong>默认值: 32, 32</strong></p>
+</li>
+<li><p><strong><code>clip2</code></strong><br>此参数与 VFM 的 <code>clip2</code> 参数用途相同。</p>
+</li>
+<li><p><strong><code>ovr</code></strong><br>包含覆盖设置的文本文件。可用于手动选择要删除的帧。以 <code>#</code> 开头的行将被忽略。</p>
+<p>删除特定的一帧：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">314 -</span><br></pre></td></tr></table></figure>
+<p>从第 1001 帧开始，到第 5403 帧结束，每四帧删除一帧：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1001,5403 +++-+</span><br></pre></td></tr></table></figure>
+<p>当然，这里的帧号适用于未经过抽帧的输入剪辑。</p>
+<p>抽帧模式必须包含 <code>cycle</code> 个字符。</p>
+<p>如果覆盖设置为每个周期标记了多于一帧，则周期内第一个被标记为删除的帧将被丢弃。</p>
+</li>
+<li><p><strong><code>dryrun</code></strong><br>如果为 <code>true</code>，“空跑模式”，VDecimate 将不会删除任何帧。相反，它会为每一帧附加以下属性：</p>
+<ul>
+<li><strong><code>VDecimateDrop</code></strong>: 如果 VDecimate 正常情况下会删除这一帧，则为 1，否则为 0。</li>
+<li><strong><code>VDecimateMaxBlockDiff</code></strong>: 在任何 <code>blockx*blocky</code> 大小的块中，当前帧与前一帧之间的最大绝对差异。在 Yatta 中被称为 “DMetric”。</li>
+<li><strong><code>VDecimateTotalDiff</code></strong>: 当前帧与前一帧之间的总绝对差异。</li>
+</ul>
+<p><strong>默认值: false</strong></p>
+</li>
+</ul>
+</div>
+        </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+            
+            
+                <div class="post-actions text-center clearfix" id="post-actions">
+                
+                
+                    <a class="share" href="javascript:;" onclick="krOpenShareModal()"><i class="fa fa-share-alt"></i> 分享</a>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/Plugins-Scripts/" rel="tag">Plugins&Scripts</a>, <a class="tag-none-link" href="/tags/%E5%BB%BA%E8%AE%BE%E4%B8%AD/" rel="tag">建设中</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2025-10-20T14:35:18.651Z" itemprop="dateModified">最后编辑：2025-10-20</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 2.0/1.0 音轨比较说明" href="/4.Audio&sub/2.01.0音轨说明/"><i class="fa fa-angle-left"></i> 上一篇</a>
+            </div>
+            
+            
+        </nav>
+    
+    
+        <div class="comment-post">
+            <div id="disqus_thread" class="kr-comments lazy-load" data-path="/2.Tools/VIVTC/" data-full-path="http://fxxs.github.io/2.Tools/VIVTC/"></div>
+        </div>
+    
+</article>
+
+        
+
+            </section>
+
+            
+                
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+        <div class="sticky-area">
+    
+    
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VFM"><span class="toc-number">1.</span> <span class="toc-text">VFM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VDecimate"><span class="toc-number">2.</span> <span class="toc-text">VDecimate</span></a></li></ol>
+    </div>
+</aside>
+                
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/img/avatar.png" alt="ted423" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                29
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                5
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                4
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类列表</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">1.基础知识</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2-Tools/">2.Tools</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/3-Code/">3.Code</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/4-Audio-sub/">4.Audio&sub</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/6-etc/">6.etc</a><span class="category-list-count">6</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/Compare/" style="font-size: 0.6em;">Compare</a> <a href="/tags/Notes/" style="font-size: 0.6em;">Notes</a> <a href="/tags/Plugins-Scripts/" style="font-size: 0.7em;">Plugins&Scripts</a> <a href="/tags/%E5%BB%BA%E8%AE%BE%E4%B8%AD/" style="font-size: 0.8em;">建设中</a>
+      </div>
+  </aside>
+
+            
+    </div>
+</section>
+            
+
+        
+
+                </div>
+    </div>
+</div>
+
+<footer>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2025 FXXS 版权所有.</li>
+                            <li>本站已运行<span id="kr-since">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>自豪地使用 <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a> 主题</li>
+                            <li>站点由 ted423 用 <i class="fa fa-heart" style="color:#d43f57"></i> 搭建</li>
+                        </div>
+                        <!-- 额外的追加注入项 -->
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                <div class="box theme-box" id="theme-toggle">
+                    <span class="fa fa-adjust"></span>
+                </div>
+            </div>
+            <div id="gotop-box" class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+
+    <div id="kr-donate-modal" class="kr-modal">
+    <div class="kr-modal-bg" onclick="krCloseDonateModal()"></div>
+    <div class="kr-modal-content">
+        <div class="kr-modal-header">
+            <div class="kr-modal-icon">
+                <i class="fa fa-bitcoin"></i>
+            </div>
+            <div class="kr-modal-title">打赏</div>
+            <button class="kr-modal-close" onclick="krCloseDonateModal()">
+                <i class="fa fa-times-circle"></i>
+            </button>
+        </div>
+        <div class="kr-modal-body">
+            <div class="kr-donate-message">打赏提示信息</div>
+            <div class="kr-donate-qr" id="kr-donate-qr">
+                
+            </div>
+            <div class="kr-donate-platforms">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script defer src="/js/kr-modal/donate.min.js"></script>
+
+
+
+
+    <div id="kr-share-modal" class="kr-modal">
+    <div class="kr-modal-bg" onclick="krCloseShareModal()"></div>
+    <div class="kr-modal-content">
+        <div class="kr-modal-header">
+            <div class="kr-modal-icon">
+                <i class="fa fa-share-alt"></i>
+            </div>
+            <div class="kr-modal-title">分享</div>
+            <button class="kr-modal-close" onclick="krCloseShareModal()">
+                <i class="fa fa-times-circle"></i>
+            </button>
+        </div>
+        <div class="kr-modal-body">
+            <div class="kr-share-message">分享提示信息</div>
+            <div class="kr-share-qr" id="kr-share-qr"></div>
+            <div class="kr-share-platforms">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script defer src="/js/kr-modal/share.min.js"></script>
+
+
+
+<!-- 额外的追加注入项 -->
+
+
+        <script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+  <script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+
+
+
+  <script defer src="/vendors/viewerjs@1.11.6/dist/viewer.min.js"></script>
+
+
+<script defer src="/js/kr-core.min.js"></script>
+
+
+  <script defer src="/js/kr-pjax.min.js"></script>
+
+
+<!-- 额外的追加注入项 -->
+
+  <script src="https://https-ted423-github-io.disqus.com/embed.js"></script>
+<script async id="dsq-count-scr" src="https://https-ted423-github-io.disqus.com/count.js"></script>
+<script src="/comments/disqus.js"></script>
+
+
+
+    </body>
+</html>
