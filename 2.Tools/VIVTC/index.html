@@ -27,7 +27,7 @@
 <meta property="og:description" content="本篇强关联 DVD 相关处理，主要用于处理 NTSC。 翻译自 https:&#x2F;&#x2F;amusementclub.github.io&#x2F;doc&#x2F;plugins&#x2F;vivtc.html VFMVFM 是一种场匹配滤镜，用于从经过胶片过带（Telecine）处理的视频流中恢复原始的逐行帧。VFM 的输出会包含重复帧，因此必须再使用像 VDecimate 这样的抽帧滤镜进行后续处理。与 TFM 不同，VFM 本身">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-20T14:07:01.059Z">
-<meta property="article:modified_time" content="2025-10-20T15:30:56.848Z">
+<meta property="article:modified_time" content="2025-10-21T12:05:54.407Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="Plugins&amp;Scripts">
 <meta name="twitter:card" content="summary">
@@ -158,7 +158,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~5.89K
+                            ~5.96K
                         
                         字
                     </li>
@@ -172,7 +172,7 @@
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VFM"><span class="toc-number">1.</span> <span class="toc-text">VFM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VDecimate"><span class="toc-number">2.</span> <span class="toc-text">VDecimate</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#etc"><span class="toc-number">3.</span> <span class="toc-text">etc</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jetpack"><span class="toc-number">4.</span> <span class="toc-text">jetpack</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VFM"><span class="toc-number">1.</span> <span class="toc-text">VFM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VDecimate"><span class="toc-number">2.</span> <span class="toc-text">VDecimate</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#etc"><span class="toc-number">3.</span> <span class="toc-text">etc</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VCB-Guide"><span class="toc-number">4.</span> <span class="toc-text">VCB Guide</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jetpack"><span class="toc-number">5.</span> <span class="toc-text">jetpack</span></a></li></ol>
                 </div>
             
             <hr />
@@ -323,6 +323,8 @@
 <p>vs-jetpack</p>
 <p>(不过测试下面这个不如最基础的 TWO_WAY_MATCH)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from vsdeinterlace import (QTempGaussMC,sivtc,jivtc,IVTCycles,vfm,vdecimate,VFMMode)</span><br><span class="line">src = vfm(src, mode=VFMMode.THREE_WAY_MATCH_FOURTH_FIFTH)</span><br><span class="line">src = vdecimate(src)</span><br></pre></td></tr></table></figure>
+
+<h1 id="VCB-Guide"><a href="#VCB-Guide" class="headerlink" title="VCB Guide"></a>VCB Guide</h1><p><a target="_blank" rel="noopener" href="https://guides.vcb-s.com/basic-guide-10#3-ivtc24t-%E4%B8%8E-24d">https://guides.vcb-s.com/basic-guide-10#3-ivtc24t-%E4%B8%8E-24d</a></p>
 <h1 id="jetpack"><a href="#jetpack" class="headerlink" title="jetpack"></a>jetpack</h1><p><a target="_blank" rel="noopener" href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdeinterlace/ivtc/#vsdeinterlace.ivtc.vfm">https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdeinterlace/ivtc/#vsdeinterlace.ivtc.vfm</a></p>
 <p>使用 VFM 进行场匹配。</p>
 <p>该函数使用 VIVTC 的 VFM 插件，来检测和匹配经过胶片过带（telecine）处理的内容中的场。<br>你可以传递一个后处理剪辑或函数，用于处理残留的拉丝帧（combed frames）。如果你传递的是一个剪辑，它将用该剪辑的对应帧来替换拉丝帧。如果你传递的是一个函数，该函数会作用于你的原始输入剪辑，然后用其处理结果来替换拉丝帧。</p>
@@ -349,7 +351,7 @@
                     <a class="tag-none-link" href="/tags/Plugins-Scripts/" rel="tag">Plugins&Scripts</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-10-20T15:30:56.848Z" itemprop="dateModified">最后编辑：2025-10-20</time>
+                    <time datetime="2025-10-21T12:05:54.407Z" itemprop="dateModified">最后编辑：2025-10-21</time>
                 </div>
             </div>
         </footer>
@@ -392,7 +394,7 @@
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VFM"><span class="toc-number">1.</span> <span class="toc-text">VFM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VDecimate"><span class="toc-number">2.</span> <span class="toc-text">VDecimate</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#etc"><span class="toc-number">3.</span> <span class="toc-text">etc</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jetpack"><span class="toc-number">4.</span> <span class="toc-text">jetpack</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VFM"><span class="toc-number">1.</span> <span class="toc-text">VFM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VDecimate"><span class="toc-number">2.</span> <span class="toc-text">VDecimate</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#etc"><span class="toc-number">3.</span> <span class="toc-text">etc</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VCB-Guide"><span class="toc-number">4.</span> <span class="toc-text">VCB Guide</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jetpack"><span class="toc-number">5.</span> <span class="toc-text">jetpack</span></a></li></ol>
     </div>
 </aside>
                 
