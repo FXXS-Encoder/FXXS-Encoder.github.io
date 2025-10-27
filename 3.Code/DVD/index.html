@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="FXXS">
 <meta property="og:description" content="DVD 处理包括 色域变换通常 DVD 是 BT.601-6 SMPTE 170M：是北美及其他采用 NTSC 电视制式的国家所使用的标清视频标准。ITU-R BT.470-BG：是欧洲及其他采用 PAL 电视制式的国家所使用的标清视频标准。    特性 (Feature) SMPTE 170M ITU-R BT.470-BG    主要应用地域 北美、日本、韩国、台湾等 欧洲、澳大利亚、中国大陆">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-20T14:07:01.059Z">
-<meta property="article:modified_time" content="2025-10-22T15:08:21.923Z">
+<meta property="article:published_time" content="2025-10-22T15:41:51.333Z">
+<meta property="article:modified_time" content="2025-10-27T10:32:06.494Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="Plugins&amp;Scripts">
 <meta property="article:tag" content="建设中">
@@ -150,7 +150,7 @@
                 <h1 class="kratos-page-title text-center" itemprop="name headline">DVD 处理，NTSC SAR VIVTC</h1>
             
             <ul class="kratos-page-meta text-center">
-                <li><time datetime="2025-10-20T14:07:01.059Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2025-10-20</time></li>
+                <li><time datetime="2025-10-22T15:41:51.333Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2025-10-22</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">ted423</span>
                 </li>
@@ -159,7 +159,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~6.92K
+                            ~7.19K
                         
                         字
                     </li>
@@ -230,16 +230,20 @@
 </tr>
 </tbody></table>
 <p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/BT.601">https://zh.wikipedia.org/wiki/BT.601</a></p>
+<p><strong>注意是一个色域 两个标准</strong></p>
 <p>用下面代码转换</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src = core.resize.Point(src, matrix_in_s=&#x27;470bg&#x27;, matrix_s=&#x27;709&#x27;)</span><br></pre></td></tr></table></figure>
 
-
+<p>参考下这里 <a target="_blank" rel="noopener" href="https://fxxs-encoder.github.io/2.Tools/placebo/#Matrix-%E5%80%BC%E5%88%97%E8%A1%A8">https://fxxs-encoder.github.io/2.Tools/placebo/#Matrix-值列表</a></p>
+<p>注意看这里的官方文档</p>
+<p><a target="_blank" rel="noopener" href="https://www.vapoursynth.com/doc/functions/video/resize.html#resize.Bob">https://www.vapoursynth.com/doc/functions/video/resize.html#resize.Bob</a></p>
+<p><strong>SMPTE ST 170  (functionally the same as the value 5 (470bg))</strong> 就是注意上面那串代码的小问题你还是要知道的</p>
 <h1 id="SAR"><a href="#SAR" class="headerlink" title="SAR"></a>SAR</h1><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pixel_aspect_ratio">https://en.wikipedia.org/wiki/Pixel_aspect_ratio</a></p>
 <p>SAR (Storage Aspect Ratio)，即存储宽高比</p>
 <p>DAR 的全称是 Display Aspect Ratio，中文翻译为 显示宽高比。</p>
 <p>PAR (Pixel Aspect Ratio, 像素宽高比)</p>
 <p>SAR &#x3D; DAR &#x2F; PAR</p>
-<p>通常我们需要保证压出来的视频是符合 DAR 的。</p>
+<p>通常我们需要保证压出来的视频是符合 DAR 的。通常我是直接调整分辨率，不过 <a target="_blank" rel="noopener" href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vstools/enums/other/?h=sar#vstools.enums.other.Sar">jetpack 有函数</a>，但是我还不会用。</p>
 <h1 id="vivtc"><a href="#vivtc" class="headerlink" title="vivtc"></a>vivtc</h1><p>以下翻译自 <a target="_blank" rel="noopener" href="https://amusementclub.github.io/doc/plugins/vivtc.html">https://amusementclub.github.io/doc/plugins/vivtc.html</a></p>
 <h2 id="VFM"><a href="#VFM" class="headerlink" title="VFM"></a>VFM</h2><p>VFM 是一种场匹配滤镜，用于从经过胶片过带（Telecine）处理的视频流中恢复原始的逐行帧。VFM 的输出会包含重复帧，因此必须再使用像 VDecimate 这样的抽帧滤镜进行后续处理。<br>与 TFM 不同，VFM 本身不具备任何后处理功能。<br>不过，你可以像下面这样编写自己的脚本来实现后处理（请确保去交错器和 VFM 的参考场设置相同，以避免画面出现抖动）。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import vapoursynth as vs</span><br><span class="line">import functools</span><br><span class="line"></span><br><span class="line">input_clip = vs.core.std.BlankClip(format=vs.YUV420P8, length=1000, color=[255, 128, 128])</span><br><span class="line"></span><br><span class="line">def postprocess(n, f, clip, deinterlaced):</span><br><span class="line">   if f.props[&#x27;_Combed&#x27;] &gt; 0:</span><br><span class="line">      return deinterlaced</span><br><span class="line">   else:</span><br><span class="line">      return clip</span><br><span class="line"></span><br><span class="line">matched_clip = vs.core.vivtc.VFM(input_clip, 1)</span><br><span class="line">deinterlaced_clip = vs.core.eedi3.eedi3(matched_clip, field=1)</span><br><span class="line">postprocessed_clip = vs.core.std.FrameEval(matched_clip, functools.partial(postprocess, clip=matched_clip, deinterlaced=deinterlaced_clip), prop_src=matched_clip)</span><br><span class="line">decimated_clip = vs.core.vivtc.VDecimate(postprocessed_clip)</span><br><span class="line">decimated_clip.set_output()</span><br></pre></td></tr></table></figure>
@@ -414,7 +418,7 @@
                     <a class="tag-none-link" href="/tags/Plugins-Scripts/" rel="tag">Plugins&Scripts</a>, <a class="tag-none-link" href="/tags/%E5%BB%BA%E8%AE%BE%E4%B8%AD/" rel="tag">建设中</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-10-22T15:08:21.923Z" itemprop="dateModified">最后编辑：2025-10-22</time>
+                    <time datetime="2025-10-27T10:32:06.494Z" itemprop="dateModified">最后编辑：2025-10-27</time>
                 </div>
             </div>
         </footer>
