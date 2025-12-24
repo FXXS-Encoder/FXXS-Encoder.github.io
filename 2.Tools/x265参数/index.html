@@ -27,7 +27,7 @@
 <meta property="og:description" content="参考资料 https:&#x2F;&#x2F;tieba.baidu.com&#x2F;p&#x2F;6627144750  https:&#x2F;&#x2F;x265.readthedocs.io&#x2F;en&#x2F;master&#x2F;cli.html (可以选版本)  https:&#x2F;&#x2F;guides.vcb-s.com&#x2F;basic-guide-07#4-x265-参数解析  https:&#x2F;&#x2F;silentaperture.gitlab.io&#x2F;mdbook-guide&#x2F;en">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-13T11:20:58.216Z">
-<meta property="article:modified_time" content="2025-12-13T11:19:52.000Z">
+<meta property="article:modified_time" content="2025-12-24T06:50:42.228Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -158,7 +158,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~8.69K
+                            ~8.86K
                         
                         字
                     </li>
@@ -206,7 +206,11 @@
 <p><strong>crf</strong> 人眼认为的恒定画质，但是运动时候画质会降低来节省码率</p>
 <p>数值越低画质越好。</p>
 <p>一般低于等于18可以认为和原画差不多(主观观点)</p>
-<h2 id="rd-1-6"><a href="#rd-1-6" class="headerlink" title="rd (1-6)"></a>rd (1-6)</h2><p>分析的复杂度，数值越大画质越高，压出来体积越大，5,6非常慢, 默认3.</p>
+<h2 id="rd-1-6"><a href="#rd-1-6" class="headerlink" title="rd (1-6)"></a>rd (1-6)</h2><p>该参数会受到<code>preset</code>指定，虽说文档写的默认<code>3</code>，但是<code>preset</code>设为<code>placebo</code>时，<code>rd</code>不指定的情况下会是<code>6</code></p>
+<p>理论 slow: rd &#x3D; 4</p>
+<p>进一步的都是 6</p>
+<p>模式决策中 RDO（率失真优化）的级别。数值越高，分析越详尽，启用的率失真优化越多。数值越低编码速度越快，数值越高（生成的）码流通常越小。3&#x3D;4 5&#x3D;6 目前。</p>
+<p><code>--rd</code> 决定了率失真优化参与模式决策的程度。 -VCB</p>
 <h2 id="rdoq-level"><a href="#rdoq-level" class="headerlink" title="rdoq-level"></a>rdoq-level</h2><p>RDOP [rate-distortion optimized quantization] (率失真优化量化)</p>
 <p>默认0,关闭，预设slow时候默认开启。(preset placebo 似乎也还是2)</p>
 <p>x265最重要的参数，没有之一，开了能有助于保存细节，当然会有更大文件体积。关闭可以提高压缩速度，看起来会轻度模糊。开启掉速度30%以上，推荐舍弃其他参数，也要开启这个。</p>
@@ -385,7 +389,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-12-13T11:19:52.000Z" itemprop="dateModified">最后编辑：2025-12-13</time>
+                    <time datetime="2025-12-24T06:50:42.228Z" itemprop="dateModified">最后编辑：2025-12-24</time>
                 </div>
             </div>
         </footer>
