@@ -27,7 +27,7 @@
 <meta property="og:description" content="参考资料 https:&#x2F;&#x2F;tieba.baidu.com&#x2F;p&#x2F;6627144750  https:&#x2F;&#x2F;x265.readthedocs.io&#x2F;en&#x2F;master&#x2F;cli.html (可以选版本)  https:&#x2F;&#x2F;guides.vcb-s.com&#x2F;basic-guide-07#4-x265-参数解析  https:&#x2F;&#x2F;silentaperture.gitlab.io&#x2F;mdbook-guide&#x2F;en">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-13T11:20:58.216Z">
-<meta property="article:modified_time" content="2025-12-24T06:54:32.605Z">
+<meta property="article:modified_time" content="2025-12-26T08:45:20.361Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -158,7 +158,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~8.89K
+                            ~8.90K
                         
                         字
                     </li>
@@ -301,23 +301,18 @@
 <p>ctu 开的越大，平面的涂抹也越严重，速度也越慢，但是有损压缩效率越高， 值得一提的是， x265 的默认 preset，其实是偏向 4k 级别高分辨率视频给的<br>ctu 64 下，cu 的划分会耗费更多计算量，并且 cu 更倾向于变得更大。这使得给 cu 下更大 TU 的 qp 值给的不是很精确，看起来就是糊。-VCB</p>
 <p>16适合DVD，32适合1080p,64适合4K,720p用16,x265可能就会直接退出</p>
 <p>《Advanced Encoding Guide》中把这个归类为不调的参数，不过实际可能因为他们只用x265压4K或HDR有关。</p>
-<h2 id="qg-size"><a href="#qg-size" class="headerlink" title="qg-size &lt;64|32|16|8&gt;"></a>qg-size &lt;64|32|16|8&gt;</h2><p>未经严格测试，<code>--qg-size 8</code>，设置之后会增加码率以及画面细节。</p>
+<h2 id="qg-size"><a href="#qg-size" class="headerlink" title="qg-size &lt;64|32|16|8&gt;"></a>qg-size &lt;64|32|16|8&gt;</h2><p>Default: 32</p>
+<p>未经严格测试，<code>--qg-size 8</code>，设置之后会增加码率以及画面细节。 </p>
 <blockquote>
-<p>是支持自适应量化的最小 cu，默认 32 速度很快，但是会影响量化精度。<br>我们自适应量化不就是为了更好的分配量化的值嘛， 所以一般给 16 或者 8。</p>
+<p>是支持自适应量化的最小 cu，默认 32 速度很快，但是会影响量化精度。<br>我们自适应量化不就是为了更好的分配量化的值嘛， 所以一般给 16 或者 8。<br>-VCB</p>
 </blockquote>
-<ul>
-<li>VCB</li>
-</ul>
 <p>虎哥给的默认的 4K 参数就有，但是 1080p 的参数没有。</p>
 <blockquote>
 <p>对于绝大多数 1080p 压制任务（无论是收藏还是流媒体）：<br>不要用 8：开销太大，容易导致码率虚高或在同码率下画质下降。<br>推荐用 16：如果你追求比默认更好的细节保留（尤其是暗部细节），设为 16 是最平衡的选择。<br>如果不确定：保持默认（通常是 32），或者直接不写这个参数，让 x265 自动决定。<br>1080p：不要抄。除非你打算压出 15Mbps 的 1080p，否则用 16 就够了。</p>
 </blockquote>
 <blockquote>
-<p>4K 视频相对于 1080p，最大的优势在于极高频的细节（如皮肤极其细微的纹理、衣服的纤维）和胶片颗粒（Film Grain）。<br>x265 编码 4K 时，通常会将 CTU 大小设为最大值 64（--ctu 64）。<br>如果在 CTU&#x3D;64 的情况下，你不去限制 qg-size，某些设置下它可能会默认跟随较大的块进行量化调整。<br>为了防止编码器在巨大的 64x64 块中“偷懒”，压制者显式指定 qg-size 8，是为了抵消大 CTU 带来的宏观化倾向，确保大局（64）和小节（8）都能兼顾。<br>高质量 4K HDR 压制（尤其是压制组的 Internal 版本），码率通常在 15Mbps - 50Mbps 甚至更高。因为总码率给够了，即使浪费一点码率在记录 QP 变化上，也不痛不痒。</p>
+<p>4K 视频相对于 1080p，最大的优势在于极高频的细节（如皮肤极其细微的纹理、衣服的纤维）和胶片颗粒（Film Grain）。<br>x265 编码 4K 时，通常会将 CTU 大小设为最大值 64（--ctu 64）。<br>如果在 CTU&#x3D;64 的情况下，你不去限制 qg-size，某些设置下它可能会默认跟随较大的块进行量化调整。<br>为了防止编码器在巨大的 64x64 块中“偷懒”，压制者显式指定 qg-size 8，是为了抵消大 CTU 带来的宏观化倾向，确保大局（64）和小节（8）都能兼顾。<br>高质量 4K HDR 压制（尤其是压制组的 Internal 版本），码率通常在 15Mbps - 50Mbps 甚至更高。因为总码率给够了，即使浪费一点码率在记录 QP 变化上，也不痛不痒。<br>-Gemini</p>
 </blockquote>
-<ul>
-<li>Gemini</li>
-</ul>
 <h2 id="qcomp"><a href="#qcomp" class="headerlink" title="qcomp"></a>qcomp</h2><p>运动时候画质 crf开启时候有效</p>
 <p>开高提高运动时候画质，开低减少文件体积</p>
 <p>推荐0.6-0.7</p>
@@ -389,7 +384,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-12-24T06:54:32.605Z" itemprop="dateModified">最后编辑：2025-12-24</time>
+                    <time datetime="2025-12-26T08:45:20.361Z" itemprop="dateModified">最后编辑：2025-12-26</time>
                 </div>
             </div>
         </footer>
