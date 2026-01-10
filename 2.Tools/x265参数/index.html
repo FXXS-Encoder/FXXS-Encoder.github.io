@@ -27,7 +27,7 @@
 <meta property="og:description" content="参考资料 https:&#x2F;&#x2F;tieba.baidu.com&#x2F;p&#x2F;6627144750  https:&#x2F;&#x2F;x265.readthedocs.io&#x2F;en&#x2F;master&#x2F;cli.html (可以选版本)  https:&#x2F;&#x2F;guides.vcb-s.com&#x2F;basic-guide-07#4-x265-参数解析  https:&#x2F;&#x2F;silentaperture.gitlab.io&#x2F;mdbook-guide&#x2F;en">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-26T10:55:21.492Z">
-<meta property="article:modified_time" content="2026-01-10T16:00:28.275Z">
+<meta property="article:modified_time" content="2026-01-10T16:05:13.108Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="FXXS">
 <meta name="twitter:card" content="summary">
@@ -158,7 +158,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~8.92K
+                            ~8.93K
                         
                         字
                     </li>
@@ -198,10 +198,10 @@
 <p><code>--no-sao</code>  设计目的是去振铃(光环现象)，但是细节丰富地方会去掉太多细节</p>
 <p><code>--no-early-skip</code> 加速开关，影响的溯块中不同算法的先后顺序，一般不会去开。</p>
 <p><code>--no-strong-intra-smoothing</code></p>
-<h2 id="rect-amp"><a href="#rect-amp" class="headerlink" title="rect &amp; amp"></a>rect &amp; amp</h2><p>--no-rect rect提供更好的分割能力，能找到潜在的匹配块，它很可能被证明是有用的,但它可能不值得。(画面复杂。离子特效多的情况下会考虑开 rect -VCB)</p>
-<p>--no-amp 类似rect，即使可能稍微有点用</p>
+<h2 id="rect-amp"><a href="#rect-amp" class="headerlink" title="rect &amp; amp"></a>rect &amp; amp</h2><p><code>--no-rect</code> rect提供更好的分割能力，能找到潜在的匹配块，它很可能被证明是有用的,但它可能不值得。(画面复杂。离子特效多的情况下会考虑开 rect -VCB)</p>
+<p><code>--no-amp</code> amp类似rect，即使可能稍微有点用</p>
 <p>VCB:通常来说，&lt;&#x3D;1080p 下，rect 基本上没什么作用，amp 是几乎完全没作用，但是这俩都是速度黑洞。因此从效率角度建议关闭，或者至少关闭 amp</p>
-<p>个人测试中，1080p开了之后，码率低了一点，画面差了一点</p>
+<p>个人测试中，1080p开了之后，码率低了一点，画面差了一点。完全不建议开</p>
 <h2 id="crf-qp"><a href="#crf-qp" class="headerlink" title="crf,qp"></a>crf,qp</h2><p><strong>qp</strong> 电脑认为的恒定画质(但一般不进行设置)</p>
 <p><strong>crf</strong> 人眼认为的恒定画质，但是运动时候画质会降低来节省码率</p>
 <p>数值越低画质越好。</p>
@@ -384,7 +384,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2026-01-10T16:00:28.275Z" itemprop="dateModified">最后编辑：2026-01-11</time>
+                    <time datetime="2026-01-10T16:05:13.108Z" itemprop="dateModified">最后编辑：2026-01-11</time>
                 </div>
             </div>
         </footer>
