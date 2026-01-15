@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="FXXS">
 <meta property="og:description" content="翻译自 avisynth 文档 1src  &#x3D; haf.QTGMC(src, Preset&#x3D;&quot;slow&quot;, SourceMatch&#x3D;1, Lossless&#x3D;2, TFF&#x3D;True)  注意下面很多代码都是 avs 的代码，主要用于参考功能 基础大多数用户仅需使用预设选项。&quot;预设&quot;功能会为指定编码速度选择合理配置。可选预设包括： &quot;Placebo&amp;q">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-04-13T08:04:41.212Z">
-<meta property="article:modified_time" content="2025-10-14T17:11:41.210Z">
+<meta property="article:published_time" content="2025-10-18T13:42:53.229Z">
+<meta property="article:modified_time" content="2026-01-15T07:12:05.863Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="Plugins&amp;Scripts">
 <meta property="article:tag" content="建设中">
@@ -150,7 +150,7 @@
                 <h1 class="kratos-page-title text-center" itemprop="name headline">QTGMC 去交错</h1>
             
             <ul class="kratos-page-meta text-center">
-                <li><time datetime="2025-04-13T08:04:41.212Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2025-04-13</time></li>
+                <li><time datetime="2025-10-18T13:42:53.229Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2025-10-18</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">ted423</span>
                 </li>
@@ -159,7 +159,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~7.04K
+                            ~7.50K
                         
                         字
                     </li>
@@ -173,7 +173,7 @@
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">核心参数设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E5%8A%A8%E5%88%86%E6%9E%90%E5%8F%82%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">运动分析参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E5%8F%82%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">插值参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%94%90%E5%8C%96%E5%8F%82%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">锐化参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%90%E5%8C%B9%E9%85%8D-%E6%97%A0%E6%8D%9F-Source-Match-Lossless"><span class="toc-number">6.</span> <span class="toc-text">源匹配 &#x2F; 无损 (Source Match &#x2F; Lossless)</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">核心参数设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E5%8A%A8%E5%88%86%E6%9E%90%E5%8F%82%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">运动分析参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E5%8F%82%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">插值参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%94%90%E5%8C%96%E5%8F%82%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">锐化参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%90%E5%8C%B9%E9%85%8D-%E6%97%A0%E6%8D%9F-Source-Match-Lossless"><span class="toc-number">6.</span> <span class="toc-text">源匹配 &#x2F; 无损 (Source Match &#x2F; Lossless)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JET"><span class="toc-number">7.</span> <span class="toc-text">JET</span></a></li></ol>
                 </div>
             
             <hr />
@@ -430,6 +430,13 @@
 <td align="left">增强源匹配模式 2 和 3 找回的细节。这是一种取巧的手段——如果设置过高会增强噪点。最好设置在 1.0 以下。默认值：0.5</td>
 </tr>
 </tbody></table>
+<h1 id="JET"><a href="#JET" class="headerlink" title="JET"></a>JET</h1><p>笔记<br><a target="_blank" rel="noopener" href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdeinterlace/qtgmc/?h=qtempgaussmc#vsdeinterlace.qtgmc.QTempGaussMC">https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdeinterlace/qtgmc/?h=qtempgaussmc#vsdeinterlace.qtgmc.QTempGaussMC</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Jaded-Encoding-Thaumaturgy/vs-jetpack/issues/135">https://github.com/Jaded-Encoding-Thaumaturgy/vs-jetpack/issues/135</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src = core.std.SetFrameProp(src, prop=&quot;_FieldBased&quot;, intval=0)</span><br></pre></td></tr></table></figure>
+<p>上面的 issue 需要这个代码</p>
+<p>对于 vs-jetpack<br>可以使用 deepwiki</p>
+<p><a target="_blank" rel="noopener" href="https://deepwiki.com/search/-qtempgaussmcinputtyperepair-d_5c969c27-a961-47e9-8d11-9d9f99fefbfd">https://deepwiki.com/search/-qtempgaussmcinputtyperepair-d_5c969c27-a961-47e9-8d11-9d9f99fefbfd</a></p>
+<p>上面需要注意是 sharpen 那块里面都是 float,里面的数值有问题会导致报错。</p>
 <style>
 table th:nth-of-type(1) {
 width: 20%;
@@ -459,7 +466,7 @@ width: 15%;
                     <a class="tag-none-link" href="/tags/Plugins-Scripts/" rel="tag">Plugins&Scripts</a>, <a class="tag-none-link" href="/tags/%E5%BB%BA%E8%AE%BE%E4%B8%AD/" rel="tag">建设中</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-10-14T17:11:41.210Z" itemprop="dateModified">最后编辑：2025-10-15</time>
+                    <time datetime="2026-01-15T07:12:05.863Z" itemprop="dateModified">最后编辑：2026-01-15</time>
                 </div>
             </div>
         </footer>
@@ -468,12 +475,12 @@ width: 15%;
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" 软件列表" href="/2.Tools/Collection/"><i class="fa fa-angle-left"></i> 上一篇</a>
+                <a title=" FXXS压制教程 序 FXXS Encode Guide README" href="/README/"><i class="fa fa-angle-left"></i> 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" Language tag 列表" href="/6.etc/Language_tag/">下一篇 <i class="fa fa-angle-right"></i></a>
+                <a title=" 2.0/1.0 音轨比较说明" href="/4.Audio&sub/2.01.0音轨说明/">下一篇 <i class="fa fa-angle-right"></i></a>
             </div>
             
         </nav>
@@ -506,7 +513,7 @@ width: 15%;
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">核心参数设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E5%8A%A8%E5%88%86%E6%9E%90%E5%8F%82%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">运动分析参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E5%8F%82%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">插值参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%94%90%E5%8C%96%E5%8F%82%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">锐化参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%90%E5%8C%B9%E9%85%8D-%E6%97%A0%E6%8D%9F-Source-Match-Lossless"><span class="toc-number">6.</span> <span class="toc-text">源匹配 &#x2F; 无损 (Source Match &#x2F; Lossless)</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">核心参数设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E5%8A%A8%E5%88%86%E6%9E%90%E5%8F%82%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">运动分析参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E5%8F%82%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">插值参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%94%90%E5%8C%96%E5%8F%82%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">锐化参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%90%E5%8C%B9%E9%85%8D-%E6%97%A0%E6%8D%9F-Source-Match-Lossless"><span class="toc-number">6.</span> <span class="toc-text">源匹配 &#x2F; 无损 (Source Match &#x2F; Lossless)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JET"><span class="toc-number">7.</span> <span class="toc-text">JET</span></a></li></ol>
     </div>
 </aside>
                 
