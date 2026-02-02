@@ -26,31 +26,44 @@
 <meta property="og:site_name" content="FXXS">
 <meta property="og:description" content="翻译自 avisynth 文档 1src  &#x3D; haf.QTGMC(src, Preset&#x3D;&quot;slow&quot;, SourceMatch&#x3D;1, Lossless&#x3D;2, TFF&#x3D;True)  注意下面很多代码都是 avs 的代码，主要用于参考功能 基础大多数用户仅需使用预设选项。&quot;预设&quot;功能会为指定编码速度选择合理配置。可选预设包括： &quot;Placebo&amp;q">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://fxxs.github.io/img/favicon.svg">
 <meta property="article:published_time" content="2025-10-18T13:42:53.229Z">
 <meta property="article:modified_time" content="2026-01-15T07:12:05.863Z">
 <meta property="article:author" content="ted423">
 <meta property="article:tag" content="Plugins&amp;Scripts">
 <meta property="article:tag" content="建设中">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://fxxs.github.io/img/favicon.svg">
   
     <link rel="alternate" href="/atom.xml" title="FXXS" type="application/atom+xml">
   
+  <!-- JSON-LD 结构化数据 -->
+  
+  
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"QTGMC 去交错","description":"翻译自 avisynth 文档\n1","image":"http://fxxs.github.io/img/avatar.png","author":{"@type":"Person","name":"ted423"},"publisher":{"@type":"Organization","name":"FXXS","logo":{"@type":"ImageObject","url":"http://fxxs.github.io/img/avatar.png"}},"datePublished":"2025-10-18T13:42:53.229Z","dateModified":"2026-01-15T07:12:05.863Z","mainEntityOfPage":{"@type":"WebPage","@id":"http://fxxs.github.io/2.Tools/QTGMC/"}}
+    </script>
+  
+  <!-- 关键 CSS 预加载 -->
+  <link rel="preload" href="/css/kr-core.min.css" as="style" crossorigin>
+  <link rel="preload" href="/css/kr-theme/light.min.css" as="style" crossorigin>
+  <link rel="preload" href="/css/kr-theme/dark.min.css" as="style" crossorigin>
   <!-- 样式表文件 -->
-  <link rel="stylesheet" id="kratos-css" href="/css/kr-core.min.css" media="all"></link>
+  <link rel="stylesheet" id="kratos-css" href="/css/kr-core.min.css" media="all">
+  <link rel="stylesheet" id="theme-light-css" href="/css/kr-theme/light.min.css" media="all">
+  <link rel="stylesheet" id="theme-dark-css" href="/css/kr-theme/dark.min.css" media="(prefers-color-scheme: dark)">
   
-    <link rel="stylesheet" id="highlight-css" href="/css/highlight/highlight.js/night-eighties.min.css" media="all"></link>
+    <link rel="stylesheet"  id="highlight-css" href="/css/highlight/highlight.js/night-eighties.min.css" media="print" onload="this.media='all'" onerror="this.media='all'"><noscript><link rel="stylesheet" href="/css/highlight/highlight.js/night-eighties.min.css"></noscript>
   
-  <link rel="stylesheet" id="theme-light-css" href="/css/kr-theme/light.min.css" media="all"></link>
-  <link rel="stylesheet" id="theme-dark-css" href="/css/kr-theme/dark.min.css" media="(prefers-color-scheme: dark)"></link>
   <script src="/js/kr-theme.min.js"></script>
-  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></link>
+  <link rel="stylesheet"  id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="print" onload="this.media='all'" onerror="this.media='all'"><noscript><link rel="stylesheet" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css"></noscript>
   
-    <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></link>
+    <link rel="stylesheet"  id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="print" onload="this.media='all'" onerror="this.media='all'"><noscript><link rel="stylesheet" href="/vendors/nprogress@0.2.0/nprogress.css"></noscript>
   
   
-    <link rel="stylesheet" href="/vendors/viewerjs@1.11.6/dist/viewer.min.css"></link>
+    <link rel="stylesheet"  href="/vendors/viewerjs@1.11.6/dist/viewer.min.css" media="print" onload="this.media='all'" onerror="this.media='all'"><noscript><link rel="stylesheet" href="/vendors/viewerjs@1.11.6/dist/viewer.min.css"></noscript>
   
-  <!-- 不得不预先加载的一些JS文件 -->
+  <!-- 预先加载的JS文件 -->
   
     <script src="/vendors/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
   
@@ -607,6 +620,8 @@ width: 15%;
         </div>
         <div class="kr-tool text-center">
             <div class="tool">
+                <!-- 额外的追加注入项 -->
+                
                 
                     <div class="box search-box">
                         <a href="/search">
